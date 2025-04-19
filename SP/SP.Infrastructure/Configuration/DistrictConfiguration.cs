@@ -15,10 +15,9 @@ namespace SP.Infrastructure.Configuration
         {
             builder.ToTable("District");
             builder.HasKey(d => d.Id);
-            builder.Property(d => d.Id).ValueGeneratedOnAdd();
+            builder.Property(p => p.Id).ValueGeneratedNever();
 
             builder.Property(d => d.Name).IsRequired().HasMaxLength(100);
-            builder.HasIndex(d => d.Name).IsUnique();
 
             builder.HasOne(d => d.Province)
                    .WithMany(p => p.Districts)

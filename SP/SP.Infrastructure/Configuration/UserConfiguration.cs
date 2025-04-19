@@ -26,6 +26,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsRequired()
             .HasMaxLength(50);
 
+        builder.Property(x => x.RoleId).HasDefaultValue(2);
+
 
         builder.Property(x => x.PhoneNumber)
             .HasMaxLength(20);
@@ -52,6 +54,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasOne(x => x.Ward)
             .WithMany(x => x.Users)   // Một Ward có thể liên kết với nhiều User
             .HasForeignKey(x => x.WardId)
+            .IsRequired(false)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }

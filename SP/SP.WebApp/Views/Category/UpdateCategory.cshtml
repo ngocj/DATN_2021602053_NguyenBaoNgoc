@@ -1,0 +1,23 @@
+﻿@model SP.Application.Dto.CategoryDto.CategoryViewDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Update Category</h2>
+
+    <form method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label class="form-label">Category Name</label>
+            <input asp-for="CategoryName" class="form-control" placeholder="Enter category name" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="GetAllCategory" asp-controller="Admin" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+

@@ -55,6 +55,15 @@ namespace SP.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new WardConfiguration());
             modelBuilder.ApplyConfiguration(new DistrictConfiguration());
             modelBuilder.ApplyConfiguration(new ProvinceConfiguration());
+
+            modelBuilder.Entity<Role>().HasData(
+               new Role { Id = 1, RoleName = "Admin" },
+               new Role { Id = 2, RoleName = "Manager" },
+               new Role { Id = 3, RoleName = "Employee" },
+               new Role { Id = 4, RoleName = "User" }
+           );
         }
+      
+
     }
 }

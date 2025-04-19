@@ -15,7 +15,7 @@ namespace SP.Infrastructure.Configuration
         {
             builder.ToTable("Province");
             builder.HasKey(p => p.Id);
-            builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            builder.Property(p => p.Id).ValueGeneratedNever();
 
             builder.Property(p => p.Name).IsRequired().HasMaxLength(50);
             builder.HasIndex(p => p.Name).IsUnique();

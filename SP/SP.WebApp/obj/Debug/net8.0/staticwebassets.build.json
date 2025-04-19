@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LJ1IS4Fl8zoHUUVqSKVEesD3qL/iRaYSxDJYBNySKC4=",
+  "Hash": "4cURykRtnUNE1yuHWSr49B8RqCv+RQYPi02B9CKwco8=",
   "Source": "SP.WebApp",
   "BasePath": "_content/SP.WebApp",
   "Mode": "Default",
@@ -38205,6 +38205,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\SbHome\\img\\shopping-cart\\cart-4.jpg"
+    },
+    {
+      "Identity": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\img\\super.png",
+      "SourceId": "SP.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\",
+      "BasePath": "_content/SP.WebApp",
+      "RelativePath": "SbHome/img/super.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SbHome\\img\\super.png"
     },
     {
       "Identity": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\js\\bootstrap.min.js",

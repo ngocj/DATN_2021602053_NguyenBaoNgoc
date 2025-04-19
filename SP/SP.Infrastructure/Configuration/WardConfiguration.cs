@@ -15,10 +15,9 @@ namespace SP.Infrastructure.Configuration
         {
             builder.ToTable("Ward");
             builder.HasKey(w => w.Id);
-            builder.Property(w => w.Id).ValueGeneratedOnAdd();
+            builder.Property(p => p.Id).ValueGeneratedNever();
 
             builder.Property(w => w.WardName).IsRequired().HasMaxLength(100);
-            builder.HasIndex(w => w.WardName).IsUnique();
 
             builder.HasOne(w => w.District)
                    .WithMany(d => d.Wards)

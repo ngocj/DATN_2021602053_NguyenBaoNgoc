@@ -12,3 +12,8 @@ D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\obj\Debug
 D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\obj\Debug\net8.0\SP.Application.pdb
 D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\obj\Debug\net8.0\SP.Application.genruntimeconfig.cache
 D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\obj\Debug\net8.0\ref\SP.Application.dll
+D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\bin\Debug\net8.0\SP.Domain.dll
+D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\bin\Debug\net8.0\SP.Infrastructure.dll
+D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\bin\Debug\net8.0\SP.Domain.pdb
+D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\bin\Debug\net8.0\SP.Infrastructure.pdb
+D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.Application\obj\Debug\net8.0\SP.Appli.8748872F.Up2Date

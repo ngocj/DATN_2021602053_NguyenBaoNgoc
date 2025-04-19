@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SP.Application.Dto.UserDto.UserViewDto>
+@{
+    ViewData["Title"] = "GetAllUser";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>GetAllUser</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Danh sách người dùng</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên người dùng</th>
+                        <th>Email</th>
+                        <th>SDT</th>
+                        <td>Ngày sinh</td>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.DateOfBirth</td>
+                            <td>
+                                <!-- Thêm các nút thao tác như sửa, xóa ở đây -->
+                                <a href="@Url.Action("EditUser", "Admin", new { id = user.Id })" class="btn btn-primary">Sửa</a>
+                                <a href="@Url.Action("DeleteUser", "Admin", new { id = user.Id })" class="btn btn-danger">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+

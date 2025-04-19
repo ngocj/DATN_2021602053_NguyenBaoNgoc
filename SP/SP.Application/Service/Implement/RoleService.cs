@@ -48,7 +48,7 @@ namespace SP.Application.Service.Implement
             var result = await _unitOfWork.RoleRepository.GetByIdAsync(role.Id);
             if (result != null)
             {
-                await _unitOfWork.RoleRepository.UpdateAsync(result);
+                await _unitOfWork.RoleRepository.UpdateAsync(role);
                 await _unitOfWork.SaveChangeAsync();
             }
         }

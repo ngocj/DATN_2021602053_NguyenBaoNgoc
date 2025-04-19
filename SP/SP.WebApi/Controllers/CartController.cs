@@ -1,0 +1,84 @@
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using SP.Application.Dto.CartDto;
+using SP.Application.Service.Interface;
+using SP.Domain.Entity;
+
+namespace SP.WebApi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CartController : ControllerBase
+    {
+        private readonly IMapper _mapper;
+        private readonly ICartService _cartService;
+
+        public CartController(IMapper mapper, ICartService cartService)
+        {
+            _mapper = mapper;
+            _cartService = cartService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllCarts()
+        {
+            var carts = await _cartService.GetAllCarts();
+            var cartDto = _mapper.Map<IEnumerable<CartViewDto>>(carts);
+            return Ok(cartDto);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetCartById(int id)
+        {
+            var cart = await _cartService.GetCartById(id);
+            if (cart == null)
+            {
+                return NotFound();
+            }
+            var cartDto = _mapper.Map<CartViewDto>(cart);
+            return Ok(cartDto);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateCart([FromBody] CartCreateDto cartCreateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var cart = _mapper.Map<Cart>(cartCreateDto);
+            await _cartService.CreateCart(cart);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateCart([FromBody] CartViewDto cartViewDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var cart = await _cartService.GetCartById(cartViewDto.Id);
+            if (cart == null)
+            {
+                return NotFound();
+            }
+            var updatedCart = _mapper.Map<Cart>(cartViewDto);
+            await _cartService.UpdateCart(updatedCart);
+            return Ok();
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCart(int id)
+        {
+            var cart = await _cartService.GetCartById(id);
+            if (cart == null)
+            {
+                return NotFound();
+            }
+            await _cartService.DeleteCart(id);
+            return Ok();
+        }
+
+    }
+}

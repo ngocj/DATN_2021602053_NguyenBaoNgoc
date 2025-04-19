@@ -1578,6 +1578,26 @@
           }
         }
       },
+      "SP.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "14.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.13",
+          "Microsoft.EntityFrameworkCore": "8.0.13",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.13",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.13",
+          "SP.Domain": "1.0.0",
+          "SP.Infrastructure": "1.0.0",
+          "System.IdentityModel.Tokens.Jwt": "8.7.0"
+        },
+        "compile": {
+          "bin/placeholder/SP.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SP.Application.dll": {}
+        }
+      },
       "SP.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4253,6 +4273,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "SP.Application/1.0.0": {
+      "type": "project",
+      "path": "../SP.Application/SP.Application.csproj",
+      "msbuildProject": "../SP.Application/SP.Application.csproj"
+    },
     "SP.Domain/1.0.0": {
       "type": "project",
       "path": "../SP.Domain/SP.Domain.csproj",
@@ -4273,6 +4298,7 @@
       "Microsoft.EntityFrameworkCore.Relational >= 8.0.13",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.13",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.13",
+      "SP.Application >= 1.0.0",
       "SP.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0",
       "System.IdentityModel.Tokens.Jwt >= 8.7.0"
@@ -4311,6 +4337,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\SP.Application.csproj": {
+              "projectPath": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\SP.Application.csproj"
+            },
             "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\SP.Infrastructure.csproj": {
               "projectPath": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\SP.Infrastructure.csproj"
             }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore;
 using SP.Infrastructure.Context;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace SP.Infrastructure.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly SPContext _SPContext;
+        protected readonly SPContext _SPContext;
 
         public GenericRepository(SPContext sPContext)
         {
@@ -34,9 +35,9 @@ namespace SP.Infrastructure.Repositories
            return await _SPContext.Set<T>().ToListAsync();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public virtual async Task<T> GetByIdAsync(int id)
         {
-            return await _SPContext.Set<T>().FindAsync();
+            return await _SPContext.Set<T>().FindAsync(id);
         }
 
         public Task UpdateAsync(T entity)

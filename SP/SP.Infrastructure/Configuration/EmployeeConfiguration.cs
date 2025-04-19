@@ -27,10 +27,12 @@ namespace SP.Infrastructure.Configuration
 
             builder.Property(e => e.AddressDetail).HasMaxLength(200);
 
-            builder.Property(e => e.DateOfBirth)
-                   .HasColumnType("datetime2");
+            builder.Property(e => e.RoleId).HasDefaultValue(3);
 
-            
+            builder.Property(e => e.DateOfBirth)
+                   .HasColumnType("date");
+
+         
             builder.Property(e => e.CreatedAt)
                    .HasColumnType("datetime2")
                    .HasDefaultValueSql("GETDATE()");
@@ -47,6 +49,7 @@ namespace SP.Infrastructure.Configuration
             builder.HasOne(e => e.Ward)
                    .WithMany(w => w.Employees)
                    .HasForeignKey(e => e.WardId)
+                   .IsRequired(false)
                    .OnDelete(DeleteBehavior.Restrict);
 
         

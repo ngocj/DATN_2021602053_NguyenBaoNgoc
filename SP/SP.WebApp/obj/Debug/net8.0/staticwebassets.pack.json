@@ -7825,6 +7825,10 @@
       "PackagePath": "staticwebassets\\SbHome\\img\\shopping-cart\\cart-4.jpg"
     },
     {
+      "Id": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\img\\super.png",
+      "PackagePath": "staticwebassets\\SbHome\\img\\super.png"
+    },
+    {
       "Id": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\SbHome\\js\\bootstrap.min.js"
     },

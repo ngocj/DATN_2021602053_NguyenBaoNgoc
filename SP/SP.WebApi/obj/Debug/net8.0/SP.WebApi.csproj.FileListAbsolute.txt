@@ -149,3 +149,5 @@ D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.WebApi\bin\Debug\net8
 D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.WebApi\bin\Debug\net8.0\SP.Infrastructure.dll
 D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.WebApi\bin\Debug\net8.0\SP.Infrastructure.pdb
 D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.WebApi\bin\Debug\net8.0\SP.Domain.pdb
+D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.WebApi\bin\Debug\net8.0\SP.Application.dll
+D:\BÀI TẬP\DATN_K16\NguyenBaoNgoc_2021602053_DATN\SP\SP.WebApi\bin\Debug\net8.0\SP.Application.pdb

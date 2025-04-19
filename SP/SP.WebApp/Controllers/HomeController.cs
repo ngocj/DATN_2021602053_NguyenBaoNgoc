@@ -9,6 +9,15 @@ namespace SP.WebApp.Controllers
         public IActionResult Index()
         {
             return View();
-        }    
+        } 
+        public IActionResult Blog()
+        {
+            return View();
+        }
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
     }
 }
