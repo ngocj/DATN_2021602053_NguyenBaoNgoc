@@ -25,12 +25,14 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.Password)
             .IsRequired()
             .HasMaxLength(50);
+        builder.HasIndex(x => x.Password).IsUnique();
 
         builder.Property(x => x.RoleId).HasDefaultValue(2);
 
 
         builder.Property(x => x.PhoneNumber)
             .HasMaxLength(20);
+        builder.HasIndex(x => x.PhoneNumber).IsUnique();
 
         builder.Property(x => x.DateOfBirth)
             .HasColumnType("date");

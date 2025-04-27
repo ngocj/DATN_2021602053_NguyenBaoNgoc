@@ -47,11 +47,26 @@ namespace SP.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var user = _mapper.Map<User>(userCreateDto);
-            await _userService.CreateUser(user);
-            return Ok();
-        }
 
+            try
+            {
+                var user = _mapper.Map<User>(userCreateDto);
+                await _userService.CreateUser(user); 
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Email"))
+                {
+                    return Conflict("Email đã tồn tại.");
+                }
+                else if (ex.Message.Contains("Phone number"))
+                {
+                    return StatusCode(403, "Số điện thoại đã tồn tại.");
+                }          
+                return StatusCode(500, "Có lỗi xảy ra khi tạo người dùng.");
+            }
+        }
         [HttpPut]
         public async Task<IActionResult> UpdateUser([FromBody] UserViewDto userViewDto)
         {

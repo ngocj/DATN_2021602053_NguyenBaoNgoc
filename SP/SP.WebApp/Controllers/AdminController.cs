@@ -1,5 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SP.Application.Dto.BrandDto;
 using SP.Application.Dto.CategoryDto;
+using SP.Application.Dto.ImageDto;
+using SP.Application.Dto.OrderDto;
+using SP.Application.Dto.ProductDto;
+using SP.Application.Dto.ProductVariantDto;
 using SP.Application.Dto.UserDto;
 
 namespace SP.WebApp.Controllers
@@ -24,6 +29,31 @@ namespace SP.WebApp.Controllers
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<UserViewDto>>($"{ApiUrl}/user");
             return View(response);
         }    
+        //get all products
+        public async Task<ActionResult> GetAllProduct()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/product");
+            return View(response);
+        }
+        // get all brand
+        public async Task<ActionResult> GetAllBrand()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl}/brand");
+            return View(response);
+        }
+        // get all image
+        public async Task<ActionResult> GetAllImage()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<ImageFileDto>>($"{ApiUrl}/imageFile");
+            return View(response);
+        }
+        // get all productVariant
+        public async Task<ActionResult> GetAllProductVariant()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<VariantViewDto>>($"{ApiUrl}/productVariant");
+            return View(response);
+        }
+
         public IActionResult Index()
         {
             return View();

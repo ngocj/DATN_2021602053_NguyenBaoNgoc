@@ -62,6 +62,11 @@ namespace SP.Infrastructure.Context
                new Role { Id = 3, RoleName = "Employee" },
                new Role { Id = 4, RoleName = "User" }
            );
+            
+            modelBuilder.Entity<User>().HasData(
+                new User { Id = 1, UserName = "admin", Email = "admin@gmail.com", Password = "admin", RoleId = 1 },
+                new User { Id = 2, UserName = "Nguyen Bao Ngoc", Email = "ngoc@gmail.com", Password = "ngoc123" }
+            );
         }
       
 

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.EmployeeDto;
+using SP.Application.Dto.UserDto;
+using SP.Application.Service.Implement;
 using SP.Application.Service.Interface;
 using SP.Domain.Entity;
 
@@ -43,13 +45,29 @@ namespace SP.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEmployee([FromBody] EmployeeCreateDto employeeCreateDto)
         {
+          
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var employee = _mapper.Map<Employee>(employeeCreateDto);
-            await _employeeService.CreateEmployee(employee);
-            return Ok();
+            try
+            {
+                var employee = _mapper.Map<Employee>(employeeCreateDto);
+                await _employeeService.CreateEmployee(employee);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Email"))
+                {
+                    return Conflict("Email đã tồn tại.");
+                }
+                else if (ex.Message.Contains("Phone number"))
+                {
+                    return StatusCode(403, "Số điện thoại đã tồn tại.");
+                }
+                return StatusCode(500, "Có lỗi xảy ra khi tạo người dùng.");
+            }
         }
 
         [HttpPut]

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SP.Application.Dto.ProductDto.ProductViewDto>
+@{
+    ViewData["Title"] = "GetAllProduct";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>GetAllProduct</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Danh sách sản phẩm</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Danh mục</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            <td>@product.Id</td>
+                            <td>@product.ProductName</td>
+                            <td>
+                                <!-- Thêm các nút thao tác như sửa, xóa ở đây -->
+                                <a href="@Url.Action("EditProduct", "Admin", new { id = product.Id })" class="btn btn-primary">Sửa</a>
+                                <a href="@Url.Action("DeleteProduct", "Admin", new { id = product.Id })" class="btn btn-danger">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+

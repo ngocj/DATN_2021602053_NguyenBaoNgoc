@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SP.Application.Dto.ImageDto.ImageFileDto>
+@{
+    ViewData["Title"] = "GetAllImage";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>GetAllImage</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Danh sách hình ảnh</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên hình ảnh</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var image in Model)
+                    {
+                        <tr>
+                            <td>@image.Id</td>
+                            <td>@image.ContentType</td>
+                            <td>
+                                <!-- Thêm các nút thao tác như sửa, xóa ở đây -->
+                                <a href="@Url.Action("EditImage", "Admin", new { id = image.Id })" class="btn btn-primary">Sửa</a>
+                                <a href="@Url.Action("DeleteImage", "Admin", new { id = image.Id })" class="btn btn-danger">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+

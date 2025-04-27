@@ -1,0 +1,42 @@
+﻿@model SP.Application.Dto.UserDto.UserViewDto
+@{
+    ViewData["Title"] = "Lấy thông tin người dùng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Container hồ sơ người dùng -->
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <!-- Ảnh đại diện -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="Ảnh đại diện người dùng" class="profile-avatar mb-3" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+
+                    <!-- Tên người dùng -->
+                    <h2 class="profile-name mb-3">@Model.UserName</h2>
+
+                    <!-- Email -->
+                    <p class="profile-info mb-2"><strong>Email:</strong> @Model.Email</p>
+
+                    <!-- Ngày tạo tài khoản (giả sử là DateOfBirth) -->
+                    <p class="profile-info mb-2"><strong>Ngày sinh:</strong> @Model.DateOfBirth</p>
+
+                    <!-- Số điện thoại -->
+                    <p class="profile-info mb-2"><strong>Số điện thoại:</strong> @Model.PhoneNumber</p>
+
+                    <!-- Địa chỉ -->
+                    <p class="profile-info mb-4"><strong>Địa chỉ:</strong> @Model.AddressDetail</p>
+
+                    <!-- Nút quản trị viên -->
+                    @if (@ViewBag.IsAdmin)
+                    {
+                        <a asp-action="Index" asp-controller="Admin" class="btn btn-primary btn-lg mb-3">Trang Admin  →</a>
+                    }
+
+                    <!-- Nút quay lại -->
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary w-100 mt-3">↩ Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SP.Application.Dto.ProductVariantDto.VariantViewDto>
+@{
+    ViewData["Title"] = "GetAllProductVariant";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>GetAllProductVariant</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Danh sách biến thể sản phẩm</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Giá</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var variant in Model)
+                    {
+                        <tr>
+                            <td>@variant.Id</td>
+                            <td>@variant.Price</td>
+                            <td>
+                                <!-- Thêm các nút thao tác như sửa, xóa ở đây -->
+                                <a href="@Url.Action("EditProductVariant", "Admin", new { id = variant.Id })" class="btn btn-primary">Sửa</a>
+                                <a href="@Url.Action("DeleteProductVariant", "Admin", new { id = variant.Id })" class="btn btn-danger">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+

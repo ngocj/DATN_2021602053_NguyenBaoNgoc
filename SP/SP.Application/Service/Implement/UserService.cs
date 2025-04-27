@@ -17,7 +17,7 @@ namespace SP.Application.Service.Implement
             _unitOfWork = unitOfWork;
         }
         public async Task CreateUser(User user)
-        {
+        {       
             await _unitOfWork.UserRepository.AddAsync(user);
             await _unitOfWork.SaveChangeAsync();
             
