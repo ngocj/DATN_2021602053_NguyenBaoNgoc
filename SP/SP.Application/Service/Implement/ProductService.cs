@@ -41,6 +41,18 @@ namespace SP.Application.Service.Implement
             
         }
 
+        public async Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllByBrandIdAsync(brandId);
+            
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllBySubCategoryIdAsync(subCategoryId);
+            
+        }
+
         public async Task<Product> GetProductById(int id)
         {
             return await _unitOfWork.ProductRepository.GetByIdAsync(id);

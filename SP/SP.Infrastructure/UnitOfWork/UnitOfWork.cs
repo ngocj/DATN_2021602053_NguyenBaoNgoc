@@ -43,6 +43,7 @@ namespace SP.Infrastructure.UnitOfWork
         public IOrderDetailRepository OrderDetailRepository { get; }
 
         public IImageRepository ImageRepository { get; }
+        public ISubCategoryRepository SubCategoryRepository { get; }
 
         public UnitOfWork(SPContext sPContext)
         {
@@ -63,6 +64,7 @@ namespace SP.Infrastructure.UnitOfWork
             OrderRepository = new OrderRepository(_SPContext);
             OrderDetailRepository = new OrderDetailRepository(_SPContext);
             ImageRepository = new ImageRepository(_SPContext);         
+            SubCategoryRepository = new SubCategoryRepository(_SPContext);
         }
 
         public Task<int> SaveChangeAsync()

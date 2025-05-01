@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.UserDto;
 using SP.Application.Service.Interface;
@@ -51,7 +52,9 @@ namespace SP.WebApi.Controllers
             try
             {
                 var user = _mapper.Map<User>(userCreateDto);
-                await _userService.CreateUser(user); 
+                var passwordHasher = new PasswordHasher<User>();
+                user.PasswordHash = passwordHasher.HashPassword(user, userCreateDto.Password);
+                await _userService.CreateUser(user);
                 return Ok();
             }
             catch (Exception ex)
@@ -63,10 +66,11 @@ namespace SP.WebApi.Controllers
                 else if (ex.Message.Contains("Phone number"))
                 {
                     return StatusCode(403, "Số điện thoại đã tồn tại.");
-                }          
+                }
                 return StatusCode(500, "Có lỗi xảy ra khi tạo người dùng.");
             }
         }
+    
         [HttpPut]
         public async Task<IActionResult> UpdateUser([FromBody] UserViewDto userViewDto)
         {

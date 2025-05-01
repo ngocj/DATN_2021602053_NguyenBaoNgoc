@@ -1,4 +1,5 @@
-﻿using SP.Domain.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using SP.Domain.Entity;
 using SP.Infrastructure.Context;
 using SP.Infrastructure.Repositories.Interface;
 using System;
@@ -13,6 +14,13 @@ namespace SP.Infrastructure.Repositories.Implement
     {
         public CategoryRepository(SPContext sPContext) : base(sPContext)
         {
+        }
+        public async override Task<IEnumerable<Category>> GetAllAsync()
+        {
+            
+            return await _SPContext.Set<Category>()
+                .Include(c => c.SubCategories)
+                .ToListAsync();
         }
     }
 }

@@ -425,9 +425,6 @@ namespace SP.Infrastructure.Migrations
                     b.Property<int>("BrandId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -454,6 +451,9 @@ namespace SP.Infrastructure.Migrations
                     b.Property<int?>("Rating")
                         .HasColumnType("int");
 
+                    b.Property<int>("SubCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -463,9 +463,9 @@ namespace SP.Infrastructure.Migrations
 
                     b.HasIndex("BrandId");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("DiscountId");
+
+                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Product", (string)null);
                 });
@@ -606,6 +606,42 @@ namespace SP.Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SP.Domain.Entity.SubCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
+
+                    b.ToTable("SubCategory");
+                });
+
             modelBuilder.Entity("SP.Domain.Entity.User", b =>
                 {
                     b.Property<int>("Id")
@@ -635,6 +671,10 @@ namespace SP.Infrastructure.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasMaxLength(600)
+                        .HasColumnType("nvarchar(600)");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(20)
@@ -853,22 +893,22 @@ namespace SP.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SP.Domain.Entity.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("SP.Domain.Entity.Discount", "Discount")
                         .WithMany("Products")
                         .HasForeignKey("DiscountId")
                         .OnDelete(DeleteBehavior.SetNull);
 
+                    b.HasOne("SP.Domain.Entity.SubCategory", "SubCategory")
+                        .WithMany("Products")
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.Navigation("Brand");
 
-                    b.Navigation("Category");
-
                     b.Navigation("Discount");
+
+                    b.Navigation("SubCategory");
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.ProductVariant", b =>
@@ -880,6 +920,17 @@ namespace SP.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SP.Domain.Entity.SubCategory", b =>
+                {
+                    b.HasOne("SP.Domain.Entity.Category", "Category")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.User", b =>
@@ -918,7 +969,7 @@ namespace SP.Infrastructure.Migrations
 
             modelBuilder.Entity("SP.Domain.Entity.Category", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("SubCategories");
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Discount", b =>
@@ -970,6 +1021,11 @@ namespace SP.Infrastructure.Migrations
                     b.Navigation("Employees");
 
                     b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("SP.Domain.Entity.SubCategory", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.User", b =>

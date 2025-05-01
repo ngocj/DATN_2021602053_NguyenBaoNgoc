@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SP.Application.Dto.LoginDto;
+using SP.Domain.Entity;
 using SP.Infrastructure.Context;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -15,12 +18,15 @@ namespace SP.WebApi.Controllers
     {
         private readonly IConfiguration _config;
         private readonly SPContext _context;
-
-        public AuthController(IConfiguration config, SPContext context)
+        private readonly IMapper _mapper;
+        public AuthController(IMapper mapper, IConfiguration config, SPContext context)
         {
+            _mapper = mapper;
             _config = config;
             _context = context;
         }
+
+    
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginViewDto loginViewDto)
@@ -65,6 +71,31 @@ namespace SP.WebApi.Controllers
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
             return Ok(tokenString);
+        }
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] RegisterDto registerViewDto)
+        {
+            if (registerViewDto == null || string.IsNullOrEmpty(registerViewDto.Email) || string.IsNullOrEmpty(registerViewDto.Password))
+            {
+                return BadRequest("Email and password cannot be blank.");
+            }
+
+            var userExists = _context.Users.Any(x => x.Email == registerViewDto.Email);
+            if (userExists)
+            {
+                return Conflict("Email already exists.");
+            }
+            var phoneExists = _context.Users.Any(x => x.PhoneNumber == registerViewDto.PhoneNumber);
+            if (phoneExists)
+            {
+                return Conflict("Phone number already exists.");
+            }
+            var user = _mapper.Map<User>(registerViewDto);
+            var passwordHasher = new PasswordHasher<User>();
+            user.PasswordHash = passwordHasher.HashPassword(user, registerViewDto.Password);
+            _context.Users.Add(user);
+            
+            return Ok("User registered successfully.");
         }
     }
 }

@@ -10,5 +10,11 @@ namespace SP.Application.Dto.CategoryDto
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }
+        public List<SubCategoryViewDto> SubCategories { get; set; }
+
+
+
+
+
     }
 }

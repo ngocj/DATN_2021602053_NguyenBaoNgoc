@@ -40,6 +40,7 @@ builder.Services.AddTransient<IFeedBackService, FeedBackService>();
 builder.Services.AddTransient<IDiscountService, DiscountService>();
 builder.Services.AddTransient<IOrderDetailService, OrderDetailService>();
 builder.Services.AddTransient<IProductVariantService, ProductVariantService>();
+builder.Services.AddTransient<ISubCategoryService, SubCategoryService>();
 
 // add Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

@@ -51,6 +51,9 @@ namespace SP.Application.Mappings
             CreateMap<Category,CategoryViewDto >().ReverseMap();
             CreateMap<Category, CategoryCreateDto>().ReverseMap();
 
+            CreateMap<SubCategory, SubCategoryViewDto>().ReverseMap();
+            CreateMap<SubCategory, SubCategoryCreateDto>().ReverseMap();
+
             CreateMap<Brand, BrandViewDto>().ReverseMap();
             CreateMap<Brand, BrandCreateDto>().ReverseMap();
 
@@ -74,6 +77,9 @@ namespace SP.Application.Mappings
 
             CreateMap<ProductVariant, VariantViewDto>().ReverseMap();
             CreateMap<ProductVariant, VariantCreateDto>().ReverseMap();
+
+            // registerDto
+            CreateMap<User, RegisterDto>().ReverseMap();
 
 
 

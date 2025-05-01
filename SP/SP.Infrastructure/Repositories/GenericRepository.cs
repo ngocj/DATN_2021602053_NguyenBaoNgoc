@@ -18,7 +18,7 @@ namespace SP.Infrastructure.Repositories
             _SPContext = sPContext;
         }
 
-        public virtual async  Task AddAsync(T entity)
+        public async  Task AddAsync(T entity)
         {
            await _SPContext.Set<T>().AddAsync(entity);
         }
@@ -30,7 +30,7 @@ namespace SP.Infrastructure.Repositories
 
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
            return await _SPContext.Set<T>().ToListAsync();
         }

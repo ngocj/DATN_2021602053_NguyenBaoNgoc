@@ -9,5 +9,7 @@ namespace SP.Infrastructure.Repositories.Interface
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
+        Task<IEnumerable<Product>> GetAllBySubCategoryIdAsync(int subCategoryId);
+        Task<IEnumerable<Product>> GetAllByBrandIdAsync(int brandId);
     }
 }

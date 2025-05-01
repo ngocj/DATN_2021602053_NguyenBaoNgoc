@@ -74,5 +74,19 @@ namespace SP.WebApi.Controllers
             await _productService.DeleteProduct(id);
             return Ok();
         }
+        [HttpGet("subCategory/{subCategoryId}")]
+        public async Task<IActionResult> GetAllProductsBySubCategoryId(int subCategoryId)
+        {
+            var products = await _productService.GetAllProductsBySubCategoryId(subCategoryId);
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("brand/{brandId}")]
+        public async Task<IActionResult> GetAllProductsByBrandId(int brandId)
+        {
+            var products = await _productService.GetAllProductsByBrandId(brandId);
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
     }
 }

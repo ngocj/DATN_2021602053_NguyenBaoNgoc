@@ -10,7 +10,7 @@ namespace SP.Application.Dto.ProductDto
     public class ProductCreateDto
     {       
         public int BrandId { get; set; }
-        public int CategoryId { get; set; }
+        public int SubCategoryId { get; set; }
         public string ProductName { get; set; }
         public int? DiscountId { get; set; }
         public int? Rating { get; set; }
