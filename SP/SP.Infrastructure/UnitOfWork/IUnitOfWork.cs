@@ -27,6 +27,7 @@ namespace SP.Infrastructure.UnitOfWork
         public IOrderRepository OrderRepository { get; }
         public IOrderDetailRepository OrderDetailRepository { get; }
         public IImageRepository ImageRepository { get; }
+        public ISubCategoryRepository SubCategoryRepository { get; }
 
         public Task<int> SaveChangeAsync();
 

@@ -10,5 +10,6 @@ namespace SP.Infrastructure.Repositories.Interface
     public interface ICategoryRepository : IGenericRepository<Category>
     {
 
+
     }
 }

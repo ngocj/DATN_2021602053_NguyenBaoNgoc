@@ -46,6 +46,12 @@ namespace SP.WebApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        // forgot password
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
         // logout
         public IActionResult Logout()
         {
@@ -60,14 +66,14 @@ namespace SP.WebApp.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(UserCreateDto userViewDto)
+        public async Task<IActionResult> Register(RegisterDto userViewDto)
         {
             if (!ModelState.IsValid)
             {
                 return View(userViewDto);
             }
 
-            var response = await _httpClient.PostAsJsonAsync(ApiUrlUser, userViewDto);
+            var response = await _httpClient.PostAsJsonAsync($"{ApiUrl}/register", userViewDto);
 
             // check email already exists
             if (response.StatusCode == System.Net.HttpStatusCode.Conflict)

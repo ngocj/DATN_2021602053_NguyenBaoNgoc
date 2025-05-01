@@ -74,5 +74,69 @@ namespace SP.WebApi.Controllers
             await _productService.DeleteProduct(id);
             return Ok();
         }
+        [HttpGet("subCategory/{subCategoryId}")]
+        public async Task<IActionResult> GetAllProductsBySubCategoryId(int subCategoryId)
+        {
+            var products = await _productService.GetAllProductsBySubCategoryId(subCategoryId);
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("brand/{brandId}")]
+        public async Task<IActionResult> GetAllProductsByBrandId(int brandId)
+        {
+            var products = await _productService.GetAllProductsByBrandId(brandId);
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("lastest")]
+        public async Task<IActionResult> GetAllProductsByLastest()
+        {
+            var products = await _productService.GetAllProductsByLastest();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("price/descending")]
+        public async Task<IActionResult> GetAllProductsByPriceDescending()
+        {
+            var products = await _productService.GetAllProductsByPriceDescending();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("price/ascending")]
+        public async Task<IActionResult> GetAllProductsByPriceAscending()
+        {
+            var products = await _productService.GetAllProductsByPriceAscending();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("best-selling")]
+        public async Task<IActionResult> GetAllProductsByBestSelling()
+        {
+            var products = await _productService.GetAllProductsByBestSelling();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("a-z")]
+        public async Task<IActionResult> GetAllProductsByAZ()
+        {
+            var products = await _productService.GetAllProductsByAZ();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("z-a")]
+        public async Task<IActionResult> GetAllProductsByZA()
+        {
+            var products = await _productService.GetAllProductsByZA();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+        [HttpGet("older")]
+        public async Task<IActionResult> GetAllProductsByOlder()
+        {
+            var products = await _productService.GetAllProductsByOlder();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+
     }
 }

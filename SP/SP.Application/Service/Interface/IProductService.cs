@@ -14,6 +14,14 @@ namespace SP.Application.Service.Interface
         Task CreateProduct(Product product);
         Task UpdateProduct(Product product);
         Task DeleteProduct(int id);
-
+        Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId);
+        Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId);
+        Task<IEnumerable<Product>> GetAllProductsByLastest();
+        Task<IEnumerable<Product>> GetAllProductsByPriceDescending();
+        Task<IEnumerable<Product>> GetAllProductsByPriceAscending();
+        Task<IEnumerable<Product>> GetAllProductsByBestSelling();
+        Task<IEnumerable<Product>> GetAllProductsByAZ();
+        Task<IEnumerable<Product>> GetAllProductsByZA();
+        Task<IEnumerable<Product>> GetAllProductsByOlder();
     }
 }

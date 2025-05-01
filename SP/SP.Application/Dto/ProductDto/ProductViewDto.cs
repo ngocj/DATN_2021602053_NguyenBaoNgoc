@@ -1,4 +1,5 @@
-﻿using SP.Domain.Entity;
+﻿using SP.Application.Dto.ProductVariantDto;
+using SP.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,17 +11,11 @@ namespace SP.Application.Dto.ProductDto
     public class ProductViewDto
     {
         public int Id { get; set; }
-        public int BrandId { get; set; }
-        public int CategoryId { get; set; }
         public string ProductName { get; set; }
         public int? DiscountId { get; set; }
-        public int? Rating { get; set; }
+        public double? Rating { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
-    /*    public Brand Brand { get; set; }
-        public Category Category { get; set; }
-        public Discount Discount { get; set; }
-
-        public List<ProductVariant> ProductVariants { get; set; }*/
+        public List<VariantViewDto> ProductVariants { get; set; } = new List<VariantViewDto>();
     }
 }

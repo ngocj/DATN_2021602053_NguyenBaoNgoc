@@ -1,4 +1,5 @@
-﻿using SP.Domain.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using SP.Domain.Entity;
 using SP.Infrastructure.Context;
 using SP.Infrastructure.Repositories.Interface;
 using System;
@@ -13,6 +14,13 @@ namespace SP.Infrastructure.Repositories.Implement
     {
         public ProductVariantRepository(SPContext context) : base(context)
         {
+        }
+        public async override Task<IEnumerable<ProductVariant>> GetAllAsync()
+        {
+            // include image
+            return  await _SPContext.ProductVariants
+                .Include(im => im.Images).ToListAsync();
+
         }
     }
     

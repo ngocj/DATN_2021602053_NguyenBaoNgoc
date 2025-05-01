@@ -55,6 +55,7 @@ namespace SP.Infrastructure.Context
             modelBuilder.ApplyConfiguration(new WardConfiguration());
             modelBuilder.ApplyConfiguration(new DistrictConfiguration());
             modelBuilder.ApplyConfiguration(new ProvinceConfiguration());
+            modelBuilder.ApplyConfiguration(new SubCategoryConfiguration());
 
             modelBuilder.Entity<Role>().HasData(
                new Role { Id = 1, RoleName = "Admin" },

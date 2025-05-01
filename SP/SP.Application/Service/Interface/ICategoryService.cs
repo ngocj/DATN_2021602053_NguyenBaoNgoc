@@ -15,5 +15,6 @@ namespace SP.Application.Service.Interface
         Task UpdateCategory(Category category);
         Task DeleteCategory(int id);
 
+
     }
 }

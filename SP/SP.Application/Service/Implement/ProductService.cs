@@ -41,6 +41,57 @@ namespace SP.Application.Service.Implement
             
         }
 
+        public async Task<IEnumerable<Product>> GetAllProductsByAZ()
+        {
+            
+            return await _unitOfWork.ProductRepository.GetAllByAZAsync();
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByBestSelling()
+        {
+           
+            return await _unitOfWork.ProductRepository.GetAllByBestSellingAsync();
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllByBrandIdAsync(brandId);
+            
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByLastest()
+        {
+            return await _unitOfWork.ProductRepository.GetAllByLastestAsync();
+            
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByOlder()
+        {
+            return await _unitOfWork.ProductRepository.GetAllByOlderAsync();
+           
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByPriceAscending()
+        {
+            return await _unitOfWork.ProductRepository.GetAllByPriceAscendingAsync();           
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByPriceDescending()
+        {
+            return await _unitOfWork.ProductRepository.GetAllByPriceDescendingAsync();
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllBySubCategoryIdAsync(subCategoryId);
+            
+        }
+
+        public async Task<IEnumerable<Product>> GetAllProductsByZA()
+        {
+            return await _unitOfWork.ProductRepository.GetAllByZAAsync();
+        }
+
         public async Task<Product> GetProductById(int id)
         {
             return await _unitOfWork.ProductRepository.GetByIdAsync(id);

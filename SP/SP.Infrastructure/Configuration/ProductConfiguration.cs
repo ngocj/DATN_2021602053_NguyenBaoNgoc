@@ -42,9 +42,9 @@ namespace SP.Infrastructure.Configuration
                    .HasForeignKey(p => p.BrandId)
                    .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(p => p.Category)
+            builder.HasOne(p => p.SubCategory)
                    .WithMany(c => c.Products)
-                   .HasForeignKey(p => p.CategoryId)
+                   .HasForeignKey(p => p.SubCategoryId)
                    .OnDelete(DeleteBehavior.Restrict);
 
 

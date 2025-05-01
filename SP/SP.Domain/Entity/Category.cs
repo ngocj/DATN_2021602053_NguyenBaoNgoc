@@ -9,6 +9,6 @@ namespace SP.Domain.Entity
     public class Category : Base
     {
         public string CategoryName { get; set; }
-        public List<Product> Products { get; set; }
+        public List<SubCategory> SubCategories { get; set; }
     }
 }
