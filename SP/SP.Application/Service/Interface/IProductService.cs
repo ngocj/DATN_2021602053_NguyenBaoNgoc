@@ -16,6 +16,7 @@ namespace SP.Application.Service.Interface
         Task DeleteProduct(int id);
         Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId);
         Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId);
+<<<<<<< HEAD
         Task<IEnumerable<Product>> GetAllProductsByLastest();
         Task<IEnumerable<Product>> GetAllProductsByPriceDescending();
         Task<IEnumerable<Product>> GetAllProductsByPriceAscending();
@@ -23,5 +24,7 @@ namespace SP.Application.Service.Interface
         Task<IEnumerable<Product>> GetAllProductsByAZ();
         Task<IEnumerable<Product>> GetAllProductsByZA();
         Task<IEnumerable<Product>> GetAllProductsByOlder();
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
     }
 }

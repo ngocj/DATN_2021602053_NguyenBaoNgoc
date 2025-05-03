@@ -12,6 +12,7 @@ namespace SP.Infrastructure.Repositories.Interface
     {
         Task<IEnumerable<Product>> GetAllBySubCategoryIdAsync(int subCategoryId);
         Task<IEnumerable<Product>> GetAllByBrandIdAsync(int brandId);
+<<<<<<< HEAD
         // arrage product by lastest
          Task<IEnumerable<Product>> GetAllByLastestAsync();
 
@@ -34,5 +35,7 @@ namespace SP.Infrastructure.Repositories.Interface
          Task<IEnumerable<Product>> GetAllByOlderAsync();
    
 
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
     }
 }

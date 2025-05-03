@@ -11,6 +11,11 @@ namespace SP.Application.Dto.ProductDto
     public class ProductViewDto
     {
         public int Id { get; set; }
+<<<<<<< HEAD
+=======
+        public int BrandId { get; set; }
+        public int SubCategoryId { get; set; }
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
         public string ProductName { get; set; }
         public int? DiscountId { get; set; }
         public double? Rating { get; set; }

@@ -88,6 +88,7 @@ namespace SP.WebApi.Controllers
             var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
             return Ok(productDto);
         }
+<<<<<<< HEAD
         [HttpGet("lastest")]
         public async Task<IActionResult> GetAllProductsByLastest()
         {
@@ -138,5 +139,7 @@ namespace SP.WebApi.Controllers
             return Ok(productDto);
         }
 
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
     }
 }
