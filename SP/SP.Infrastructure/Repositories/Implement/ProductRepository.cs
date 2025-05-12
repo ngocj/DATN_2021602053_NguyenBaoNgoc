@@ -15,6 +15,7 @@ namespace SP.Infrastructure.Repositories.Implement
         public ProductRepository(SPContext context) : base(context)
         {
         }
+<<<<<<< HEAD
         // get product by id
         public override async Task<Product> GetByIdAsync(int id)
         {
@@ -27,6 +28,9 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ThenInclude(pv => pv.Images)
                     .FirstOrDefaultAsync(p => p.Id == id);
         }
+=======
+<<<<<<< HEAD
+>>>>>>> a1ed10b5b96579bb6fd33a9041d80627c6e63f90
         // get all product
         public override async Task<IEnumerable<Product>> GetAllAsync()
         {
@@ -39,6 +43,8 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ThenInclude(pv => pv.Images)
                     .ToListAsync();
         }
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
         public async Task<IEnumerable<Product>> GetAllBySubCategoryIdAsync(int subCategoryId)
         {
             return await _SPContext.Set<Product>()
@@ -54,6 +60,7 @@ namespace SP.Infrastructure.Repositories.Implement
                     .Where(p => p.BrandId == brandId)
                     .ToListAsync();
         }
+<<<<<<< HEAD
         // arrage product by lastest
         public async Task<IEnumerable<Product>> GetAllByLastestAsync()
         {
@@ -117,6 +124,8 @@ namespace SP.Infrastructure.Repositories.Implement
                     .OrderBy(p => p.CreatedAt)
                     .ToListAsync();
         }
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
     }
 
 }

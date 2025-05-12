@@ -41,6 +41,7 @@ namespace SP.Application.Service.Implement
             
         }
 
+<<<<<<< HEAD
         public async Task<IEnumerable<Product>> GetAllProductsByAZ()
         {
             
@@ -53,12 +54,15 @@ namespace SP.Application.Service.Implement
             return await _unitOfWork.ProductRepository.GetAllByBestSellingAsync();
         }
 
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
         public async Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId)
         {
             return await _unitOfWork.ProductRepository.GetAllByBrandIdAsync(brandId);
             
         }
 
+<<<<<<< HEAD
         public async Task<IEnumerable<Product>> GetAllProductsByLastest()
         {
             return await _unitOfWork.ProductRepository.GetAllByLastestAsync();
@@ -81,17 +85,22 @@ namespace SP.Application.Service.Implement
             return await _unitOfWork.ProductRepository.GetAllByPriceDescendingAsync();
         }
 
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
         public async Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId)
         {
             return await _unitOfWork.ProductRepository.GetAllBySubCategoryIdAsync(subCategoryId);
             
         }
 
+<<<<<<< HEAD
         public async Task<IEnumerable<Product>> GetAllProductsByZA()
         {
             return await _unitOfWork.ProductRepository.GetAllByZAAsync();
         }
 
+=======
+>>>>>>> b7b1e4a6197011c53f2ec89c21cfc36d5a04e76a
         public async Task<Product> GetProductById(int id)
         {
             return await _unitOfWork.ProductRepository.GetByIdAsync(id);
