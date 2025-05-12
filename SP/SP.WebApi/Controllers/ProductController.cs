@@ -37,7 +37,7 @@ namespace SP.WebApi.Controllers
             return Ok(productDto);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto productCreateDto)
+        public async Task<IActionResult> CreateProduct( ProductCreateDto productCreateDto)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace SP.WebApi.Controllers
             return Ok();
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct([FromBody] ProductViewDto productViewDto)
+        public async Task<IActionResult> UpdateProduct(ProductViewDto productViewDto)
         {
             if (!ModelState.IsValid)
             {

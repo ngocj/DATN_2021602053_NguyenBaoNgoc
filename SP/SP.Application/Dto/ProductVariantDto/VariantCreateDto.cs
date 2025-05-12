@@ -1,4 +1,5 @@
-﻿using SP.Domain.Entity;
+﻿using SP.Application.Dto.ImageDto;
+using SP.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace SP.Application.Dto.ProductVariantDto
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public bool IsActive { get; set; }
+       // public List<ImageCreateDto> Images { get; set; } = new List<ImageCreateDto>();
     }
 }

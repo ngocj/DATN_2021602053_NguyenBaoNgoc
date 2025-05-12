@@ -64,6 +64,7 @@ namespace SP.Application.Mappings
             CreateMap<Ward, WardViewDto>().ReverseMap();
 
             CreateMap<Image, ImageFileDto>().ReverseMap();
+            CreateMap<Image, ImageCreateDto>().ReverseMap();
 
 
             CreateMap<User, UserViewDto>().ReverseMap();            
@@ -72,7 +73,12 @@ namespace SP.Application.Mappings
             CreateMap<Employee, EmployeeViewDto>().ReverseMap();
             CreateMap<Employee, EmployeeCreateDto>().ReverseMap();
     
-            CreateMap<Product, ProductViewDto>().ReverseMap();
+            //get name subcategory
+
+            CreateMap<Product, ProductViewDto>().ForMember(dest => dest.SubCategoryName, opt => opt.MapFrom(src => src.SubCategory.Name))
+                .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand.BrandName))
+                .ForMember(dest => dest.Percent, opt => opt.MapFrom(src => src.Discount.Percent))
+                .ReverseMap();
             CreateMap<Product, ProductCreateDto>().ReverseMap();
 
             CreateMap<ProductVariant, VariantViewDto>().ReverseMap();

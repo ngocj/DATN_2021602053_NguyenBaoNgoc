@@ -17,5 +17,8 @@ namespace SP.Application.Dto.ProductDto
         public string Description { get; set; }
         public bool IsActive { get; set; }
         public List<VariantViewDto> ProductVariants { get; set; } = new List<VariantViewDto>();
+        public string  SubCategoryName { get; set; }
+        public string BrandName { get; set; }
+        public int Percent { get; set; }
     }
 }

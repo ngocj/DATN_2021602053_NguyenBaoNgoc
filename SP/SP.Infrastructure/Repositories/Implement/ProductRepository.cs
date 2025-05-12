@@ -15,11 +15,26 @@ namespace SP.Infrastructure.Repositories.Implement
         public ProductRepository(SPContext context) : base(context)
         {
         }
+        // get product by id
+        public override async Task<Product> GetByIdAsync(int id)
+        {
+            // include productVariant and image
+            return await _SPContext.Set<Product>()
+                    .Include(c => c.SubCategory)
+                    .Include(c => c.Brand)
+                    .Include(p => p.Discount)
+                    .Include(p => p.ProductVariants)
+                    .ThenInclude(pv => pv.Images)
+                    .FirstOrDefaultAsync(p => p.Id == id);
+        }
         // get all product
         public override async Task<IEnumerable<Product>> GetAllAsync()
         {
            // include productVariant and image
             return await _SPContext.Set<Product>()
+                    .Include(c => c.SubCategory)
+                    .Include(c => c.Brand)
+                    .Include(p => p.Discount)
                     .Include(p => p.ProductVariants)
                     .ThenInclude(pv => pv.Images)
                     .ToListAsync();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.ImageDto;
 using SP.Application.Service.Interface;
 using SP.Domain.Entity;
@@ -26,8 +27,7 @@ namespace SP.Application.Service.Implement
             if (result != null)
             {
                 return new ImageFileDto
-                {
-                    Id = result.Id,
+                {                
                     FileName = result.FileName,
                     FileData = result.FileData,
                     ProductVariantId = result.ProductVariantId,
@@ -40,15 +40,14 @@ namespace SP.Application.Service.Implement
         {
             var files = await _unitOfWork.ImageRepository.GetAllFileAsync();
             return files.Select(f => new ImageFileDto
-            {
-                Id = f.Id,
+            {              
                 FileName = f.FileName,
                 FileData = f.FileData,
                 ContentType = f.ContentType,
             }).ToList();
 
         }
-        public async Task UploadFileAsync(IFormFile formFile, int productVariantId)
+        public async Task UploadFileAsync( IFormFile formFile, int productVariantId)
         {
          
             if (formFile == null || formFile.Length == 0)
