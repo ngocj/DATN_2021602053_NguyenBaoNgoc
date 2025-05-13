@@ -6,6 +6,14 @@
 }
 
 <h1 class="text-center my-4 font-weight-bolder text-dark">Danh sách sản phẩm</h1>
+<div class="actions-container ml-4">
+    <form asp-controller="Product" asp-action="Create" method="get">
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Thêm sản phẩm
+        </button>
+    </form>
+</div>
+
 
 <div class="container">
     <div class="table-responsive">
@@ -80,8 +88,8 @@
 
                         <td>
                             <a href="@Url.Action("Details", "Product", new { id = product.Id })" class="btn btn-sm btn-info me-1">Chi tiết</a>
-                            <a href="@Url.Action("EditProduct", "Admin", new { id = product.Id })" class="btn btn-sm btn-primary me-1">Sửa</a>
-                            <a href="@Url.Action("DeleteProduct", "Admin", new { id = product.Id })" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">Xóa</a>
+                            <a href="@Url.Action("Edit", "Product", new { id = product.Id })" class="btn btn-sm btn-primary me-1">Sửa</a>
+                            <a href="@Url.Action("Delete", "Product", new { id = product.Id })" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?')">Xóa</a>
                         </td>
                     </tr>
 

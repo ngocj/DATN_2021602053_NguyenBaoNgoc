@@ -74,8 +74,10 @@ namespace SP.Application.Mappings
             CreateMap<Employee, EmployeeCreateDto>().ReverseMap();
     
             //get name subcategory
-
-            CreateMap<Product, ProductViewDto>().ForMember(dest => dest.SubCategoryName, opt => opt.MapFrom(src => src.SubCategory.Name))
+      
+            CreateMap<Product, ProductViewDto>()
+                .ForMember(dest => dest.SubCategoryName, opt => opt.MapFrom(src => src.SubCategory.Name))
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.SubCategory.Category.CategoryName))
                 .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand.BrandName))
                 .ForMember(dest => dest.Percent, opt => opt.MapFrom(src => src.Discount.Percent))
                 .ReverseMap();
