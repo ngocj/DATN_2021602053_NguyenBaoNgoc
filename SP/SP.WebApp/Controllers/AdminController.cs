@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.BrandDto;
 using SP.Application.Dto.CategoryDto;
+using SP.Application.Dto.FeedbackDto;
 using SP.Application.Dto.ImageDto;
 using SP.Application.Dto.OrderDto;
 using SP.Application.Dto.ProductDto;
@@ -51,6 +52,18 @@ namespace SP.WebApp.Controllers
         public async Task<ActionResult> GetAllProductVariant()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<VariantViewDto>>($"{ApiUrl}/productVariant");
+            return View(response);
+        }
+        // get all order
+        public async Task<ActionResult> GetAllOrder()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<OrderViewDto>>($"{ApiUrl}/order");
+            return View(response);
+        }
+        // feedback
+        public async Task<ActionResult> GetAllFeedback()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<FeedbackViewDto>>($"{ApiUrl}/feedback");
             return View(response);
         }
 

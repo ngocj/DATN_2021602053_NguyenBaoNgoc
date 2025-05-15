@@ -11,7 +11,7 @@ namespace SP.Domain.Entity
         public string Name { get; set; }
         public Category Category { get; set; }
         public int CategoryId { get; set; }
-        public List<Product> Products { get; set; } = new List<Product>();
+        public List<Product>? Products { get; set; } = new List<Product>();
     
     }
 }

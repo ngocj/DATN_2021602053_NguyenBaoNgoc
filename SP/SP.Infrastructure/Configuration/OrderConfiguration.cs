@@ -17,8 +17,10 @@ namespace SP.Infrastructure.Configuration
 
             builder.HasKey(o => o.Id);
             builder.Property(o => o.Id).ValueGeneratedOnAdd();
-        
-            builder.Property(o => o.Status).IsRequired();
+
+            builder.Property(o => o.Status)
+            .HasConversion<string>() 
+            .IsRequired();
 
             builder.Property(o => o.TotalPrice).IsRequired().HasColumnType("decimal(18,2)");
 

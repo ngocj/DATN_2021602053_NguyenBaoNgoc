@@ -9,6 +9,8 @@ namespace SP.Domain.Entity
     public class Category : Base
     {
         public string CategoryName { get; set; }
+        public string? Description { get; set; }
+        public bool IsActive { get; set; }
         public List<SubCategory> SubCategories { get; set; }
     }
 }

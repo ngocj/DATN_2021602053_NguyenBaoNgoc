@@ -1,4 +1,5 @@
-﻿using SP.Application.Dto.ImageDto;
+﻿using Microsoft.AspNetCore.Http;
+using SP.Application.Dto.ImageDto;
 using SP.Domain.Entity;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,6 @@ namespace SP.Application.Dto.ProductVariantDto
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public bool IsActive { get; set; }
-       // public List<ImageCreateDto> Images { get; set; } = new List<ImageCreateDto>();
+        public List<IFormFile> ?Images { get; set; } // ảnh up lên
     }
 }

@@ -37,29 +37,32 @@ namespace SP.WebApi.Controllers
             return Ok(productDto);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto productCreateDto)
+        public async Task<IActionResult> CreateProduct(ProductCreateDto productCreateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
             var product = _mapper.Map<Product>(productCreateDto);
-            await _productService.CreateProduct(product);
-            return Ok();
+            await _productService.CreateProduct(product); // product.Id được gán sau khi lưu
+
+            return Ok(new { Id = product.Id });
         }
+
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct(ProductViewDto productViewDto)
+        public async Task<IActionResult> UpdateProduct(ProductUpdateDto productUpdateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var product = await _productService.GetProductById(productViewDto.Id);
+            var product = await _productService.GetProductById(productUpdateDto.Id);
             if (product == null)
             {
                 return NotFound();
             }
-            var updatedProduct = _mapper.Map<Product>(productViewDto);
+            var updatedProduct = _mapper.Map<Product>(productUpdateDto);
             await _productService.UpdateProduct(updatedProduct);
             return Ok();
         }

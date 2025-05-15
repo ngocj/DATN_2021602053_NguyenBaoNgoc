@@ -4,6 +4,7 @@ using SP.Application.Dto.BrandDto;
 using SP.Application.Dto.CategoryDto;
 using SP.Application.Dto.DiscountDto;
 using SP.Application.Dto.ProductDto;
+using SP.Application.Dto.ProductVariantDto;
 
 namespace SP.WebApp.Controllers
 {
@@ -73,46 +74,92 @@ namespace SP.WebApp.Controllers
 
             return View();
         }
-
-
         [HttpPost]
-        public async Task<ActionResult> Create(ProductCreateDto productCreateDto)
+        public async Task<ActionResult> Create([FromForm] ProductCreateDto productCreateDto)
         {
             if (!ModelState.IsValid)
             {
                 return View(productCreateDto);
             }
+
             var response = await _httpClient.PostAsJsonAsync(ApiUrl, productCreateDto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Đọc phản hồi trả về object có Id
+                var content = await response.Content.ReadFromJsonAsync<ProductViewDto>();
+
+                if (content?.Id != null)
+                {
+                    return RedirectToAction("CreateProductVariant", "ProductVariant", new { ProductId = content.Id });
+                }
+
+                ModelState.AddModelError("", "Không thể lấy ProductId từ phản hồi.");
+                return View(productCreateDto);
+            }
+
+            ModelState.AddModelError("", "Có lỗi xảy ra khi tạo sản phẩm.");
+            return View(productCreateDto);
+        }
+    
+        public async Task<ActionResult> Edit(int id)
+        {
+            // get all brands
+            var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl1}brand");
+            if (brands == null || !brands.Any())
+            {
+                ModelState.AddModelError(string.Empty, "No brands found.");
+                return View();
+            }
+
+            // get all subcategories
+            var subCategories = await _httpClient.GetFromJsonAsync<IEnumerable<SubCategoryViewDto>>($"{ApiUrl1}subcategory");
+            if (subCategories == null || !subCategories.Any())
+            {
+                ModelState.AddModelError(string.Empty, "No subcategories found.");
+                return View();
+            }
+
+            // get all discounts
+            var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Dicount");
+            if (discounts == null || !discounts.Any())
+            {
+                ModelState.AddModelError(string.Empty, "No discounts found.");
+                return View();
+            }
+            var response = await _httpClient.GetFromJsonAsync<ProductUpdateDto>($"{ApiUrl}/{id}");
+            if (response == null)
+            {
+                return NotFound();
+            }
+
+            // FIX: Truyền selected value
+            ViewBag.Brands = new SelectList(brands, "Id", "BrandName", response.BrandId);
+            ViewBag.Categories = new SelectList(subCategories, "Id", "Name", response.SubCategoryId);
+            ViewBag.Discounts = discounts.Select(d => new SelectListItem
+            {
+                Value = d.Id.ToString(),
+                Text = $"{d.Percent}%",
+                Selected = (d.Id == response.DiscountId) // Discount dùng SelectListItem nên selected xử lý riêng
+            }).ToList();
+
+            return View(response);
+
+        }
+        [HttpPost]
+        public async Task<ActionResult> Edit(ProductUpdateDto productUpdate)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(productUpdate);
+            }
+            var response = await _httpClient.PutAsJsonAsync(ApiUrl, productUpdate);
             if (response.IsSuccessStatusCode)
             {
                 return RedirectToAction("GetAllProduct", "Admin");
             }
             ModelState.AddModelError("", "Something went wrong");
-            return View(productCreateDto);
-        }
-        public async Task<ActionResult> Edit(int id)
-        {
-            var response = await _httpClient.GetFromJsonAsync<ProductViewDto>($"{ApiUrl}/{id}");
-            if (response == null)
-            {
-                return NotFound();
-            }
-            return View(response);
-        }
-        [HttpPost]
-        public async Task<ActionResult> Edit(ProductViewDto productViewDto)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(productViewDto);
-            }
-            var response = await _httpClient.PutAsJsonAsync($"{ApiUrl}/{productViewDto.Id}", productViewDto);
-            if (response.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            ModelState.AddModelError("", "Something went wrong");
-            return View(productViewDto);
+            return View(productUpdate);
         }
         public async Task<ActionResult> Delete(int id)
         {

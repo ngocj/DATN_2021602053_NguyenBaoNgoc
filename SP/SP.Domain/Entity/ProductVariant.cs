@@ -14,11 +14,10 @@ namespace SP.Domain.Entity
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public bool IsActive { get; set; }
-
         public Product Product { get; set; }
         public List<Cart> Carts { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
-        public List<Image> Images { get; set; }
+        public List<Image>? Images { get; set; }
 
 
     }

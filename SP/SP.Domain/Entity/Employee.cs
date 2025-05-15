@@ -15,6 +15,7 @@ namespace SP.Domain.Entity
         public string? PhoneNumber { get; set; }
         public DateOnly? DateOfBirth { get; set; }
         public string? AddressDetail { get; set; }
+        public bool? IsActive { get; set; }
         public int? WardId { get; set; }
         public Ward? Ward { get; set; }
         public Role Role { get; set; }

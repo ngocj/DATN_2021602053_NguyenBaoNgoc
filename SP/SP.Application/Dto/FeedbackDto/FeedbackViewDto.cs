@@ -17,9 +17,8 @@ namespace SP.Application.Dto.FeedbackDto
 
         public string? Comment { get; set; }
         public int Rating { get; set; }
+        public string ProductVariantName { get; set; }
+        public string UserName { get; set; }
 
-        public User User { get; set; }
-
-        public OrderDetail OrderDetail { get; set; }
     }
 }

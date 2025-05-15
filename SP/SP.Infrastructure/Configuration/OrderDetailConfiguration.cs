@@ -22,9 +22,6 @@ namespace SP.Infrastructure.Configuration
             builder.Property(x => x.Price).IsRequired();
             builder.Property(x => x.Price).HasColumnType("decimal(18,2)");
 
-            builder.Property(x => x.Discount);
-            builder.Property(x => x.Discount).HasDefaultValue(0);
-
             builder.Property(x => x.CreatedAt)
                 .HasColumnType("datetime2")
                 .HasDefaultValueSql("GETDATE()");

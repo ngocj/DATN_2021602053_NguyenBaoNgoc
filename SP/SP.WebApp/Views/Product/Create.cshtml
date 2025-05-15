@@ -15,7 +15,6 @@
                     <form asp-action="Create" method="post" enctype="multipart/form-data">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <!-- Basic Product Information -->
                         <div class="row mb-4">
                             <div class="col-md-12">
                                 <h6 class="fw-bold">Thông Tin Cơ Bản</h6>
@@ -23,49 +22,39 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label asp-for="ProductName" class="control-label">Tên Sản Phẩm</label>
-                                    <input asp-for="ProductName" class="form-control" required />
-                                    <span asp-validation-for="ProductName" class="text-danger"></span>
-                                </div>
+                                <label asp-for="ProductName" class="form-label">Tên Sản Phẩm</label>
+                                <input asp-for="ProductName" class="form-control" required />
+                                <span asp-validation-for="ProductName" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label asp-for="BrandId" class="control-label">Thương Hiệu</label>
-                                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.Brands" required>
-                                        <option value="">-- Chọn Thương Hiệu --</option>
-                                    </select>
-                                    <span asp-validation-for="BrandId" class="text-danger"></span>
-                                </div>
+                                <label asp-for="BrandId" class="form-label">Thương Hiệu</label>
+                                <select asp-for="BrandId" class="form-control" asp-items="ViewBag.Brands" required>
+                                    <option value="">-- Chọn Thương Hiệu --</option>
+                                </select>
+                                <span asp-validation-for="BrandId" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label asp-for="SubCategoryId" class="control-label">Danh Mục</label>
-                                    <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.Categories" required>
-                                        <option value="">-- Chọn Danh Mục --</option>
-                                    </select>
-                                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
-                                </div>
+                                <label asp-for="SubCategoryId" class="form-label">Danh Mục</label>
+                                <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.Categories" required>
+                                    <option value="">-- Chọn Danh Mục --</option>
+                                </select>
+                                <span asp-validation-for="SubCategoryId" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <div class="form-group">
-                                    <label asp-for="DiscountId" class="control-label">Giảm Giá</label>
-                                    <select asp-for="DiscountId" class="form-control" asp-items="ViewBag.Discounts">
-                                        <option value="">-- Không Giảm Giá --</option>
-                                    </select>
-                                    <span asp-validation-for="DiscountId" class="text-danger"></span>
-                                </div>
+                                <label asp-for="DiscountId" class="form-label">Giảm Giá</label>
+                                <select asp-for="DiscountId" class="form-control" asp-items="ViewBag.Discounts">
+                                    <option value="">-- Không Giảm Giá --</option>
+                                </select>
+                                <span asp-validation-for="DiscountId" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-12 mb-3">
-                                <div class="form-group">
-                                    <label asp-for="Description" class="control-label">Mô Tả</label>
-                                    <textarea asp-for="Description" class="form-control" rows="4"></textarea>
-                                    <span asp-validation-for="Description" class="text-danger"></span>
-                                </div>
+                                <label asp-for="Description" class="form-label">Mô Tả</label>
+                                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-6 mb-3">
@@ -76,47 +65,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Khu vực Biến Thể Sản Phẩm -->
-                        <div class="row mb-4">
-                            <div class="col-md-12">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h6 class="fw-bold">Biến Thể Sản Phẩm</h6>
-                                    <button type="button" class="btn btn-sm btn-success" id="addVariantBtn">
-                                        <i class="bi bi-plus"></i> Thêm Biến Thể
-                                    </button>
-                                </div>
-                                <hr>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped" id="variantsTable">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>Màu Sắc</th>
-                                                <th>Kích Cỡ</th>
-                                                <th>Giá</th>
-                                                <th>Số Lượng</th>
-                                                <th>Trạng Thái</th>
-                                                <th>Hành Động</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="variantsBody">
-                                            <!-- Các dòng biến thể sẽ được thêm tại đây -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div id="noVariantsMessage" class="alert alert-warning">
-                                    Chưa có biến thể nào được thêm. Vui lòng thêm ít nhất một biến thể.
-                                </div>
-                            </div>
-                        </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex justify-content-end">
-                                    <a asp-action="Index" class="btn btn-secondary me-2">Quay lại danh sách</a>
-                                    <button type="submit" class="btn btn-primary mx-2" id="submitBtn">Tạo Sản Phẩm</button>
-                                </div>
+                            <div class="col-md-12 d-flex justify-content-end">
+                                <a asp-action="GetAllProduct" asp-controller="Admin" class="btn btn-secondary me-2">Quay lại danh sách</a>
+                                <button type="submit" class="btn btn-primary mx-2">Tiếp tục</button>
                             </div>
                         </div>
                     </form>
@@ -126,229 +78,6 @@
     </div>
 </div>
 
-<!-- Variant Modal -->
-<div class="modal fade" id="variantModal" tabindex="-1" aria-labelledby="variantModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="variantModalLabel">Thêm Biến Thể Sản Phẩm</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                            <label for="variantColor" class="form-label">Color</label>
-                            <select class="form-control" id="variantColor" required>
-                                <option value="">-- Chọn Màu --</option>
-                                <option value="Red">Đỏ</option>
-                                <option value="Blue">Xanh Dương</option>
-                                <option value="Green">Xanh Lá</option>
-                                <option value="Black">Đen</option>
-                                <option value="White">Trắng</option>
-                                <option value="Gray">Xám</option>
-                                <option value="Yellow">Vàng</option>
-                                <option value="Pink">Hồng</option>
-                                <option value="Purple">Tím</option>
-                                <option value="Orange">Cam</option>
-                                <option value="Brown">Nâu</option>
-                                <option value="Navy">Xanh Hải Quân</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                            <label for="variantSize" class="form-label">Kích Cỡ</label>
-                            <select class="form-control" id="variantSize" required>
-                                <option value="">-- Chọn Kích Cỡ --</option>
-                                <option value="XS">XS</option>
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
-                                <option value="3XL">3XL</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                            <label for="variantPrice" class="form-label">Giá</label>
-                            <input type="number" class="form-control" id="variantPrice" step="0.01" min="0" required>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                            <label for="variantQuantity" class="form-label">Số Lượng</label>
-                            <input type="number" class="form-control" id="variantQuantity" min="0" required>
-                        </div>
-                    </div>
-                    <div class="col-md-12 mb-3">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="variantIsActive" checked>
-                            <label class="form-check-label" for="variantIsActive">Đang Kích Hoạt</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-primary" id="saveVariantBtn">Thêm Biến Thể</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-
-    <script>
-        $(document).ready(function () {
-            // Variable to keep track of variants
-            let variantCount = 0;
-            updateVariantsVisibility();
-
-            // Add variant button click
-            $("#addVariantBtn").click(function () {
-                // Reset modal fields
-                $("#variantColor").val("");
-                $("#variantSize").val("");
-                $("#variantPrice").val("");
-                $("#variantQuantity").val("");
-                $("#variantIsActive").prop("checked", true);
-
-                // Show modal
-                $("#variantModal").modal("show");
-            });
-
-            // Save variant button click
-            $("#saveVariantBtn").click(function () {
-                // Validate inputs
-                if (!validateVariantInputs()) {
-                    return;
-                }
-
-                // Get values
-                const color = $("#variantColor").val();
-                const size = $("#variantSize").val();
-                const price = $("#variantPrice").val();
-                const quantity = $("#variantQuantity").val();
-                const isActive = $("#variantIsActive").prop("checked");
-
-                // Add row to table
-                addVariantRow(variantCount, color, size, price, quantity, isActive);
-
-                // Hide modal
-                $("#variantModal").modal("hide");
-
-                // Increment counter
-                variantCount++;
-                updateVariantsVisibility();
-            });
-
-            // Function to validate variant inputs
-            function validateVariantInputs() {
-                let isValid = true;
-
-                if ($("#variantColor").val() === "") {
-                    alert("Please select a color");
-                    isValid = false;
-                }
-
-                if ($("#variantSize").val() === "") {
-                    alert("Please select a size");
-                    isValid = false;
-                }
-
-                if ($("#variantPrice").val() === "" || parseFloat($("#variantPrice").val()) <= 0) {
-                    alert("Price must be greater than 0");
-                    isValid = false;
-                }
-
-                if ($("#variantQuantity").val() === "" || parseInt($("#variantQuantity").val()) < 0) {
-                    alert("Quantity must be at least 0");
-                    isValid = false;
-                }
-
-                return isValid;
-            }
-
-            // Function to add variant row
-            function addVariantRow(index, color, size, price, quantity, isActive) {
-                const row = `
-                                    <tr id="variant-row-${index}">
-                                        <td>
-                                            ${color}
-                                            <input type="hidden" name="ProductVariants[${index}].Color" value="${color}" />
-                                        </td>
-                                        <td>
-                                            ${size}
-                                            <input type="hidden" name="ProductVariants[${index}].Size" value="${size}" />
-                                        </td>
-                                        <td>
-                                            ${price}
-                                            <input type="hidden" name="ProductVariants[${index}].Price" value="${price}" />
-                                        </td>
-                                        <td>
-                                            ${quantity}
-                                            <input type="hidden" name="ProductVariants[${index}].Quantity" value="${quantity}" />
-                                        </td>
-                                        <td>
-                                            ${isActive ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>'}
-                                            <input type="hidden" name="ProductVariants[${index}].IsActive" value="${isActive}" />
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-danger delete-variant" data-index="${index}">
-                                                <i class="bi bi-trash"></i> Remove
-                                            </button>
-                                        </td>
-                                    </tr>
-                                `;
-
-                $("#variantsBody").append(row);
-
-                // Attach delete event
-                $(`#variant-row-${index} .delete-variant`).click(function () {
-                    const variantIndex = $(this).data("index");
-                    $(`#variant-row-${variantIndex}`).remove();
-                    updateVariantsVisibility();
-                });
-            }
-
-            // Function to update variants visibility
-            function updateVariantsVisibility() {
-                const hasVariants = $("#variantsBody tr").length > 0;
-
-                if (hasVariants) {
-                    $("#variantsTable").show();
-                    $("#noVariantsMessage").hide();
-                } else {
-                    $("#variantsTable").hide();
-                    $("#noVariantsMessage").show();
-                }
-            }
-
-            // Form submission validation
-            $("form").submit(function (e) {
-                if ($("#variantsBody tr").length === 0) {
-                    e.preventDefault();
-                    alert("Please add at least one product variant before submitting.");
-                    return false;
-                }
-                return true;
-            });
-        });
-    </script>
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }

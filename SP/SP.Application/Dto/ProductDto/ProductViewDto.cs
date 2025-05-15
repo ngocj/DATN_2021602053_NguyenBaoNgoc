@@ -16,6 +16,8 @@ namespace SP.Application.Dto.ProductDto
         public double? Rating { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
+        public int BrandId { get; set; }
+        public int SubCategoryId { get; set; }
         public List<VariantViewDto> ProductVariants { get; set; } = new List<VariantViewDto>();
   
         public string  SubCategoryName { get; set; }

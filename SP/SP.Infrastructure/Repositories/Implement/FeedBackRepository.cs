@@ -1,4 +1,5 @@
-﻿using SP.Domain.Entity;
+﻿using Microsoft.EntityFrameworkCore;
+using SP.Domain.Entity;
 using SP.Infrastructure.Repositories.Interface;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,16 @@ namespace SP.Infrastructure.Repositories.Implement
         public FeedBackRepository(Context.SPContext context) : base(context)
         {
         }
+        public override async Task<IEnumerable<FeedBack>> GetAllAsync()
+        {
+            return await _SPContext.Set<FeedBack>()
+                         .Include(fb => fb.User)
+                         .Include(fb => fb.OrderDetail)
+                         .ThenInclude(od => od.ProductVariant)
+                         .ThenInclude(pv => pv.Product)
+                         .ToListAsync();
+        }
+
     }
     
 }

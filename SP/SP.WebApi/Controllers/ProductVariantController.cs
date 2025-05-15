@@ -13,11 +13,15 @@ namespace SP.WebApi.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IProductVariantService _productVariantService;
-        public ProductVariantController(IMapper mapper, IProductVariantService productVariantService)
+        private readonly IImageService _imageService;
+
+        public ProductVariantController(IMapper mapper, IProductVariantService productVariantService, IImageService imageService)
         {
             _mapper = mapper;
             _productVariantService = productVariantService;
+            _imageService = imageService;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllProductVariants()
         {
@@ -37,16 +41,38 @@ namespace SP.WebApi.Controllers
             return Ok(productVariantDto);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateProductVariant( VariantCreateDto productVariantCreateDto)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> CreateProductVariant([FromForm] VariantCreateDto dto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
-            var productVariant = _mapper.Map<ProductVariant>(productVariantCreateDto);
+
+            // 1. Map và lưu ProductVariant
+            var productVariant = new ProductVariant
+            {
+                ProductId = dto.ProductId,
+                Color = dto.Color,
+                Size = dto.Size,
+                Price = dto.Price,
+                Quantity = dto.Quantity,
+                IsActive = dto.IsActive
+            };
+
             await _productVariantService.CreateProductVariant(productVariant);
-            return Ok();
+
+            // 2. Lưu ảnh với ProductVariantId
+            if (dto.Images != null && dto.Images.Count > 0)
+            {
+                foreach (var file in dto.Images)
+                {
+                    await _imageService.UploadFileAsync(file, productVariant.Id);
+                }
+            }
+
+            return Ok(new { message = "Tạo sản phẩm và ảnh thành công" });
         }
+
+
         [HttpPut]
         public async Task<IActionResult> UpdateProductVariant( VariantViewDto productVariantViewDto)
         {

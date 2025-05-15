@@ -42,6 +42,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(x => x.AddressDetail)
             .HasMaxLength(50);
 
+        builder.Property(x => x.IsActive).HasDefaultValue(true);    
+
         builder.Property(x => x.CreatedAt)
             .HasColumnType("datetime2")
             .HasDefaultValueSql("GETDATE()");

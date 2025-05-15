@@ -33,7 +33,11 @@ namespace SP.Application.Mappings
             CreateMap<Discount, DiscountViewDto>().ReverseMap();
             CreateMap<Discount, DiscountCreateDto>().ReverseMap();
 
-            CreateMap<FeedBack, FeedbackViewDto>().ReverseMap();
+            //get username and prodcutvariant name
+            CreateMap<FeedBack, FeedbackViewDto>()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName))
+                .ForMember(dest => dest.ProductVariantName, opt => opt.MapFrom(src => src.OrderDetail.ProductVariant.Product.ProductName))
+                .ReverseMap();
             CreateMap<FeedBack, FeedbackCreateDto>().ReverseMap();
 
             CreateMap<OrderDetail, OrderDetailViewDto>().ReverseMap();
@@ -64,7 +68,6 @@ namespace SP.Application.Mappings
             CreateMap<Ward, WardViewDto>().ReverseMap();
 
             CreateMap<Image, ImageFileDto>().ReverseMap();
-            CreateMap<Image, ImageCreateDto>().ReverseMap();
 
 
             CreateMap<User, UserViewDto>().ReverseMap();            
@@ -82,6 +85,7 @@ namespace SP.Application.Mappings
                 .ForMember(dest => dest.Percent, opt => opt.MapFrom(src => src.Discount.Percent))
                 .ReverseMap();
             CreateMap<Product, ProductCreateDto>().ReverseMap();
+            CreateMap<Product, ProductUpdateDto>().ReverseMap();
 
             CreateMap<ProductVariant, VariantViewDto>().ReverseMap();
             CreateMap<ProductVariant, VariantCreateDto>().ReverseMap();

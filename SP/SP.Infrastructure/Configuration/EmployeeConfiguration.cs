@@ -36,6 +36,7 @@ namespace SP.Infrastructure.Configuration
 
             builder.Property(e => e.DateOfBirth)
                    .HasColumnType("date");
+            builder.Property(e => e.IsActive).HasDefaultValue(true);
 
          
             builder.Property(e => e.CreatedAt)
