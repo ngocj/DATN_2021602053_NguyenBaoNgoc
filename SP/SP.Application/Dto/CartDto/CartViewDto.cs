@@ -9,8 +9,7 @@ namespace SP.Application.Dto.CartDto
 {
     public class CartViewDto
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public int ProductVariantId { get; set; }
         public int Quantity { get; set; }
         public User User { get; set; }

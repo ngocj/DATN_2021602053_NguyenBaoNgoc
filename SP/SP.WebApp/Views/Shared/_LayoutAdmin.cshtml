@@ -64,8 +64,7 @@
                 <div id="collapseProduct" class="collapse" aria-labelledby="headingProduct" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" asp-action="GetAllProduct" asp-controller="Admin">Danh sách sản phẩm</a>
-                        <a class="collapse-item" asp-action="GetAllProductVariant" asp-controller="Admin">Thuộc tính sản phẩm</a>
-                        <a class="collapse-item" asp-action="GetAllImage" asp-controller="Admin">Hình ảnh sản phẩm</a>
+                        <a class="collapse-item" asp-action="GetAllProductVariant" asp-controller="ProductVariant">Hình ảnh sản phẩm</a>
                     </div>
                 </div>
             </li>
@@ -186,3 +185,31 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    window.onload = function () {
+        var successMessage = '@Html.Raw(TempData["Success"])';
+        var errorMessage = '@Html.Raw(TempData["Error"])';
+
+        if (successMessage && successMessage !== "null") {
+            Swal.fire({
+                title: "Thành công!",
+                text: successMessage,
+                icon: "success",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "Đồng ý"
+            });
+        }
+
+        if (errorMessage && errorMessage !== "null") {
+            Swal.fire({
+                title: "Lỗi!",
+                text: errorMessage,
+                icon: "error",
+                confirmButtonColor: "#d33",
+                confirmButtonText: "Đóng"
+            });
+        }
+    };
+</script>

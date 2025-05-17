@@ -1,4 +1,5 @@
-﻿using SP.Application.Service.Interface;
+﻿using MailKit.Search;
+using SP.Application.Service.Interface;
 using SP.Domain.Entity;
 using SP.Infrastructure.UnitOfWork;
 using System;
@@ -22,40 +23,38 @@ namespace SP.Application.Service.Implement
         {
             await _unitOfWork.CartRepository.AddAsync(cart);
             await _unitOfWork.SaveChangeAsync();
-            
         }
 
-        public async Task DeleteCart(int id)
+        public async Task DeleteCart(Guid userId, int productVariantId)
         {
-            var result = await _unitOfWork.CartRepository.GetByIdAsync(id);
+            var result = await _unitOfWork.CartRepository.GetByCompositeKeyAsync(userId, productVariantId);
             if (result != null)
             {
-               await _unitOfWork.CartRepository.DeleteAsync(result);
-               await  _unitOfWork.SaveChangeAsync();
+                await _unitOfWork.CartRepository.DeleteAsync(result);
+                await _unitOfWork.SaveChangeAsync();
             }
-    
         }
 
         public async Task<IEnumerable<Cart>> GetAllCarts()
         {
-            return await _unitOfWork.CartRepository.GetAllAsync();        
+            return await _unitOfWork.CartRepository.GetAllAsync();
         }
 
-        public async Task<Cart> GetCartById(int id)
+        public async Task<Cart> GetCartById(Guid userId, int productVariantId)
         {
-            return await _unitOfWork.CartRepository.GetByIdAsync(id);
+            return await _unitOfWork.CartRepository.GetByCompositeKeyAsync(userId, productVariantId);
         }
 
         public async Task UpdateCart(Cart cart)
         {
-            var result = await _unitOfWork.CartRepository.GetByIdAsync(cart.Id);
-            if (result != null)
-            {
-               await _unitOfWork.CartRepository.UpdateAsync(cart);
-               await _unitOfWork.SaveChangeAsync();
-            }
+            var existingCart = await _unitOfWork.CartRepository.GetByCompositeKeyAsync(cart.UserId, cart.ProductVariantId);
 
-           
+            if (existingCart != null)
+            {
+                await _unitOfWork.CartRepository.UpdateAsync(cart);
+                await _unitOfWork.SaveChangeAsync();
+            }
         }
     }
+
 }

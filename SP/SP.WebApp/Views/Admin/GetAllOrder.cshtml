@@ -9,10 +9,10 @@
     <div class="bg-light rounded p-4 shadow-sm">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h5 class="mb-0 text-primary fw-bold">
-                <i class="fas fa-shopping-cart me-2"></i>Danh sách đơn hàng
+                <i class="fas fa-shopping-cart me-2"></i> Danh sách đơn hàng
             </h5>
             <a href="@Url.Action("Create", "Order")" class="btn btn-primary">
-                <i class="fas fa-plus me-2"></i>Tạo đơn hàng mới
+                <i class="fas fa-plus me-2"></i> Tạo đơn hàng mới
             </a>
         </div>
 
@@ -22,9 +22,10 @@
                     <tr class="text-center">
                         <th>Mã đơn hàng</th>
                         <th>Mã khách hàng</th>
-                        <th>Trạng thái</th>
+                        <th>Tên khách hàng </th>                       
                         <th>Ngày đặt</th>
                         <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
@@ -32,18 +33,27 @@
                     @foreach (var item in Model)
                     {
                         <tr class="align-middle">
-                            <td class="text-center fw-bold">@item.Id</td>
-                            <td class="text-center">@item.UserId</td>
+                            <td class="text-center fw-bold">
+                                @(item.Id.ToString().Length > 20 ? item.Id.ToString().Substring(0, 22) + "..." : item.Id.ToString())
+                            </td>
+                            <td class="text-center">
+                                @(item.UserId.ToString().Length > 20 ? item.UserId.ToString().Substring(0, 22) + "..." : item.UserId.ToString())
+                            </td>
+
+                            <td class="text-center">@item.UserName</td>
+                         
+                            <td class="text-center">@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                            <td class="text-center fw-bold price-column">@string.Format("{0:#,##0} đ", item.TotalPrice)</td>
                             <td class="text-center">
                                 @{
                                     string statusClass = item.Status switch
                                     {
-                                        OrderStatus.Pending => "badge bg-warning text-dark",
-                                        OrderStatus.Confirmed => "badge bg-info",
-                                        OrderStatus.Shipping => "badge bg-primary",
-                                        OrderStatus.Delivered => "badge bg-success",
-                                        OrderStatus.Canceled => "badge bg-danger",
-                                        _ => "badge bg-secondary"
+                                        OrderStatus.Pending => "badge bg-warning text-white",
+                                        OrderStatus.Confirmed => "badge bg-info text-white",
+                                        OrderStatus.Shipping => "badge bg-primary text-white",
+                                        OrderStatus.Delivered => "badge bg-success text-white",
+                                        OrderStatus.Canceled => "badge bg-danger text-white",
+                                        _ => "badge bg-secondary text-white"
                                     };
 
                                     string statusText = item.Status switch
@@ -58,8 +68,6 @@
                                 }
                                 <span class="@statusClass status-badge">@statusText</span>
                             </td>
-                            <td class="text-center">@item.CreatedAt.ToString("dd/MM/yyyy")</td>
-                            <td class="text-center fw-bold price-column">@string.Format("{0:#,##0} đ", item.TotalPrice)</td>
                             <td>
                                 <div class="action-buttons text-center">
                                     <a href="@Url.Action("Details", "Order", new { id = item.Id })"
@@ -131,7 +139,6 @@
         /* Body cells (TD) */
         .table tbody td {
             background-color: #ffffff; /* nền trắng */
-            color: #212529;
             border-top: 1px solid #e9ecef;
             border-bottom: 1px solid #e9ecef;
             border-left: none;
@@ -166,7 +173,6 @@
 
     /* Price column */
     .price-column {
-        color: #dc3545;
         font-size: 1rem;
     }
 

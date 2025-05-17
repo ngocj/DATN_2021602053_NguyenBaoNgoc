@@ -10,10 +10,10 @@ namespace SP.Application.Service.Interface
     public interface IEmployeeService
     {
         Task<IEnumerable<Employee>> GetAllEmployees();
-        Task<Employee> GetEmployeeById(int id);
+        Task<Employee> GetEmployeeById(Guid id);
         Task CreateEmployee(Employee employee);
         Task UpdateEmployee(Employee employee);
-        Task DeleteEmployee(int id);
+        Task DeleteEmployee(Guid id);
     }
 
 }

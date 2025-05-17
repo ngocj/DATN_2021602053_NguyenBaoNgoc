@@ -36,9 +36,10 @@ namespace SP.Infrastructure.Configuration
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(f => f.OrderDetail)
-                .WithMany(opv => opv.FeedBacks)  
-                .HasForeignKey(f => new { f.ProductVariantId, f.OrderId})
-                .OnDelete(DeleteBehavior.Restrict);
+           .WithMany(opv => opv.FeedBacks)
+           .HasForeignKey(f => new { f.OrderId, f.ProductVariantId })
+           .OnDelete(DeleteBehavior.Restrict);
+
 
         }
     }

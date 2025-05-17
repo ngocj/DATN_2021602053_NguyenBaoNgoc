@@ -27,11 +27,10 @@ namespace SP.WebApi.Controllers
             var cartDto = _mapper.Map<IEnumerable<CartViewDto>>(carts);
             return Ok(cartDto);
         }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCartById(int id)
+        [HttpGet("{userId}/{productVariantId}")]
+        public async Task<IActionResult> GetCartById(Guid userId, int productVariantId)
         {
-            var cart = await _cartService.GetCartById(id);
+            var cart = await _cartService.GetCartById(userId, productVariantId);
             if (cart == null)
             {
                 return NotFound();
@@ -39,6 +38,7 @@ namespace SP.WebApi.Controllers
             var cartDto = _mapper.Map<CartViewDto>(cart);
             return Ok(cartDto);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateCart([FromBody] CartCreateDto cartCreateDto)
@@ -59,7 +59,7 @@ namespace SP.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var cart = await _cartService.GetCartById(cartViewDto.Id);
+            var cart = await _cartService.GetCartById(cartViewDto.UserId,cartViewDto.ProductVariantId);
             if (cart == null)
             {
                 return NotFound();
@@ -68,17 +68,18 @@ namespace SP.WebApi.Controllers
             await _cartService.UpdateCart(updatedCart);
             return Ok();
         }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCart(int id)
+        [HttpDelete("{userId}/{productVariantId}")]
+        public async Task<IActionResult> DeleteCart(Guid userId, int productVariantId)
         {
-            var cart = await _cartService.GetCartById(id);
+            var cart = await _cartService.GetCartById(userId, productVariantId);
             if (cart == null)
             {
                 return NotFound();
             }
-            await _cartService.DeleteCart(id);
+            await _cartService.DeleteCart(userId, productVariantId);
             return Ok();
         }
+        
 
     }
 }

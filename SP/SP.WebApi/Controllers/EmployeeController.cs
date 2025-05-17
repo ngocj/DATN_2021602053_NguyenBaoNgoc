@@ -31,7 +31,7 @@ namespace SP.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetEmployeeById(int id)
+        public async Task<IActionResult> GetEmployeeById(Guid id)
         {
             var employee = await _employeeService.GetEmployeeById(id);
             if (employee == null)
@@ -88,7 +88,7 @@ namespace SP.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteEmployee(int id)
+        public async Task<IActionResult> DeleteEmployee(Guid id)
         {
             var employee = await _employeeService.GetEmployeeById(id);
             if (employee == null)

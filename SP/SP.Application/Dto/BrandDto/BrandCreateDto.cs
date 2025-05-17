@@ -9,5 +9,8 @@ namespace SP.Application.Dto.BrandDto
     public class BrandCreateDto
     {
         public string BrandName { get; set; }
+        public string? Description { get; set; }
+        public bool IsActive { get; set; }
     }
+
 }

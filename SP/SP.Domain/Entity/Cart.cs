@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace SP.Domain.Entity
 {
-    public class Cart : Base
+    public class Cart
     {
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
         public int ProductVariantId { get; set; }
         public int Quantity { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public User User { get; set; }
         public ProductVariant ProductVariant { get; set; }
 

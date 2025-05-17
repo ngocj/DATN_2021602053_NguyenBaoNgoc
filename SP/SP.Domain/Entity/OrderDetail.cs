@@ -8,7 +8,7 @@ namespace SP.Domain.Entity
 {
     public class OrderDetail
     {
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; } 
         public int ProductVariantId { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }

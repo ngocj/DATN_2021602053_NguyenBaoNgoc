@@ -3,7 +3,6 @@
     ViewData["Title"] = "Quản lý thương hiệu";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 <div class="container-fluid p-4">
     <div class="row mb-4">
         <div class="col-md-12">
@@ -20,10 +19,10 @@
 
     <div class="card shadow-sm">
         <div class="card-header bg-white py-3">
-            <form method="get" asp-action="GetAllCategory" asp-controller="Admin">
-                <div class="input-group search-wrapper">                
-                    <input type="text" name="searchItem" class="form-control border-start-0"
-                           placeholder="Tìm kiếm thương hiệu..." value="@Context.Request.Query["searchItem"]">
+            <form method="get" asp-action="GetAllBrand" asp-controller="Admin">
+                <div class="input-group search-wrapper">
+                    <input type="text" id="searchInput" class="form-control border-start-0"
+                           placeholder="Tìm kiếm thương hiệu...">
                     <button type="submit" class="btn btn-primary">
                         <i class="bi bi-search me-1"></i> Tìm kiếm
                     </button>
@@ -47,7 +46,7 @@
                         {
                             @foreach (var item in Model)
                             {
-                                <tr>
+                                <tr data-Brand="@item.BrandName?.ToLower()">
                                     <td class="text-center fw-bold">@item.Id</td>
                                     <td class="fw-medium">@item.BrandName</td>
                                     <td>
@@ -75,8 +74,8 @@
                                         }
                                     </td>
                                     <td class="text-center">
-                                        <div class="btn-group" role="group">
-                                            <a href="@Url.Action("UpdateBrand", "Brand", new { id = item.Id })" 
+                                        <div class="btn-group" role="group">                                       
+                                            <a href="@Url.Action("UpdateBrand", "Brand", new { id = item.Id })"
                                                class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" title="Chỉnh sửa">
                                                 <i class="fas fa-edit"></i>
                                             </a>
@@ -98,7 +97,7 @@
                                     <div class="empty-state">
                                         <i class="bi bi-search fs-1 text-muted"></i>
                                         <p class="mb-0 mt-2">Không tìm thấy thương hiệu nào</p>
-                                        <a href="@Url.Action("CreateBrand", "Brand")" class="btn btn-sm btn-outline-primary mt-3">
+                                        <a href="@Url.Action("Create", "Brand")" class="btn btn-sm btn-outline-primary mt-3">
                                             <i class="bi bi-plus-circle me-1"></i> Thêm thương hiệu mới
                                         </a>
                                     </div>
@@ -114,7 +113,7 @@
 
 <style>
     /* Enhanced Styles for Brand Management Page */
-    
+
     :root {
         --primary-color: #4361ee;
         --primary-hover: #3a56d4;
@@ -123,7 +122,7 @@
         --light-bg: #f8f9fa;
         --border-color: #e9ecef;
     }
-    
+
     body {
         background-color: #f5f7fb;
         color: #495057;
@@ -146,9 +145,9 @@
         transition: all 0.2s ease;
     }
 
-    .card:hover {
-        box-shadow: 0 .5rem 1rem rgba(0,0,0,.08);
-    }
+        .card:hover {
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.08);
+        }
 
     .card-header {
         border-bottom: 1px solid var(--border-color);
@@ -158,12 +157,12 @@
     .search-wrapper {
         max-width: 500px;
     }
-    
-    .search-wrapper .form-control:focus,
-    .search-wrapper .input-group-text {
-        box-shadow: none;
-        border-color: #ced4da;
-    }
+
+        .search-wrapper .form-control:focus,
+        .search-wrapper .input-group-text {
+            box-shadow: none;
+            border-color: #ced4da;
+        }
 
     /* Button styling */
     .btn-primary {
@@ -174,59 +173,59 @@
         transition: all 0.2s ease;
     }
 
-    .btn-primary:hover {
-        background-color: var(--primary-hover);
-        border-color: var(--primary-hover);
-    }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
 
     .btn-outline-primary {
         color: var(--primary-color);
         border-color: var(--primary-color);
     }
 
-    .btn-outline-primary:hover {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
-    }
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
 
     .btn-outline-danger {
         color: var(--danger-color);
         border-color: var(--danger-color);
     }
 
-    .btn-outline-danger:hover {
-        background-color: var(--danger-color);
-        border-color: var(--danger-color);
-    }
+        .btn-outline-danger:hover {
+            background-color: var(--danger-color);
+            border-color: var(--danger-color);
+        }
 
     /* Table styling */
     .table {
         margin-bottom: 0;
     }
 
-    .table > :not(caption) > * > * {
-        padding: 0.75rem 1rem;
-    }
+        .table > :not(caption) > * > * {
+            padding: 0.75rem 1rem;
+        }
 
-    .table thead th {
-        font-weight: 600;
-        color: #495057;
-        border-bottom: 1px solid var(--border-color);
-        background-color: #f8f9fa;
-    }
+        .table thead th {
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #f8f9fa;
+        }
 
-    .table tbody tr {
-        border-bottom: 1px solid var(--border-color);
-        transition: all 0.2s ease;
-    }
+        .table tbody tr {
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
 
-    .table tbody tr:last-child {
-        border-bottom: none;
-    }
+            .table tbody tr:last-child {
+                border-bottom: none;
+            }
 
-    .table tbody tr:hover {
-        background-color: rgba(67, 97, 238, 0.03);
-    }
+            .table tbody tr:hover {
+                background-color: rgba(67, 97, 238, 0.03);
+            }
 
     /* Badge styling */
     .badge {
@@ -249,15 +248,27 @@
         text-align: center;
     }
 
-   
 </style>
 
 <script>
-    // Initialize tooltips
-    document.addEventListener('DOMContentLoaded', function() {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Client-side Brand search
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            const searchTerm = this.value.toLowerCase();
+
+            document.querySelectorAll('tbody tr[data-Brand]').forEach(function (row) {
+                const BrandName = row.getAttribute('data-Brand');
+                if (BrandName.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
     });
 </script>

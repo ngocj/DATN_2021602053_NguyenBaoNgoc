@@ -26,7 +26,7 @@ namespace SP.WebApi.Controllers
             return Ok(orderDto);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetOrderById(int id)
+        public async Task<IActionResult> GetOrderById(Guid id)
         {
             var order = await _orderService.GetOrderById(id);
             if (order == null)
@@ -64,7 +64,7 @@ namespace SP.WebApi.Controllers
             return Ok();
         }
         [HttpDelete("{id}")]    
-        public async Task<IActionResult> DeleteOrder(int id)
+        public async Task<IActionResult> DeleteOrder(Guid id)
         {
             var order = await _orderService.GetOrderById(id);
             if (order == null)

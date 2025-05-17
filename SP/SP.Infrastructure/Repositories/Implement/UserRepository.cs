@@ -16,8 +16,14 @@ namespace SP.Infrastructure.Repositories.Implement
         {
 
         }
-     
+        public override async Task<IEnumerable<User>> GetAllAsync()
+        {
+            return await _SPContext.Set<User>()
+                .Include(u => u.Role)
+                .Where(u => u.RoleId == 4)
+                .ToListAsync();
+        }
     }
-  
-    
+
+
 }

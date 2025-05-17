@@ -40,10 +40,19 @@ namespace SP.Infrastructure.Repositories
             return await _SPContext.Set<T>().FindAsync(id);
         }
 
+        public virtual async Task<T> GetByIdAsync(Guid id)
+        {
+            return await _SPContext.Set<T>().FindAsync(id);
+        }
+
         public Task UpdateAsync(T entity)
         {
             _SPContext.Entry(entity).State = EntityState.Modified;
             return Task.CompletedTask;
+        }
+        public virtual async Task<T> GetByCompositeKeyAsync(Guid id1, int id2)
+        {
+            return await _SPContext.Set<T>().FindAsync(id1, id2);
         }
     }
 }

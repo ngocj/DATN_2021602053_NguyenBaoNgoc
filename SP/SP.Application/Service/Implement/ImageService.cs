@@ -70,6 +70,37 @@ namespace SP.Application.Service.Implement
             await _unitOfWork.ImageRepository.AddAsync(imageData);
             await _unitOfWork.SaveChangeAsync();
         }
+        //edit image
+        public async Task EditFileAsync(int productVariantId, IFormFile formFile)
+        {
+            var image = await _unitOfWork.ImageRepository.GetByIdAsync(productVariantId);
+            if (image == null)
+            {
+                throw new Exception("Image not found");
+            }
+
+            using var memoryStream = new MemoryStream();
+            await formFile.CopyToAsync(memoryStream);
+
+            image.FileName = formFile.FileName;
+            image.FileData = memoryStream.ToArray();
+            image.ContentType = formFile.ContentType;
+
+            await _unitOfWork.ImageRepository.UpdateAsync(image);
+            await _unitOfWork.SaveChangeAsync();
+        }
+        //delete image
+        public async Task DeleteFileAsync(int id)
+        {
+            var image = await _unitOfWork.ImageRepository.GetByIdAsync(id);
+            if (image == null)
+            {
+                throw new Exception("Image not found");
+            }
+
+            await _unitOfWork.ImageRepository.DeleteAsync(image);
+            await _unitOfWork.SaveChangeAsync();
+        }
 
     }
 }

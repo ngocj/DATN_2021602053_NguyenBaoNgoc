@@ -49,7 +49,7 @@ namespace SP.WebApi.Controllers
             return Ok();
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateCategory([FromBody] CategoryViewDto categoryUpdateDto)
+        public async Task<IActionResult> UpdateCategory([FromBody] CategoryUpdateDto categoryUpdateDto)
         {
             if (!ModelState.IsValid)
             {

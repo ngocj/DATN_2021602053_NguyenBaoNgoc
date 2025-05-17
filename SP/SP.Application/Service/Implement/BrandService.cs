@@ -26,10 +26,10 @@ namespace SP.Application.Service.Implement
 
         public async Task DeleteBrand(int id)
         {
-            var result = await _unitOfWork.CategoryRepository.GetByIdAsync(id);
+            var result = await _unitOfWork.BrandRepository.GetByIdAsync(id);
             if (result != null)
             {
-                await _unitOfWork.CategoryRepository.DeleteAsync(result);
+                await _unitOfWork.BrandRepository.DeleteAsync(result);
                 await _unitOfWork.SaveChangeAsync();
             }
         }

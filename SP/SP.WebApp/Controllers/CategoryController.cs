@@ -22,37 +22,60 @@ namespace SP.WebApp.Controllers
         public async Task<ActionResult> CreateCategory(CategoryCreateDto categoryCreateDto)
         {
             var response = await _httpClient.PostAsJsonAsync(ApiUrl, categoryCreateDto);
+           
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetAllCategory", "Admin");
+                TempData["Success"] = "Thêm danh mục thành công.";
             }
-            return View(categoryCreateDto);     
+            else
+            {
+                TempData["Error"] = "Thêm danh mục không thành công.";
+            }
+            return RedirectToAction("GetAllCategory", "Admin");
         }
 
         public async Task<ActionResult> UpdateCategory(int id)
         {
-            var categoryViewDto = await _httpClient.GetFromJsonAsync<CategoryViewDto>($"{ApiUrl}/{id}");
+            var categoryViewDto = await _httpClient.GetFromJsonAsync<CategoryUpdateDto>($"{ApiUrl}/{id}");
             return View(categoryViewDto);
         }
 
         [HttpPost]
-        public async Task<ActionResult> UpdateCategory(CategoryViewDto categoryUpdateDto)
+        public async Task<ActionResult> UpdateCategory(CategoryUpdateDto categoryUpdateDto)
         {
-            var response = await _httpClient.PutAsJsonAsync(ApiUrl, categoryUpdateDto);
+            var response = await _httpClient.PutAsJsonAsync(ApiUrl, categoryUpdateDto);           
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetAllCategory", "Admin");
+                TempData["Success"] = "Cập nhật danh mục thành công.";
             }
-            return View(categoryUpdateDto);
+            else
+            {
+                TempData["Error"] = "Cập nhật danh mục không thành công.";
+            }
+            return RedirectToAction("GetAllCategory", "Admin");
         }
         public async Task<ActionResult> DeleteCategory(int id)
         {
-            var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
+            var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");           
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetAllCategory", "Admin");
+                TempData["Success"] = "Xóa danh mục thành công.";
             }
-            return View();
+            else
+            {
+                TempData["Error"] = "Xóa danh mục không thành công.";
+            }
+            return RedirectToAction("GetAllCategory", "Admin");
+           
+        }
+        public async Task<ActionResult> DetailCategory(int id)
+        {
+            var categoryViewDto = await _httpClient.GetFromJsonAsync<CategoryViewDto>($"{ApiUrl}/{id}");
+            if (categoryViewDto == null)
+            {
+                return NotFound();
+            }
+            return View(categoryViewDto);
         }
     }
 }

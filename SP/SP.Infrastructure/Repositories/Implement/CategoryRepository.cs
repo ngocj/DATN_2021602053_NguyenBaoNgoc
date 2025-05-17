@@ -22,5 +22,11 @@ namespace SP.Infrastructure.Repositories.Implement
                 .Include(c => c.SubCategories)
                 .ToListAsync();
         }
+        public async override Task<Category> GetByIdAsync(int id)
+        {
+            return await _SPContext.Set<Category>()
+                .Include(c => c.SubCategories)
+                .FirstOrDefaultAsync(c => c.Id == id);
+        }
     }
 }

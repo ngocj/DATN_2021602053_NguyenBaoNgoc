@@ -30,7 +30,7 @@ namespace SP.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetUserById(int id)
+        public async Task<IActionResult> GetUserById(Guid id)
         {
             var user = await _userService.GetUserById(id);
             if (user == null)
@@ -89,7 +89,7 @@ namespace SP.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUser(int id)
+        public async Task<IActionResult> DeleteUser(Guid id)
         {
             var user = await _userService.GetUserById(id);
             if (user == null)

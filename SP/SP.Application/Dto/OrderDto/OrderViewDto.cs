@@ -9,11 +9,14 @@ namespace SP.Application.Dto.OrderDto
 {
     public class OrderViewDto
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public int EmployeeId { get; set; }
+        public Guid Id { get; set; }
+        public Guid UserId { get; set; }
+        public Guid EmployeeId { get; set; }
         public OrderStatus Status { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime CreatedAt { get; set; }
+        public string? UserName { get; set; }
+        public string? EmployeeName { get; set; }
     }
+    
 }

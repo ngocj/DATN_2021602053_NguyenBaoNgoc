@@ -23,6 +23,15 @@ namespace SP.Infrastructure.Repositories.Implement
                          .ThenInclude(pv => pv.Product)
                          .ToListAsync();
         }
+        public override async Task<FeedBack> GetByIdAsync(int id)
+        {
+            return await _SPContext.Set<FeedBack>()
+                         .Include(fb => fb.User)
+                         .Include(fb => fb.OrderDetail)
+                         .ThenInclude(od => od.ProductVariant)
+                         .ThenInclude(pv => pv.Product)
+                         .FirstOrDefaultAsync(fb => fb.Id == id);
+        }
 
     }
     

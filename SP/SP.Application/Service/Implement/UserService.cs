@@ -23,7 +23,7 @@ namespace SP.Application.Service.Implement
             
         }
 
-        public async Task DeleteUser(int id)
+        public async Task DeleteUser(Guid id)
         {
             var result = await _unitOfWork.UserRepository.GetByIdAsync(id);
             if (result != null)
@@ -40,7 +40,7 @@ namespace SP.Application.Service.Implement
             
         }
 
-        public async Task<User> GetUserById(int id)
+        public async Task<User> GetUserById(Guid id)
         {
             return await _unitOfWork.UserRepository.GetByIdAsync(id);
             

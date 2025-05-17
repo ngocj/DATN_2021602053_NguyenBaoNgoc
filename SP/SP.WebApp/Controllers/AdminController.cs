@@ -13,7 +13,7 @@ namespace SP.WebApp.Controllers
     public class AdminController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api";
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
 
         public AdminController(IHttpClientFactory httpClientFactory)
         {

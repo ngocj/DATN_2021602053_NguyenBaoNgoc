@@ -27,19 +27,17 @@ namespace SP.WebApi.Controllers
             var orderDetailDto = _mapper.Map<IEnumerable<OrderDetailViewDto>>(orderDetails);
             return Ok(orderDetailDto);
         }
-/*
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetOrderDetailById(int id)
+        [HttpGet("{orderId}/{productVariantId}")]
+        public async Task<IActionResult> GetOrderDetailById(Guid orderId, int productVariantId)
         {
-            var orderDetail = await _orderDetailService.GetOrderDetailById(id);
+            var orderDetail = await _orderDetailService.GetOrderDetailById(orderId, productVariantId);
             if (orderDetail == null)
             {
                 return NotFound();
             }
             var orderDetailDto = _mapper.Map<OrderDetailViewDto>(orderDetail);
             return Ok(orderDetailDto);
-        }*/
-
+        }
         [HttpPost]
         public async Task<IActionResult> CreateOrderDetail([FromBody] OrderDetailCreateDto orderDetailCreateDto)
         {
@@ -51,18 +49,29 @@ namespace SP.WebApi.Controllers
             await _orderDetailService.CreateOrderDetail(orderDetail);
             return Ok();
         }
-
-     /*   [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteOrder(int id)
+        [HttpPut]
+        public async Task<IActionResult> UpdateOrderDetail([FromBody] OrderDetailViewDto orderDetailViewDto)
         {
-            var order = await _orderDetailService.GetOrderDetailById(id);
-            if (order == null)
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var orderDetail = _mapper.Map<OrderDetail>(orderDetailViewDto);
+            await _orderDetailService.UpdateOrderDetail(orderDetail);
+            return Ok();
+        }
+        [HttpDelete("{orderId}/{productVariantId}")]
+        public async Task<IActionResult> DeleteOrderDetail(Guid orderId, int productVariantId)
+        {
+            var orderDetail = await _orderDetailService.GetOrderDetailById(orderId, productVariantId);
+            if (orderDetail == null)
             {
                 return NotFound();
             }
-            await _orderDetailService.DeleteOrderDetail(id);
+            await _orderDetailService.DeleteOrderDetail(orderId, productVariantId);
             return Ok();
-        }*/
+        }
+
 
     }
 }

@@ -32,18 +32,22 @@
                     @foreach (var item in Model)
                     {
                         <tr class="align-middle">
-                            <td class="text-center fw-bold">@item.Id</td>
-                            <td class="text-center">@item.UserId</td>
+                            <td class="text-center fw-bold">
+                                @(item.Id.ToString().Length > 20 ? item.Id.ToString().Substring(0, 22) + "..." : item.Id.ToString())
+                            </td>
+                            <td class="text-center">
+                                @(item.UserId.ToString().Length > 20 ? item.UserId.ToString().Substring(0, 22) + "..." : item.UserId.ToString())
+                            </td>
                             <td class="text-center">
                                 @{
                                     string statusClass = item.Status switch
                                     {
-                                        OrderStatus.Pending => "badge bg-warning text-dark",
-                                        OrderStatus.Confirmed => "badge bg-info",
-                                        OrderStatus.Shipping => "badge bg-primary",
-                                        OrderStatus.Delivered => "badge bg-success",
-                                        OrderStatus.Canceled => "badge bg-danger",
-                                        _ => "badge bg-secondary"
+                                        OrderStatus.Pending => "badge bg-warning text-white",
+                                        OrderStatus.Confirmed => "badge bg-info text-white",
+                                        OrderStatus.Shipping => "badge bg-primary text-white",
+                                        OrderStatus.Delivered => "badge bg-success text-white",
+                                        OrderStatus.Canceled => "badge bg-danger text-white",
+                                        _ => "badge bg-secondary text-white"
                                     };
 
                                     string statusText = item.Status switch
@@ -131,7 +135,6 @@
         /* Body cells (TD) */
         .table tbody td {
             background-color: #ffffff; /* nền trắng */
-            color: #212529;
             border-top: 1px solid #e9ecef;
             border-bottom: 1px solid #e9ecef;
             border-left: none;
@@ -166,7 +169,6 @@
 
     /* Price column */
     .price-column {
-        color: #dc3545;
         font-size: 1rem;
     }
 

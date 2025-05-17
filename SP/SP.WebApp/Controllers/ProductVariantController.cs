@@ -9,7 +9,7 @@ namespace SP.WebApp.Controllers
     {
         private const string ApiUrl = "https://localhost:7131/api/productVariant";
         private const string ApiUrl1 = "https://localhost:7131/api/";
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
         public ProductVariantController(IHttpClientFactory httpClientFactory)
         {
             _httpClient = httpClientFactory.CreateClient();
@@ -56,21 +56,17 @@ namespace SP.WebApp.Controllers
 
             if (response.IsSuccessStatusCode)
             {
+                TempData["Success"] = "Tạo biến thể sản phẩm thành công.";
                 return RedirectToAction("Details", "Product", new { Id = variantCreateDto.ProductId });
             }
-
-            ModelState.AddModelError("", "Something went wrong");
-            return View(variantCreateDto);
-        }
-      /*  public async Task<IActionResult> GetAllProductVariant()
-        {
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<VariantViewDto>>(ApiUrl);
-            if (response == null)
+            else
             {
-                return NotFound();
+                TempData["Error"] = "Tạo biến thể sản phẩm thất bại.";
+                return View(variantCreateDto);
             }
-            return View(response);
-        }*/
+
+        }
+ 
         public async Task<IActionResult> DeleteProductVariant(int id)
         {
             var variantResponse = await _httpClient.GetFromJsonAsync<VariantViewDto>($"{ApiUrl}/{id}");
@@ -83,10 +79,15 @@ namespace SP.WebApp.Controllers
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
             if (response.IsSuccessStatusCode)
             {
+                TempData["Success"] = "Xóa biến thể sản phẩm thành công.";
                 return RedirectToAction("Details", "Product", new {Id = variantResponse.ProductId });
             }
-            ModelState.AddModelError("", "Something went wrong");
-            return View(response);
+            else
+            {
+                TempData["Error"] = "Xóa biến thể sản phẩm thất bại.";
+                return RedirectToAction("Details", "Product", new { Id = variantResponse.ProductId });
+
+            }
         }
         public async Task<IActionResult> EditProductVariant(int id)
         {
@@ -95,31 +96,62 @@ namespace SP.WebApp.Controllers
             {
                 return NotFound();
             }
+
+
             return View(response);
         }
-        [HttpPost]  
-        public async Task<IActionResult> EditProductVariant(VariantViewDto variantUpdateDto)
+        [HttpPost]
+        public async Task<IActionResult> EditProductVariant([FromForm] VariantUpdateDto variantUpdateDto)
         {
             if (!ModelState.IsValid)
             {
                 return View(variantUpdateDto);
             }
-            var response = await _httpClient.PutAsJsonAsync(ApiUrl, variantUpdateDto);
+
+            using var content = new MultipartFormDataContent();
+
+            content.Add(new StringContent(variantUpdateDto.Id.ToString()), "Id"); // nhớ thêm Id
+            content.Add(new StringContent(variantUpdateDto.ProductId.ToString()), "ProductId");
+            content.Add(new StringContent(variantUpdateDto.Color), "Color");
+            content.Add(new StringContent(variantUpdateDto.Size), "Size");
+            content.Add(new StringContent(variantUpdateDto.Price.ToString()), "Price");
+            content.Add(new StringContent(variantUpdateDto.Quantity.ToString()), "Quantity");
+            content.Add(new StringContent(variantUpdateDto.IsActive.ToString()), "IsActive");
+
+            // Thêm ảnh mới (nếu có)
+            if (variantUpdateDto.Images != null && variantUpdateDto.Images.Count > 0)
+            {
+                foreach (var file in variantUpdateDto.Images)
+                {
+                    var streamContent = new StreamContent(file.OpenReadStream());
+                    streamContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(file.ContentType);
+                    content.Add(streamContent, "Images", file.FileName);
+                }
+            }
+
+            var response = await _httpClient.PutAsync(ApiUrl, content); // PUT với multipart
+
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetAllProductVariant");
+                TempData["Success"] = "Cập nhật biến thể sản phẩm thành công.";
+                return RedirectToAction("Details", "Product", new { Id = variantUpdateDto.ProductId });
             }
-            ModelState.AddModelError("", "Something went wrong");
-            return View(variantUpdateDto);
-        }   
-     /*   public async Task<IActionResult> GetProductVariantById(int id)
+            else
+            {
+                TempData["Error"] = "Cập nhật biến thể sản phẩm thất bại.";
+                return View(variantUpdateDto);
+            }
+        }
+        // get all
+        public async Task<IActionResult> GetAllProductVariant()
         {
-            var response = await _httpClient.GetFromJsonAsync<VariantViewDto>($"{ApiUrl}/{id}");
+            var response = await _httpClient.GetFromJsonAsync<List<VariantViewDto>>(ApiUrl);
             if (response == null)
             {
                 return NotFound();
             }
             return View(response);
-        }*/
+        }
+   
     }
 }

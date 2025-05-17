@@ -5,6 +5,7 @@ using SP.Application.Dto.CategoryDto;
 using SP.Application.Dto.DiscountDto;
 using SP.Application.Dto.ProductDto;
 using SP.Application.Dto.ProductVariantDto;
+using SP.Application.Dto.UserDto;
 
 namespace SP.WebApp.Controllers
 {
@@ -17,7 +18,7 @@ namespace SP.WebApp.Controllers
         {
             _httpClient = httpClientFactory.CreateClient();
         }
-        public async Task<ActionResult>  Index()
+        public async Task<ActionResult> Index()
         {
             // get all product
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>(ApiUrl);
@@ -55,7 +56,7 @@ namespace SP.WebApp.Controllers
             }
 
             // get all discounts
-            var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Dicount");
+            var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Discount");
             if (discounts == null || !discounts.Any())
             {
                 ModelState.AddModelError(string.Empty, "No discounts found.");
@@ -101,7 +102,7 @@ namespace SP.WebApp.Controllers
             ModelState.AddModelError("", "Có lỗi xảy ra khi tạo sản phẩm.");
             return View(productCreateDto);
         }
-    
+
         public async Task<ActionResult> Edit(int id)
         {
             // get all brands
@@ -121,7 +122,7 @@ namespace SP.WebApp.Controllers
             }
 
             // get all discounts
-            var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Dicount");
+            var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Discount");
             if (discounts == null || !discounts.Any())
             {
                 ModelState.AddModelError(string.Empty, "No discounts found.");
@@ -142,7 +143,7 @@ namespace SP.WebApp.Controllers
                 Text = $"{d.Percent}%",
                 Selected = (d.Id == response.DiscountId) // Discount dùng SelectListItem nên selected xử lý riêng
             }).ToList();
-
+ 
             return View(response);
 
         }
@@ -156,10 +157,14 @@ namespace SP.WebApp.Controllers
             var response = await _httpClient.PutAsJsonAsync(ApiUrl, productUpdate);
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("GetAllProduct", "Admin");
+                TempData["Success"] = "Cập nhật sản phẩm thành công!";
             }
-            ModelState.AddModelError("", "Something went wrong");
-            return View(productUpdate);
+            else
+            {
+                TempData["Error"] = "Cập nhật sản phẩm thất bại.";
+            }
+            return RedirectToAction("GetAllProduct", "Admin");
+          
         }
         public async Task<ActionResult> Delete(int id)
         {
@@ -172,15 +177,16 @@ namespace SP.WebApp.Controllers
 
             // Gửi yêu cầu DELETE đến API
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
-            if (!response.IsSuccessStatusCode)
-            {
-                // Xử lý lỗi nếu cần, ví dụ: return View("Error");
-                return BadRequest("Không thể xóa sản phẩm.");
-            }
 
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Success"] = "Xóa sản phẩm thành công!";              
+            }
+            else
+            {
+                TempData["Error"] = "Không thể xóa vì sản phẩm đang có đơn hàng.";
+            }
             return RedirectToAction("GetAllProduct", "Admin");
         }
-
-
     }
 }

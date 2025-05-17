@@ -74,21 +74,37 @@ namespace SP.WebApi.Controllers
 
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProductVariant( VariantViewDto productVariantViewDto)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> UpdateProductVariant([FromForm] VariantUpdateDto variantUpdateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var productVariant = await _productVariantService.GetProductVariantById(productVariantViewDto.Id);
+
+            var productVariant = await _productVariantService.GetProductVariantById(variantUpdateDto.Id);
             if (productVariant == null)
             {
                 return NotFound();
             }
-            var updatedProductVariant = _mapper.Map<ProductVariant>(productVariantViewDto);
+
+            // 1. Update thông tin product variant (trừ Images)
+            var updatedProductVariant = _mapper.Map<ProductVariant>(variantUpdateDto);
             await _productVariantService.UpdateProductVariant(updatedProductVariant);
+      
+
+            // 3. Upload ảnh mới
+            if (variantUpdateDto.Images != null && variantUpdateDto.Images.Count > 0)
+            {
+                foreach (var file in variantUpdateDto.Images)
+                {
+                    await _imageService.UploadFileAsync(file, updatedProductVariant.Id);
+                }
+            }
+
             return Ok();
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProductVariant(int id)
         {

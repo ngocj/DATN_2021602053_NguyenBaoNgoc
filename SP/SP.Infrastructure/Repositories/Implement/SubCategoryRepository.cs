@@ -14,6 +14,7 @@ namespace SP.Infrastructure.Repositories.Implement
         public SubCategoryRepository(SPContext sPContext) : base(sPContext)
         {
         }
+      
     }
     
 }

@@ -24,7 +24,7 @@ namespace SP.Application.Service.Implement
             
         }
 
-        public async Task DeleteEmployee(int id)
+        public async Task DeleteEmployee(Guid id)
         {
             var result = await _unitOfWork.EmployeeRepository.GetByIdAsync(id);
             if (result != null)
@@ -42,7 +42,7 @@ namespace SP.Application.Service.Implement
             
         }
 
-        public async Task<Employee> GetEmployeeById(int id)
+        public async Task<Employee> GetEmployeeById(Guid id)
         {
             return await _unitOfWork.EmployeeRepository.GetByIdAsync(id);
             

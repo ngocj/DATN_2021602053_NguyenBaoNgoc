@@ -15,7 +15,7 @@ namespace SP.WebApi.Controllers
             _imageService = imageService;
         }
         [HttpPost]
-        public async Task<IActionResult> Upload(IFormFile file, int productVariantId)
+        public async Task<IActionResult> Upload([FromForm] IFormFile file, [FromForm] int productVariantId)
         {
             if (file == null || file.Length == 0)
             {
@@ -24,8 +24,6 @@ namespace SP.WebApi.Controllers
 
             await _imageService.UploadFileAsync(file, productVariantId);
             return Ok(new { message = "File uploaded successfully." });
-         
-            
         }
         [HttpGet("Download")]
         public async Task<IActionResult> Download(int id)
@@ -44,6 +42,27 @@ namespace SP.WebApi.Controllers
             var files = await _imageService.GetAllFileAsync();
             return Ok(files);
         }   
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetFile(int id)
+        {
+            var fileDto = await _imageService.DownloadFile(id);
+            if (fileDto == null)
+            {
+                return NotFound();
+            }
+            return File(fileDto.FileData, fileDto.ContentType, fileDto.FileName);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var fileDto = await _imageService.DownloadFile(id);
+            if (fileDto == null)
+            {
+                return NotFound();
+            }
+            await _imageService.DeleteFileAsync(id);
+            return Ok(new { message = "File deleted successfully." });
+        }
 
     }
 }

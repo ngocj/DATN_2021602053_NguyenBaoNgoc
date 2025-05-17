@@ -8,10 +8,10 @@ namespace SP.Domain.Entity
 {
     public class FeedBack : Base
     {
-        public int OrderId { get; set; }
+        public Guid OrderId { get; set; }
         public int ProductVariantId { get; set; }
 
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public string? Comment { get; set; }
         public double Rating { get; set; }

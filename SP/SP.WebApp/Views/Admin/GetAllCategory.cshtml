@@ -10,7 +10,7 @@
                 <h2 class="page-title">
                     <i class="bi bi-briefcase"></i> Quản lý danh mục
                 </h2>
-                <a href="@Url.Action("CreateBrand", "Brand")" class="btn btn-primary">
+                <a href="@Url.Action("CreateCategory", "Category")" class="btn btn-primary">
                     <i class="bi bi-plus-circle me-1"></i> Thêm  mới
                 </a>
             </div>
@@ -21,8 +21,8 @@
         <div class="card-header bg-white py-3">
             <form method="get" asp-action="GetAllCategory" asp-controller="Admin">
                 <div class="input-group search-wrapper">
-                    <input type="text" name="searchItem" class="form-control border-start-0"
-                           placeholder="Tìm kiếm danh mục..." value="@Context.Request.Query["searchItem"]">
+                    <input type="text" id="searchInput" class="form-control border-start-0"
+                           placeholder="Tìm kiếm danh mục...">
                     <button type="submit" class="btn btn-primary">
                         <i class="bi bi-search me-1"></i> Tìm kiếm
                     </button>
@@ -46,7 +46,7 @@
                         {
                             @foreach (var item in Model)
                             {
-                                <tr>
+                                <tr data-category="@item.CategoryName?.ToLower()">
                                     <td class="text-center fw-bold">@item.Id</td>
                                     <td class="fw-medium">@item.CategoryName</td>
                                     <td>
@@ -75,15 +75,15 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group" role="group">
-                                            <a href="@Url.Action("UpdateBrand", "Brand", new { id = item.Id })"
+                                            <a href="@Url.Action("DetailCategory", "Category", new { id = item.Id })"
                                                class="btn btn-sm btn-outline-info" data-bs-toggle="tooltip" title="Xem chi tiết">
                                                 <i class="fas fa-eye"></i>
                                             </a>
-                                            <a href="@Url.Action("UpdateBrand", "Brand", new { id = item.Id })"
+                                            <a href="@Url.Action("UpdateCategory", "Category", new { id = item.Id })"
                                                class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" title="Chỉnh sửa">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-                                            <a href="@Url.Action("DeleteBrand", "Brand", new { id = item.Id })"
+                                            <a href="@Url.Action("DeleteCategory", "Category", new { id = item.Id })"
                                                class="btn btn-sm btn-outline-danger"
                                                onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục này?');"
                                                data-bs-toggle="tooltip" title="Xóa">
@@ -101,7 +101,7 @@
                                     <div class="empty-state">
                                         <i class="bi bi-search fs-1 text-muted"></i>
                                         <p class="mb-0 mt-2">Không tìm thấy danh mục nào</p>
-                                        <a href="@Url.Action("CreateBrand", "Brand")" class="btn btn-sm btn-outline-primary mt-3">
+                                        <a href="@Url.Action("Create", "Category")" class="btn btn-sm btn-outline-primary mt-3">
                                             <i class="bi bi-plus-circle me-1"></i> Thêm danh mục mới
                                         </a>
                                     </div>
@@ -255,13 +255,28 @@
 </style>
 
 <script>
-    // Initialize tooltips
     document.addEventListener('DOMContentLoaded', function () {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Client-side category search
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            const searchTerm = this.value.toLowerCase();
+
+            document.querySelectorAll('tbody tr[data-category]').forEach(function (row) {
+                const categoryName = row.getAttribute('data-category');
+                if (categoryName.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
     });
 </script>
+
+
 
 

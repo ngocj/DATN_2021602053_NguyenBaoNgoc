@@ -24,7 +24,7 @@ namespace SP.Application.Service.Implement
             
         }
 
-        public async Task DeleteOrder(int id)
+        public async Task DeleteOrder(Guid id)
         {
             var result = await _unitOfWork.OrderRepository.GetByIdAsync(id);
             if (result != null)
@@ -42,7 +42,7 @@ namespace SP.Application.Service.Implement
             
         }
 
-        public async Task<Order> GetOrderById(int id)
+        public async Task<Order> GetOrderById(Guid id)
         {
             return await _unitOfWork.OrderRepository.GetByIdAsync(id);
             

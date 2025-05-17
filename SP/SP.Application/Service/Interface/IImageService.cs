@@ -14,6 +14,8 @@ namespace SP.Application.Service.Interface
         Task UploadFileAsync(IFormFile formFile, int productVariantId);
         Task<ImageFileDto> DownloadFile(int id);
         Task<List<ImageFileDto>> GetAllFileAsync();
+        Task DeleteFileAsync(int id);
+        Task EditFileAsync(int id, IFormFile formFile);
 
     }
 }

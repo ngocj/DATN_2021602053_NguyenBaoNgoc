@@ -12,8 +12,7 @@ namespace SP.Application.Dto.CategoryDto
         public string CategoryName { get; set; }
         public string? Description { get; set; }
         public bool IsActive { get; set; }
-        public List<SubCategoryViewDto> SubCategories { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public List<SubCategoryViewDto> SubCategories { get; set; } = new List<SubCategoryViewDto>();
 
     }
 }

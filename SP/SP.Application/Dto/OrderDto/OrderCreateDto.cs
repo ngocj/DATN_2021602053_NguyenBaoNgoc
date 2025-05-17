@@ -9,8 +9,8 @@ namespace SP.Application.Dto.OrderDto
 {
     public class OrderCreateDto
     {
-        public int UserId { get; set; }
-        public int EmployeeId { get; set; }
+        public Guid UserId { get; set; }
+        public Guid EmployeeId { get; set; }
         public string Status { get; set; }
         public decimal TotalPrice { get; set; }
     }

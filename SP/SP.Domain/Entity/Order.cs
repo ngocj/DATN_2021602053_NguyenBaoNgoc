@@ -14,12 +14,16 @@ namespace SP.Domain.Entity
         Delivered,    // Đã giao
         Canceled      // Đã huỷ
     }
-    public class Order : Base
+    public class Order 
     {
-        public int UserId { get; set; }
-        public int EmployeeId { get; set; }
+        public Guid Id { get; set; }
+        public Guid UserId { get; set; }
+        public Guid EmployeeId { get; set; }
         public OrderStatus Status { get; set; }
         public decimal TotalPrice { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
+
         public User User { get; set; }
         public Employee Employee { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }

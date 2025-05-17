@@ -10,9 +10,10 @@ namespace SP.Application.Service.Interface
     public interface ICartService 
     {
         Task<IEnumerable<Cart>> GetAllCarts();
-        Task<Cart> GetCartById(int id);
+        Task<Cart> GetCartById(Guid userId, int productVariantId);
         Task CreateCart(Cart cart);
         Task UpdateCart(Cart cart);
-        Task DeleteCart(int id);
+        Task DeleteCart(Guid userId, int productVariantId);
+
     }
 }

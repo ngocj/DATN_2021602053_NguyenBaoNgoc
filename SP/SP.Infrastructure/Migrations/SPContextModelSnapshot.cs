@@ -111,19 +111,16 @@ namespace SP.Infrastructure.Migrations
 
             modelBuilder.Entity("SP.Domain.Entity.Cart", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<int>("ProductVariantId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
-
-                    b.Property<int>("ProductVariantId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -133,16 +130,53 @@ namespace SP.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId", "ProductVariantId");
 
                     b.HasIndex("ProductVariantId");
 
-                    b.HasIndex("UserId");
-
                     b.ToTable("Cart", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022"),
+                            ProductVariantId = 1,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quantity = 1,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            UserId = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be"),
+                            ProductVariantId = 2,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quantity = 2,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            UserId = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1"),
+                            ProductVariantId = 3,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quantity = 3,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012"),
+                            ProductVariantId = 4,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quantity = 1,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            UserId = new Guid("c3e5d7f8-a12b-46cd-b234-5e67f89a0123"),
+                            ProductVariantId = 5,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quantity = 2,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Category", b =>
@@ -362,11 +396,9 @@ namespace SP.Infrastructure.Migrations
 
             modelBuilder.Entity("SP.Domain.Entity.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AddressDetail")
                         .HasMaxLength(200)
@@ -434,6 +466,47 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("WardId");
 
                     b.ToTable("Employee", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("d4f6e8a9-b23c-47de-c345-6f78a90b1234"),
+                            AddressDetail = "123 Lê Lợi, Quận 1, TP. Hồ Chí Minh",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1992, 6, 20),
+                            Email = "anhkhoa@gmail.com",
+                            Name = "anhkhoa",
+                            Password = "anhkhoa",
+                            PhoneNumber = "0909666777",
+                            RoleId = 3,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = new Guid("e5f7a9b0-c34d-58ef-d456-7f89b01c2345"),
+                            AddressDetail = "456 Nguyễn Huệ, Quận 3, TP. Hồ Chí Minh",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1993, 8, 5),
+                            Email = "thuyngan@gmail.com",
+                            Name = "thuyngan",
+                            Password = "thuyngan",
+                            PhoneNumber = "0909777888",
+                            RoleId = 3,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = new Guid("f6a8b0c1-d45e-69ef-e567-8a90b12d3456"),
+                            AddressDetail = "789 Phan Đình Phùng, Quận Bình Thạnh, TP. Hồ Chí Minh",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1994, 12, 10),
+                            Email = "vandung@gmail.com",
+                            Name = "vandung",
+                            Password = "vandung",
+                            PhoneNumber = "0909888999",
+                            RoleId = 3,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.FeedBack", b =>
@@ -453,8 +526,8 @@ namespace SP.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ProductVariantId")
                         .HasColumnType("int");
@@ -467,16 +540,73 @@ namespace SP.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("ProductVariantId", "OrderId");
+                    b.HasIndex("OrderId", "ProductVariantId");
 
                     b.ToTable("Feedback", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Comment = "Sản phẩm rất tốt!",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c193"),
+                            ProductVariantId = 1,
+                            Rating = 4,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022")
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Comment = "Chất lượng không như mong đợi.",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c111"),
+                            ProductVariantId = 2,
+                            Rating = 2,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be")
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Comment = "Rất hài lòng với sản phẩm này.",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c666"),
+                            ProductVariantId = 3,
+                            Rating = 5,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1")
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Comment = "Giao hàng nhanh chóng, sản phẩm chất lượng.",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c178"),
+                            ProductVariantId = 4,
+                            Rating = 4,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012")
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Comment = "Sản phẩm đẹp nhưng giá hơi cao.",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c192"),
+                            ProductVariantId = 5,
+                            Rating = 3,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012")
+                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Image", b =>
@@ -523,19 +653,17 @@ namespace SP.Infrastructure.Migrations
 
             modelBuilder.Entity("SP.Domain.Entity.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -549,8 +677,8 @@ namespace SP.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -559,12 +687,64 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Order", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c193"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = new Guid("d4f6e8a9-b23c-47de-c345-6f78a90b1234"),
+                            Status = "Pending",
+                            TotalPrice = 3000000m,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022")
+                        },
+                        new
+                        {
+                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c111"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = new Guid("e5f7a9b0-c34d-58ef-d456-7f89b01c2345"),
+                            Status = "Confirmed",
+                            TotalPrice = 1600000m,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be")
+                        },
+                        new
+                        {
+                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c666"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = new Guid("f6a8b0c1-d45e-69ef-e567-8a90b12d3456"),
+                            Status = "Shipping",
+                            TotalPrice = 2400000m,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1")
+                        },
+                        new
+                        {
+                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c178"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = new Guid("d4f6e8a9-b23c-47de-c345-6f78a90b1234"),
+                            Status = "Delivered",
+                            TotalPrice = 2400000m,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012")
+                        },
+                        new
+                        {
+                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c192"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EmployeeId = new Guid("e5f7a9b0-c34d-58ef-d456-7f89b01c2345"),
+                            Status = "Canceled",
+                            TotalPrice = 1700000m,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = new Guid("c3e5d7f8-a12b-46cd-b234-5e67f89a0123")
+                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.OrderDetail", b =>
                 {
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("ProductVariantId")
                         .HasColumnType("int");
@@ -590,6 +770,53 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("ProductVariantId");
 
                     b.ToTable("OrderDetail", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c193"),
+                            ProductVariantId = 1,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 1500000m,
+                            Quantity = 2,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c111"),
+                            ProductVariantId = 2,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 1600000m,
+                            Quantity = 1,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c666"),
+                            ProductVariantId = 3,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 800000m,
+                            Quantity = 3,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c178"),
+                            ProductVariantId = 4,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 1200000m,
+                            Quantity = 2,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c192"),
+                            ProductVariantId = 5,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Price = 1700000m,
+                            Quantity = 1,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Product", b =>
@@ -646,6 +873,63 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("SubCategoryId");
 
                     b.ToTable("Product", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BrandId = 1,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Giày thể thao Nike Air Max chính hãng",
+                            IsActive = false,
+                            ProductName = "Giày Nike Air Max",
+                            SubCategoryId = 1,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BrandId = 2,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Áo thun Adidas Originals nam nữ",
+                            IsActive = false,
+                            ProductName = "Áo Adidas Originals",
+                            SubCategoryId = 3,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BrandId = 3,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Quần thể thao Puma Sport",
+                            IsActive = false,
+                            ProductName = "Quần Puma Sport",
+                            SubCategoryId = 5,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BrandId = 5,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Giày chạy bộ New Balance Fresh Foam",
+                            IsActive = false,
+                            ProductName = "Giày New Balance Fresh Foam",
+                            SubCategoryId = 1,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BrandId = 4,
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Áo khoác thể thao Under Armour",
+                            IsActive = false,
+                            ProductName = "Áo khoác Under Armour",
+                            SubCategoryId = 4,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.ProductVariant", b =>
@@ -693,6 +977,68 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductVariant", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Color = "back",
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Price = 1500000m,
+                            ProductId = 1,
+                            Quantity = 100,
+                            Size = "M",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Color = "white",
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Price = 1600000m,
+                            ProductId = 1,
+                            Quantity = 50,
+                            Size = "L",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Color = "green",
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Price = 800000m,
+                            ProductId = 2,
+                            Quantity = 200,
+                            Size = "S",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Color = "red",
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Price = 1200000m,
+                            ProductId = 3,
+                            Quantity = 80,
+                            Size = "M",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Color = "yellow",
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Price = 1700000m,
+                            ProductId = 4,
+                            Quantity = 30,
+                            Size = "L",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Province", b =>
@@ -872,11 +1218,9 @@ namespace SP.Infrastructure.Migrations
 
             modelBuilder.Entity("SP.Domain.Entity.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AddressDetail")
                         .HasMaxLength(50)
@@ -952,23 +1296,68 @@ namespace SP.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022"),
+                            AddressDetail = "123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1985, 4, 12),
                             Email = "admin@gmail.com",
                             Password = "admin",
+                            PhoneNumber = "0909123456",
                             RoleId = 1,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = 2,
+                            Id = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be"),
+                            AddressDetail = "100 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "ngoc@gmail.com",
-                            Password = "ngoc123",
-                            RoleId = 0,
+                            DateOfBirth = new DateOnly(1980, 9, 25),
+                            Email = "manager@gmail.com",
+                            Password = "manager",
+                            PhoneNumber = "0909999999",
+                            RoleId = 2,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "Nguyen Bao Ngoc"
+                            UserName = "manager"
+                        },
+                        new
+                        {
+                            Id = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1"),
+                            AddressDetail = "456 Phố Huế, Quận Hai Bà Trưng, Hà Nội",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1995, 5, 10),
+                            Email = "nguyenvana@gmail.com",
+                            Password = "user123",
+                            PhoneNumber = "0911222333",
+                            RoleId = 4,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "nguyenvana"
+                        },
+                        new
+                        {
+                            Id = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012"),
+                            AddressDetail = "789 Đường Trần Phú, Thành phố Đà Nẵng",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1997, 3, 15),
+                            Email = "tranthib@gmail.com",
+                            Password = "user456",
+                            PhoneNumber = "0933444555",
+                            RoleId = 4,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "tranthib"
+                        },
+                        new
+                        {
+                            Id = new Guid("c3e5d7f8-a12b-46cd-b234-5e67f89a0123"),
+                            AddressDetail = "11 Nguyễn Trãi, Quận Thanh Xuân, Hà Nội",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateOfBirth = new DateOnly(1996, 8, 22),
+                            Email = "lethic@gmail.com",
+                            Password = "user789",
+                            PhoneNumber = "0909777888",
+                            RoleId = 4,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserName = "lethic"
                         });
                 });
 
@@ -1060,7 +1449,7 @@ namespace SP.Infrastructure.Migrations
 
                     b.HasOne("SP.Domain.Entity.OrderDetail", "OrderDetail")
                         .WithMany("FeedBacks")
-                        .HasForeignKey("ProductVariantId", "OrderId")
+                        .HasForeignKey("OrderId", "ProductVariantId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

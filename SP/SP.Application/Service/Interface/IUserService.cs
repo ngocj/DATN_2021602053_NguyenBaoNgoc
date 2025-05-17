@@ -10,10 +10,10 @@ namespace SP.Application.Service.Interface
     public interface IUserService
     {
         Task<IEnumerable<User>> GetAllUsers();
-        Task<User> GetUserById(int id);
+        Task<User> GetUserById(Guid id);
         Task CreateUser(User user);
         Task UpdateUser(User user);
-        Task DeleteUser(int id);
+        Task DeleteUser(Guid id);
 
     }
 }

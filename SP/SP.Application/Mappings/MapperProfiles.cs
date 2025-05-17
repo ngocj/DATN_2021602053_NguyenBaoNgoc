@@ -43,8 +43,12 @@ namespace SP.Application.Mappings
             CreateMap<OrderDetail, OrderDetailViewDto>().ReverseMap();
             CreateMap<OrderDetail, OrderDetailCreateDto>().ReverseMap();
 
-            CreateMap<Order, OrderViewDto>().ReverseMap();
+           
             CreateMap<Order, OrderCreateDto>().ReverseMap();
+            CreateMap<Order, OrderViewDto>()
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName))
+                .ForMember(dest => dest.EmployeeName, opt => opt.MapFrom(src => src.Employee.Name))
+                .ReverseMap();
 
             CreateMap<Cart, CartViewDto>().ReverseMap();
             CreateMap<Cart, CartCreateDto>().ReverseMap();
@@ -54,6 +58,7 @@ namespace SP.Application.Mappings
 
             CreateMap<Category,CategoryViewDto >().ReverseMap();
             CreateMap<Category, CategoryCreateDto>().ReverseMap();
+            CreateMap<Category, CategoryUpdateDto>().ReverseMap();
 
             CreateMap<SubCategory, SubCategoryViewDto>().ReverseMap();
             CreateMap<SubCategory, SubCategoryCreateDto>().ReverseMap();
@@ -87,8 +92,14 @@ namespace SP.Application.Mappings
             CreateMap<Product, ProductCreateDto>().ReverseMap();
             CreateMap<Product, ProductUpdateDto>().ReverseMap();
 
-            CreateMap<ProductVariant, VariantViewDto>().ReverseMap();
+            
+            CreateMap<ProductVariant, VariantViewDto>()
+                .ForMember(dest => dest.ProductName, opt => opt.MapFrom(src => src.Product.ProductName))              
+                .ReverseMap();
             CreateMap<ProductVariant, VariantCreateDto>().ReverseMap();
+            CreateMap<VariantUpdateDto, ProductVariant>()
+            .ForMember(dest => dest.Images, opt => opt.Ignore());
+         
 
             // registerDto
             CreateMap<User, RegisterDto>().ReverseMap();

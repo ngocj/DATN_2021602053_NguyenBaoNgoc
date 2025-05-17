@@ -10,10 +10,10 @@ namespace SP.Application.Service.Interface
     public interface IOrderService
     {
         Task<IEnumerable<Order>> GetAllOrders();
-        Task<Order> GetOrderById(int id);
+        Task<Order> GetOrderById(Guid id);
         Task CreateOrder(Order order);
         Task UpdateOrder(Order order);
-        Task DeleteOrder(int id);
+        Task DeleteOrder(Guid id);
 
     }
 }

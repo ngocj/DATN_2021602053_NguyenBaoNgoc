@@ -19,9 +19,17 @@ namespace SP.Infrastructure.Repositories.Implement
         {
             // include image
             return  await _SPContext.ProductVariants
+                .Include(p => p.Product)
                 .Include(im => im.Images).ToListAsync();
 
         }
+        public async override Task<ProductVariant> GetByIdAsync(int id)
+        {
+            return await _SPContext.ProductVariants
+               .Include(im => im.Images)
+               .FirstOrDefaultAsync(p => p.Id == id);
+        }
+     
     }
     
 }
