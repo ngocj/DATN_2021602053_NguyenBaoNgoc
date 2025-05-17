@@ -33,6 +33,7 @@ namespace SP.WebApp.Controllers
         //get all products
         public async Task<ActionResult> GetAllProduct()
         {
+
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/product");
             return View(response);
         }

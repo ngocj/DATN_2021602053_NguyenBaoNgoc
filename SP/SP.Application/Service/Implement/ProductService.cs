@@ -108,5 +108,9 @@ namespace SP.Application.Service.Implement
             }
             
         }
+        public async Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? categoryId, int? brandId, bool? isActive)
+        {
+            return await _unitOfWork.ProductRepository.GetAllByCategoryAndBrandAsync(categoryId, brandId, isActive);
+        }
     }
 }

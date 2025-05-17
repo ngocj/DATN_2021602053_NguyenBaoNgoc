@@ -117,6 +117,34 @@ namespace SP.Infrastructure.Repositories.Implement
                     .OrderBy(p => p.CreatedAt)
                     .ToListAsync();
         }
+        // filer product by category and brand and isActive
+        public async Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? categoryId, int? brandId, bool? isActive)
+        {
+            var query = _SPContext.Set<Product>()
+                    .Include(p => p.SubCategory)
+                    .Include(p => p.Brand)
+                    .Include(p => p.Discount)
+                    .Include(p => p.ProductVariants)
+                    .ThenInclude(pv => pv.Images)
+                    .AsQueryable();
+
+            if (categoryId.HasValue)
+            {
+                query = query.Where(p => p.SubCategoryId == categoryId.Value);
+            }
+
+            if (brandId.HasValue)
+            {
+                query = query.Where(p => p.BrandId == brandId.Value);
+            }
+
+            if (isActive.HasValue)
+            {
+                query = query.Where(p => p.IsActive == isActive.Value);
+            }
+
+            return await query.ToListAsync();
+        }
     }
 
 }

@@ -90,6 +90,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcnlcVXBkYXRlQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Discount/CreateDiscount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRcQ3JlYXRlRGlzY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Discount/UpdateDiscount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRcVXBkYXRlRGlzY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Feedback/DetailFeedback.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tcRGV0YWlsRmVlZGJhY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -184,6 +192,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/SubCategory/CreateSubCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcnlcQ3JlYXRlU3ViQ2F0ZWdvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/SubCategory/UpdateSubCategory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcnlcVXBkYXRlU3ViQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/User/GetUserById.cshtml]

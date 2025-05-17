@@ -23,9 +23,7 @@ namespace SP.Infrastructure.Configuration
             builder.Property(e => e.Email).IsRequired().HasMaxLength(100);
             builder.HasIndex(e => e.Email).IsUnique();
 
-            builder.Property(e => e.Password).IsRequired().HasMaxLength(100);
-            builder.HasIndex(e => e.Password).IsUnique();
-
+            builder.Property(e => e.Password).IsRequired().HasMaxLength(100);         
 
             builder.Property(e => e.PhoneNumber).HasMaxLength(15);
             builder.HasIndex(e => e.PhoneNumber).IsUnique();

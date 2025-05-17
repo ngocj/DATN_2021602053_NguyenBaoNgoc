@@ -29,7 +29,7 @@ namespace SP.WebApp.Controllers
             }
             else
             {
-                TempData["Error"] = "Thêm danh mục không thành công.";
+                TempData["Error"] = "Tên danh mục đã tồn tại.";
             }
             return RedirectToAction("GetAllCategory", "Admin");
         }
@@ -50,7 +50,7 @@ namespace SP.WebApp.Controllers
             }
             else
             {
-                TempData["Error"] = "Cập nhật danh mục không thành công.";
+                TempData["Error"] = "Tên danh mục đã tồn tại.";
             }
             return RedirectToAction("GetAllCategory", "Admin");
         }

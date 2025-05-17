@@ -28,7 +28,7 @@ namespace SP.WebApp.Controllers
             }
             else
             {
-                TempData["Error"] = "Thêm thương hiệu không thành công.";
+                TempData["Error"] = "Tên thương hiệu đã tồn tại.";
             }
             return RedirectToAction("GetAllBrand", "Admin");
         }
@@ -47,7 +47,7 @@ namespace SP.WebApp.Controllers
             }
             else
             {
-                TempData["Error"] = "Cập nhật thương hiệu không thành công.";
+                TempData["Error"] = "Tên thương hiệu đã tồn tại.";
             }
             return RedirectToAction("GetAllBrand", "Admin");
         }

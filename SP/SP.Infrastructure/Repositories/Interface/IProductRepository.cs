@@ -32,6 +32,9 @@ namespace SP.Infrastructure.Repositories.Interface
 
         // sort product by older -> newer
          Task<IEnumerable<Product>> GetAllByOlderAsync();
+
+        // filter product by category and brand
+        Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? categoryId, int? brandId, bool? isActive);
    
 
     }

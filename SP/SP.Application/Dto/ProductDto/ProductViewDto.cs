@@ -21,6 +21,7 @@ namespace SP.Application.Dto.ProductDto
         public List<VariantViewDto> ProductVariants { get; set; } = new List<VariantViewDto>();
   
         public string  SubCategoryName { get; set; }
+
         public string CategoryName { get; set; }
         public string BrandName { get; set; }
         public int Percent { get; set; }

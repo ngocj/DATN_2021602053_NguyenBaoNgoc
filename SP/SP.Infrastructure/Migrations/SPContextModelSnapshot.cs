@@ -294,6 +294,11 @@ namespace SP.Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<int>("Percent")
                         .HasColumnType("int");
 
@@ -303,6 +308,9 @@ namespace SP.Infrastructure.Migrations
                         .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique();
 
                     b.ToTable("Discount", (string)null);
 
@@ -315,6 +323,7 @@ namespace SP.Infrastructure.Migrations
                             DateStart = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Giảm 10% mừng khai trương",
                             IsActive = true,
+                            Name = "Khuyến mãi khai trương",
                             Percent = 10,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -326,6 +335,7 @@ namespace SP.Infrastructure.Migrations
                             DateStart = new DateTime(2024, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Ưu đãi mùa hè",
                             IsActive = true,
+                            Name = "Giảm giá mùa hè",
                             Percent = 15,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -337,6 +347,7 @@ namespace SP.Infrastructure.Migrations
                             DateStart = new DateTime(2024, 1, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Giảm giá sốc cuối tuần",
                             IsActive = true,
+                            Name = "Giảm giá cuối tuần",
                             Percent = 20,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -348,6 +359,7 @@ namespace SP.Infrastructure.Migrations
                             DateStart = new DateTime(2024, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Giảm nhẹ cho khách quen",
                             IsActive = true,
+                            Name = "Khuyến mãi cho khách hàng thân thiết",
                             Percent = 5,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -359,6 +371,7 @@ namespace SP.Infrastructure.Migrations
                             DateStart = new DateTime(2024, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Black Friday Sale",
                             IsActive = true,
+                            Name = "Giảm giá Black Friday",
                             Percent = 25,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -452,9 +465,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.HasIndex("Password")
                         .IsUnique();
 
                     b.HasIndex("PhoneNumber")
@@ -646,7 +656,8 @@ namespace SP.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductVariantId");
+                    b.HasIndex("ProductVariantId", "FileName")
+                        .IsUnique();
 
                     b.ToTable("Image", (string)null);
                 });
@@ -870,6 +881,9 @@ namespace SP.Infrastructure.Migrations
 
                     b.HasIndex("DiscountId");
 
+                    b.HasIndex("ProductName")
+                        .IsUnique();
+
                     b.HasIndex("SubCategoryId");
 
                     b.ToTable("Product", (string)null);
@@ -942,7 +956,7 @@ namespace SP.Infrastructure.Migrations
 
                     b.Property<string>("Color")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -965,7 +979,7 @@ namespace SP.Infrastructure.Migrations
 
                     b.Property<string>("Size")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
@@ -974,7 +988,8 @@ namespace SP.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId", "Color", "Size")
+                        .IsUnique();
 
                     b.ToTable("ProductVariant", (string)null);
 
@@ -982,7 +997,7 @@ namespace SP.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            Color = "back",
+                            Color = "black",
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = false,
                             Price = 1500000m,

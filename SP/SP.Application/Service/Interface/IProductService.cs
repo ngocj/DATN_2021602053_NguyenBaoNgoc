@@ -14,6 +14,8 @@ namespace SP.Application.Service.Interface
         Task CreateProduct(Product product);
         Task UpdateProduct(Product product);
         Task DeleteProduct(int id);
+
+        // sorting
         Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId);
         Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId);
         Task<IEnumerable<Product>> GetAllProductsByLastest();
@@ -23,5 +25,8 @@ namespace SP.Application.Service.Interface
         Task<IEnumerable<Product>> GetAllProductsByAZ();
         Task<IEnumerable<Product>> GetAllProductsByZA();
         Task<IEnumerable<Product>> GetAllProductsByOlder();
+
+        // filter
+        Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? categoryId, int? brandId, bool? isActive);
     }
 }

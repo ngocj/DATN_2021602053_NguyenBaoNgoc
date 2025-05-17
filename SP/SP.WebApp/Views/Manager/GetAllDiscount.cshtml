@@ -10,7 +10,7 @@
                         <h2 class="page-title">
                             <i class="bi bi-briefcase"></i> Quản lý mã giảm giá
                         </h2>
-                        <a href="@Url.Action("CreateBrand", "Brand")" class="btn btn-primary">
+                <a href="@Url.Action("CreateDiscount", "Discount")" class="btn btn-primary">
                             <i class="bi bi-plus-circle me-1"></i> Thêm  mới
                         </a>
                     </div>
@@ -19,10 +19,9 @@
 
             <div class="card shadow-sm">
                 <div class="card-header bg-white py-3">
-                    <form method="get" asp-action="GetAllCategory" asp-controller="Admin">
+                    <form method="get" asp-action="GetAllDiscount" asp-controller="Manager">
                         <div class="input-group search-wrapper">
-                            <input type="text" name="searchItem" class="form-control border-start-0"
-                                   placeholder="Tìm kiếm danh mục..." value="@Context.Request.Query["searchItem"]">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm mã giảm giá theo tên..." />
                             <button type="submit" class="btn btn-primary">
                                 <i class="bi bi-search me-1"></i> Tìm kiếm
                             </button>
@@ -50,19 +49,19 @@
                                     ? "badge bg-success-subtle text-success"
                                     : "badge bg-danger-subtle text-danger";
                                     var statusText = discount.IsActive ? "Hoạt động" : "Không hoạt động";
-                                    <tr class="text-center align-middle">
+                                    <tr data-name="@discount.Name.ToLower()" class="text-center align-middle">    
                                         <td class="text-center">@discount.Id</td>
-                                        <td class="text-center">@discount.Description</td>
+                                        <td class="text-center">@discount.Name</td>
                                         <td class="text-center">@discount.Percent %</td>
                                         <td class="text-center">@discount.DateStart.ToString("dd/MM/yyyy")</td>
                                         <td class="text-center">@discount.DateEnd.ToString("dd/MM/yyyy")</td>
                                         <td class="text-center"><span class="@statusClass status-badge">@statusText</span></td>
                                         <td class="text-center">
                                             <div class="action-buttons justify-content-center">
-                                                <a href="@Url.Action("Edit", new { id = discount.Id })" class="btn btn-sm btn-primary action-btn" data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                                <a href="@Url.Action("UpdateDiscount", "Discount" ,new { id = discount.Id })" class="btn btn-sm btn-primary action-btn" data-bs-toggle="tooltip" title="Chỉnh sửa">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="@Url.Action("Delete", new { id = discount.Id })" class="btn btn-sm btn-danger action-btn" data-bs-toggle="tooltip" title="Xóa" onclick="return confirm('Bạn có chắc muốn xóa mã giảm giá này không?');">
+                                                <a href="@Url.Action("DeleteDiscount","Discount" , new { id = discount.Id })" class="btn btn-sm btn-danger action-btn" data-bs-toggle="tooltip" title="Xóa" onclick="return confirm('Bạn có chắc muốn xóa mã giảm giá này không?');">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </div>
@@ -217,5 +216,20 @@
         $(function () {
             $('[data-bs-toggle="tooltip"]').tooltip();
         });
+
+          document.getElementById('searchInput').addEventListener('keyup', function () {
+                const searchTerm = this.value.toLowerCase();
+
+            document.querySelectorAll('tbody tr[data-name]').forEach(function (row) {
+                const description = row.getAttribute('data-name');
+                    if (description.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+
+
     </script>
 }

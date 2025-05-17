@@ -212,7 +212,7 @@ namespace SP.Infrastructure.Context
                     Id = 1,
                     ProductId = 1,
                     Size = "M",
-                    Color = "back",
+                    Color = "black",
                     Price = 1500000,
                     Quantity = 100,
                     CreatedAt = defaultDateProduct
@@ -478,6 +478,7 @@ namespace SP.Infrastructure.Context
                 new Discount
                 {
                     Id = 1,
+                    Name = "Khuyến mãi khai trương",    
                     Percent = 10,
                     Description = "Giảm 10% mừng khai trương",
                     IsActive = true,
@@ -487,6 +488,7 @@ namespace SP.Infrastructure.Context
                 new Discount
                 {
                     Id = 2,
+                    Name = "Giảm giá mùa hè",
                     Percent = 15,
                     Description = "Ưu đãi mùa hè",
                     IsActive = true,
@@ -496,6 +498,7 @@ namespace SP.Infrastructure.Context
                 new Discount
                 {
                     Id = 3,
+                    Name = "Giảm giá cuối tuần",
                     Percent = 20,
                     Description = "Giảm giá sốc cuối tuần",
                     IsActive = true,
@@ -505,6 +508,7 @@ namespace SP.Infrastructure.Context
                 new Discount
                 {
                     Id = 4,
+                    Name = "Khuyến mãi cho khách hàng thân thiết",
                     Percent = 5,
                     Description = "Giảm nhẹ cho khách quen",
                     IsActive = true,
@@ -514,6 +518,7 @@ namespace SP.Infrastructure.Context
                 new Discount
                 {
                     Id = 5,
+                    Name = "Giảm giá Black Friday",
                     Percent = 25,
                     Description = "Black Friday Sale",
                     IsActive = true,

@@ -28,14 +28,13 @@
             <form method="get" asp-action="Index" asp-controller="Product" class="row g-3">
                 <div class="col-md-3">
                     <div class="input-group">
-                        <input type="text" name="searchTerm" class="form-control border-start-0" 
-                               placeholder="Tìm kiếm sản phẩm..." value="@Context.Request.Query["searchTerm"]">
+                        <input type="text" id="searchInput" class="form-control border-start-0"
+                               placeholder="Tìm kiếm sản phẩm...">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <select name="categoryId" class="form-select">
-                        <option value="">-- Tất cả danh mục --</option>
-                        <!-- Add category options here -->
+                        <option value="">-- Tất cả danh mục --</option>                    
                     </select>
                 </div>
                 <div class="col-md-3">
@@ -50,14 +49,6 @@
                         <option value="true">Đang bán</option>
                         <option value="false">Ngừng bán</option>
                     </select>
-                </div>
-                <div class="col-md-12 text-end">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-funnel-fill me-1"></i>Lọc
-                    </button>
-                    <a href="@Url.Action("Index", "Product")" class="btn btn-outline-secondary">
-                        <i class="bi bi-arrow-counterclockwise me-1"></i>Đặt lại
-                    </a>
                 </div>
             </form>
         </div>
@@ -95,7 +86,7 @@
                                 
                                 string stockClass = stock <= 0 ? "out-of-stock" : (stock <= 10 ? "low-stock" : "");
 
-                                <tr class="@stockClass">
+                                <tr class="@stockClass" data-product="@product.ProductName?.ToLower()">
                                     <td class="text-center">@(stt++)</td>
                                     <td>
                                         <div class="product-img-wrapper">
@@ -531,6 +522,19 @@
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
             return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    });
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        const searchTerm = this.value.toLowerCase();
+
+        document.querySelectorAll('tbody tr[data-product]').forEach(function (row) {
+            const ProductName = row.getAttribute('data-product');
+            if (ProductName.includes(searchTerm)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
         });
     });
 </script>

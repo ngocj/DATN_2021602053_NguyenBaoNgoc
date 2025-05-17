@@ -98,10 +98,20 @@ namespace SP.WebApp.Controllers
                 ModelState.AddModelError("", "Không thể lấy ProductId từ phản hồi.");
                 return View(productCreateDto);
             }
-
-            ModelState.AddModelError("", "Có lỗi xảy ra khi tạo sản phẩm.");
+            // tempdata thông báo lỗi
+            TempData["Error"] = "Tên sản phẩm đã tồn tại.";     
             return View(productCreateDto);
         }
+      /*  // get all product by brand and subcategory  and isactive 
+        public async Task<IActionResult> GetAllByCategoryAndBrand(int? categoryId, int? brandId, bool? isActive)
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/filter");
+            if (response == null)
+            {
+                return NotFound();
+            }
+            return View(response);
+        }*/
 
         public async Task<ActionResult> Edit(int id)
         {
@@ -188,5 +198,6 @@ namespace SP.WebApp.Controllers
             }
             return RedirectToAction("GetAllProduct", "Admin");
         }
+
     }
 }

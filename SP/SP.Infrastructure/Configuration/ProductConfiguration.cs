@@ -19,6 +19,7 @@ namespace SP.Infrastructure.Configuration
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
            
             builder.Property(p => p.ProductName).IsRequired().HasMaxLength(100);
+            builder.HasIndex(p => p.ProductName).IsUnique();
 
             builder.Property(p => p.Description).IsRequired().HasMaxLength(500);
 

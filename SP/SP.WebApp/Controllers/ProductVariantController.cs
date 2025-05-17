@@ -58,10 +58,11 @@ namespace SP.WebApp.Controllers
             {
                 TempData["Success"] = "Tạo biến thể sản phẩm thành công.";
                 return RedirectToAction("Details", "Product", new { Id = variantCreateDto.ProductId });
+
             }
             else
             {
-                TempData["Error"] = "Tạo biến thể sản phẩm thất bại.";
+                TempData["Error"] = "(Kích cỡ màu sắc) hoặc ảnh đã tồn tại .";
                 return View(variantCreateDto);
             }
 
@@ -138,7 +139,7 @@ namespace SP.WebApp.Controllers
             }
             else
             {
-                TempData["Error"] = "Cập nhật biến thể sản phẩm thất bại.";
+                TempData["Error"] = "(Kích cỡ màu sắc) hoặc ảnh đã tồn tại .";
                 return View(variantUpdateDto);
             }
         }

@@ -8,9 +8,9 @@ namespace SP.Domain.Entity
 {
     public class SubCategory : Base
     {
-        public string Name { get; set; }
-        public Category Category { get; set; }
         public int CategoryId { get; set; }
+        public string Name { get; set; }    
+        public Category Category { get; set; }
         public List<Product>? Products { get; set; } = new List<Product>();
     
     }

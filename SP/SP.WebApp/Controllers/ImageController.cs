@@ -57,7 +57,7 @@ namespace SP.WebApp.Controllers
             }
             else
             {
-                TempData["Error"] = "Tải ảnh lên thất bại.";
+                TempData["Error"] = "Hình ảnh đã tồn tại.";
             }
 
             return RedirectToAction("GetAllProductVariant", "ProductVariant");

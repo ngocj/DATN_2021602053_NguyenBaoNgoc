@@ -9,6 +9,7 @@ namespace SP.Application.Dto.DiscountDto
 {
     public class DiscountViewDto
     {
+        public string Name { get; set; }
         public int Id { get; set; }
         public int Percent { get; set; }
         public string? Description { get; set; }

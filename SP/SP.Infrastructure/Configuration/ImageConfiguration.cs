@@ -15,6 +15,7 @@ namespace SP.Infrastructure.Configuration
         {
             builder.ToTable("Image");
 
+
             builder.HasKey(i => i.Id);
             builder.Property(i => i.Id).ValueGeneratedOnAdd();
 
@@ -28,6 +29,9 @@ namespace SP.Infrastructure.Configuration
             builder.Property(i => i.ContentType)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            builder.HasIndex(i => new { i.ProductVariantId, i.FileName })
+                .IsUnique();
 
             builder.Property(i => i.CreatedAt)
                 .HasColumnType("datetime2")

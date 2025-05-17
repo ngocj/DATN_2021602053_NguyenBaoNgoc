@@ -19,6 +19,7 @@ namespace SP.Infrastructure.Configuration
 
             builder.Property(b => b.BrandName).IsRequired().HasMaxLength(100);
             builder.HasIndex(b => b.BrandName).IsUnique();
+
             builder.Property(b => b.Description).HasMaxLength(500);
             builder.Property(b => b.IsActive).HasDefaultValue(true).IsRequired();
 

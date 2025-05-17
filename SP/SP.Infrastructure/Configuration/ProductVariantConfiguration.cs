@@ -27,6 +27,9 @@ namespace SP.Infrastructure.Configuration
 
             builder.Property(p => p.Size).IsRequired();
 
+            builder.HasIndex(p => new { p.ProductId, p.Color, p.Size })
+            .IsUnique();
+
             builder.Property(p => p.CreatedAt)
                 .HasColumnType("datetime2")
                 .HasDefaultValueSql("GETDATE()");

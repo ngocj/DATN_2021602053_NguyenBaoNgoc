@@ -59,6 +59,37 @@ namespace SP.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPut]
+        public async Task<IActionResult> UpdateSubCategory([FromBody] SubCategoryViewDto subCategoryUpdateDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var subCategory = _mapper.Map<SubCategory>(subCategoryUpdateDto);
+                await _subCategoryService.UpdateSubCategory(subCategory);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSubCategory(int id)
+        {
+            var subCategory = await _subCategoryService.GetSubCategoryById(id);
+            if (subCategory == null)
+            {
+                return NotFound();
+            }
+
+            await _subCategoryService.DeleteSubCategory(id);
+            return Ok();
+        }
 
     }
 }

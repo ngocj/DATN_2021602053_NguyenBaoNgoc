@@ -19,7 +19,9 @@ namespace SP.Infrastructure.Configuration
 
             builder.Property(c => c.CategoryName).IsRequired().HasMaxLength(100);
             builder.HasIndex(c => c.CategoryName).IsUnique();
+
             builder.Property(c => c.Description).HasMaxLength(500);
+
             builder.Property(c => c.IsActive).HasDefaultValue(true).IsRequired();
 
             builder.Property(c => c.CreatedAt)
