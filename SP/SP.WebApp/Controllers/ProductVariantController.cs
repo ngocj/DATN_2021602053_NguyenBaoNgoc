@@ -67,7 +67,6 @@ namespace SP.WebApp.Controllers
             }
 
         }
- 
         public async Task<IActionResult> DeleteProductVariant(int id)
         {
             var variantResponse = await _httpClient.GetFromJsonAsync<VariantViewDto>($"{ApiUrl}/{id}");

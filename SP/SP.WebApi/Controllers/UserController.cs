@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SP.Application.Dto.UserDto;
 using SP.Application.Service.Interface;
 using SP.Domain.Entity;
+using SP.Infrastructure.Context;
 
 namespace SP.WebApi.Controllers
 {
@@ -14,11 +16,13 @@ namespace SP.WebApi.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IUserService _userService;
+        private readonly SPContext _context;
 
-        public UserController(IMapper mapper, IUserService userService)
+        public UserController(IMapper mapper, IUserService userService, SPContext context)
         {
             _mapper = mapper;
             _userService = userService;
+            _context = context;
         }
 
         [HttpGet]
@@ -51,39 +55,45 @@ namespace SP.WebApi.Controllers
 
             try
             {
+                // Kiểm tra email trùng
+                if (await _context.Users.AnyAsync(u => u.Email == userCreateDto.Email))
+                {
+                    return Conflict(new { field = "Email", message = "Email đã tồn tại." });
+                }
+
+                // Kiểm tra số điện thoại trùng
+                if (await _context.Users.AnyAsync(u => u.PhoneNumber == userCreateDto.PhoneNumber))
+                {
+                    return Conflict(new { field = "PhoneNumber", message = "Số điện thoại đã tồn tại." });
+                }
+
                 var user = _mapper.Map<User>(userCreateDto);
                 var passwordHasher = new PasswordHasher<User>();
                 user.PasswordHash = passwordHasher.HashPassword(user, userCreateDto.Password);
+
                 await _userService.CreateUser(user);
+
                 return Ok();
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Email"))
-                {
-                    return Conflict("Email đã tồn tại.");
-                }
-                else if (ex.Message.Contains("Phone number"))
-                {
-                    return StatusCode(403, "Số điện thoại đã tồn tại.");
-                }
-                return StatusCode(500, "Có lỗi xảy ra khi tạo người dùng.");
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi tạo người dùng.", detail = ex.Message });
             }
         }
-    
+
         [HttpPut]
-        public async Task<IActionResult> UpdateUser([FromBody] UserViewDto userViewDto)
+        public async Task<IActionResult> UpdateUser([FromBody] UserUpdateDto userUpdateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var user = await _userService.GetUserById(userViewDto.Id);
+            var user = await _userService.GetUserById(userUpdateDto.Id);
             if (user == null)
             {
                 return NotFound();
             }
-            var updatedUser = _mapper.Map<User>(userViewDto);
+            var updatedUser = _mapper.Map<User>(userUpdateDto);
             await _userService.UpdateUser(updatedUser);
             return Ok();
         }

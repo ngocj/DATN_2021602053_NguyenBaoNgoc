@@ -20,9 +20,16 @@ namespace SP.Infrastructure.Repositories.Implement
         {
             return await _SPContext.Set<User>()
                 .Include(u => u.Role)
-                .Where(u => u.RoleId == 4)
+                .OrderBy(u => u.Role.RoleName) // Sắp xếp theo tên vai trò
                 .ToListAsync();
         }
+        public override async Task<User> GetByIdAsync(Guid id)
+        {
+            return await _SPContext.Set<User>()
+                .Include(u => u.Role)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
     }
 
 

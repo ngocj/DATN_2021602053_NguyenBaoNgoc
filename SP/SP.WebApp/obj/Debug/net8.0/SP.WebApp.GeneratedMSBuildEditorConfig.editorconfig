@@ -98,6 +98,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzY291bnRcVXBkYXRlRGlzY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Employee/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcQ3JlYXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Employee/DetailEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlsRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Employee/UpdateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcVXBkYXRlRW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Feedback/DetailFeedback.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmVlZGJhY2tcRGV0YWlsRmVlZGJhY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -202,8 +214,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViQ2F0ZWdvcnlcVXBkYXRlU3ViQ2F0ZWdvcnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/User/CreateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/User/DetailUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZXRhaWxVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/User/GetUserById.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRVc2VyQnlJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/User/UpdateUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxVcGRhdGVVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/_ViewImports.cshtml]

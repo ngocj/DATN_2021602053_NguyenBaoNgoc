@@ -14,11 +14,11 @@ namespace SP.Application.Dto.EmployeeDto
         public string Password { get; set; }
         public string? PhoneNumber { get; set; }
         public DateOnly? DateOfBirth { get; set; }
-        public string? AddressDetail { get; set; }    
+        public string? AddressDetail { get; set; }
         public bool? IsActive { get; set; }
         public int RoleId { get; set; }
-
-
+        public string? RoleName { get; set; }
+        public int? WardId { get; set; }
 
     }
 }

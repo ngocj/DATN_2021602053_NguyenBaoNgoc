@@ -27,6 +27,6 @@ namespace SP.Application.Service.Interface
         Task<IEnumerable<Product>> GetAllProductsByOlder();
 
         // filter
-        Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? categoryId, int? brandId, bool? isActive);
+        Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? SubcategoryId, int? brandId, bool? isActive);
     }
 }

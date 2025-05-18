@@ -74,12 +74,22 @@ namespace SP.Application.Mappings
 
             CreateMap<Image, ImageFileDto>().ReverseMap();
 
-
-            CreateMap<User, UserViewDto>().ReverseMap();            
+            // get user name and role name
+            CreateMap<User, UserViewDto>()
+                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName))
+                /*.ForMember(dest => dest.ProvinceName, opt => opt.MapFrom(src => src.Province.Name))
+                .ForMember(dest => dest.DistrictName, opt => opt.MapFrom(src => src.District.Name))
+                .ForMember(dest => dest.WardName, opt => opt.MapFrom(src => src.Ward.Name))*/
+                .ReverseMap();           
             CreateMap<User, UserCreateDto>().ReverseMap();
 
-            CreateMap<Employee, EmployeeViewDto>().ReverseMap();
+           
+
             CreateMap<Employee, EmployeeCreateDto>().ReverseMap();
+            CreateMap<Employee, EmployeeViewDto>()
+                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName))
+                .ReverseMap();
+            CreateMap<Employee, EmployeeUpdateDto>().ReverseMap();
     
             //get name subcategory
       
@@ -103,6 +113,14 @@ namespace SP.Application.Mappings
 
             // registerDto
             CreateMap<User, RegisterDto>().ReverseMap();
+
+
+            CreateMap<User, UserViewDto>()
+                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName))
+                .ReverseMap();
+            CreateMap<User, UserCreateDto>().ReverseMap();
+            CreateMap<User, UserUpdateDto>().ReverseMap();
+
 
 
 

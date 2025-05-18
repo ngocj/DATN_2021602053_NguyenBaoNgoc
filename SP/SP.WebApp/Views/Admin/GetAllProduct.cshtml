@@ -25,7 +25,7 @@
     <!-- Filter and Search Section -->
     <div class="card shadow-sm mb-4">
         <div class="card-body">
-            <form method="get" asp-action="Index" asp-controller="Product" class="row g-3">
+            <form method="get" asp-action="GetAllProduct" asp-controller="Admin" class="row">
                 <div class="col-md-3">
                     <div class="input-group">
                         <input type="text" id="searchInput" class="form-control border-start-0"
@@ -33,22 +33,50 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <select name="categoryId" class="form-select">
-                        <option value="">-- Tất cả danh mục --</option>                    
+                    <select name="SubcategoryId" class="form-select">
+                        <option value="">-- Tất cả danh mục --</option>
+                        @foreach (var subCategory in (SelectList)ViewBag.Categories)
+                        {
+                            if (subCategory.Value == (ViewBag.SelectedSubCategoryId?.ToString() ?? ""))
+                            {
+                                <option value="@subCategory.Value" selected>@subCategory.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@subCategory.Value">@subCategory.Text</option>
+                            }
+                        }
                     </select>
                 </div>
                 <div class="col-md-3">
                     <select name="brandId" class="form-select">
                         <option value="">-- Tất cả thương hiệu --</option>
-                        <!-- Add brand options here -->
+                        @foreach (var brand in (SelectList)ViewBag.Brands)
+                        {
+                            if (brand.Value == (ViewBag.SelectedBrandId?.ToString() ?? ""))
+                            {
+                                <option value="@brand.Value" selected>@brand.Text</option>
+                            }
+                            else
+                            {
+                                <option value="@brand.Value">@brand.Text</option>
+                            }
+                        }
                     </select>
                 </div>
-                <div class="col-md-3">
-                    <select name="status" class="form-select">
-                        <option value="">-- Tất cả trạng thái --</option>
-                        <option value="true">Đang bán</option>
-                        <option value="false">Ngừng bán</option>
-                    </select>
+                <div class="col-md-2">
+                    @Html.DropDownList("isActive", new List<SelectListItem>
+                    {
+                    new SelectListItem { Text = "-- Tất cả trạng thái --", Value = "", Selected = ViewBag.SelectedIsActive == null },
+                    new SelectListItem { Text = "Đang bán", Value = "true", Selected = ViewBag.SelectedIsActive?.ToString().ToLower() == "true" },
+                    new SelectListItem { Text = "Ngừng bán", Value = "false", Selected = ViewBag.SelectedIsActive?.ToString().ToLower() == "false" }
+                    }, new { @class = "form-select" })
+
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary w-20">
+                        <i class="bi bi-funnel-fill me-1"></i> Lọc
+                    </button>
                 </div>
             </form>
         </div>

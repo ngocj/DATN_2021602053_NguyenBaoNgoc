@@ -19,14 +19,11 @@
 
             <div class="card shadow-sm">
                 <div class="card-header bg-white py-3">
-                    <form method="get" asp-action="GetAllDiscount" asp-controller="Manager">
-                        <div class="input-group search-wrapper">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm mã giảm giá theo tên..." />
-                            <button type="submit" class="btn btn-primary">
-                                <i class="bi bi-search me-1"></i> Tìm kiếm
-                            </button>
-                        </div>
-                    </form>
+            <div class="search-box">
+                <input type="text" id="searchInput" class="form-control border-start-0"
+                       placeholder="Tìm kiếm khuyến mãi  ...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
@@ -208,6 +205,23 @@
     .empty-state {
         padding: 2rem 0;
         text-align: center;
+    }
+
+    .search-box {
+        position: relative;
+        width: 300px;
+    }
+
+        .search-box input {
+            padding-right: 35px;
+            border-radius: 20px;
+        }
+
+    .search-icon {
+        position: absolute;
+        right: 12px;
+        top: 10px;
+        color: #aaa;
     }
 
 </style>

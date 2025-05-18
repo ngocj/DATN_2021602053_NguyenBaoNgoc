@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SP.Application.Dto.EmployeeDto;
-using SP.Application.Dto.UserDto;
 using SP.Application.Service.Implement;
 using SP.Application.Service.Interface;
 using SP.Domain.Entity;
+using SP.Infrastructure.Context;
 
 namespace SP.WebApi.Controllers
 {
@@ -15,11 +17,13 @@ namespace SP.WebApi.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IEmployeeService _employeeService;
+        private readonly SPContext _context;
 
-        public EmployeeController(IMapper mapper, IEmployeeService employeeService)
+        public EmployeeController(IMapper mapper, IEmployeeService employeeService, SPContext context)
         {
             _mapper = mapper;
             _employeeService = employeeService;
+            _context = context;
         }
 
         [HttpGet]
@@ -45,28 +49,34 @@ namespace SP.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEmployee([FromBody] EmployeeCreateDto employeeCreateDto)
         {
-          
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
             try
             {
+                // Kiểm tra email trùng
+                if (await _context.Employees.AnyAsync(u => u.Email == employeeCreateDto.Email))
+                {
+                    return Conflict(new { field = "Email", message = "Email đã tồn tại." });
+                }
+
+                // Kiểm tra số điện thoại trùng
+                if (await _context.Employees.AnyAsync(u => u.PhoneNumber == employeeCreateDto.PhoneNumber))
+                {
+                    return Conflict(new { field = "PhoneNumber", message = "Số điện thoại đã tồn tại." });
+                }
                 var employee = _mapper.Map<Employee>(employeeCreateDto);
+
                 await _employeeService.CreateEmployee(employee);
+
                 return Ok();
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Email"))
-                {
-                    return Conflict("Email đã tồn tại.");
-                }
-                else if (ex.Message.Contains("Phone number"))
-                {
-                    return StatusCode(403, "Số điện thoại đã tồn tại.");
-                }
-                return StatusCode(500, "Có lỗi xảy ra khi tạo người dùng.");
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi tạo người dùng.", detail = ex.Message });
             }
         }
 

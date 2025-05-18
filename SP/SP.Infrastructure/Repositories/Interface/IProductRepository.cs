@@ -34,7 +34,7 @@ namespace SP.Infrastructure.Repositories.Interface
          Task<IEnumerable<Product>> GetAllByOlderAsync();
 
         // filter product by category and brand
-        Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? categoryId, int? brandId, bool? isActive);
+        Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? SubcategoryId, int? brandId, bool? isActive);
    
 
     }

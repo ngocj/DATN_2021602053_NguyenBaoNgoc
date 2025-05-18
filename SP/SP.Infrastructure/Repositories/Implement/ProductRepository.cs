@@ -118,7 +118,7 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ToListAsync();
         }
         // filer product by category and brand and isActive
-        public async Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? categoryId, int? brandId, bool? isActive)
+        public async Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? SubcategoryId, int? brandId, bool? isActive)
         {
             var query = _SPContext.Set<Product>()
                     .Include(p => p.SubCategory)
@@ -128,9 +128,9 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ThenInclude(pv => pv.Images)
                     .AsQueryable();
 
-            if (categoryId.HasValue)
+            if (SubcategoryId.HasValue)
             {
-                query = query.Where(p => p.SubCategoryId == categoryId.Value);
+                query = query.Where(p => p.SubCategoryId == SubcategoryId.Value);
             }
 
             if (brandId.HasValue)

@@ -141,9 +141,9 @@ namespace SP.WebApi.Controllers
             return Ok(productDto);
         }
         [HttpGet("filter")]
-        public async Task<IActionResult> GetAllByCategoryAndBrand(int? categoryId, int? brandId, bool? isActive)
+        public async Task<IActionResult> GetAllByCategoryAndBrand(int? SubcategoryId, int? brandId, bool? isActive)
         {
-            var products = await _productService.GetAllByCategoryAndBrandAsync(categoryId, brandId, isActive);
+            var products = await _productService.GetAllByCategoryAndBrandAsync(SubcategoryId, brandId, isActive);
             var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
             return Ok(productDto);
         }

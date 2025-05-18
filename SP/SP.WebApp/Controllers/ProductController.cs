@@ -43,7 +43,7 @@ namespace SP.WebApp.Controllers
             var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl1}brand");
             if (brands == null || !brands.Any())
             {
-                ModelState.AddModelError(string.Empty, "No brands found.");
+                ModelState.AddModelError(string.Empty, "Không tìm thấy thương hiệu nào.");
                 return View();
             }
 
@@ -51,7 +51,7 @@ namespace SP.WebApp.Controllers
             var subCategories = await _httpClient.GetFromJsonAsync<IEnumerable<SubCategoryViewDto>>($"{ApiUrl1}subcategory");
             if (subCategories == null || !subCategories.Any())
             {
-                ModelState.AddModelError(string.Empty, "No subcategories found.");
+                ModelState.AddModelError(string.Empty, "Không tìm thấy danh mục nào");
                 return View();
             }
 
@@ -59,7 +59,7 @@ namespace SP.WebApp.Controllers
             var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Discount");
             if (discounts == null || !discounts.Any())
             {
-                ModelState.AddModelError(string.Empty, "No discounts found.");
+                ModelState.AddModelError(string.Empty, "Không tìm thấy mã giảm giá nào.");
                 return View();
             }
 

@@ -8,12 +8,9 @@
         <div class="header-content">
             <h1><i class="fas fa-users"></i> Quản lý người dùng</h1>
             <div class="actions">
-                <a href="@Url.Action("CreateUser", "Admin")" class="btn btn-success">
+                <a href="@Url.Action("CreateUser", "User")" class="btn btn-success">
                     <i class="fas fa-plus"></i> Thêm người dùng
                 </a>
-                <button id="exportBtn" class="btn btn-info">
-                    <i class="fas fa-file-export"></i> Xuất Excel
-                </button>
             </div>
         </div>
         <p class="text-muted">Quản lý tất cả tài khoản người dùng trong hệ thống</p>
@@ -24,7 +21,8 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Danh sách người dùng</h5>
                 <div class="search-box">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm người dùng...">
+                    <input type="text" id="searchInput" class="form-control border-start-0"
+                           placeholder="Tìm kiếm ngươi dùng ...">
                     <i class="fas fa-search search-icon"></i>
                 </div>
             </div>
@@ -34,38 +32,38 @@
                 <table id="userTable" class="table table-hover">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Tên người dùng</th>
-                            <th>Email</th>
-                            <th>SDT</th>
-                            <th>Ngày sinh</th>
-                            <th>Trạng thái</th>
-                            <th>Thao tác</th>
+                            <th class="text-center">Mã người dùng</th>
+                            <th class="text-center">Tên người dùng</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Vai trò</th>
+                            <th class="text-center">Trạng thái</th>
+                            <th class="text-center">Thao tác</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var user in Model)
                         {
-                            <tr>
-                                <td>@user.Id</td>
-                                <td>
-                                    <div class="user-info">
-                                        <div class="avatar">
-                                            @{
-                                                char firstChar = !string.IsNullOrEmpty(user.UserName) ? 
-                                                    user.UserName.FirstOrDefault() : '?';
-                                            }
-                                            <span>@firstChar</span>
-                                        </div>
-                                        <div>
-                                            <span class="user-name">@user.UserName</span>
-                                        </div>
-                                    </div>
+                            <tr data-user="@user.UserName?.ToLower()">
+                                <td class="">@user.Id</td>
+                                <td class="text-center">@user.UserName</td>
+                                <td class="text-center">@user.Email</td>
+                                <td class="text-center">
+                                    @{
+                                        var badgeText = string.IsNullOrWhiteSpace(user.RoleName) ? "Chưa có vai trò" : user.RoleName;
+                                        var badgeClass = user.RoleName switch
+                                        {
+                                            "Admin" => "bg-danger",        // đỏ cho Admin
+                                            "Employee" => "bg-info text-white", // xanh dương nhạt cho Employee
+                                            "Manager" => "bg-warning text-white", // vàng cho Manager
+                                            _ => "bg-secondary"
+                                        };
+                                    }
+
+                                    <span class="badge text-white d-inline-block text-center @badgeClass" style="min-width: 100px;">
+                                        @badgeText
+                                    </span>
                                 </td>
-                                <td>@user.Email</td>
-                                <td>@user.PhoneNumber</td>
-                                <td>@(user.DateOfBirth.HasValue ? user.DateOfBirth.Value.ToString("dd/MM/yyyy") : "-")</td>
-                                <td>
+                                <td class="text-center">
                                     @if (user.IsActive == true)
                                     {
                                         <span class="badge bg-success text-white">Hoạt động</span>
@@ -75,23 +73,24 @@
                                         <span class="badge bg-danger text-white">Đã khóa</span>
                                     }
                                 </td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <a href="@Url.Action("ViewUser", "Admin", new { id = user.Id })" 
+                                <td class="text-center">
+                                    <div class="action-buttons d-flex justify-content-center gap-2">
+                                        <a href="@Url.Action("DetailUser", "User", new { id = user.Id })"
                                            data-bs-toggle="tooltip" title="Xem chi tiết"
                                            class="btn btn-sm btn-info">
                                             <i class="fas fa-eye"></i>
                                         </a>
-                                        <a href="@Url.Action("EditUser", "Admin", new { id = user.Id })" 
+                                        <a href="@Url.Action("UpdateUser", "User", new { id = user.Id })"
                                            data-bs-toggle="tooltip" title="Chỉnh sửa"
                                            class="btn btn-sm btn-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <button type="button" class="btn btn-sm btn-danger delete-user"
-                                                data-bs-toggle="tooltip" title="Xóa người dùng"
-                                                data-id="@user.Id" data-name="@user.UserName">
+                                        <a href="@Url.Action("DeleteUser", "User", new { id = user.Id })"
+                                           onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?')"
+                                           data-bs-toggle="tooltip" title="Xóa"
+                                           class="btn btn-sm btn-danger">
                                             <i class="fas fa-trash-alt"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
@@ -100,7 +99,7 @@
                 </table>
             </div>
             
-            <div class="pagination-container mt-4">
+            @* <div class="pagination-container mt-4">
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
@@ -114,27 +113,7 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Delete Confirmation Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Xác nhận xóa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Bạn có chắc chắn muốn xóa người dùng <strong id="userName"></strong>?</p>
-                <p class="text-danger">Hành động này không thể hoàn tác!</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                <a href="#" id="confirmDelete" class="btn btn-danger">Xác nhận xóa</a>
-            </div>
+            </div> *@
         </div>
     </div>
 </div>
@@ -302,29 +281,24 @@
 </style>
 
 <script>
-    $(document).ready(function() {
-        // Initialize tooltips
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    document.addEventListener('DOMContentLoaded', function () {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
+            return new bootstrap.Tooltip(tooltipTriggerEl);
         });
-        
-        // Search functionality
-        $("#searchInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#userTable tbody tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+
+        // Client-side user search
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            const searchTerm = this.value.toLowerCase();
+
+            document.querySelectorAll('tbody tr[data-user]').forEach(function (row) {
+                const UserName = row.getAttribute('data-user');
+                if (UserName.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
             });
-        });
-        
-        // Delete confirmation modal
-        $(".delete-user").click(function() {
-            var userId = $(this).data('id');
-            var userName = $(this).data('name');
-            
-            $("#userName").text(userName);
-            $("#confirmDelete").attr("href", "@Url.Action("DeleteUser", "Admin")/" + userId);
-            $("#deleteModal").modal('show');
         });
     });
 </script>

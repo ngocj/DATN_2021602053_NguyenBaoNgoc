@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SP.Application.Dto.UserDto;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Text.Json;
 
 namespace SP.WebApp.Controllers
 {
@@ -17,70 +20,124 @@ namespace SP.WebApp.Controllers
         }
         public IActionResult CreateUser()
         {
+            ViewBag.Roles = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Quản trị viên", Value = "1" },
+                new SelectListItem { Text = "Quản lý", Value = "2" },
+                new SelectListItem { Text = "Khách hàng", Value = "4" }
+            };
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateUser(UserCreateDto userCreateDto)
         {
-            var result = await _httpClient.PostAsJsonAsync(ApiUrl, userCreateDto);
-
-            if (result.IsSuccessStatusCode)
+            if (!ModelState.IsValid)
             {
-                TempData["Success"] = "User created successfully !";
+                return View(userCreateDto);
+            }
 
-            }
-            else
+            var response = await _httpClient.PostAsJsonAsync($"{ApiUrl}", userCreateDto);
+
+            if (!response.IsSuccessStatusCode)
             {
-                TempData["Error"] = "Failed to create user !";
+                // Đọc nội dung lỗi từ response
+                var content = await response.Content.ReadAsStringAsync();
+
+                if (response.StatusCode == HttpStatusCode.Conflict)
+                {
+                    try
+                    {
+                        // Deserialize JSON lỗi từ API: { "field": "Email", "message": "Email đã tồn tại." }
+                        var errorObj = JsonSerializer.Deserialize<Dictionary<string, string>>(content);
+
+                        if (errorObj != null && errorObj.ContainsKey("field") && errorObj.ContainsKey("message"))
+                        {
+                            ModelState.AddModelError(errorObj["field"], $"❌ {errorObj["message"]}");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "❌ Lỗi không xác định.");
+                        }
+                    }
+                    catch
+                    {
+                        ModelState.AddModelError("", "❌ Không thể đọc lỗi từ server.");
+                    }
+
+                    return View(userCreateDto);
+                }
+
+                TempData["Error"] = "❌ Thêm người dùng thất bại.";
+                return View(userCreateDto);
             }
+
+            TempData["Success"] = "🎉 Thêm người dùng thành công!";
             return RedirectToAction("GetAllUser", "Admin");
         }
 
-        /* public async Task<IActionResult> UpdateUser(int id)
-         {
-             var response = await _httpClient.GetFromJsonAsync<UserUpdateDto>($"{ApiUrl}/{id}");
-             return View(response);
-         }
+        public async Task<IActionResult> UpdateUser(Guid id)
+        {
+            ViewBag.Roles = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Quản trị viên", Value = "1" },
+                new SelectListItem { Text = "Quản lý", Value = "2" },
+                new SelectListItem { Text = "Khách hàng", Value = "4" }
+            };
+            var response = await _httpClient.GetFromJsonAsync<UserUpdateDto>($"{ApiUrl}/{id}");
+            return View(response);
+        }
 
-         [HttpPost]
-         public async Task<IActionResult> UpdateUser(UserUpdateDto userUpdateDto)
-         {
-             var token = HttpContext.Session.GetString("JwtToken");
-             _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-             var response = await _httpClient.PutAsJsonAsync(ApiUrl, userUpdateDto);
+        [HttpPost]
+        public async Task<IActionResult> UpdateUser(UserUpdateDto userUpdateDto)
+        {
+            // Lấy thông tin người dùng hiện tại từ API bằng ID
+            var existingUser = await _httpClient.GetFromJsonAsync<UserUpdateDto>($"{ApiUrl}/{userUpdateDto.Id}");
 
-             if (!response.IsSuccessStatusCode)
-             {
-                 TempData["Error"] = "Failed to update user";
-             }
-             else
-             {
-                 TempData["Success"] = "User updated successfully!";
-             }
-             return RedirectToAction("GetAllUser", "Admin");
-         }*/
+            if (existingUser == null)
+            {
+                TempData["Error"] = "Không tìm thấy người dùng.";
+                return RedirectToAction("GetAllUser", "Admin");
+            }
 
-        /*  public async Task<IActionResult> DeleteUser(int id)
-          {
-              var token = HttpContext.Session.GetString("JwtToken");
-              _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-              var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
+            // Gộp lại thông tin đầy đủ (giữ nguyên các field không thay đổi)
+            userUpdateDto.Email = existingUser.Email;
+            userUpdateDto.UserName = existingUser.UserName;
+            userUpdateDto.Password = existingUser.Password;
 
-              if (!response.IsSuccessStatusCode)
-              {
-                  TempData["Error"] = "Cannot delete this user because it contains blog posts!";
-              }
-              else
-              {
+            // Gửi yêu cầu cập nhật
+            var response = await _httpClient.PutAsJsonAsync(ApiUrl, userUpdateDto);
 
-                  TempData["Success"] = "User deleted successfully!";
-              }
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Success"] = "Cập nhật người dùng thành công!";
+            }
+            else
+            {
+                TempData["Error"] = "Cập nhật người dùng thất bại.";
+            }
 
-              return RedirectToAction("GetAllUser", "Admin");
-          }*/
+            return RedirectToAction("GetAllUser", "Admin");
+        }
 
-        public async Task<IActionResult> GetUserById(int id)
+
+        public async Task<IActionResult> DeleteUser(Guid id)
+        {
+            /*var token = HttpContext.Session.GetString("JwtToken");
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);*/
+            var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Success"] = "Xóa người dùng thành công!";
+            }
+            else
+            {
+                TempData["Error"] = "Xóa người dùng thất bại.";
+            }
+            return RedirectToAction("GetAllUser", "Admin");          
+        }
+
+        public async Task<IActionResult> GetUserById(Guid id)
         {
             var token = HttpContext.Session.GetString("JwtToken");
             var isLoggedIn = !string.IsNullOrEmpty(token);
@@ -97,5 +154,11 @@ namespace SP.WebApp.Controllers
             var response = await _httpClient.GetFromJsonAsync<UserViewDto>($"{ApiUrl}/{id}");
             return View(response);
         }
+        public async Task<IActionResult> DetailUser(Guid id)
+        {     
+            var response = await _httpClient.GetFromJsonAsync<UserViewDto>($"{ApiUrl}/{id}");
+            return View(response);
+        }
+
     }
 }
