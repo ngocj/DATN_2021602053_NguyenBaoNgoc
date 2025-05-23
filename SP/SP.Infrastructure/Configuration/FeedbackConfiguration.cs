@@ -38,7 +38,7 @@ namespace SP.Infrastructure.Configuration
             builder.HasOne(f => f.OrderDetail)
            .WithMany(opv => opv.FeedBacks)
            .HasForeignKey(f => new { f.OrderId, f.ProductVariantId })
-           .OnDelete(DeleteBehavior.Restrict);
+           .OnDelete(DeleteBehavior.Cascade);
 
 
         }

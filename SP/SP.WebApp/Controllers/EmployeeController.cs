@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SP.Application.Dto.EmployeeDto;
+using SP.Application.Dto.OrderDto;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Text.Json;
@@ -10,6 +11,7 @@ namespace SP.WebApp.Controllers
     public class EmployeeController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/employee";
+        private const string ApiUrl1 = "https://localhost:7131/api";
         private HttpClient _httpClient;
 
         public EmployeeController(IHttpClientFactory httpClientFactory)
@@ -157,6 +159,15 @@ namespace SP.WebApp.Controllers
         {
             var response = await _httpClient.GetFromJsonAsync<EmployeeViewDto>($"{ApiUrl}/{id}");
             return View(response);
+        }
+        public async Task<ActionResult> GetAllOrder()
+        {
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<OrderViewDto>>($"{ApiUrl1}/order");
+            return View(response);
+        }
+        public IActionResult Index()
+        {
+            return View();
         }
 
     }

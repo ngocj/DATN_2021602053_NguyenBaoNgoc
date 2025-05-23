@@ -23,7 +23,7 @@ namespace SP.Infrastructure.Repositories
            await _SPContext.Set<T>().AddAsync(entity);
         }
 
-        public Task DeleteAsync(T entity)
+        public virtual Task DeleteAsync(T entity)
         {
               _SPContext.Set<T>().Remove(entity);
              return Task.CompletedTask;

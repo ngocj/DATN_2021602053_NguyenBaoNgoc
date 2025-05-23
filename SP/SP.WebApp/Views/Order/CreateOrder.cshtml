@@ -1,0 +1,467 @@
+﻿@model SP.Application.Dto.OrderDto.OrderCreateDto
+
+@{
+    ViewData["Title"] = "Tạo đơn hàng";
+    Layout = "~/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<!-- Các styles custom cho trang này -->
+<style>
+    :root {
+        --primary-color: #4e73df;
+        --primary-hover: #2e59d9;
+        --secondary-color: #858796;
+        --success-color: #1cc88a;
+        --danger-color: #e74a3b;
+        --light-gray: #f8f9fc;
+        --border-color: #e3e6f0;
+        --shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    }
+    
+    .page-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .page-header h2 {
+        color: #5a5c69;
+        font-weight: 500;
+        margin: 0;
+    }
+    
+    .card-order {
+        border: none;
+        border-radius: 0.35rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 2rem;
+    }
+    
+    .card-header {
+        background-color: #f8f9fc;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem 1.25rem;
+        font-weight: 500;
+        color: #4e73df;
+    }
+    
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+    
+    .form-label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        color: #5a5c69;
+    }
+    
+    .form-control {
+        border-radius: 0.35rem;
+        padding: 0.75rem 1rem;
+        border: 1px solid #d1d3e2;
+        color: #6e707e;
+    }
+    
+    .form-control:focus {
+        border-color: #bac8f3;
+        box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    }
+    
+    .btn {
+        border-radius: 0.35rem;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+    }
+    
+    .btn-primary {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    
+    .btn-primary:hover {
+        background-color: var(--primary-hover);
+        border-color: var(--primary-hover);
+    }
+    
+    .btn-secondary {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+    }
+    
+    .btn-danger {
+        background-color: var(--danger-color);
+        border-color: var(--danger-color);
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    .table {
+        margin-bottom: 0;
+        color: #5a5c69;
+    }
+    
+    .table-products th {
+        border-top: none;
+        font-weight: 500;
+    }
+    
+    .table-products thead th {
+        background-color: #f8f9fc;
+        vertical-align: middle;
+    }
+    
+    .order-summary {
+        background-color: #f8f9fc;
+        border-top: 1px solid var(--border-color);
+        padding: 1rem;
+    }
+    
+    .product-row {
+        transition: background-color 0.3s;
+    }
+    
+    .product-row:hover {
+        background-color: #f1f3fa;
+    }
+    
+    .form-actions {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+    }
+    
+    /* Custom css cho autocomplete */
+    .ui-autocomplete {
+        max-height: 300px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 0.35rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        border: 1px solid var(--border-color);
+        z-index: 9999;
+    }
+    
+    .ui-autocomplete .ui-menu-item-wrapper {
+        padding: 0.75rem 1rem;
+        border: none;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    
+    .ui-autocomplete .ui-menu-item:last-child .ui-menu-item-wrapper {
+        border-bottom: none;
+    }
+    
+    .ui-autocomplete .ui-state-active {
+        margin: 0;
+        background-color: #eaecf4;
+        border: none;
+        color: #333;
+    }
+    
+    .product-price {
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+    
+    /* Badge cho số lượng sản phẩm */
+    .products-count {
+        display: inline-block;
+        padding: 0.25em 0.6em;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+        background-color: #eaecf4;
+        color: #5a5c69;
+        margin-left: 0.5rem;
+    }
+    
+    /* Hiệu ứng cho nút thêm sản phẩm */
+    .btn-add-product {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+</style>
+
+<div class="page-header">
+    <h2>Tạo đơn hàng</h2>
+</div>
+
+<form asp-action="CreateOrder" method="post" id="orderForm">
+    <!-- Thông tin khách hàng -->
+    <div class="card card-order">
+        <div class="card-header">
+            <i class="fas fa-user-circle mr-2"></i> Thông tin khách hàng
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="UserName" class="form-label">Tên khách hàng</label>
+                        <input asp-for="UserName" class="form-control" placeholder="Nhập tên khách hàng" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AddressDetail" class="form-label">Địa chỉ chi tiết</label>
+                        <textarea asp-for="AddressDetail" class="form-control" placeholder="Nhập địa chỉ giao hàng" rows="1"></textarea>
+                        <span asp-validation-for="AddressDetail" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chi tiết sản phẩm -->
+    <div class="card card-order">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fas fa-shopping-cart mr-2"></i> Chi tiết sản phẩm
+                <span class="products-count" id="productsCount">1</span>
+            </div>
+            <button type="button" id="addRow" class="btn btn-sm btn-primary btn-add-product">
+                <i class="fas fa-plus"></i> Thêm sản phẩm
+            </button>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-products" id="orderDetailsTable">
+                    <thead>
+                        <tr>
+                            <th width="45%">Sản phẩm</th>
+                            <th width="15%">Số lượng</th>
+                            <th width="25%">Đơn giá</th>
+                            <th width="15%">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="product-row">
+                            <td>
+                                <input type="text" class="form-control productInput" data-index="0" placeholder="Nhập tên sản phẩm để tìm kiếm" required />
+                                <input type="hidden" name="OrderDetails[0].ProductId" class="productId" />
+                            </td>
+                            <td>
+                                <input name="OrderDetails[0].Quantity" type="number" class="form-control" min="1" required value="1" />
+                            </td>
+                            <td>
+                                <div class="input-group">
+                                    <input name="OrderDetails[0].UnitPrice" type="number" step="0.01" class="form-control" min="0" required placeholder="0.00" />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">đ</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-danger btn-sm removeRow">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="order-summary">
+                <div class="row align-items-center">
+                    <div class="col-md-6 offset-md-6">
+                        <div class="row align-items-center">
+                            <div class="col-6 text-right">
+                                <label asp-for="TotalPrice" class="form-label mb-0 font-weight-bold">Tổng tiền:</label>
+                            </div>
+                            <div class="col-6">
+                                <div class="input-group">
+                                    <input asp-for="TotalPrice" class="form-control" readonly />
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">đ</span>
+                                    </div>
+                                </div>
+                                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-actions">
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="fas fa-arrow-left mr-1"></i> Quay lại
+        </a>
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save mr-1"></i> Tạo đơn hàng
+        </button>
+    </div>
+</form>
+
+@section Styles {
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        $(function () {
+            let index = 1;
+
+            // Cập nhật số lượng sản phẩm
+            function updateProductsCount() {
+                const count = $("#orderDetailsTable tbody tr").length;
+                $("#productsCount").text(count);
+            }
+
+            function formatVNCurrency(price) {
+                return new Intl.NumberFormat('vi-VN', { 
+                    style: 'currency', 
+                    currency: 'VND',
+                    maximumFractionDigits: 0
+                }).format(price);
+            }
+
+            function bindAutocomplete($input) {
+                $input.autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: '/api/product/search',
+                            dataType: 'json',
+                            data: { q: request.term },
+                            success: function (data) {
+                                response(data.map(p => ({
+                                    label: p.name,
+                                    value: p.name,
+                                    id: p.id,
+                                    price: p.price,
+                                    formattedPrice: formatVNCurrency(p.price)
+                                })));
+                            }
+                        });
+                    },
+                    minLength: 2,
+                    select: function (event, ui) {
+                        const $row = $(this).closest('tr');
+                        $row.find(".productId").val(ui.item.id);
+                        $row.find("input[name$='.UnitPrice']").val(ui.item.price).trigger('input');
+                        return true;
+                    }
+                }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                    return $("<li>")
+                        .append("<div>" + item.label + " <span class='product-price'>" + item.formattedPrice + "</span></div>")
+                        .appendTo(ul);
+                };
+            }
+
+            // Khởi tạo autocomplete cho input đầu tiên
+            bindAutocomplete($("input.productInput[data-index=0]"));
+
+            // Thêm dòng sản phẩm mới
+            $("#addRow").click(function () {
+                const newRow = $(`
+                    <tr class="product-row">
+                        <td>
+                            <input type="text" class="form-control productInput" data-index="${index}" placeholder="Nhập tên sản phẩm để tìm kiếm" required />
+                            <input type="hidden" name="OrderDetails[${index}].ProductId" class="productId" />
+                        </td>
+                        <td>
+                            <input name="OrderDetails[${index}].Quantity" type="number" class="form-control" min="1" required value="1" />
+                        </td>
+                        <td>
+                            <div class="input-group">
+                                <input name="OrderDetails[${index}].UnitPrice" type="number" step="0.01" class="form-control" min="0" required placeholder="0.00" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">đ</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-danger btn-sm removeRow">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `);
+                $("#orderDetailsTable tbody").append(newRow);
+                bindAutocomplete(newRow.find(".productInput"));
+                index++;
+                updateProductsCount();
+                
+                // Tạo hiệu ứng highlight cho dòng mới
+                newRow.css('background-color', '#e8f4ff').delay(300).queue(function(next){
+                    $(this).css('background-color', '');
+                    next();
+                });
+            });
+
+            // Xóa dòng sản phẩm
+            $("#orderDetailsTable").on("click", ".removeRow", function () {
+                const $row = $(this).closest("tr");
+                
+                // Chỉ cho phép xóa nếu có nhiều hơn 1 sản phẩm
+                if ($("#orderDetailsTable tbody tr").length > 1) {
+                    // Hiệu ứng fade out trước khi xóa
+                    $row.fadeOut(300, function() {
+                        $(this).remove();
+                        calculateTotal();
+                        updateProductsCount();
+                        
+                        // Cập nhật lại index cho các dòng còn lại
+                        $("#orderDetailsTable tbody tr").each(function(i) {
+                            $(this).find('.productInput').attr('data-index', i);
+                            $(this).find('.productId').attr('name', `OrderDetails[${i}].ProductId`);
+                            $(this).find('input[name$=".Quantity"]').attr('name', `OrderDetails[${i}].Quantity`);
+                            $(this).find('input[name$=".UnitPrice"]').attr('name', `OrderDetails[${i}].UnitPrice`);
+                        });
+                    });
+                } else {
+                    // Thông báo nếu đây là sản phẩm cuối cùng
+                    alert("Đơn hàng phải có ít nhất một sản phẩm!");
+                }
+            });
+
+            // Cập nhật tổng tiền khi thay đổi số lượng hoặc đơn giá
+            $("#orderDetailsTable").on("input", "input[name$='.Quantity'], input[name$='.UnitPrice']", function () {
+                calculateTotal();
+            });
+
+            function calculateTotal() {
+                let total = 0;
+                $("#orderDetailsTable tbody tr").each(function () {
+                    const qty = parseFloat($(this).find("input[name$='.Quantity']").val()) || 0;
+                    const price = parseFloat($(this).find("input[name$='.UnitPrice']").val()) || 0;
+                    total += qty * price;
+                });
+                $("input[name='TotalPrice']").val(total.toFixed(2));
+            }
+
+            // Tính tổng tiền ban đầu nếu có dữ liệu
+            calculateTotal();
+            updateProductsCount();
+
+            // Validation với tooltip đẹp hơn
+            $("#orderForm").validate({
+                errorElement: "div",
+                errorClass: "invalid-feedback",
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass("is-invalid").removeClass("is-valid");
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass("is-invalid").addClass("is-valid");
+                },
+                errorPlacement: function(error, element) {
+                    error.insertAfter(element);
+                }
+            });
+        });
+    </script>
+}

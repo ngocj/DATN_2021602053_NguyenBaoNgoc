@@ -1465,7 +1465,7 @@ namespace SP.Infrastructure.Migrations
                     b.HasOne("SP.Domain.Entity.OrderDetail", "OrderDetail")
                         .WithMany("FeedBacks")
                         .HasForeignKey("OrderId", "ProductVariantId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("OrderDetail");
@@ -1508,7 +1508,7 @@ namespace SP.Infrastructure.Migrations
                     b.HasOne("SP.Domain.Entity.Order", "Order")
                         .WithMany("OrderDetails")
                         .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SP.Domain.Entity.ProductVariant", "ProductVariant")

@@ -26,7 +26,30 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ThenInclude(pv => pv.Product)
                 .ToListAsync();
         }
-      
+        public override async Task<Order> GetByIdAsync(Guid id)
+        {
+            var order = await _SPContext.Set<Order>()
+                .Include(fb => fb.User)
+                .Include(fb => fb.Employee)
+                .Include(fb => fb.OrderDetails)
+                    .ThenInclude(od => od.ProductVariant)
+                        .ThenInclude(pv => pv.Images)
+                .Include(fb => fb.OrderDetails)
+                    .ThenInclude(od => od.ProductVariant)
+                        .ThenInclude(pv => pv.Product)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (order != null)
+            {
+                // Nếu bạn lưu giá tại thời điểm đặt hàng trong OrderDetail.Price
+                order.TotalPrice = order.OrderDetails.Sum(od => od.ProductVariant.Price * od.Quantity);
+
+                // Nếu bạn muốn dùng giá hiện tại trong ProductVariant (ít khuyến khích)
+                // order.TotalPrice = order.OrderDetails.Sum(od => od.ProductVariant.Price * od.Quantity);
+            }
+
+            return order;
+        }
 
     }
 

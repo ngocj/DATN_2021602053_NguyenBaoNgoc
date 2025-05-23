@@ -33,7 +33,6 @@ namespace SP.WebApp.Controllers
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<UserViewDto>>($"{ApiUrl}/user");
             return View(response);
         }    
-        //get all products
         public async Task<ActionResult> GetAllProduct(int? brandId, int? SubcategoryId, bool? isActive)
         {
             var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl}/brand");
@@ -70,31 +69,21 @@ namespace SP.WebApp.Controllers
             return View(response);
                     
         }
-        // get all brand
         public async Task<ActionResult> GetAllBrand()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl}/brand");
             return View(response);
         }
-        // get all image
         public async Task<ActionResult> GetAllImage()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<ImageFileDto>>($"{ApiUrl}/imageFile");
             return View(response);
         }
-        // get all productVariant
         public async Task<ActionResult> GetAllProductVariant()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<VariantViewDto>>($"{ApiUrl}/productVariant");
             return View(response);
         }
-        // get all order
-        public async Task<ActionResult> GetAllOrder()
-        {
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<OrderViewDto>>($"{ApiUrl}/order");
-            return View(response);
-        }
-        // feedback
         public async Task<ActionResult> GetAllFeedback()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<FeedbackViewDto>>($"{ApiUrl}/feedback");

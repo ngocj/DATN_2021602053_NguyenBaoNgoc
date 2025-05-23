@@ -38,14 +38,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cR2V0QWxsRmVlZGJhY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Admin/GetAllImage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cR2V0QWxsSW1hZ2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Admin/GetAllOrder.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cR2V0QWxsT3JkZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Admin/GetAllProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cR2V0QWxsUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -106,6 +98,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGV0YWlsRW1wbG95ZWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Employee/GetAllOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcR2V0QWxsT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Employee/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Employee/UpdateEmployee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcVXBkYXRlRW1wbG95ZWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -140,6 +140,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Manager/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/CreateOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ3JlYXRlT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/DetailOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/UpdateOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcVXBkYXRlT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Page/AboutUs.cshtml]
@@ -196,6 +208,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Shared/_LayoutCheckout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Shared/_LayoutEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRFbXBsb3llZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Shared/_LayoutManager.cshtml]

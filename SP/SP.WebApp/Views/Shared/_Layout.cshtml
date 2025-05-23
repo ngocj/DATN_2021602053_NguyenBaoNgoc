@@ -7,7 +7,7 @@
     var isLoggedIn = !string.IsNullOrEmpty(token);
     string userName = "";
     bool isAdmin = false;
-    int idUser = 0;
+    Guid idUser = Guid.Empty;
 
     if (isLoggedIn)
     {
@@ -18,7 +18,7 @@
         var claimUser = jwtToken.Claims.FirstOrDefault(c => c.Type == "nameid");
 
         if (claim != null) userName = claim.Value;
-        if (claimUser != null) idUser = int.Parse(claimUser.Value);
+        if (claimUser != null) idUser = Guid.Parse(claimUser.Value);
         if (roleClaim?.Value == "Admin") isAdmin = true;
     }
 }
@@ -116,11 +116,10 @@
                                 </div>
                             }
                             <div class="header__top__hover">
-                                <span>USD <i class="arrow_carrot-down"></i></span>
+                                <span> <img src="//supersports.com.vn/cdn/shop/t/230/assets/vi.png?v=78388546421581796491720174908" /> <i class="arrow_carrot-down"></i></span>
                                 <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>VND</li>
+                                    <li>Vietnam </li>
+                                    <li>English </li>
                                 </ul>
                             </div>
                         </div>
@@ -145,10 +144,8 @@
                                 <a href="#">Trang</a>
                                 <ul class="dropdown">
                                     <li><a asp-action="AboutUs" asp-controller="Page">Về chúng tôi</a></li>
-                                    <li><a href="./shop-details.html">Chi tiết sản phẩm</a></li>
                                     <li><a href="./shopping-cart.html">Giỏ hàng</a></li>
                                     <li><a href="./checkout.html">Thanh toán</a></li>
-                                    <li><a href="./blog-details.html">Chi tiết blog</a></li>
                                 </ul>
                             </li>
                             <li><a asp-action="Blog" asp-controller="Home">Blog</a></li>

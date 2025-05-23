@@ -1,4 +1,6 @@
-﻿using SP.Domain.Entity;
+﻿using SP.Application.Dto.OrderDetailDto;
+using SP.Application.Dto.UserDto;
+using SP.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,11 @@ namespace SP.Application.Dto.OrderDto
         public DateTime CreatedAt { get; set; }
         public string? UserName { get; set; }
         public string? EmployeeName { get; set; }
+
+        public string AddressDetail { get; set; }
+        public List<OrderDetailViewDto> OrderDetails { get; set; }
+
+
     }
     
 }

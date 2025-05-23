@@ -36,9 +36,18 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label asp-for="SubCategoryId" class="form-label">Danh Mục</label>
-                                <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.Categories" required>
-                                    <option value="">-- Chọn Danh Mục --</option>
+                                <label asp-for="CategoryId" class="form-label">Danh Mục cha</label>
+                                <select asp-for="CategoryId" class="form-control" id="categoryDropdown" required>
+                                    <option value="">-- Chọn Danh Mục cha --</option>
+                                    <!-- JS sẽ append options -->
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="SubCategoryId" class="form-label">Danh Mục Con</label>
+                                <select asp-for="SubCategoryId" class="form-control" id="subCategoryDropdown" required>
+                                    <option value="">-- Chọn Danh Mục Con --</option>
                                 </select>
                                 <span asp-validation-for="SubCategoryId" class="text-danger"></span>
                             </div>
@@ -76,8 +85,38 @@
             </div>
         </div>
     </div>
-</div>
 
+</div>
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        // Lấy dữ liệu JSON từ ViewBag
+        const allCategories = @Html.Raw(ViewBag.CategoriesJson);
+        const allSubCategories = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.SubCategories));
+
+        const $categoryDropdown = $('#categoryDropdown');
+        const $subDropdown = $('#subCategoryDropdown');
+
+        allCategories.forEach(cat => {
+            $categoryDropdown.append(`<option value="${cat.Id}">${cat.CategoryName}</option>`);
+        });
+
+        $categoryDropdown.on('change', function () {
+            const categoryId = $(this).val();
+
+            $subDropdown.empty();
+            $subDropdown.append(`<option value="">-- Chọn Danh Mục Con --</option>`);
+
+            if (categoryId) {
+                const filtered = allSubCategories.filter(sc => sc.CategoryId == categoryId);
+                filtered.forEach(sc => {
+                    $subDropdown.append(`<option value="${sc.Id}">${sc.Name}</option>`);
+                });
+            }
+        });
+    </script>
 }
+
+
+

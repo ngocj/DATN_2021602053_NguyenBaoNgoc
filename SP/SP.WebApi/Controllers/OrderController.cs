@@ -48,18 +48,18 @@ namespace SP.WebApi.Controllers
             return Ok();
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateOrder([FromBody] OrderViewDto orderViewDto)
+        public async Task<IActionResult> UpdateOrder([FromBody] OrderUpdateDto orderUpdateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var order = await _orderService.GetOrderById(orderViewDto.Id);
+            var order = await _orderService.GetOrderById(orderUpdateDto.Id);
             if (order == null)
             {
                 return NotFound();
             }
-            var updatedOrder = _mapper.Map<Order>(orderViewDto);
+            var updatedOrder = _mapper.Map<Order>(orderUpdateDto);
             await _orderService.UpdateOrder(updatedOrder);
             return Ok();
         }

@@ -47,8 +47,10 @@ namespace SP.Application.Mappings
             CreateMap<Order, OrderCreateDto>().ReverseMap();
             CreateMap<Order, OrderViewDto>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName))
+                .ForMember(dest => dest.AddressDetail, opt => opt.MapFrom(src => src.User.AddressDetail))
                 .ForMember(dest => dest.EmployeeName, opt => opt.MapFrom(src => src.Employee.Name))
                 .ReverseMap();
+            CreateMap<Order, OrderUpdateDto>().ReverseMap();
 
             CreateMap<Cart, CartViewDto>().ReverseMap();
             CreateMap<Cart, CartCreateDto>().ReverseMap();

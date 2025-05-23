@@ -14,6 +14,7 @@ namespace SP.Application.Dto.ProductDto
         public int BrandId { get; set; }
         public int SubCategoryId { get; set; }
         public int? DiscountId { get; set; }
+        public double? Rating { get; set; }
         public bool IsActive { get; set; }
     }
 }

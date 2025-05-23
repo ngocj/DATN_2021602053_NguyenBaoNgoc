@@ -6,6 +6,7 @@ using SP.Application.Dto.DiscountDto;
 using SP.Application.Dto.ProductDto;
 using SP.Application.Dto.ProductVariantDto;
 using SP.Application.Dto.UserDto;
+using System.Text.Json;
 
 namespace SP.WebApp.Controllers
 {
@@ -20,26 +21,6 @@ namespace SP.WebApp.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            // get all product
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>(ApiUrl);
-            if (response == null)
-            {
-                return NotFound();
-            }
-            return View(response);
-        }
-        public async Task<ActionResult> Details(int id)
-        {
-            var response = await _httpClient.GetFromJsonAsync<ProductViewDto>($"{ApiUrl}/{id}");
-            if (response == null)
-            {
-                return NotFound();
-            }
-            return View(response);
-        }
-        public async Task<IActionResult> Create()
-        {
-            // get all brands
             var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl1}brand");
             if (brands == null || !brands.Any())
             {
@@ -71,7 +52,68 @@ namespace SP.WebApp.Controllers
                 Value = d.Id.ToString(),
                 Text = $"{d.Percent}%"  // Thêm ký tự phần trăm
             }).ToList();
+            // get all product
+            var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>(ApiUrl);
+            if (response == null)
+            {
+                return NotFound();
+            }
+            return View(response);
+        }
+        public async Task<ActionResult> Details(int id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<ProductViewDto>($"{ApiUrl}/{id}");
+            if (response == null)
+            {
+                return NotFound();
+            }
+            return View(response);
+        }
+        public async Task<IActionResult> Create()
+        {
+            // get all brands
+            var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl1}brand");
+            if (brands == null || !brands.Any())
+            {
+                ModelState.AddModelError(string.Empty, "Không tìm thấy thương hiệu nào.");
+                return View();
+            }
 
+            // get all categories
+            var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");
+            if (categories == null || !categories.Any())
+            {
+                ModelState.AddModelError(string.Empty, "Không tìm thấy danh mục nào");
+                return View();
+            }
+
+            // get all subcategories
+            var subCategories = await _httpClient.GetFromJsonAsync<IEnumerable<SubCategoryViewDto>>($"{ApiUrl1}subcategory");
+            if (subCategories == null || !subCategories.Any())
+            {
+                ModelState.AddModelError(string.Empty, "Không tìm thấy danh mục con nào");
+                return View();
+            }
+
+            // get all discounts
+            var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Discount");
+            if (discounts == null || !discounts.Any())
+            {
+                ModelState.AddModelError(string.Empty, "Không tìm thấy mã giảm giá nào.");
+                return View();
+            }
+
+            // Passing the data to the View
+            ViewBag.Brands = new SelectList(brands, "Id", "BrandName");
+            ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
+            ViewBag.CategoriesJson = System.Text.Json.JsonSerializer.Serialize(categories);
+            ViewBag.SubCategories = subCategories;  // <-- Thêm dòng này để truyền subcategories
+
+            ViewBag.Discounts = discounts.Select(d => new SelectListItem
+            {
+                Value = d.Id.ToString(),
+                Text = $"{d.Percent}%"  // Thêm ký tự phần trăm
+            }).ToList();
 
             return View();
         }

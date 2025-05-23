@@ -31,9 +31,10 @@ namespace SP.Infrastructure.Configuration
                 .HasDefaultValueSql("GETDATE()");
 
             builder.HasOne(x => x.Order)
-                .WithMany(x => x.OrderDetails)
-                .HasForeignKey(x => x.OrderId)
-                .OnDelete(DeleteBehavior.Restrict);
+            .WithMany(x => x.OrderDetails)
+            .HasForeignKey(x => x.OrderId)
+            .OnDelete(DeleteBehavior.Cascade);
+
 
             builder.HasOne(x => x.ProductVariant)
                 .WithMany(x => x.OrderDetails)
