@@ -20,10 +20,7 @@ namespace SP.Application.Service.Implement
         {
             await _unitOfWork.ProductRepository.AddAsync(product);
             await _unitOfWork.SaveChangeAsync();
-
-            
         }
-
         public async Task DeleteProduct(int id)
         {
             var result = await _unitOfWork.ProductRepository.GetByIdAsync(id);
@@ -31,73 +28,12 @@ namespace SP.Application.Service.Implement
             {
                 await _unitOfWork.ProductRepository.DeleteAsync(result);
                 await _unitOfWork.SaveChangeAsync();
-            }
-            
+            }           
         }
-
-        public async Task<IEnumerable<Product>> GetAllProducts()
-        {
-            return await _unitOfWork.ProductRepository.GetAllAsync();
-            
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByAZ()
-        {
-            
-            return await _unitOfWork.ProductRepository.GetAllByAZAsync();
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByBestSelling()
-        {
-           
-            return await _unitOfWork.ProductRepository.GetAllByBestSellingAsync();
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId)
-        {
-            return await _unitOfWork.ProductRepository.GetAllByBrandIdAsync(brandId);
-            
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByLastest()
-        {
-            return await _unitOfWork.ProductRepository.GetAllByLastestAsync();
-            
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByOlder()
-        {
-            return await _unitOfWork.ProductRepository.GetAllByOlderAsync();
-           
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByPriceAscending()
-        {
-            return await _unitOfWork.ProductRepository.GetAllByPriceAscendingAsync();           
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByPriceDescending()
-        {
-            return await _unitOfWork.ProductRepository.GetAllByPriceDescendingAsync();
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId)
-        {
-            return await _unitOfWork.ProductRepository.GetAllBySubCategoryIdAsync(subCategoryId);
-            
-        }
-
-        public async Task<IEnumerable<Product>> GetAllProductsByZA()
-        {
-            return await _unitOfWork.ProductRepository.GetAllByZAAsync();
-        }
-
         public async Task<Product> GetProductById(int id)
         {
             return await _unitOfWork.ProductRepository.GetByIdAsync(id);
-            
         }
-
         public async Task UpdateProduct(Product product)
         {
             var result = await _unitOfWork.ProductRepository.GetByIdAsync(product.Id);
@@ -106,11 +42,47 @@ namespace SP.Application.Service.Implement
                 await _unitOfWork.ProductRepository.UpdateAsync(product);
                 await _unitOfWork.SaveChangeAsync();
             }
+
+        }
+        
+        // get all product
+        public async Task<IEnumerable<Product>> GetAllProducts()
+        {
+            return await _unitOfWork.ProductRepository.GetAllAsync();          
+        }     
+        public async Task<IEnumerable<Product>> GetAllProductsByBestSelling(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
+        { 
+            return await _unitOfWork.ProductRepository.GetAllByBestSellingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId);                  
+        }
+        public async Task<IEnumerable<Product>> GetAllByLastestAsync(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllByLastestAsync( priceFrom, priceTo, categoryId, subCategoryId, brandId);        
+        }
+        public async Task<IEnumerable<Product>> GetAllProductsByPriceAscending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllByPriceAscendingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId);                           
+        }
+        public async Task<IEnumerable<Product>> GetAllProductsByPriceDescending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllByPriceDescendingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId);                 
+        }
+        public async Task<IEnumerable<Product>> GetAllProductsByBrandId(int brandId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllByBrandIdAsync(brandId);
+        }
+        public async Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId)
+        {
+            return await _unitOfWork.ProductRepository.GetAllBySubCategoryIdAsync(subCategoryId);
             
         }
         public async Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? SubcategoryId, int? brandId, bool? isActive)
         {
             return await _unitOfWork.ProductRepository.GetAllByCategoryAndBrandAsync(SubcategoryId, brandId, isActive);
         }
+        public Task<IEnumerable<Product>> GetAllByCategoryIdAsync(int categoryId)
+        {
+            return _unitOfWork.ProductRepository.GetAllByCategoryIdAsync(categoryId);            
+        }      
+     
     }
 }

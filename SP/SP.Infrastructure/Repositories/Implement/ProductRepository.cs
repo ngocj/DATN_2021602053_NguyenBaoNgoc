@@ -39,6 +39,7 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ThenInclude(pv => pv.Images)
                     .ToListAsync();
         }
+
         public async Task<IEnumerable<Product>> GetAllBySubCategoryIdAsync(int subCategoryId)
         {
             return await _SPContext.Set<Product>()
@@ -46,6 +47,7 @@ namespace SP.Infrastructure.Repositories.Implement
                     .Where(p => p.SubCategoryId == subCategoryId)
                     .ToListAsync();
         }
+      
         // get all brand
         public async Task<IEnumerable<Product>> GetAllByBrandIdAsync(int brandId)
         {
@@ -55,69 +57,157 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ToListAsync();
         }
         // arrage product by lastest
-        public async Task<IEnumerable<Product>> GetAllByLastestAsync()
+        public async Task<IEnumerable<Product>> GetAllByLastestAsync(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
         {
-            return await _SPContext.Set<Product>()
-                    .Include(p => p.ProductVariants)
-                    .ThenInclude(pv => pv.Images)
-                    .OrderByDescending(p => p.CreatedAt)
-                    .ToListAsync();
+            var query = _SPContext.Set<Product>()
+                .Include(p => p.ProductVariants).ThenInclude(pv => pv.Images)
+                .Include(p => p.Brand)
+                .Include(p => p.Discount)
+                .Include(p => p.SubCategory)
+                .Where(p => p.SubCategory.CategoryId == categoryId);
+
+            if (subCategoryId.HasValue)
+            {
+                query = query.Where(p => p.SubCategory.Id == subCategoryId.Value);
+            }
+
+            if (brandId.HasValue)
+            {
+                query = query.Where(p => p.Brand.Id == brandId.Value);
+            }
+
+            if (priceFrom.HasValue || priceTo.HasValue)
+            {
+                query = query.Where(p =>
+                    p.ProductVariants.Any(pv =>
+                        (!priceFrom.HasValue ||
+                         (pv.Price * (1 - (p.Discount != null ? (decimal)p.Discount.Percent : 0) / 100)) >= priceFrom.Value)
+                        &&
+                        (!priceTo.HasValue ||
+                         (pv.Price * (1 - (p.Discount != null ? (decimal)p.Discount.Percent : 0) / 100)) <= priceTo.Value)
+                    )
+                );
+            }
+            return await query.OrderByDescending(p => p.CreatedAt).ToListAsync();
         }
+
         // arrange product by price descending
-        public async Task<IEnumerable<Product>> GetAllByPriceDescendingAsync()
+        public async Task<IEnumerable<Product>> GetAllByPriceDescendingAsync(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
         {
-            return await _SPContext.Set<Product>()
-                    .Include(p => p.ProductVariants)
-                    .ThenInclude(pv => pv.Images)
-                    .OrderByDescending(p => p.ProductVariants.FirstOrDefault().Price)
-                    .ToListAsync();
+            var query = _SPContext.Set<Product>()
+                .Include(p => p.ProductVariants).ThenInclude(pv => pv.Images)
+                .Include(p => p.Brand)
+                .Include(p => p.Discount)
+                .Include(p => p.SubCategory)
+                .Where(p => p.SubCategory.CategoryId == categoryId);
+
+            if (subCategoryId.HasValue)
+            {
+                query = query.Where(p => p.SubCategory.Id == subCategoryId.Value);
+            }
+
+            if (brandId.HasValue)
+            {
+                query = query.Where(p => p.Brand.Id == brandId.Value);
+            }
+
+            if (priceFrom.HasValue || priceTo.HasValue)
+            {
+                query = query.Where(p =>
+                    p.ProductVariants.Any(pv =>
+                        (!priceFrom.HasValue ||
+                         (pv.Price * (1 - (p.Discount != null ? (decimal)p.Discount.Percent : 0) / 100)) >= priceFrom.Value)
+                        &&
+                        (!priceTo.HasValue ||
+                         (pv.Price * (1 - (p.Discount != null ? (decimal)p.Discount.Percent : 0) / 100)) <= priceTo.Value)
+                    )
+                );
+            }
+            return await query.OrderByDescending(p => p.ProductVariants.FirstOrDefault().Price).ToListAsync();
         }
         // arrange product by price ascending
-        public async Task<IEnumerable<Product>> GetAllByPriceAscendingAsync()
+        public async Task<IEnumerable<Product>> GetAllByPriceAscendingAsync(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
         {
-            return await _SPContext.Set<Product>()
-                    .Include(p => p.ProductVariants)
-                    .ThenInclude(pv => pv.Images)
-                    .OrderBy(p => p.ProductVariants.FirstOrDefault().Price)
-                    .ToListAsync();
+            var query = _SPContext.Set<Product>()
+               .Include(p => p.ProductVariants).ThenInclude(pv => pv.Images)
+               .Include(p => p.Brand)
+               .Include(p => p.Discount)
+               .Include(p => p.SubCategory)
+               .Where(p => p.SubCategory.CategoryId == categoryId);
+
+            if (subCategoryId.HasValue)
+            {
+                query = query.Where(p => p.SubCategory.Id == subCategoryId.Value);
+            }
+
+            if (brandId.HasValue)
+            {
+                query = query.Where(p => p.Brand.Id == brandId.Value);
+            }
+
+            if (priceFrom.HasValue || priceTo.HasValue)
+            {
+                query = query.Where(p =>
+                    p.ProductVariants.Any(pv =>
+                        (!priceFrom.HasValue ||
+                         (pv.Price * (1 - (p.Discount != null ? (decimal)p.Discount.Percent : 0) / 100)) >= priceFrom.Value)
+                        &&
+                        (!priceTo.HasValue ||
+                         (pv.Price * (1 - (p.Discount != null ? (decimal)p.Discount.Percent : 0) / 100)) <= priceTo.Value)
+                    )
+                );
+            }
+            return await query.OrderBy(p => p.ProductVariants.FirstOrDefault().Price).ToListAsync();
+           
         }
         // sort product by best selling products
-        public async Task<IEnumerable<Product>> GetAllByBestSellingAsync()
+        public async Task<IEnumerable<Product>> GetAllByBestSellingAsync(
+        decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId)
         {
-            return await _SPContext.Set<Product>()
-                    .Include(p => p.ProductVariants)
+            var query = _SPContext.Set<Product>()
+                .Include(p => p.ProductVariants)
                     .ThenInclude(pv => pv.Images)
-                    .OrderByDescending(p => p.ProductVariants.FirstOrDefault().Quantity)
-                    .ToListAsync();
+                .Include(p => p.Brand)
+                .Include(p => p.Discount)
+                .Include(p => p.SubCategory)
+                .Where(p => p.SubCategory.CategoryId == categoryId);
+
+            if (subCategoryId.HasValue)
+            {
+                query = query.Where(p => p.SubCategoryId == subCategoryId.Value);
+            }
+
+            if (brandId.HasValue)
+            {
+                query = query.Where(p => p.BrandId == brandId.Value);
+            }
+
+            if (priceFrom.HasValue || priceTo.HasValue)
+            {
+                query = query.Where(p => p.ProductVariants.Any(v =>
+                    (!priceFrom.HasValue || v.Price >= priceFrom.Value) &&
+                    (!priceTo.HasValue || v.Price <= priceTo.Value)
+                ));
+            }
+
+            var queryWithSales = query
+                .Select(p => new
+                {
+                    Product = p,
+                    TotalSold = _SPContext.OrderDetails
+                        .Where(od => od.ProductVariant.ProductId == p.Id)
+                        .Sum(od => (int?)od.Quantity) ?? 0
+                });
+
+            var result = await queryWithSales
+                .OrderByDescending(x => x.TotalSold)
+                .Select(x => x.Product)
+                .ToListAsync();
+
+            return result;
         }
-        // sort product by a -> z
-        public async Task<IEnumerable<Product>> GetAllByAZAsync()
-        {
-            return await _SPContext.Set<Product>()
-                    .Include(p => p.ProductVariants)
-                    .ThenInclude(pv => pv.Images)
-                    .OrderBy(p => p.ProductName)
-                    .ToListAsync();
-        }
-        // sort product by z -> a
-        public async Task<IEnumerable<Product>> GetAllByZAAsync()
-        {
-            return await _SPContext.Set<Product>()
-                    .Include(p => p.ProductVariants)
-                    .ThenInclude(pv => pv.Images)
-                    .OrderByDescending(p => p.ProductName)
-                    .ToListAsync();
-        }
-        // sort product by older -> newer
-        public async Task<IEnumerable<Product>> GetAllByOlderAsync()
-        {
-            return await _SPContext.Set<Product>()
-                    .Include(p => p.ProductVariants)
-                    .ThenInclude(pv => pv.Images)
-                    .OrderBy(p => p.CreatedAt)
-                    .ToListAsync();
-        }
-        // filer product by category and brand and isActive
+
+        // filer product by category and brand and isActives
         public async Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? SubcategoryId, int? brandId, bool? isActive)
         {
             var query = _SPContext.Set<Product>()
@@ -144,6 +234,18 @@ namespace SP.Infrastructure.Repositories.Implement
             }
 
             return await query.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Product>> GetAllByCategoryIdAsync(int categoryId)
+        {
+            return await _SPContext.Set<Product>()
+                .Include(p => p.ProductVariants)
+                .ThenInclude(pv => pv.Images)
+                .Include(p => p.Brand)
+                .Include(p => p.Discount)
+                .Include(p => p.SubCategory)
+                .Where(p => p.SubCategory.CategoryId == categoryId)
+                .ToListAsync();           
         }
     }
 

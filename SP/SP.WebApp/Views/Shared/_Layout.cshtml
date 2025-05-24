@@ -22,6 +22,86 @@
         if (roleClaim?.Value == "Admin") isAdmin = true;
     }
 }
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                    <div class="header__top__left">
+                        <p>Miễn phí vận chuyển, đổi trả hoặc hoàn tiền trong 30 ngày.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        @if (isLoggedIn)
+                        {
+                            <div class="header__top__links">
+                                <a asp-action="GetUserById" asp-controller="User" asp-route-id="@idUser">@userName</a>
+                            </div>
+                            <div class="header__top__links">
+                                <a asp-action="LogOut" asp-controller="Auth">Đăng xuất</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="header__top__links">
+                                <a asp-action="LogIn" asp-controller="Auth">Đăng nhập</a>
+                            </div>
+                            <div class="header__top__links">
+                                <a asp-action="Register" asp-controller="Auth">Đăng ký</a>
+                            </div>
+                        }
+                        <div class="header__top__hover">
+                            <span> <img src="//supersports.com.vn/cdn/shop/t/230/assets/vi.png?v=78388546421581796491720174908" /> <i class="arrow_carrot-down"></i></span>
+                            <ul>
+                                <li>Vietnam </li>
+                                <li>English </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a asp-action="Index" asp-controller="Home"><img src="~/SbHome/img/super.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        @if (ViewBag.Categories != null)
+                        {
+                            foreach (var category in ViewBag.Categories as SelectList)
+                            {
+                                <li>
+                                    <a asp-action="Collections"
+                                       asp-controller="Home"
+                                       asp-route-categoryId="@category.Value">
+                                        @category.Text
+                                    </a>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    <a href="#" class="search-switch"><img src="~/SbHome/img/icon/search.png" alt=""></a>
+                    <a href="#"><img src="~/SbHome/img/icon/heart.png" alt=""></a>
+                    <a href="#"><img src="~/SbHome/img/icon/cart.png" alt=""> <span>0</span></a>
+                    <div class="price">0₫</div>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -45,9 +125,9 @@
     <link rel="stylesheet" href="~/SbHome/css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="~/SbHome/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/SbHome/css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
     <!-- Bootstrap CSS (nếu chưa có) -->
-
-
 </head>
 
 <body>
@@ -86,85 +166,7 @@
     </div>
     <!-- Menu di động kết thúc -->
     <!-- Phần đầu trang bắt đầu -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-7">
-                        <div class="header__top__left">
-                            <p>Miễn phí vận chuyển, đổi trả hoặc hoàn tiền trong 30 ngày.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-5">
-                        <div class="header__top__right">                        
-                            @if (isLoggedIn)
-                            {
-                                <div class="header__top__links">
-                                    <a asp-action="GetUserById" asp-controller="User" asp-route-id="@idUser">@userName</a>
-                                </div>
-                                <div class="header__top__links">
-                                    <a asp-action="LogOut" asp-controller="Auth">Đăng xuất</a>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="header__top__links">
-                                    <a asp-action="LogIn" asp-controller="Auth">Đăng nhập</a>
-                                </div>
-                                <div class="header__top__links">
-                                    <a asp-action="Register" asp-controller="Auth">Đăng ký</a>
-                                </div>
-                            }
-                            <div class="header__top__hover">
-                                <span> <img src="//supersports.com.vn/cdn/shop/t/230/assets/vi.png?v=78388546421581796491720174908" /> <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>Vietnam </li>
-                                    <li>English </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
-                        <a asp-action="Index" asp-controller="Home"><img src="~/SbHome/img/super.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li class="active"><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
-                            <li><a asp-action="Index" asp-controller="Product">Cửa hàng</a></li>
-                            <li>
-                                <a href="#">Trang</a>
-                                <ul class="dropdown">
-                                    <li><a asp-action="AboutUs" asp-controller="Page">Về chúng tôi</a></li>
-                                    <li><a href="./shopping-cart.html">Giỏ hàng</a></li>
-                                    <li><a href="./checkout.html">Thanh toán</a></li>
-                                </ul>
-                            </li>
-                            <li><a asp-action="Blog" asp-controller="Home">Blog</a></li>
-                            <li><a asp-action="Contact" asp-controller="Home">Liên hệ</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="~/SbHome/img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="~/SbHome/img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="~/SbHome/img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">0₫</div>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
-        </div>
-    </header>
     <!-- Phần đầu trang kết thúc -->
     <!-- Render nội dung -->
     @RenderBody()
@@ -242,6 +244,7 @@
     </div>
     <!-- Tìm kiếm kết thúc -->
     <!-- Plugin JS -->
+    @RenderSection("Scripts", required: false)
     <script src="~/SbHome/js/jquery-3.3.1.min.js"></script>
     <script src="~/SbHome/js/bootstrap.min.js"></script>
     <script src="~/SbHome/js/jquery.nice-select.min.js"></script>

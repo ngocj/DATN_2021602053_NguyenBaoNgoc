@@ -19,47 +19,7 @@ namespace SP.WebApp.Controllers
         {
             _httpClient = httpClientFactory.CreateClient();
         }
-        public async Task<ActionResult> Index()
-        {
-            var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl1}brand");
-            if (brands == null || !brands.Any())
-            {
-                ModelState.AddModelError(string.Empty, "Không tìm thấy thương hiệu nào.");
-                return View();
-            }
-
-            // get all subcategories
-            var subCategories = await _httpClient.GetFromJsonAsync<IEnumerable<SubCategoryViewDto>>($"{ApiUrl1}subcategory");
-            if (subCategories == null || !subCategories.Any())
-            {
-                ModelState.AddModelError(string.Empty, "Không tìm thấy danh mục nào");
-                return View();
-            }
-
-            // get all discounts
-            var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Discount");
-            if (discounts == null || !discounts.Any())
-            {
-                ModelState.AddModelError(string.Empty, "Không tìm thấy mã giảm giá nào.");
-                return View();
-            }
-
-            // Passing the data to the View
-            ViewBag.Brands = new SelectList(brands, "Id", "BrandName");
-            ViewBag.Categories = new SelectList(subCategories, "Id", "Name");
-            ViewBag.Discounts = discounts.Select(d => new SelectListItem
-            {
-                Value = d.Id.ToString(),
-                Text = $"{d.Percent}%"  // Thêm ký tự phần trăm
-            }).ToList();
-            // get all product
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>(ApiUrl);
-            if (response == null)
-            {
-                return NotFound();
-            }
-            return View(response);
-        }
+        
         public async Task<ActionResult> Details(int id)
         {
             var response = await _httpClient.GetFromJsonAsync<ProductViewDto>($"{ApiUrl}/{id}");
@@ -144,17 +104,7 @@ namespace SP.WebApp.Controllers
             TempData["Error"] = "Tên sản phẩm đã tồn tại.";     
             return View(productCreateDto);
         }
-      /*  // get all product by brand and subcategory  and isactive 
-        public async Task<IActionResult> GetAllByCategoryAndBrand(int? categoryId, int? brandId, bool? isActive)
-        {
-            var response = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/filter");
-            if (response == null)
-            {
-                return NotFound();
-            }
-            return View(response);
-        }*/
-
+     
         public async Task<ActionResult> Edit(int id)
         {
             // get all brands
