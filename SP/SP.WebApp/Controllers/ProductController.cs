@@ -31,7 +31,6 @@ namespace SP.WebApp.Controllers
         }
         public async Task<IActionResult> Create()
         {
-            // get all brands
             var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl1}brand");
             if (brands == null || !brands.Any())
             {
@@ -39,7 +38,6 @@ namespace SP.WebApp.Controllers
                 return View();
             }
 
-            // get all categories
             var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");
             if (categories == null || !categories.Any())
             {
@@ -47,7 +45,6 @@ namespace SP.WebApp.Controllers
                 return View();
             }
 
-            // get all subcategories
             var subCategories = await _httpClient.GetFromJsonAsync<IEnumerable<SubCategoryViewDto>>($"{ApiUrl1}subcategory");
             if (subCategories == null || !subCategories.Any())
             {
@@ -55,7 +52,6 @@ namespace SP.WebApp.Controllers
                 return View();
             }
 
-            // get all discounts
             var discounts = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl1}Discount");
             if (discounts == null || !discounts.Any())
             {
@@ -63,16 +59,15 @@ namespace SP.WebApp.Controllers
                 return View();
             }
 
-            // Passing the data to the View
             ViewBag.Brands = new SelectList(brands, "Id", "BrandName");
             ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
             ViewBag.CategoriesJson = System.Text.Json.JsonSerializer.Serialize(categories);
-            ViewBag.SubCategories = subCategories;  // <-- Thêm dòng này để truyền subcategories
+            ViewBag.SubCategoriesJson = System.Text.Json.JsonSerializer.Serialize(subCategories); // <-- Fix quan trọng
 
             ViewBag.Discounts = discounts.Select(d => new SelectListItem
             {
                 Value = d.Id.ToString(),
-                Text = $"{d.Percent}%"  // Thêm ký tự phần trăm
+                Text = $"{d.Percent}%"
             }).ToList();
 
             return View();

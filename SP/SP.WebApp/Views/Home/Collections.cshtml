@@ -49,6 +49,8 @@
                                                     var currentSubId = Context.Request.Query["subCategoryId"].ToString();
                                                     var priceFrom = Context.Request.Query["priceFrom"].ToString();
                                                     var priceTo = Context.Request.Query["priceTo"].ToString();
+                                                    var search = Context.Request.Query["search"].ToString();
+                                                    
                                                 }
 
                                                  <li class="brand-item @(string.IsNullOrEmpty(currentSubId) ? "active" : "")">
@@ -59,9 +61,11 @@
                 subCategoryId = (int?)null,
                 brandId = currentBrandId,
                 priceFrom = string.IsNullOrEmpty(priceFrom) ? (decimal?)null : Convert.ToDecimal(priceFrom),
-                priceTo = string.IsNullOrEmpty(priceTo) ? (decimal?)null : Convert.ToDecimal(priceTo)
+                priceTo = string.IsNullOrEmpty(priceTo) ? (decimal?)null : Convert.ToDecimal(priceTo),
+                search = string.IsNullOrEmpty(search) ? null : search
+
            })">
-                                                        Tất cả
+                                                        Tất cả 
                                                     </a>
                                                 </li>
 
@@ -77,7 +81,8 @@
                         subCategoryId = subcategory.Id,
                         brandId = currentBrandId,
                         priceFrom = string.IsNullOrEmpty(priceFrom) ? (decimal?)null : Convert.ToDecimal(priceFrom),
-                        priceTo = string.IsNullOrEmpty(priceTo) ? (decimal?)null : Convert.ToDecimal(priceTo)
+                        priceTo = string.IsNullOrEmpty(priceTo) ? (decimal?)null : Convert.ToDecimal(priceTo),
+                        search = string.IsNullOrEmpty(search) ? null : search
                    })">
                                                                 @subcategory.Name
                                                             </a>
@@ -104,6 +109,7 @@
                                                     var currentBrandId1 = Context.Request.Query["brandId"].ToString();
                                                     var priceFrom1 = Context.Request.Query["priceFrom"].ToString();
                                                     var priceTo1 = Context.Request.Query["priceTo"].ToString();
+                                                    var search1 = Context.Request.Query["search"].ToString();
                                                 }
 
                                                 <!-- Mục Tất cả (không chọn brand nào) -->
@@ -115,7 +121,8 @@
                sort = ViewBag.Sort,
                subCategoryId = ViewBag.SubCategoryId,
                priceFrom = string.IsNullOrEmpty(priceFrom1) ? (decimal?)null : Convert.ToDecimal(priceFrom1),
-               priceTo = string.IsNullOrEmpty(priceTo1) ? (decimal?)null : Convert.ToDecimal(priceTo1)
+               priceTo = string.IsNullOrEmpty(priceTo1) ? (decimal?)null : Convert.ToDecimal(priceTo1),
+               search = string.IsNullOrEmpty(search) ? null : search
            })">
                                                         Tất cả
                                                     </a>
@@ -134,7 +141,8 @@
                        sort = ViewBag.Sort,
                        subCategoryId = ViewBag.SubCategoryId,
                        priceFrom = string.IsNullOrEmpty(priceFrom1) ? (decimal?)null : Convert.ToDecimal(priceFrom1),
-                       priceTo = string.IsNullOrEmpty(priceTo1) ? (decimal?)null : Convert.ToDecimal(priceTo1)
+                       priceTo = string.IsNullOrEmpty(priceTo1) ? (decimal?)null : Convert.ToDecimal(priceTo1),
+                       search = string.IsNullOrEmpty(search) ? null : search
                    })">
                                                                 @brand.Text
                                                             </a>
@@ -165,6 +173,7 @@
 
                                                 var currentPriceFrom = Context.Request.Query["priceFrom"].ToString();
                                                 var currentPriceTo = Context.Request.Query["priceTo"].ToString();
+                                                var search2 = Context.Request.Query["search"].ToString();
                                             }
 
                                             <ul>
@@ -175,7 +184,8 @@
                 categoryId = ViewBag.CategoryId,
                 brandId = ViewBag.BrandId,
                 subCategoryId = ViewBag.SubCategoryId,
-                sort = ViewBag.Sort
+                sort = ViewBag.Sort,
+                search = string.IsNullOrEmpty(search2) ? null : search2
             })">
                                                         Tất cả
                                                     </a>
@@ -200,8 +210,7 @@
             @range.label
         </a>
     </li>
-}                                            
-                                               
+}                                                                                           
                                             </ul>
                                         </div>
 
@@ -241,6 +250,8 @@
         var brandId = Context.Request.Query["brandId"].ToString();
         var priceFrom3 = Context.Request.Query["priceFrom"].ToString();
         var priceTo3 = Context.Request.Query["priceTo"].ToString();
+        var search3 = Context.Request.Query["search"].ToString();
+
     }
 
     <p>
@@ -252,10 +263,11 @@
     <input type="hidden" name="brandId" value="@brandId" />
     <input type="hidden" name="priceFrom" value="@priceFrom3" />
     <input type="hidden" name="priceTo" value="@priceTo3" />
+    <input type="hidden" name="search" value="@search3" />
 
     <select name="sort" class="form-control" onchange="this.form.submit()">
-        <option value="best_selling" selected="@(sort == "best_selling")">Bán chạy nhất</option>
         <option value="lastest" selected="@(sort == "lastest")">Mới nhất</option>
+        <option value="best_selling" selected="@(sort == "best_selling")">Bán chạy nhất</option>       
         <option value="price_desc" selected="@(sort == "price_desc")">Giá giảm dần</option>
         <option value="price_asc" selected="@(sort == "price_asc")">Giá tăng dần</option>
     </select>
@@ -281,13 +293,14 @@
                                     : "";
                                     var altText = imageFile?.FileData != null ? variant.ProductName : "Không có ảnh";
 
-                                    <img src="@imageSrc" alt="@altText" />
+                                    <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id" title="Xem chi tiết sản phẩm">
+                                        <img src="@imageSrc" alt="@altText" style="cursor:pointer;" />
+                                    </a>
                                 }
                                 else
                                 {
                                     <div class="no-image mb-1">Không có ảnh</div>
                                 }
-
                                 @if (item.Percent > 0)
                                 {
                                     <div class="discount-badge">
@@ -297,7 +310,9 @@
                             </div>
                             <div class="product-info">
                                 <h6 class="product-title">
-                                    @item.ProductName
+                                    <a asp-action="Detail" asp-controller="Home" asp-route-id="@item.Id" class="text-dark">
+                                        @item.ProductName
+                                    </a>
                                 </h6>
 
                                 <div class="product-brand" style="opacity: 0.6;">
@@ -364,18 +379,7 @@
                             </div>
                         </div>
                     }
-                </div>
-                @* <div class="row">
-                    <div class="col-lg-12">
-                        <div class="product__pagination">
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">21</a>
-                        </div>
-                    </div>
-                </div> *@
+                </div>            
             </div>
         </div>
     </div>
@@ -383,13 +387,7 @@
 
 <style>
     /* ===== TYPOGRAPHY & BASE STYLES ===== */
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        min-height: 100vh;
-    }
+   
 
     .container {
         max-width: 1400px;
@@ -716,35 +714,7 @@
     padding-left: 9px; /* Giảm padding để bù cho border */
 }
 
-    @* /* ===== PAGINATION ===== */
-    .product__pagination {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 30px;
-    }
-
-        .product__pagination a {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            line-height: 36px;
-            text-align: center;
-            background: #fff;
-            border-radius: 50%;
-            color: #333;
-            text-decoration: none;
-            font-size: 14px;
-            transition: all 0.2s;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        }
-
-            .product__pagination a.active,
-            .product__pagination a:hover {
-                background: #667eea;
-                color: #fff;
-            } *@
-
+  
 </style>
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")

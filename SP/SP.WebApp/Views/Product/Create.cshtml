@@ -93,7 +93,7 @@
     <script>
         // Lấy dữ liệu JSON từ ViewBag
         const allCategories = @Html.Raw(ViewBag.CategoriesJson);
-        const allSubCategories = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(ViewBag.SubCategories));
+        const allSubCategories = @Html.Raw(ViewBag.SubCategoriesJson);
 
         const $categoryDropdown = $('#categoryDropdown');
         const $subDropdown = $('#subCategoryDropdown');
