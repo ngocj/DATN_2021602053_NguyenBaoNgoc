@@ -55,6 +55,10 @@ namespace SP.Application.Service.Implement
                 await _unitOfWork.SaveChangeAsync();
             }
         }
+        public async Task<List<Cart>> GetAllCartsByUserIdAsync(Guid userId)
+        {
+            return await _unitOfWork.CartRepository.GetAllCartsByUserIdAsync(userId);
+        }
     }
 
 }

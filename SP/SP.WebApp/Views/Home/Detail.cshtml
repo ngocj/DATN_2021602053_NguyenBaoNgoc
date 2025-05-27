@@ -6,8 +6,27 @@
 
     var variants = Model.ProductVariants ?? new List<SP.Application.Dto.ProductVariantDto.VariantViewDto>();
     var defaultVariant = variants.FirstOrDefault();
-}
 
+    // Define color mapping (English to Vietnamese)
+    var colorMap = new Dictionary<string, string>
+{
+    { "Red", "Đỏ" },
+    { "Blue", "Xanh dương" },
+    { "Green", "Xanh lá" },
+    { "Black", "Đen" },
+    { "White", "Trắng" },
+    { "Yellow", "Vàng" },
+    { "Gray", "Xám" },
+    { "Pink", "Hồng" },
+    { "Purple", "Tím" },
+    { "Orange", "Cam" },
+    { "Brown", "Nâu" },
+    { "Beige", "Be" },
+    { "Cyan", "Xanh lam" },
+    { "Magenta", "Hồng đậm" },
+    { "Navy", "Xanh navy" }
+};
+}
 <div class="product-detail-container">
     <div class="product-breadcrumb">
         <nav aria-label="breadcrumb">
@@ -68,8 +87,31 @@
             </div>
 
             <div class="product-price-container">
-                <div class="current-price" id="priceDisplay">@defaultVariant?.Price.ToString("N0") đ</div>
-                <div class="price-note">(Giá đã bao gồm VAT)</div>
+                <div id="priceContent">
+                    @if (Model.Percent > 0 && defaultVariant != null)
+                    {
+                        var originalPrice = defaultVariant.Price;
+                        var discountAmount = (originalPrice * Model.Percent) / 100;
+                        var discountedPrice = originalPrice - discountAmount;
+
+                        <div class="current-price fw-bold text-danger" style="font-size: 1.5rem;">
+                            @discountedPrice.ToString("N0") đ
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="original-price text-muted" style="text-decoration: line-through;">
+                                @originalPrice.ToString("N0") đ
+                            </div>
+                            <span class="badge bg-danger text-white ml-2">-@Model.Percent%</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="current-price fw-bold">
+                            @defaultVariant?.Price.ToString("N0") đ
+                        </div>
+                    }
+                </div>
+                <div class="price-note text-muted">(Giá đã bao gồm VAT)</div>
             </div>
 
             <div class="product-variants">
@@ -79,8 +121,11 @@
                     <div class="variant-options" id="colorOptions">
                         @foreach (var color in variants.Select(v => v.Color).Distinct())
                         {
-                            <div class="variant-option color-option @(color == defaultVariant?.Color ? "active" : "")" 
-                                 data-value="@color">@color</div>
+                            var vietnameseColor = colorMap.ContainsKey(color) ? colorMap[color] : color;
+                            <div class="variant-option color-option @(color == defaultVariant?.Color ? "active" : "")"
+                                 data-value="@color">
+                                @vietnameseColor
+                            </div>
                         }
                     </div>
                 </div>
@@ -108,10 +153,9 @@
             </div>
 
             <div class="product-actions">
-                <form id="addToCartForm" asp-action="AddToCart" asp-controller="Cart" method="post">
-                    <input type="hidden" name="productId" value="@Model.Id" />
-                    <input type="hidden" name="variantId" id="selectedVariantId" value="@defaultVariant?.Id" />
-                    <input type="hidden" name="quantity" id="addToCartQuantity" value="1" />
+                <form asp-action="Create" asp-controller="Cart" method="post">
+                    <input type="hidden" name="ProductVariantId" id="selectedVariantId" value="@defaultVariant?.Id" />
+                    <input type="hidden" name="Quantity" id="addToCartQuantity" value="1" />
                     <button type="submit" class="btn-add-to-cart">
                         <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng
                     </button>
@@ -190,6 +234,11 @@
 @section Styles {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        .size-option.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+            text-decoration: line-through;
+        }
 
         .container {
             max-width: 1400px;
@@ -603,12 +652,14 @@
 @section Scripts {
     <script>
         const variants = @Html.Raw(Json.Serialize(Model.ProductVariants));
+        const colorMap = @Html.Raw(Json.Serialize(colorMap)); // Serialize the color map for JavaScript
 
         const imageElem = document.getElementById('productImage');
         const priceElem = document.getElementById('priceDisplay');
         const variantIdInput = document.getElementById('selectedVariantId');
         const variantIdInput2 = document.getElementById('selectedVariantId2');
         const thumbnailContainer = document.querySelector('.thumbnail-scroller');
+        const priceContainer = document.querySelector('.product-price-container');
 
         // Initialize selected options
         let selectedSize = '@defaultVariant?.Size' || null;
@@ -619,12 +670,23 @@
             option.addEventListener('click', () => {
                 document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
-                selectedColor = option.getAttribute('data-value');
+                selectedColor = option.getAttribute('data-value'); // Use English color for logic
+
+                // Find available sizes for the selected color
+                const availableSizes = getAvailableSizes(selectedColor);
+                updateSizeOptions(availableSizes);
+
+                // If current size is not available with the new color, select the first available size
+                if (availableSizes.length > 0 && !availableSizes.includes(selectedSize)) {
+                    selectedSize = availableSizes[0];
+                    updateActiveSizeOption(selectedSize);
+                }
+
                 updateVariant();
             });
         });
 
-        // Size selection
+        // Size selection (unchanged)
         document.querySelectorAll('.size-option').forEach(option => {
             option.addEventListener('click', () => {
                 document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('active'));
@@ -634,41 +696,131 @@
             });
         });
 
+        // Get available sizes for the selected color
+        function getAvailableSizes(color) {
+            return [...new Set(variants
+                .filter(v => v.color === color)
+                .map(v => v.size))];
+        }
+
+        // Update size options display
+        function updateSizeOptions(availableSizes) {
+            const sizeOptions = document.querySelectorAll('.size-option');
+            sizeOptions.forEach(option => {
+                const size = option.getAttribute('data-value');
+                if (availableSizes.includes(size)) {
+                    option.style.display = 'block';
+                    option.classList.remove('disabled');
+                } else {
+                    option.style.display = 'none';
+                    option.classList.add('disabled');
+                }
+            });
+        }
+
+        // Update active size option
+        function updateActiveSizeOption(size) {
+            document.querySelectorAll('.size-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-value') === size) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
         // Update variant based on selected options
         function updateVariant() {
             if (!selectedSize || !selectedColor) return;
 
-            const matchedVariant = variants.find(v => v.Size === selectedSize && v.Color === selectedColor);
+            // Find matching variant
+            const matchedVariant = variants.find(v =>
+                v.size === selectedSize &&
+                v.color === selectedColor
+            );
 
             if (matchedVariant) {
                 // Update price
-                priceElem.textContent = matchedVariant.Price.toLocaleString() + ' đ';
+                updatePriceDisplay(matchedVariant.price, @Model.Percent);
 
-                // Update images
-                if (matchedVariant.Images?.length > 0) {
-                    imageElem.src = `data:${matchedVariant.Images[0].ContentType};base64,${matchedVariant.Images[0].FileData}`;
-                    
+                // Update main image if available
+                if (matchedVariant.images && matchedVariant.images.length > 0) {
+                    const firstImage = matchedVariant.images[0];
+                    imageElem.src = `data:${firstImage.contentType};base64,${firstImage.fileData}`;
+                    imageElem.style.display = 'block';
+
                     // Update thumbnails
-                    thumbnailContainer.innerHTML = '';
-                    matchedVariant.Images.forEach(img => {
-                        const thumbSrc = `data:${img.ContentType};base64,${img.FileData}`;
-                        const thumbItem = document.createElement('div');
-                        thumbItem.className = 'thumbnail-item';
-                        const thumbImg = document.createElement('img');
-                        thumbImg.src = thumbSrc;
-                        thumbImg.className = 'thumbnail-image';
-                        thumbImg.addEventListener('click', () => {
-                            imageElem.src = thumbImg.src;
-                        });
-                        thumbItem.appendChild(thumbImg);
-                        thumbnailContainer.appendChild(thumbItem);
-                    });
+                    updateThumbnails(matchedVariant.images);
+                } else {
+                    imageElem.style.display = 'none';
                 }
 
-                // Update variant IDs in forms
-                variantIdInput.value = matchedVariant.Id;
-                variantIdInput2.value = matchedVariant.Id;
+                // Update variant ID in forms
+                document.getElementById('selectedVariantId').value = matchedVariant.id;
+                document.getElementById('selectedVariantId2').value = matchedVariant.id;
+            } else {
+                // Show message if no matching variant
+                priceContainer.innerHTML = `
+                    <div class="text-danger">Sản phẩm với màu và kích thước đã chọn hiện không có sẵn</div>
+                `;
+
+                // Hide product image
+                imageElem.style.display = 'none';
+
+                // Clear thumbnails
+                thumbnailContainer.innerHTML = '';
+
+                // Clear variant ID
+                document.getElementById('selectedVariantId').value = '';
+                document.getElementById('selectedVariantId2').value = '';
             }
+        }
+
+        // Update price display
+        function updatePriceDisplay(price, discountPercent) {
+            const priceContent = document.getElementById('priceContent');
+
+            if (discountPercent > 0) {
+                const discountAmount = (price * discountPercent) / 100;
+                const discountedPrice = price - discountAmount;
+                priceContent.innerHTML = `
+                            <div class="current-price fw-bold text-danger" style="font-size: 1.5rem;">
+                                ${discountedPrice.toLocaleString('vi-VN')} đ
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="original-price text-muted" style="text-decoration: line-through;">
+                                    ${price.toLocaleString('vi-VN')} đ
+                                </div>
+                                <span class="badge bg-danger text-white ml-2">-${discountPercent}%</span>
+                            </div>
+                        `;
+            } else {
+                priceContent.innerHTML = `
+                            <div class="current-price fw-bold">
+                                ${price.toLocaleString('vi-VN')} đ
+                            </div>
+                        `;
+            }
+        }
+
+        // Update thumbnails
+        function updateThumbnails(images) {
+            thumbnailContainer.innerHTML = '';
+
+            images.forEach(img => {
+                const thumbSrc = `data:${img.contentType};base64,${img.fileData}`;
+                const thumbItem = document.createElement('div');
+                thumbItem.className = 'thumbnail-item';
+
+                const thumbImg = document.createElement('img');
+                thumbImg.src = thumbSrc;
+                thumbImg.className = 'thumbnail-image';
+                thumbImg.addEventListener('click', () => {
+                    imageElem.src = thumbImg.src;
+                });
+
+                thumbItem.appendChild(thumbImg);
+                thumbnailContainer.appendChild(thumbItem);
+            });
         }
 
         // Thumbnail click event delegation
@@ -679,37 +831,32 @@
         });
 
         // Quantity controls
-        const quantityInput = document.getElementById('quantityInput');
-        const btnDecrease = document.getElementById('btnDecrease');
-        const btnIncrease = document.getElementById('btnIncrease');
-        const addToCartQuantity = document.getElementById('addToCartQuantity');
-        const buyNowQuantity = document.getElementById('buyNowQuantity');
+        quantityInput.addEventListener('input', () => {
+            if (quantityInput.value === '' || parseInt(quantityInput.value) < 1) {
+                quantityInput.value = 1;
+            }
+            // Update quantity in forms
+            document.getElementById('addToCartQuantity').value = quantityInput.value;
+            document.getElementById('buyNowQuantity').value = quantityInput.value;
+        });
 
+        // Cũng cần cập nhật trong sự kiện tăng/giảm số lượng
         btnDecrease.addEventListener('click', () => {
             let currentValue = parseInt(quantityInput.value) || 1;
             if (currentValue > 1) {
                 quantityInput.value = currentValue - 1;
+                document.getElementById('addToCartQuantity').value = quantityInput.value;
+                document.getElementById('buyNowQuantity').value = quantityInput.value;
             }
         });
 
         btnIncrease.addEventListener('click', () => {
             let currentValue = parseInt(quantityInput.value) || 1;
             quantityInput.value = currentValue + 1;
+            document.getElementById('addToCartQuantity').value = quantityInput.value;
+            document.getElementById('buyNowQuantity').value = quantityInput.value;
         });
 
-        quantityInput.addEventListener('input', () => {
-            if (quantityInput.value === '' || parseInt(quantityInput.value) < 1) {
-                quantityInput.value = 1;
-            }
-        });
-
-        // Update quantity in forms before submission
-        document.getElementById('addToCartForm').addEventListener('submit', () => {
-            addToCartQuantity.value = quantityInput.value;
-        });
-
-        document.getElementById('buyNowForm').addEventListener('submit', () => {
-            buyNowQuantity.value = quantityInput.value;
-        });
+       
     </script>
 }

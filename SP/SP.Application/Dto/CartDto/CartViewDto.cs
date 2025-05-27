@@ -1,4 +1,5 @@
-﻿using SP.Domain.Entity;
+﻿using SP.Application.Dto.ProductVariantDto;
+using SP.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,6 @@ namespace SP.Application.Dto.CartDto
         public Guid UserId { get; set; }
         public int ProductVariantId { get; set; }
         public int Quantity { get; set; }
-        public User User { get; set; }
-        public ProductVariant ProductVariant { get; set; }
+        public VariantViewDto ProductVariant { get; set; }
     }
 }

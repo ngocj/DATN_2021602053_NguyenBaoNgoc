@@ -9,5 +9,6 @@ namespace SP.Infrastructure.Repositories.Interface
 {
     public interface ICartRepository : IGenericRepository<Cart>
     {
+        Task<List<Cart>> GetAllCartsByUserIdAsync(Guid userId);
     }
 }

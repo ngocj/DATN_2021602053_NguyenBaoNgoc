@@ -14,6 +14,7 @@ namespace SP.Application.Service.Interface
         Task CreateCart(Cart cart);
         Task UpdateCart(Cart cart);
         Task DeleteCart(Guid userId, int productVariantId);
+        Task<List<Cart>> GetAllCartsByUserIdAsync(Guid userId);
 
     }
 }

@@ -7869,6 +7869,10 @@
       "PackagePath": "staticwebassets\\SbHome\\js\\bootstrap.min.js"
     },
     {
+      "Id": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\js\\cart.js",
+      "PackagePath": "staticwebassets\\SbHome\\js\\cart.js"
+    },
+    {
       "Id": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\js\\jquery-3.3.1.min.js",
       "PackagePath": "staticwebassets\\SbHome\\js\\jquery-3.3.1.min.js"
     },

@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace SP.Application.Dto.CartDto
 {
-    public class CartCreateDto
+    public class CartUpdateDto
     {
         public Guid UserId { get; set; }
         public int ProductVariantId { get; set; }
         public int Quantity { get; set; }
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        
     }
 }

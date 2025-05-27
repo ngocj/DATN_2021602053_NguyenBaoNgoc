@@ -41,7 +41,9 @@ namespace SP.Application.Mappings
             CreateMap<FeedBack, FeedbackCreateDto>().ReverseMap();
 
             CreateMap<OrderDetail, OrderDetailViewDto>().ReverseMap();
+
             CreateMap<OrderDetail, OrderDetailCreateDto>().ReverseMap();
+
 
            
             CreateMap<Order, OrderCreateDto>().ReverseMap();
@@ -54,6 +56,7 @@ namespace SP.Application.Mappings
 
             CreateMap<Cart, CartViewDto>().ReverseMap();
             CreateMap<Cart, CartCreateDto>().ReverseMap();
+            CreateMap<Cart, CartUpdateDto>().ReverseMap();
             
             CreateMap<Role, RoleViewDto>().ReverseMap();       
             CreateMap<Role, RoleCreateDto>().ReverseMap();

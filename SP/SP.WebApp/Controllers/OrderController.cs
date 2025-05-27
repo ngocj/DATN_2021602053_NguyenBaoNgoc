@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SP.Application.Dto.OrderDetailDto;
 using SP.Application.Dto.OrderDto;
 using SP.Application.Dto.UserDto;
 using SP.Domain.Entity;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 namespace SP.WebApp.Controllers
@@ -29,52 +31,50 @@ namespace SP.WebApp.Controllers
             return View(response);
         }    
         // create order
-        public IActionResult CreateOrder()
+        public IActionResult BuyNow()
         {
             return View();
         }
+
         [HttpPost]
-        public async Task<IActionResult> CreateOrder(OrderCreateDto orderCreateDto)
+        public async Task<IActionResult> BuyNow(OrderCreateDto orderCreateDto)
         {
-            if (!ModelState.IsValid)
+            // Lấy JWT từ session
+            var token = HttpContext.Session.GetString("JwtToken");
+            if (string.IsNullOrEmpty(token))
             {
-                return View(orderCreateDto);
+                return RedirectToAction("Login", "Auth");
+            }
+            // Giải mã JWT để lấy userId
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+            var userIdClaim = jwtToken.Claims.FirstOrDefault(x => x.Type == "nameid");
+            var claim = jwtToken.Claims.FirstOrDefault(c => c.Type == "unique_name");
+
+            if (userIdClaim == null || !Guid.TryParse(userIdClaim.Value, out Guid userId))
+            {
+                return RedirectToAction("Login", "Auth");
             }
 
-            // Lấy UserId từ claims nếu người dùng đã đăng nhập
-            var userIdString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            // Gán userId và userName vào DTO
+            orderCreateDto.UserId = userId;
+            orderCreateDto.UserName = claim?.Value;
+            orderCreateDto.Status = OrderStatus.Pending;
+            orderCreateDto.TotalPrice = 100;
+            orderCreateDto.EmployeeId = Guid.NewGuid();
+            orderCreateDto.EmployeeName = "ngoc";
 
-            if (Guid.TryParse(userIdString, out var userId))
-            {
-                // Nếu đã đăng nhập, dùng ID của họ
-                orderCreateDto.UserId = userId;
-            }
-            else
-            {
-                var guestUserId = Guid.Parse("d74d8711-7654-43d9-a357-08dd9749ec40");
-                orderCreateDto.UserId = guestUserId;
-
-                var guestUser = await _httpClient.GetFromJsonAsync<UserViewDto>($"{ApiUrl1}User/{guestUserId}");
-
-                if (string.IsNullOrWhiteSpace(orderCreateDto.UserName))
-                {
-                    orderCreateDto.UserName = guestUser?.UserName;
-                }
-
-            }
-            orderCreateDto.Status = OrderStatus.Delivered; 
-
-            var response = await _httpClient.PostAsJsonAsync($"{ApiUrl}", orderCreateDto);
+            var response = await _httpClient.PostAsJsonAsync(ApiUrl, orderCreateDto);
 
             if (response.IsSuccessStatusCode)
             {
+                TempData["Success"] = "📦 Đặt hàng thành công.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "❌ Failed to create order.");
+            TempData["Error"] = "❌ Đặt hàng thất bại.";
             return View(orderCreateDto);
         }
-
 
 
         // update order
@@ -119,6 +119,39 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllOrder", "Manager");
 
         }
+
+      
+       
+
+        //payment
+        public async Task<IActionResult> Payment(Guid orderId)
+        {
+            var token = HttpContext.Session.GetString("JwtToken");
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
+            var order = await _httpClient.GetFromJsonAsync<OrderViewDto>($"{ApiUrl}/{"1144423C-1A45-476D-8A9B-ABDD3AE6C666"}");
+            if (order == null)
+            {
+                TempData["Error"] = "Không tìm thấy đơn hàng.";
+                return RedirectToAction("Index", "Product");
+            }
+            return View(order);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

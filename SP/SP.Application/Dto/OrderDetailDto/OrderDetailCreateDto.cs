@@ -10,7 +10,7 @@ namespace SP.Application.Dto.OrderDetailDto
     public class OrderDetailCreateDto
     {
         public Guid OrderId { get; set; }
-        public int ProductVariantId { get; set; }
+        public Guid ProductVariantId { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
     }

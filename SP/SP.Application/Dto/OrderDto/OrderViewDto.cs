@@ -19,10 +19,8 @@ namespace SP.Application.Dto.OrderDto
         public DateTime CreatedAt { get; set; }
         public string? UserName { get; set; }
         public string? EmployeeName { get; set; }
-
         public string AddressDetail { get; set; }
         public List<OrderDetailViewDto> OrderDetails { get; set; }
-
 
     }
     

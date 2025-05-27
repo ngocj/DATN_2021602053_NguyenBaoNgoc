@@ -14,10 +14,9 @@ namespace SP.Application.Dto.OrderDto
         public Guid EmployeeId { get; set; }
         public OrderStatus Status { get; set; }
         public decimal TotalPrice { get; set; }
-        public DateTime CreatedAt { get; set; }
         public string? UserName { get; set; }
         public string? EmployeeName { get; set; }
-        public string AddressDetail { get; set; }
-        public List<OrderDetailViewDto> OrderDetails { get; set; }
+        public string? AddressDetail { get; set; }
+        public List<OrderDetailCreateDto> OrderDetails { get; set; }
     }
 }

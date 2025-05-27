@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CfpCkCVlva5PL2LXBGpZ6kp/EGIHXG4fZmOvenbInCU=",
+  "Hash": "SUiZw+bcbB3B3HlVO91HqLVhAf6Tk4sfF3FYhf3pCbc=",
   "Source": "SP.WebApp",
   "BasePath": "_content/SP.WebApp",
   "Mode": "Default",
@@ -38414,6 +38414,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\SbHome\\js\\bootstrap.min.js"
+    },
+    {
+      "Identity": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\js\\cart.js",
+      "SourceId": "SP.WebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\",
+      "BasePath": "_content/SP.WebApp",
+      "RelativePath": "SbHome/js/cart.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SbHome\\js\\cart.js"
     },
     {
       "Identity": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\wwwroot\\SbHome\\js\\jquery.countdown.min.js",

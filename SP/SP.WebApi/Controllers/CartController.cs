@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.CartDto;
@@ -19,7 +20,7 @@ namespace SP.WebApi.Controllers
             _mapper = mapper;
             _cartService = cartService;
         }
-
+        
         [HttpGet]
         public async Task<IActionResult> GetAllCarts()
         {
@@ -53,18 +54,18 @@ namespace SP.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCart([FromBody] CartViewDto cartViewDto)
+        public async Task<IActionResult> UpdateCart([FromBody] CartUpdateDto cartUpdateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var cart = await _cartService.GetCartById(cartViewDto.UserId,cartViewDto.ProductVariantId);
+            var cart = await _cartService.GetCartById(cartUpdateDto.UserId, cartUpdateDto.ProductVariantId);
             if (cart == null)
             {
                 return NotFound();
             }
-            var updatedCart = _mapper.Map<Cart>(cartViewDto);
+            var updatedCart = _mapper.Map<Cart>(cartUpdateDto);
             await _cartService.UpdateCart(updatedCart);
             return Ok();
         }
@@ -79,7 +80,14 @@ namespace SP.WebApi.Controllers
             await _cartService.DeleteCart(userId, productVariantId);
             return Ok();
         }
+        [Authorize]
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetAllCartsByUserId(Guid userId)
+        {
+            var carts = await _cartService.GetAllCartsByUserIdAsync(userId);
+            var cartDto = _mapper.Map<IEnumerable<CartViewDto>>(carts);
+            return Ok(cartDto);
+        }
         
-
     }
 }
