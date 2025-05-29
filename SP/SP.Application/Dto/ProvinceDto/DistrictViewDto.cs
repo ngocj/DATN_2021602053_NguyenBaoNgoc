@@ -8,6 +8,10 @@ namespace SP.Application.Dto.ProvinceDto
 {
     public class DistrictViewDto
     {
+        public int ProvinceId { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
+
+        public ProvinceViewDto Province { get; set; }
     }
 }

@@ -27,5 +27,10 @@ namespace SP.Application.Service.Implement
         {
            return await _unitOfWork.DistrictRepository.GetAllAsync();
         }
+
+        public async Task<IEnumerable<District>> GetDistrictsByProvinceIdAsync(int provinceId)
+        {
+            return await _unitOfWork.DistrictRepository.GetDistrictsByProvinceIdAsync(provinceId);
+        }
     }
 }

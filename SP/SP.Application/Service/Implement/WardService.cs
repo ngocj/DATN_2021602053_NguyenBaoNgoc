@@ -26,5 +26,10 @@ namespace SP.Application.Service.Implement
         {
           return await _unitOfWork.WardRepository.GetAllAsync();
         }
+
+        public async Task<IEnumerable<Ward>> GetWardsByDistrictIdAsync(int districtId)
+        {
+            return await _unitOfWork.WardRepository.GetWardsByDistrictIdAsync(districtId);
+        }
     }
 }

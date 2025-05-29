@@ -146,16 +146,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/BuyNow.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQnV5Tm93LmNzaHRtbA==
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/ByNow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQnlOb3cuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/DetailOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlsT3JkZXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/Payment.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcUGF5bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Order/UpdateOrder.cshtml]
@@ -200,6 +196,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Shared/_AddressSelector.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZGRyZXNzU2VsZWN0b3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BÀI TẬP/DATN_K16/NguyenBaoNgoc_2021602053_DATN/SP/SP.WebApp/Views/Shared/_LayoutAdmin.cshtml]

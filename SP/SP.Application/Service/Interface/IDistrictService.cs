@@ -11,5 +11,6 @@ namespace SP.Application.Service.Interface
     {
         Task<IEnumerable<District>> GetAllDistricts();
         Task<District> GetAllDistrictById(int id);
+        Task<IEnumerable<District>> GetDistrictsByProvinceIdAsync(int provinceId);
     }
 }

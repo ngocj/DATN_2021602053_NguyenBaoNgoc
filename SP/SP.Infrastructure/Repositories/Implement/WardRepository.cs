@@ -23,5 +23,13 @@ namespace SP.Infrastructure.Repositories.Implement
                 .ThenInclude(x => x.Province)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
+
+        public async Task<IEnumerable<Ward>> GetWardsByDistrictIdAsync(int districtId)
+        {
+            return await _SPContext.Wards
+                .Where(d => d.DistrictId == districtId)
+                .ToListAsync();
+
+        }
     }
 }

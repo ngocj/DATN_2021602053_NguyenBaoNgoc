@@ -9,6 +9,7 @@ namespace SP.Infrastructure.Repositories.Interface
 {
     public interface IWardRepository : IGenericRepository<Ward>
     {
-        
+        Task<IEnumerable<Ward>> GetWardsByDistrictIdAsync(int districtId);    
+
     }
 }

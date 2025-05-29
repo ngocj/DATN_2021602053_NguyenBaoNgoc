@@ -18,16 +18,14 @@ namespace SP.Domain.Entity
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
-        public Guid EmployeeId { get; set; }
+        public Guid? EmployeeId { get; set; }
         public OrderStatus Status { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-
         public User User { get; set; }
         public Employee Employee { get; set; }
-        public List<OrderDetail> OrderDetails { get; set; }
-       
+        public List<OrderDetail> OrderDetails { get; set; }   
 
     }
 }

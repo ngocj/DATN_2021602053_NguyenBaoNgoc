@@ -673,7 +673,7 @@ namespace SP.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<Guid>("EmployeeId")
+                    b.Property<Guid?>("EmployeeId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Status")
@@ -1489,8 +1489,7 @@ namespace SP.Infrastructure.Migrations
                     b.HasOne("SP.Domain.Entity.Employee", "Employee")
                         .WithMany("Orders")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SP.Domain.Entity.User", "User")
                         .WithMany("Orders")

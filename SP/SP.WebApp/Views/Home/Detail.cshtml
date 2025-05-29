@@ -161,14 +161,18 @@
                     </button>
                 </form>
 
-                <form id="buyNowForm" asp-action="BuyNow" asp-controller="Order" method="post">
-                    <input type="hidden" name="productId" value="@Model.Id" />
-                    <input type="hidden" name="variantId" id="selectedVariantId2" value="@defaultVariant?.Id" />
-                    <input type="hidden" name="quantity" id="buyNowQuantity" value="1" />
+                <form id="buyNowForm" asp-action="ByNow" asp-controller="Order" method="get">
+                    <!-- Thông tin sản phẩm -->
+                    <input type="hidden" name="productVariantId" value="@defaultVariant?.Id" />
+                    <input type="hidden" name="ProductName" value="@defaultVariant?.ProductName" />
+                    <input type="hidden" name="quantity" value="1" />
+
+
                     <button type="submit" class="btn-buy-now">
                         <i class="fas fa-bolt"></i> Mua ngay
                     </button>
                 </form>
+
             </div>
 
             <div class="product-meta">
@@ -757,6 +761,10 @@
                 // Update variant ID in forms
                 document.getElementById('selectedVariantId').value = matchedVariant.id;
                 document.getElementById('selectedVariantId2').value = matchedVariant.id;
+                document.getElementById('orderDetailVariantId').value = matchedVariant.id;
+                document.getElementById('orderDetailPrice').value = matchedVariant.price;
+                document.getElementById('orderDetailQuantity').value = document.getElementById('quantityInput').value;
+
             } else {
                 // Show message if no matching variant
                 priceContainer.innerHTML = `
@@ -840,6 +848,7 @@
             document.getElementById('buyNowQuantity').value = quantityInput.value;
         });
 
+
         // Cũng cần cập nhật trong sự kiện tăng/giảm số lượng
         btnDecrease.addEventListener('click', () => {
             let currentValue = parseInt(quantityInput.value) || 1;
@@ -847,6 +856,7 @@
                 quantityInput.value = currentValue - 1;
                 document.getElementById('addToCartQuantity').value = quantityInput.value;
                 document.getElementById('buyNowQuantity').value = quantityInput.value;
+                document.getElementById('orderDetailQuantity').value = quantityInput.value;
             }
         });
 
@@ -856,6 +866,15 @@
             document.getElementById('addToCartQuantity').value = quantityInput.value;
             document.getElementById('buyNowQuantity').value = quantityInput.value;
         });
+
+        // Thêm vào cuối phần xử lý quantity controls
+        quantityInput.addEventListener('change', () => {
+            document.getElementById('orderDetailQuantity').value = quantityInput.value;
+        });
+
+   
+
+      
 
        
     </script>

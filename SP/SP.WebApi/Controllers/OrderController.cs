@@ -43,6 +43,10 @@ namespace SP.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+            if (orderCreateDto.Id == Guid.Empty)
+            {
+                orderCreateDto.Id = Guid.NewGuid();
+            }
             var order = _mapper.Map<Order>(orderCreateDto);
             await _orderService.CreateOrder(order);
             return Ok();

@@ -11,5 +11,6 @@ namespace SP.Application.Service.Interface
     {
         Task<IEnumerable<Ward>> GetAllWards();
         Task<Ward> GetAllWardById(int id);
+        Task<IEnumerable<Ward>> GetWardsByDistrictIdAsync(int districtId);
     }
 }

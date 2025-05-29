@@ -7,32 +7,120 @@
       "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\buynow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\buynow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\bynow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\bynow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\provincedto\\wardviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\provincedto\\wardviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\provincedto\\provinceviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\provincedto\\provinceviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\cartdto\\cartcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\cartdto\\cartcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdetaildto\\orderdetailviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdetaildto\\orderdetailviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\provincedto\\districtviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\provincedto\\districtviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdetaildto\\orderdetailcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdetaildto\\orderdetailcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdetaildto\\orderdetailviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdetaildto\\orderdetailviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\mappings\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\mappings\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.domain\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|solutionrelative:sp.domain\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\cart\\getallcartbyuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\cart\\getallcartbyuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\userdto\\userviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\userdto\\userviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\provincerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\provincerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\interface\\iwardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\interface\\iwardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iwardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iwardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\interface\\idistrictservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\interface\\idistrictservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\districtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\districtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\implement\\wardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\implement\\wardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\wardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\wardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\discountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\discountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\idistrictrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\idistrictrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iproductvariantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iproductvariantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\implement\\districtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\implement\\districtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapi\\controllers\\orderdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -47,32 +135,8 @@
       "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\updateorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\mappings\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\mappings\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\cart\\getallcartbyuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\cart\\getallcartbyuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\cartdto\\cartcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\cartdto\\cartcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,7 +146,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,26 +162,52 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ByNow.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\ByNow.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\ByNow.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\ByNow.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Order\\ByNow.cshtml",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAFoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T16:06:47.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "OrderController.cs",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\OrderController.cs",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderController.cs",
               "RelativeToolTip": "SP.WebApp\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAIAAAA",
+              "ViewState": "AQIAAGQAAAAAAAAAAAAAAI8AAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T15:23:20.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "ViewState": "AQIAAJkAAAAAAAAAAAAAAKgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T14:35:02.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "OrderCreateDto.cs",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
               "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
               "RelativeToolTip": "SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAATAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T15:51:14.852Z",
               "EditorCaption": ""
@@ -125,77 +215,77 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "OrderDetailCreateDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "Title": "CartCreateDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:45:57.215Z",
+              "WhenOpened": "2025-05-27T14:48:17.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WardViewDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:29:39.431Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "ProvinceViewDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:29:17.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DistrictViewDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:29:51.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "OrderDetailViewDto.cs",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
               "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
               "RelativeToolTip": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T15:42:56.468Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAAAFkDAAALAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T14:35:02.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T13:55:59.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BuyNow.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\BuyNow.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\BuyNow.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\BuyNow.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Order\\BuyNow.cshtml",
-              "ViewState": "AQIAAJkAAAAAAAAAAAAjwKIAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T16:14:00.13Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "OrderViewDto.cs",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
               "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
               "RelativeToolTip": "SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T15:55:51.192Z",
               "EditorCaption": ""
@@ -203,6 +293,248 @@
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "OrderDetailCreateDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T15:45:57.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MapperProfiles.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Mappings\\MapperProfiles.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Mappings\\MapperProfiles.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Mappings\\MapperProfiles.cs",
+              "RelativeToolTip": "SP.Application\\Mappings\\MapperProfiles.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAswEMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T15:59:02.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\Order.cs",
+              "RelativeDocumentMoniker": "SP.Domain\\Entity\\Order.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\Order.cs",
+              "RelativeToolTip": "SP.Domain\\Entity\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T08:09:57.395Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GetAllCartByUserId.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJIAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T13:25:15.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAPAAAAAAAAAAAAAAwBkBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-27T13:55:59.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\CartController.cs",
+              "RelativeToolTip": "SP.WebApp\\Controllers\\CartController.cs",
+              "ViewState": "AQIAAG0AAAAAAAAAAAA7wGoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T13:25:08.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserViewDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\UserDto\\UserViewDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\UserDto\\UserViewDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\UserDto\\UserViewDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\UserDto\\UserViewDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:33:54.197Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ProvinceRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:38:15.515Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IWardService.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IWardService.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Service\\Interface\\IWardService.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IWardService.cs",
+              "RelativeToolTip": "SP.Application\\Service\\Interface\\IWardService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:21:19.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IWardRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:16:58.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IDistrictService.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IDistrictService.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Service\\Interface\\IDistrictService.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IDistrictService.cs",
+              "RelativeToolTip": "SP.Application\\Service\\Interface\\IDistrictService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:14:18.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "DistrictRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:08:36.611Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "WardService.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\WardService.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Service\\Implement\\WardService.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\WardService.cs",
+              "RelativeToolTip": "SP.Application\\Service\\Implement\\WardService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB0AAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:21:29.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "WardRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:18:33.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DiscountRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:11:21.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IRoleRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:10:31.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IProductVariantRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:10:30.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "IOrderRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:10:29.123Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "IDistrictRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:08:52.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "DistrictService.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\DistrictService.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Service\\Implement\\DistrictService.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\DistrictService.cs",
+              "RelativeToolTip": "SP.Application\\Service\\Implement\\DistrictService.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T15:15:08.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
               "Title": "OrderDetailController.cs",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\OrderDetailController.cs",
               "RelativeDocumentMoniker": "SP.WebApi\\Controllers\\OrderDetailController.cs",
@@ -215,7 +547,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 31,
               "Title": "GetAllOrder.cshtml",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Manager\\GetAllOrder.cshtml",
               "RelativeDocumentMoniker": "SP.WebApp\\Views\\Manager\\GetAllOrder.cshtml",
@@ -223,12 +555,11 @@
               "RelativeToolTip": "SP.WebApp\\Views\\Manager\\GetAllOrder.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T15:35:38.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T15:35:38.647Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 32,
               "Title": "UpdateOrder.cshtml",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\UpdateOrder.cshtml",
               "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\UpdateOrder.cshtml",
@@ -236,38 +567,11 @@
               "RelativeToolTip": "SP.WebApp\\Views\\Order\\UpdateOrder.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T16:14:05.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-27T16:14:05.36Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Payment.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\Payment.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\Payment.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\Payment.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Order\\Payment.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T15:53:54.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "MapperProfiles.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Mappings\\MapperProfiles.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Mappings\\MapperProfiles.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Mappings\\MapperProfiles.cs",
-              "RelativeToolTip": "SP.Application\\Mappings\\MapperProfiles.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAAwDUAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:59:02.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 33,
               "Title": "DiscountController.cs",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\DiscountController.cs",
               "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\DiscountController.cs",
@@ -276,54 +580,6 @@
               "ViewState": "AQIAACUAAAAAAAAAAAAkwDgAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-27T13:30:13.99Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "GetAllCartByUserId.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "ViewState": "AQIAAHcAAAAAAAAAAAAjwJAAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T13:25:15.784Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\CartController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\CartController.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAA+wGoAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T13:25:08.456Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T13:53:09.214Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CartCreateDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T14:48:17.49Z"
             }
           ]
         }

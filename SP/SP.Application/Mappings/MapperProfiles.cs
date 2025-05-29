@@ -41,18 +41,23 @@ namespace SP.Application.Mappings
             CreateMap<FeedBack, FeedbackCreateDto>().ReverseMap();
 
             CreateMap<OrderDetail, OrderDetailViewDto>().ReverseMap();
+            CreateMap<OrderDetailCreateDto, OrderDetail>();
+            CreateMap<OrderDetail, OrderDetailCreateDto>();
 
-            CreateMap<OrderDetail, OrderDetailCreateDto>().ReverseMap();
+
+            CreateMap<OrderCreateDto, Order>()
+                .ForMember(dest => dest.Employee, opt => opt.Ignore());
+            CreateMap<OrderCreateDto, Order>().ReverseMap();
 
 
-           
-            CreateMap<Order, OrderCreateDto>().ReverseMap();
+
+            CreateMap<Order, OrderUpdateDto>().ReverseMap();
             CreateMap<Order, OrderViewDto>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName))
                 .ForMember(dest => dest.AddressDetail, opt => opt.MapFrom(src => src.User.AddressDetail))
                 .ForMember(dest => dest.EmployeeName, opt => opt.MapFrom(src => src.Employee.Name))
                 .ReverseMap();
-            CreateMap<Order, OrderUpdateDto>().ReverseMap();
+           
 
             CreateMap<Cart, CartViewDto>().ReverseMap();
             CreateMap<Cart, CartCreateDto>().ReverseMap();
@@ -75,7 +80,10 @@ namespace SP.Application.Mappings
 
             CreateMap<Province, ProvinceViewDto>().ReverseMap();
             CreateMap<District, DistrictViewDto>().ReverseMap();
-            CreateMap<Ward, WardViewDto>().ReverseMap();
+            CreateMap<Ward, WardViewDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.WardName))
+                .ReverseMap()
+                .ForMember(dest => dest.WardName, opt => opt.MapFrom(src => src.Name));
 
             CreateMap<Image, ImageFileDto>().ReverseMap();
 
