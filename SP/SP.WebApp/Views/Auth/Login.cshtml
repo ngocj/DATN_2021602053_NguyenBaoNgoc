@@ -54,7 +54,7 @@
         transition: all 0.3s;
     }
 
-        .btn-back:hover {
+        .btn-back:hover {s
             border-color: #333;
             background-color: #f8f9fa;
         }
@@ -101,7 +101,7 @@
                                             <ul class="mb-0">
                                                 @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
                                                 {
-                                                    <li>@error.ErrorMessage</li>
+                                                  @error.ErrorMessage
                                                 }
                                             </ul>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

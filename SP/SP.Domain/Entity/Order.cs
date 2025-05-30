@@ -11,6 +11,7 @@ namespace SP.Domain.Entity
         Pending,      // Chờ xác nhận
         Confirmed,    // Đã xác nhận
         Shipping,     // Đang giao
+        Paid,         // Đã thanh toán
         Delivered,    // Đã giao
         Canceled      // Đã huỷ
     }

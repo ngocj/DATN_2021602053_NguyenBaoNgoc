@@ -1,4 +1,5 @@
-﻿using SP.Application.Dto.OrderDetailDto;
+﻿using Microsoft.AspNetCore.Identity;
+using SP.Application.Dto.OrderDetailDto;
 using SP.Application.Dto.UserDto;
 using SP.Domain.Entity;
 using System;
@@ -21,6 +22,8 @@ namespace SP.Application.Dto.OrderDto
         public string? EmployeeName { get; set; }
         public string AddressDetail { get; set; }
         public List<OrderDetailViewDto> OrderDetails { get; set; }
+
+        public UserViewDto User { get; set; }
 
     }
     

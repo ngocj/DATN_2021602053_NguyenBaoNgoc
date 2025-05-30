@@ -13,8 +13,7 @@ namespace SP.Application.Dto.OrderDto
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
-
-        public UserViewDto User { get; set; }
+        public UserViewDto? User { get; set; }
         public Guid? EmployeeId { get; set; }
         public OrderStatus Status { get; set; }
         public decimal TotalPrice { get; set; }
@@ -23,7 +22,6 @@ namespace SP.Application.Dto.OrderDto
         public int? ProvinceId { get; set; }
         public int? DistrictId { get; set; }
         public int? WardId { get; set; }
-
         public string? Note { get; set; }
         public string? PhoneNumber { get; set; }
         public string? AddressDetail { get; set; }

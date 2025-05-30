@@ -26,9 +26,9 @@ namespace SP.WebApi.Controllers
             _context = context;
         }
 
-    
 
-        [HttpPost("login")]
+
+        [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginViewDto loginViewDto)
         {
             if (loginViewDto == null || string.IsNullOrEmpty(loginViewDto.Email) || string.IsNullOrEmpty(loginViewDto.Password))
@@ -36,32 +36,49 @@ namespace SP.WebApi.Controllers
                 return BadRequest("Email and password cannot be blank.");
             }
 
-            var user = _context.Users
-                .FirstOrDefault(x => x.Email == loginViewDto.Email && x.Password == loginViewDto.Password);
+            // Check trong cả hai bảng
+            var user = _context.Users.FirstOrDefault(x => x.Email == loginViewDto.Email && x.Password == loginViewDto.Password);
+            var employee = _context.Employees.FirstOrDefault(x => x.Email == loginViewDto.Email && x.Password == loginViewDto.Password);
 
-            if (user == null)
+            if (user == null && employee == null)
             {
                 return Unauthorized("Incorrect email or password.");
             }
 
-            var roleName = _context.Roles
-                .Where(x => x.Id == user.RoleId)
-                .Select(x => x.RoleName)
-                .FirstOrDefault();
-
-            // Tạo token
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
 
-            var tokenDescriptor = new SecurityTokenDescriptor
+            ClaimsIdentity identity;
+
+            if (employee != null)
             {
-                Subject = new ClaimsIdentity(new Claim[]
+                identity = new ClaimsIdentity(new Claim[]
+                {
+            new Claim(ClaimTypes.NameIdentifier, employee.Id.ToString()),
+            new Claim(ClaimTypes.Name, employee.Name ?? "Employee"),
+            new Claim(ClaimTypes.Email, employee.Email),
+            new Claim(ClaimTypes.Role, "Employee")
+                });
+            }
+            else // user != null
+            {
+                var roleName = _context.Roles
+                    .Where(x => x.Id == user.RoleId)
+                    .Select(x => x.RoleName)
+                    .FirstOrDefault() ?? "User";
+
+                identity = new ClaimsIdentity(new Claim[]
                 {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Name, user.UserName),
             new Claim(ClaimTypes.Email, user.Email),
             new Claim(ClaimTypes.Role, roleName)
-                }),
+                });
+            }
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = identity,
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = _config["Jwt:Issuer"],
                 Audience = _config["Jwt:Audience"],
@@ -70,8 +87,10 @@ namespace SP.WebApi.Controllers
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
+
             return Ok(tokenString);
         }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerViewDto)
         {

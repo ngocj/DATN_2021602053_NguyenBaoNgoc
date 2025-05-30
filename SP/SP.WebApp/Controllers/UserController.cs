@@ -1,16 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using SP.Application.Dto.CategoryDto;
+using SP.Application.Dto.EmployeeDto;
 using SP.Application.Dto.UserDto;
+using SP.WebApp.Models;
+using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Text.Json;
 
 namespace SP.WebApp.Controllers
 {
-
     public class UserController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/user";
+        private const string ApiUrl2 = "https://localhost:7131/api/employee";
+        private const string ApiUrl1 = "https://localhost:7131/api/";
         private readonly HttpClient _httpClient;
 
         public UserController(IHttpClientFactory httpClient)
@@ -98,12 +103,7 @@ namespace SP.WebApp.Controllers
             {
                 TempData["Error"] = "Không tìm thấy người dùng.";
                 return RedirectToAction("GetAllUser", "Admin");
-            }
-
-            // Gộp lại thông tin đầy đủ (giữ nguyên các field không thay đổi)
-            userUpdateDto.Email = existingUser.Email;
-            userUpdateDto.UserName = existingUser.UserName;
-            userUpdateDto.Password = existingUser.Password;
+            }       
 
             // Gửi yêu cầu cập nhật
             var response = await _httpClient.PutAsJsonAsync(ApiUrl, userUpdateDto);
@@ -120,11 +120,8 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllUser", "Admin");
         }
 
-
         public async Task<IActionResult> DeleteUser(Guid id)
-        {
-            /*var token = HttpContext.Session.GetString("JwtToken");
-            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);*/
+        {         
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
             if (response.IsSuccessStatusCode)
             {
@@ -137,23 +134,112 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllUser", "Admin");          
         }
 
-        public async Task<IActionResult> GetUserById(Guid id)
+        public async Task<IActionResult> ProfileUser(Guid id)
         {
-            var token = HttpContext.Session.GetString("JwtToken");
-            var isLoggedIn = !string.IsNullOrEmpty(token);
-            bool isAdmin = false;
-
-            if (isLoggedIn)
+            var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");
+            ViewBag.Categories = categories != null ? new SelectList(categories, "Id", "CategoryName") : null;
+            try
             {
-                var handler = new JwtSecurityTokenHandler();
-                var jwtToken = handler.ReadJwtToken(token);
-                var roleClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "role");
-                if (roleClaim?.Value == "Admin") isAdmin = true;
+                // Check authentication and get user roles
+                var token = HttpContext.Session.GetString("JwtToken");
+                var isLoggedIn = !string.IsNullOrEmpty(token);
+
+                var userRoles = new List<string>();
+                if (isLoggedIn)
+                {
+                    var handler = new JwtSecurityTokenHandler();
+                    var jwtToken = handler.ReadJwtToken(token);
+                    userRoles = jwtToken.Claims
+                        .Where(c => c.Type == "role")
+                        .Select(c => c.Value)
+                        .ToList();
+                }
+
+                // Set role flags in ViewBag
+                ViewBag.IsAdmin = userRoles.Contains("Admin");
+                ViewBag.IsManager = userRoles.Contains("Manager");
+                ViewBag.IsUser = userRoles.Contains("User");
+
+                // Get user data
+                var response = await _httpClient.GetAsync($"{ApiUrl}/{id}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    // Handle API errors appropriately
+                    if (response.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        return NotFound();
+                    }
+
+                    // Log error and return appropriate view
+                    return View("Error", new ErrorViewModel
+                    {
+                        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                    });
+                }
+
+                var user = await response.Content.ReadFromJsonAsync<UserViewDto>();
+                return View(user);
             }
-            ViewBag.IsAdmin = isAdmin;
-            var response = await _httpClient.GetFromJsonAsync<UserViewDto>($"{ApiUrl}/{id}");
-            return View(response);
+            catch (Exception ex)
+            {
+                return View("Error", new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                });
+            }
         }
+        public async Task<IActionResult> ProfileEmployee(Guid id)
+        {
+            var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");
+            ViewBag.Categories = categories != null ? new SelectList(categories, "Id", "CategoryName") : null;
+            try
+            {
+                // Check authentication and get user roles
+                var token = HttpContext.Session.GetString("JwtToken");
+                var isLoggedIn = !string.IsNullOrEmpty(token);
+
+                var userRoles = new List<string>();
+                if (isLoggedIn)
+                {
+                    var handler = new JwtSecurityTokenHandler();
+                    var jwtToken = handler.ReadJwtToken(token);
+                    userRoles = jwtToken.Claims
+                        .Where(c => c.Type == "role")
+                        .Select(c => c.Value)
+                        .ToList();
+                }
+                ViewBag.IsEmployee = userRoles.Contains("Employee");
+                // Get user data
+                var response = await _httpClient.GetAsync($"{ApiUrl2}/{id}");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    // Handle API errors appropriately
+                    if (response.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        return NotFound();
+                    }
+
+                    // Log error and return appropriate view
+                    return View("Error", new ErrorViewModel
+                    {
+                        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                    });
+                }
+
+                var user = await response.Content.ReadFromJsonAsync<EmployeeViewDto>();
+                return View(user);
+            }
+            catch (Exception ex)
+            {
+                return View("Error", new ErrorViewModel
+                {
+                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                });
+            }
+        }
+
         public async Task<IActionResult> DetailUser(Guid id)
         {     
             var response = await _httpClient.GetFromJsonAsync<UserViewDto>($"{ApiUrl}/{id}");

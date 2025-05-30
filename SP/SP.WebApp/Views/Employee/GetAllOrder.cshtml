@@ -53,6 +53,7 @@
                                         OrderStatus.Shipping => "badge bg-primary text-white",
                                         OrderStatus.Delivered => "badge bg-success text-white",
                                         OrderStatus.Canceled => "badge bg-danger text-white",
+                                        OrderStatus.Paid => "badge bg-success text-white",
                                         _ => "badge bg-secondary text-white"
                                     };
 
@@ -63,6 +64,7 @@
                                         OrderStatus.Shipping => "Đang giao",
                                         OrderStatus.Delivered => "Đã giao",
                                         OrderStatus.Canceled => "Đã huỷ",
+                                        OrderStatus.Paid => "Đã thanh toán",
                                         _ => item.Status.ToString()
                                     };
                                 }

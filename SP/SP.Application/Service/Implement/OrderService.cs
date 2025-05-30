@@ -48,6 +48,12 @@ namespace SP.Application.Service.Implement
             
         }
 
+        public async Task<List<Order>> GetOrdersByUserIdAsync(Guid userId)
+        {
+
+            return await _unitOfWork.OrderRepository.GetOrdersByUserIdAsync(userId);
+        }
+
         public async Task UpdateOrder(Order order)
         {
             var result = await _unitOfWork.OrderRepository.GetByIdAsync(order.Id);

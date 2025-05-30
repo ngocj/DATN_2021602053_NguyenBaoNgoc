@@ -93,8 +93,8 @@ namespace SP.WebApi.Controllers
             {
                 return NotFound();
             }
-            var updatedUser = _mapper.Map<User>(userUpdateDto);
-            await _userService.UpdateUser(updatedUser);
+             _mapper.Map<User>(userUpdateDto);
+            await _userService.UpdateUser(user);
             return Ok();
         }
 

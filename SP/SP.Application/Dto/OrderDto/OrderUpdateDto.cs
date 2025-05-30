@@ -11,7 +11,7 @@ namespace SP.Application.Dto.OrderDto
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
-        public Guid EmployeeId { get; set; }
+        public Guid? EmployeeId { get; set; }
         public OrderStatus Status { get; set; }
     }
 }

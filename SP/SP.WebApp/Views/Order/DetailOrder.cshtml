@@ -22,6 +22,7 @@
                             OrderStatus.Shipping => "badge bg-primary text-white",
                             OrderStatus.Delivered => "badge bg-success text-white",
                             OrderStatus.Canceled => "badge bg-danger text-white",
+                            OrderStatus.Paid => "badge bg-purple text-white",
                             _ => "badge bg-secondary text-white"
                         };
 
@@ -32,6 +33,7 @@
                             OrderStatus.Shipping => "Đang giao",
                             OrderStatus.Delivered => "Đã giao",
                             OrderStatus.Canceled => "Đã huỷ",
+                            OrderStatus.Paid => "Đã thanh toán",
                         _ => Model.Status.ToString()
                         };
                     }
@@ -238,6 +240,11 @@
     .order-status-badge.cancelled {
         background-color: #f8d7da;
         color: #721c24;
+    }
+
+    .order-status-badge.paid {
+        background-color: #e2e3f3; 
+        color: #383d75; 
     }
 
     /* Info Cards */

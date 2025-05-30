@@ -13,16 +13,20 @@
         <form asp-action="UpdateOrder" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId">
 
             <div class="form-group">
                 <label asp-for="Status" class="control-label">Trạng thái đơn hàng</label>
                 <select asp-for="Status" class="form-control">
                     <option value="0">Đang xử lý</option>
                     <option value="1">Đã xác nhận</option>
-                    <option value="2">Đang giao hàng</option>
-                    <option value="3">Đã giao hàng</option>
-                    <option value="4">Đã hủy</option>
+                    <option value="2">Đang giao </option>
+                    <option value="3">Đã thanh toán </option>                 
+                    <option value="4">Đã giao hàng</option>
+                    <option value="5">Đã hủy</option>
+                  
                 </select>
+  
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
 

@@ -48,10 +48,17 @@ namespace SP.Application.Mappings
             CreateMap<OrderCreateDto, Order>()
                 .ForMember(dest => dest.Employee, opt => opt.Ignore());
             CreateMap<OrderCreateDto, Order>().ReverseMap();
+            CreateMap<Order, OrderUpdateDto>();
+
+            CreateMap<OrderUpdateDto, Order>()
+                .ForMember(dest => dest.TotalPrice, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.User, opt => opt.Ignore())
+                .ForMember(dest => dest.Employee, opt => opt.Ignore())
+                .ForMember(dest => dest.OrderDetails, opt => opt.Ignore());
 
 
-
-            CreateMap<Order, OrderUpdateDto>().ReverseMap();
             CreateMap<Order, OrderViewDto>()
                 .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.User.UserName))
                 .ForMember(dest => dest.AddressDetail, opt => opt.MapFrom(src => src.User.AddressDetail))
@@ -77,6 +84,7 @@ namespace SP.Application.Mappings
             CreateMap<Brand, BrandCreateDto>().ReverseMap();
 
             CreateMap<User, LoginViewDto>().ReverseMap();
+            CreateMap<Employee, LoginViewDto>().ReverseMap();
 
             CreateMap<Province, ProvinceViewDto>().ReverseMap();
             CreateMap<District, DistrictViewDto>().ReverseMap();
@@ -87,16 +95,26 @@ namespace SP.Application.Mappings
 
             CreateMap<Image, ImageFileDto>().ReverseMap();
 
-            // get user name and role name
             CreateMap<User, UserViewDto>()
-                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName))
-                /*.ForMember(dest => dest.ProvinceName, opt => opt.MapFrom(src => src.Province.Name))
-                .ForMember(dest => dest.DistrictName, opt => opt.MapFrom(src => src.District.Name))
-                .ForMember(dest => dest.WardName, opt => opt.MapFrom(src => src.Ward.Name))*/
-                .ReverseMap();           
+                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName)).ReverseMap();           
             CreateMap<User, UserCreateDto>().ReverseMap();
+            CreateMap<User, UserUpdateDto>().ReverseMap();
+            CreateMap<UserUpdateDto, User>()
+                .ForMember(dest => dest.PhoneNumber, opt => opt.Ignore())
+                .ForMember(dest => dest.DateOfBirth, opt => opt.Ignore())
+                .ForMember(dest => dest.AddressDetail, opt => opt.Ignore())
+                .ForMember(dest => dest.WardId, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.Role, opt => opt.Ignore())
+                .ForMember(dest => dest.Ward, opt => opt.Ignore())
+                .ForMember(dest => dest.Carts, opt => opt.Ignore())
+                .ForMember(dest => dest.Orders, opt => opt.Ignore())
+                .ForMember(dest => dest.Password, opt => opt.Ignore())
+                .ForMember(dest => dest.UserName, opt => opt.Ignore())
+                .ForMember(dest => dest.Email, opt => opt.Ignore())
+                .ForMember(dest => dest.FeedBacks, opt => opt.Ignore());
 
-           
 
             CreateMap<Employee, EmployeeCreateDto>().ReverseMap();
             CreateMap<Employee, EmployeeViewDto>()
@@ -128,11 +146,7 @@ namespace SP.Application.Mappings
             CreateMap<User, RegisterDto>().ReverseMap();
 
 
-            CreateMap<User, UserViewDto>()
-                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName))
-                .ReverseMap();
-            CreateMap<User, UserCreateDto>().ReverseMap();
-            CreateMap<User, UserUpdateDto>().ReverseMap();
+          
 
 
 

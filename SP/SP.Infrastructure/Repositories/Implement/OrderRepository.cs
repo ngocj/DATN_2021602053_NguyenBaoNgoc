@@ -51,6 +51,19 @@ namespace SP.Infrastructure.Repositories.Implement
             return order;
         }
 
+        public async Task<List<Order>> GetOrdersByUserIdAsync(Guid userId)
+        {
+            return await _SPContext.Set<Order>()
+                .Where(o => o.UserId == userId)
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.ProductVariant)
+                        .ThenInclude(pv => pv.Product)
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.ProductVariant)
+                        .ThenInclude(pv => pv.Images)
+                .OrderByDescending(o => o.CreatedAt)
+                .ToListAsync();
+        }
     }
 
 }

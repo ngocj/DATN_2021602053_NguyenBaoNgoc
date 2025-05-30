@@ -32,12 +32,11 @@ namespace SP.WebApp.Controllers
                 return View(loginViewDto);
             }
 
-            var response = await _httpClient.PostAsJsonAsync($"{ApiUrl}/login", loginViewDto);
+            var response = await _httpClient.PostAsJsonAsync(ApiUrl, loginViewDto);
 
             if (!response.IsSuccessStatusCode)
             {
-
-                ModelState.AddModelError("", "❌ Incorrect email or password.");
+                ModelState.AddModelError("", "❌ Email hoặc mật khẩu không đúng.");
                 return View(loginViewDto);
             }
 
@@ -46,6 +45,7 @@ namespace SP.WebApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
         // forgot password
         public IActionResult ForgotPassword()
         {

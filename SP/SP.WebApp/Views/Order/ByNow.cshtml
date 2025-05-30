@@ -15,9 +15,10 @@
                     </div>
                     <div class="card-body">
                         <form asp-action="Payment" method="post" id="checkout-form">
+                            <!-- Thông tin khách hàng -->
                             <div class="form-group">
                                 <label asp-for="UserName">Họ và tên</label>
-                                <input asp-for="UserName" class="form-control" placeholder="Nhập họ và tên">
+                                <input required asp-for="UserName" class="form-control" placeholder="Nhập họ và tên" />
                                 <span asp-validation-for="UserName" class="text-danger"></span>
                             </div>
 
@@ -27,10 +28,12 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">+84</span>
                                     </div>
-                                    <input asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Nhập số điện thoại">
+                                    <input required asp-for="PhoneNumber" type="tel" class="form-control" placeholder="Nhập số điện thoại" />
                                 </div>
                                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                             </div>
+
+                            <!-- Địa chỉ: Province, District, Ward như cũ -->
                             <div class="address-selection-section">
                                 <div class="form-row">
                                     <!-- Province Selection -->
@@ -38,11 +41,11 @@
                                         <div class="select-wrapper">
                                             <label asp-for="ProvinceId">Tỉnh/Thành phố</label>
                                             <div class="select-container">
-                                                <select asp-for="ProvinceId" class="form-control select-address" id="provinceSelect" asp-items="ViewBag.Provinces">
-                                                    <option value="">Chọn tỉnh/thành</option>
+                                                <select required asp-for="ProvinceId" class="form-control select-address" id="provinceSelect" asp-items="ViewBag.Provinces">
+                                                    <option  value="">Chọn tỉnh/thành</option>
                                                 </select>
                                             </div>
-                                            <span asp-validation-for="ProvinceId" class="text-danger validation-message"></span>
+                                            <span asp-validation-for="ProvinceId" class="text-danger validation-message" ></span>
                                         </div>
                                     </div>
 
@@ -51,8 +54,8 @@
                                         <div class="select-wrapper">
                                             <label asp-for="DistrictId">Quận/Huyện</label>
                                             <div class="select-container">
-                                                <select asp-for="DistrictId" class="form-control select-address" id="districtSelect" asp-items="ViewBag.Districts" >
-                                                    <option value="">Chọn quận/huyện</option>
+                                                <select required asp-for="DistrictId" class="form-control select-address" id="districtSelect" disabled>
+                                                    <option  value="">Chọn quận/huyện</option>
                                                 </select>
                                             </div>
                                             <span asp-validation-for="DistrictId" class="text-danger validation-message"></span>
@@ -64,8 +67,8 @@
                                         <div class="select-wrapper">
                                             <label asp-for="WardId">Phường/Xã</label>
                                             <div class="select-container">
-                                                <select asp-for="WardId" class="form-control select-address" id="wardSelect" asp-items="ViewBag.Wards" >
-                                                    <option value="">Chọn phường/xã</option>
+                                                <select required asp-for="WardId" class="form-control select-address" id="wardSelect" disabled>
+                                                    <option  value="">Chọn phường/xã</option>
                                                 </select>
                                             </div>
                                             <span asp-validation-for="WardId" class="text-danger validation-message"></span>
@@ -76,7 +79,7 @@
 
                             <div class="form-group">
                                 <label asp-for="AddressDetail">Địa chỉ cụ thể</label>
-                                <textarea asp-for="AddressDetail" class="form-control" rows="2" placeholder="Số nhà, tên đường..."></textarea>
+                                <textarea required asp-for="AddressDetail" class="form-control" rows="2" placeholder="Số nhà, tên đường..."></textarea>
                                 <span asp-validation-for="AddressDetail" class="text-danger"></span>
                             </div>
 
@@ -85,16 +88,18 @@
                                 <textarea asp-for="Note" class="form-control" rows="2" placeholder="Ghi chú cho người bán..."></textarea>
                             </div>
 
+                            <!-- Ẩn các trường hệ thống -->
                             <input type="hidden" asp-for="EmployeeId" />
                             <input type="hidden" asp-for="EmployeeName" />
                             <input type="hidden" asp-for="TotalPrice" />
-                            @for (int i = 0; i < Model.OrderDetails?.Count; i++)
-                            {
-                                <input type="hidden" asp-for="OrderDetails[i].ProductVariantId" />
-                                <input type="hidden" asp-for="OrderDetails[i].Quantity" />
-                                <input type="hidden" asp-for="OrderDetails[i].Price" />
-                            }
+
+                            <!-- Ẩn ProductVariantId để gửi lên -->
+                            <input type="hidden" name="productVariantId" value="@Model.OrderDetails.First().ProductVariantId" />
+                            <input type="hidden" name="quantity" value="@Model.OrderDetails.First().Quantity" />
+
+        
                         </form>
+
                     </div>
                 </div>
 

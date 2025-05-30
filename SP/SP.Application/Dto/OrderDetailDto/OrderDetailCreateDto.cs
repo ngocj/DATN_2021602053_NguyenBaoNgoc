@@ -14,6 +14,6 @@ namespace SP.Application.Dto.OrderDetailDto
         public int ProductVariantId { get; set; }
         public decimal Price { get; set; }
         public int Quantity { get; set; }
-        public VariantViewDto ProductVariant { get; set; }
+        public VariantViewDto? ProductVariant { get; set; }
     }
 }

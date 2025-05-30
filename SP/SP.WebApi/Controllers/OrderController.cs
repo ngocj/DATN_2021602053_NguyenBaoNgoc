@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SP.Application.Dto.OrderDto;
 using SP.Application.Service.Interface;
 using SP.Domain.Entity;
+using SP.Infrastructure.Context;
 
 namespace SP.WebApi.Controllers
 {
@@ -13,11 +15,15 @@ namespace SP.WebApi.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IOrderService _orderService;
-        public OrderController(IMapper mapper, IOrderService orderService)
+        private readonly SPContext _sPContext;
+
+        public OrderController(IMapper mapper, IOrderService orderService, SPContext sPContext)
         {
             _mapper = mapper;
             _orderService = orderService;
+            _sPContext = sPContext;
         }
+
         [HttpGet]
         public async Task<IActionResult> GetAllOrders()
         {
@@ -43,14 +49,35 @@ namespace SP.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+            // Tạo ID mới nếu chưa có
             if (orderCreateDto.Id == Guid.Empty)
             {
                 orderCreateDto.Id = Guid.NewGuid();
             }
+
+            // Tìm user
+            var user = await _sPContext.Users.FirstOrDefaultAsync(u => u.Id == orderCreateDto.UserId);
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
+
+            // Cập nhật địa chỉ cho user (có thể mở rộng cập nhật thêm các trường nếu cần)
+            user.WardId = orderCreateDto.WardId;
+            _sPContext.Users.Update(user);
+
+            // Map từ DTO sang Entity Order
             var order = _mapper.Map<Order>(orderCreateDto);
-            await _orderService.CreateOrder(order);
+            await _sPContext.Orders.AddAsync(order);
+
+            // Lưu thay đổi
+            await _sPContext.SaveChangesAsync();
+
             return Ok();
         }
+
+
         [HttpPut]
         public async Task<IActionResult> UpdateOrder([FromBody] OrderUpdateDto orderUpdateDto)
         {
@@ -58,15 +85,22 @@ namespace SP.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             var order = await _orderService.GetOrderById(orderUpdateDto.Id);
             if (order == null)
             {
                 return NotFound();
             }
-            var updatedOrder = _mapper.Map<Order>(orderUpdateDto);
-            await _orderService.UpdateOrder(updatedOrder);
+
+            // Cập nhật các trường cho phép từ DTO sang entity hiện có
+            _mapper.Map(orderUpdateDto, order);
+
+            await _orderService.UpdateOrder(order);
+
             return Ok();
         }
+
+
         [HttpDelete("{id}")]    
         public async Task<IActionResult> DeleteOrder(Guid id)
         {
@@ -78,6 +112,14 @@ namespace SP.WebApi.Controllers
             await _orderService.DeleteOrder(id);
             return Ok();
         }
+        [HttpGet("user/{userId}")]
+        public async Task<IActionResult> GetUserOrders(Guid userId)
+        {
+            var orders = await _orderService.GetOrdersByUserIdAsync(userId);
+           
+            var orderDtos = _mapper.Map<List<OrderViewDto>>(orders);
 
+            return Ok(orderDtos);
+        }
     }
 }
