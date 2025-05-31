@@ -146,10 +146,11 @@
             <div class="product-quantity">
                 <div class="quantity-title">Số lượng:</div>
                 <div class="quantity-control">
-                    <button class="quantity-btn minus" id="btnDecrease">-</button>
-                    <input type="number" class="quantity-input" id="quantityInput" value="1" min="1">
-                    <button class="quantity-btn plus" id="btnIncrease">+</button>
+                    <button class="quantity-btn minus" id="btnDecrease" type="button">-</button>
+                    <input type="number" class="quantity-input" id="quantityInput" value="1" min="1" max="5" />
+                    <button class="quantity-btn plus" id="btnIncrease" type="button">+</button>
                 </div>
+                <div class="inventory-status">Tồn kho: @defaultVariant?.Quantity</div>
             </div>
 
             <div class="product-actions">
@@ -161,13 +162,10 @@
                     </button>
                 </form>
 
-                <form id="buyNowForm" asp-action="ByNow" asp-controller="Order" method="get">
-                    <!-- Thông tin sản phẩm -->
-                    <input type="hidden" name="productVariantId" value="@defaultVariant?.Id" />
+                <form id="buyNowForm" asp-action="BuyNowCheckout" asp-controller="Order" method="get">
+                    <input type="hidden" name="productVariantId" id="buyNowVariantId" value="@defaultVariant?.Id" />
                     <input type="hidden" name="ProductName" value="@defaultVariant?.ProductName" />
-                    <input type="hidden" name="quantity" value="1" />
-
-
+                    <input type="hidden" name="quantity" id="buyNowQuantity" value="1" />
                     <button type="submit" class="btn-buy-now">
                         <i class="fas fa-bolt"></i> Mua ngay
                     </button>
@@ -238,6 +236,11 @@
 @section Styles {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        .inventory-status {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #666;
+        }
         .size-option.disabled {
             opacity: 0.5;
             pointer-events: none;
@@ -652,35 +655,75 @@
         }
     </style>
 }
-
 @section Scripts {
     <script>
         const variants = @Html.Raw(Json.Serialize(Model.ProductVariants));
-        const colorMap = @Html.Raw(Json.Serialize(colorMap)); // Serialize the color map for JavaScript
+        const colorMap = @Html.Raw(Json.Serialize(colorMap));
 
         const imageElem = document.getElementById('productImage');
-        const priceElem = document.getElementById('priceDisplay');
+        const priceContent = document.getElementById('priceContent');
         const variantIdInput = document.getElementById('selectedVariantId');
-        const variantIdInput2 = document.getElementById('selectedVariantId2');
         const thumbnailContainer = document.querySelector('.thumbnail-scroller');
-        const priceContainer = document.querySelector('.product-price-container');
+        const quantityInput = document.getElementById('quantityInput');
+        const btnIncrease = document.getElementById('btnIncrease');
+        const btnDecrease = document.getElementById('btnDecrease');
+        const addToCartBtn = document.querySelector('.btn-add-to-cart');
+        const buyNowBtn = document.querySelector('.btn-buy-now');
+        const inventoryStatus = document.querySelector('.inventory-status');
+        const addToCartForm = document.querySelector('form[asp-action="Create"]');
+        const buyNowForm = document.getElementById('buyNowForm');
 
         // Initialize selected options
-        let selectedSize = '@defaultVariant?.Size' || null;
-        let selectedColor = '@defaultVariant?.Color' || null;
+        let selectedSize = '@defaultVariant?.Size' || (variants.length > 0 ? variants[0].size : null);
+        let selectedColor = '@defaultVariant?.Color' || (variants.length > 0 ? variants[0].color : null);
+        let maxQuantity = Math.min(@defaultVariant?.Quantity || 1, 5);
+        let currentInventory = @defaultVariant?.Quantity || 0;
 
-        // Color selection
+        function updateButtonStates() {
+            const currentQuantity = parseInt(quantityInput.value) || 1;
+            const isInvalid = currentQuantity > maxQuantity || maxQuantity === 0;
+
+            addToCartBtn.disabled = isInvalid;
+            buyNowBtn.disabled = isInvalid;
+            btnIncrease.disabled = currentQuantity >= maxQuantity;
+            btnDecrease.disabled = currentQuantity <= 1;
+
+            if (isInvalid) {
+                inventoryStatus.innerHTML = currentInventory === 0
+                    ? `Tồn kho: ${currentInventory} (Hết hàng)`
+                    : `Tồn kho: ${currentInventory} (Số lượng tối đa là ${maxQuantity})`;
+                inventoryStatus.style.color = 'red';
+            } else {
+                inventoryStatus.innerHTML = `Tồn kho: ${currentInventory}`;
+                inventoryStatus.style.color = '#666';
+            }
+        }
+
+        function updateHiddenInputs(value) {
+            document.getElementById('addToCartQuantity').value = value;
+            document.getElementById('buyNowQuantity').value = value;
+        }
+
+        function validateAndUpdateQuantity() {
+            let value = parseInt(quantityInput.value) || 1;
+            if (value < 1) value = 1;
+            if (value > maxQuantity) value = maxQuantity;
+
+            quantityInput.value = value;
+            updateHiddenInputs(value);
+            updateButtonStates();
+        }
+
         document.querySelectorAll('.color-option').forEach(option => {
             option.addEventListener('click', () => {
                 document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
-                selectedColor = option.getAttribute('data-value'); // Use English color for logic
+                selectedColor = option.getAttribute('data-value').trim().toLowerCase();
+                console.log('Selected color:', selectedColor);
 
-                // Find available sizes for the selected color
                 const availableSizes = getAvailableSizes(selectedColor);
                 updateSizeOptions(availableSizes);
 
-                // If current size is not available with the new color, select the first available size
                 if (availableSizes.length > 0 && !availableSizes.includes(selectedSize)) {
                     selectedSize = availableSizes[0];
                     updateActiveSizeOption(selectedSize);
@@ -690,28 +733,26 @@
             });
         });
 
-        // Size selection (unchanged)
         document.querySelectorAll('.size-option').forEach(option => {
             option.addEventListener('click', () => {
                 document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('active'));
                 option.classList.add('active');
-                selectedSize = option.getAttribute('data-value');
+                selectedSize = option.getAttribute('data-value').trim().toLowerCase();
+                console.log('Selected size:', selectedSize);
                 updateVariant();
             });
         });
 
-        // Get available sizes for the selected color
         function getAvailableSizes(color) {
             return [...new Set(variants
-                .filter(v => v.color === color)
-                .map(v => v.size))];
+                .filter(v => v.color.trim().toLowerCase() === color)
+                .map(v => v.size.trim().toLowerCase()))];
         }
 
-        // Update size options display
         function updateSizeOptions(availableSizes) {
             const sizeOptions = document.querySelectorAll('.size-option');
             sizeOptions.forEach(option => {
-                const size = option.getAttribute('data-value');
+                const size = option.getAttribute('data-value').trim().toLowerCase();
                 if (availableSizes.includes(size)) {
                     option.style.display = 'block';
                     option.classList.remove('disabled');
@@ -722,71 +763,64 @@
             });
         }
 
-        // Update active size option
         function updateActiveSizeOption(size) {
             document.querySelectorAll('.size-option').forEach(option => {
                 option.classList.remove('active');
-                if (option.getAttribute('data-value') === size) {
+                if (option.getAttribute('data-value').trim().toLowerCase() === size) {
                     option.classList.add('active');
                 }
             });
         }
 
-        // Update variant based on selected options
         function updateVariant() {
-            if (!selectedSize || !selectedColor) return;
+            if (!selectedSize || !selectedColor) {
+                console.error('Missing selectedSize or selectedColor:', { selectedSize, selectedColor });
+                return;
+            }
 
-            // Find matching variant
+            console.log('Searching for variant with size:', selectedSize, 'and color:', selectedColor);
             const matchedVariant = variants.find(v =>
-                v.size === selectedSize &&
-                v.color === selectedColor
+                v.size.trim().toLowerCase() === selectedSize &&
+                v.color.trim().toLowerCase() === selectedColor
             );
 
             if (matchedVariant) {
-                // Update price
+                console.log('Matched variant:', matchedVariant);
+                currentInventory = matchedVariant.quantity;
+                maxQuantity = Math.min(matchedVariant.quantity, 5);
+                quantityInput.max = maxQuantity;
                 updatePriceDisplay(matchedVariant.price, @Model.Percent);
 
-                // Update main image if available
                 if (matchedVariant.images && matchedVariant.images.length > 0) {
                     const firstImage = matchedVariant.images[0];
                     imageElem.src = `data:${firstImage.contentType};base64,${firstImage.fileData}`;
                     imageElem.style.display = 'block';
-
-                    // Update thumbnails
                     updateThumbnails(matchedVariant.images);
                 } else {
                     imageElem.style.display = 'none';
+                    thumbnailContainer.innerHTML = '';
                 }
 
-                // Update variant ID in forms
-                document.getElementById('selectedVariantId').value = matchedVariant.id;
-                document.getElementById('selectedVariantId2').value = matchedVariant.id;
-                document.getElementById('orderDetailVariantId').value = matchedVariant.id;
-                document.getElementById('orderDetailPrice').value = matchedVariant.price;
-                document.getElementById('orderDetailQuantity').value = document.getElementById('quantityInput').value;
-
+                variantIdInput.value = matchedVariant.id; // Cập nhật cho form Thêm vào giỏ hàng
+                document.getElementById('buyNowVariantId').value = matchedVariant.id; // Cập nhật cho form Mua ngay
+                console.log('Updated selectedVariantId to:', matchedVariant.id);
+                validateAndUpdateQuantity();
             } else {
-                // Show message if no matching variant
-                priceContainer.innerHTML = `
+                console.error('No variant found for size:', selectedSize, 'and color:', selectedColor);
+                priceContent.innerHTML = `
                     <div class="text-danger">Sản phẩm với màu và kích thước đã chọn hiện không có sẵn</div>
                 `;
-
-                // Hide product image
                 imageElem.style.display = 'none';
-
-                // Clear thumbnails
                 thumbnailContainer.innerHTML = '';
-
-                // Clear variant ID
-                document.getElementById('selectedVariantId').value = '';
-                document.getElementById('selectedVariantId2').value = '';
+                variantIdInput.value = '';
+                document.getElementById('buyNowVariantId').value = ''; // Xóa ID nếu không tìm thấy biến thể
+                currentInventory = 0;
+                maxQuantity = 0;
+                updateButtonStates();
             }
         }
 
-        // Update price display
         function updatePriceDisplay(price, discountPercent) {
-            const priceContent = document.getElementById('priceContent');
-
             if (discountPercent > 0) {
                 const discountAmount = (price * discountPercent) / 100;
                 const discountedPrice = price - discountAmount;
@@ -810,72 +844,54 @@
             }
         }
 
-        // Update thumbnails
         function updateThumbnails(images) {
             thumbnailContainer.innerHTML = '';
-
             images.forEach(img => {
                 const thumbSrc = `data:${img.contentType};base64,${img.fileData}`;
                 const thumbItem = document.createElement('div');
                 thumbItem.className = 'thumbnail-item';
-
                 const thumbImg = document.createElement('img');
                 thumbImg.src = thumbSrc;
                 thumbImg.className = 'thumbnail-image';
                 thumbImg.addEventListener('click', () => {
                     imageElem.src = thumbImg.src;
                 });
-
                 thumbItem.appendChild(thumbImg);
                 thumbnailContainer.appendChild(thumbItem);
             });
         }
 
-        // Thumbnail click event delegation
-        thumbnailContainer.addEventListener('click', (e) => {
-            if (e.target.classList.contains('thumbnail-image')) {
-                imageElem.src = e.target.src;
-            }
-        });
-
-        // Quantity controls
-        quantityInput.addEventListener('input', () => {
-            if (quantityInput.value === '' || parseInt(quantityInput.value) < 1) {
-                quantityInput.value = 1;
-            }
-            // Update quantity in forms
-            document.getElementById('addToCartQuantity').value = quantityInput.value;
-            document.getElementById('buyNowQuantity').value = quantityInput.value;
-        });
-
-
-        // Cũng cần cập nhật trong sự kiện tăng/giảm số lượng
+        quantityInput.addEventListener('input', validateAndUpdateQuantity);
         btnDecrease.addEventListener('click', () => {
-            let currentValue = parseInt(quantityInput.value) || 1;
-            if (currentValue > 1) {
-                quantityInput.value = currentValue - 1;
-                document.getElementById('addToCartQuantity').value = quantityInput.value;
-                document.getElementById('buyNowQuantity').value = quantityInput.value;
-                document.getElementById('orderDetailQuantity').value = quantityInput.value;
+            let value = parseInt(quantityInput.value) || 1;
+            if (value > 1) {
+                value--;
+                quantityInput.value = value;
+                updateHiddenInputs(value);
+                updateButtonStates();
             }
         });
 
         btnIncrease.addEventListener('click', () => {
-            let currentValue = parseInt(quantityInput.value) || 1;
-            quantityInput.value = currentValue + 1;
-            document.getElementById('addToCartQuantity').value = quantityInput.value;
-            document.getElementById('buyNowQuantity').value = quantityInput.value;
+            let value = parseInt(quantityInput.value) || 1;
+            if (value < maxQuantity) {
+                value++;
+                quantityInput.value = value;
+                updateHiddenInputs(value);
+                updateButtonStates();
+            }
         });
 
-        // Thêm vào cuối phần xử lý quantity controls
-        quantityInput.addEventListener('change', () => {
-            document.getElementById('orderDetailQuantity').value = quantityInput.value;
+        addToCartForm.addEventListener('submit', (e) => {
+            updateVariant();
+            validateAndUpdateQuantity();
         });
 
-   
+        buyNowForm.addEventListener('submit', (e) => {
+            updateVariant();
+            validateAndUpdateQuantity();
+        });
 
-      
-
-       
+        validateAndUpdateQuantity();
     </script>
 }

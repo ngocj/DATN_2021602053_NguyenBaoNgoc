@@ -31,6 +31,7 @@ namespace SP.WebApi.Controllers
             var orderDto = _mapper.Map<IEnumerable<OrderViewDto>>(orders);
             return Ok(orderDto);
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderById(Guid id)
         {
@@ -42,6 +43,7 @@ namespace SP.WebApi.Controllers
             var orderDto = _mapper.Map<OrderViewDto>(order);
             return Ok(orderDto);
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDto orderCreateDto)
         {
@@ -50,33 +52,54 @@ namespace SP.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            // Tạo ID mới nếu chưa có
             if (orderCreateDto.Id == Guid.Empty)
             {
                 orderCreateDto.Id = Guid.NewGuid();
             }
 
-            // Tìm user
             var user = await _sPContext.Users.FirstOrDefaultAsync(u => u.Id == orderCreateDto.UserId);
             if (user == null)
             {
                 return NotFound("User not found");
             }
 
-            // Cập nhật địa chỉ cho user (có thể mở rộng cập nhật thêm các trường nếu cần)
             user.WardId = orderCreateDto.WardId;
             _sPContext.Users.Update(user);
 
-            // Map từ DTO sang Entity Order
+            // 1. Map sang Order entity (gồm cả OrderDetails nếu DTO có chứa)
             var order = _mapper.Map<Order>(orderCreateDto);
+
+            // 2. Duyệt qua từng OrderDetail và xử lý tồn kho
+            foreach (var detail in order.OrderDetails)
+            {
+                var productVariant = await _sPContext.ProductVariants
+                    .FirstOrDefaultAsync(pv => pv.Id == detail.ProductVariantId);
+
+                if (productVariant == null)
+                {
+                    return BadRequest($"Không tìm thấy biến thể sản phẩm với ID: {detail.ProductVariantId}");
+                }
+
+                if (productVariant.Quantity < detail.Quantity)
+                {
+                    return BadRequest($"Sản phẩm '{productVariant.Product.ProductName}' không đủ hàng trong kho.");
+                }
+
+                // Trừ số lượng tồn kho
+                productVariant.Quantity -= detail.Quantity;
+
+                // Cập nhật lại biến thể
+                _sPContext.ProductVariants.Update(productVariant);
+            }
+
+            // 3. Thêm Order vào DbContext
             await _sPContext.Orders.AddAsync(order);
 
-            // Lưu thay đổi
+            // 4. Lưu toàn bộ thay đổi
             await _sPContext.SaveChangesAsync();
 
             return Ok();
         }
-
 
         [HttpPut]
         public async Task<IActionResult> UpdateOrder([FromBody] OrderUpdateDto orderUpdateDto)
@@ -100,7 +123,6 @@ namespace SP.WebApi.Controllers
             return Ok();
         }
 
-
         [HttpDelete("{id}")]    
         public async Task<IActionResult> DeleteOrder(Guid id)
         {
@@ -112,6 +134,7 @@ namespace SP.WebApi.Controllers
             await _orderService.DeleteOrder(id);
             return Ok();
         }
+
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetUserOrders(Guid userId)
         {

@@ -1,27 +1,27 @@
 ﻿@model IEnumerable<SP.Application.Dto.CartDto.CartViewDto>
 @{
-    ViewData["Title"] = "GetAllCart";
+    ViewData["Title"] = "GetAllCartByUserId";
     Layout = "~/Views/Shared/_Layout.cshtml";
     decimal totalAmount = Model.Sum(item => item.ProductVariant.Price * item.Quantity);
 
     var colorMap = new Dictionary<string, string>
-{
-    { "Red", "Đỏ" },
-    { "Blue", "Xanh dương" },
-    { "Green", "Xanh lá" },
-    { "Black", "Đen" },
-    { "White", "Trắng" },
-    { "Yellow", "Vàng" },
-    { "Gray", "Xám" },
-    { "Pink", "Hồng" },
-    { "Purple", "Tím" },
-    { "Orange", "Cam" },
-    { "Brown", "Nâu" },
-    { "Beige", "Be" },
-    { "Cyan", "Xanh lam" },
-    { "Magenta", "Hồng đậm" },
-    { "Navy", "Xanh navy" }
-};
+    {
+        { "Red", "Đỏ" },
+        { "Blue", "Xanh dương" },
+        { "Green", "Xanh lá" },
+        { "Black", "Đen" },
+        { "White", "Trắng" },
+        { "Yellow", "Vàng" },
+        { "Gray", "Xám" },
+        { "Pink", "Hồng" },
+        { "Purple", "Tím" },
+        { "Orange", "Cam" },
+        { "Brown", "Nâu" },
+        { "Beige", "Be" },
+        { "Cyan", "Xanh lam" },
+        { "Magenta", "Hồng đậm" },
+        { "Navy", "Xanh navy" }
+    };
 }
 
 <div class="cart-container">
@@ -38,122 +38,125 @@
                     <p>Thông tin giao hàng</p>
                 </div>
                 <div class="step">
-                    <span>3</span>
+                    <span>3污
                     <p>Thanh toán</p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-8 col-md-12">
-                <div class="cart-items">
-                    @if (Model.Any())
-                    {
-                        <table class="cart-table">
-                            <thead>
-                                <tr>
-                                    <th class="product-col">Sản phẩm</th>
-                                    <th class="price-col">Đơn giá</th>
-                                    <th class="quantity-col">Số lượng</th>
-                                    <th class="total-col">Thành tiền</th>
-                                    <th class="action-col"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr class="cart-item">
-                                        <td class="product-col">
-                                            <div class="product-info">
-                                                <div class="product-image">
-                                                    @if (item.ProductVariant != null && item.ProductVariant.Images?.Any() == true)
-                                                    {
-                                                        var variant = item.ProductVariant;
-                                                        var imageFile = variant.Images.FirstOrDefault();
-                                                        var imageSrc = imageFile?.FileData != null
-                                                        ? $"data:{imageFile.ContentType};base64,{Convert.ToBase64String(imageFile.FileData)}"
-                                                        : "";
-                                                        var altText = imageFile?.FileData != null ? variant.ProductName : "Không có ảnh";
+        <form id="checkoutForm" asp-controller="Order" asp-action="CartCheckout" method="get">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="cart-items">
+                        @if (Model.Any())
+                        {
+                            <table class="cart-table">
+                                <thead>
+                                    <tr>
+                                        <th class="product-col">Sản phẩm</th>
+                                        <th class="price-col">Đơn giá</th>
+                                        <th class="quantity-col">Số lượng</th>
+                                        <th class="total-col">Thành tiền</th>
+                                        <th class="action-col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="cart-item">
+                                            <td class="product-col">
+                                                <div class="product-info">
+                                                    <div class="product-image">
+                                                        @if (item.ProductVariant != null && item.ProductVariant.Images?.Any() == true)
+                                                        {
+                                                            var variant = item.ProductVariant;
+                                                            var imageFile = variant.Images.FirstOrDefault();
+                                                            var imageSrc = imageFile?.FileData != null
+                                                            ? $"data:{imageFile.ContentType};base64,{Convert.ToBase64String(imageFile.FileData)}"
+                                                            : "";
+                                                            var altText = imageFile?.FileData != null ? variant.ProductName : "Không có ảnh";
 
-                                                        <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.ProductVariant.ProductId">
-                                                            <img src="@imageSrc" alt="@altText" />
-                                                        </a>
-                                                    }
-                                                    else
-                                                    {
-                                                        <div class="no-image">Không có ảnh</div>
-                                                    }
-                                                </div>
-                                                <div class="product-details">
-                                                    <h4 class="product-name">@item.ProductVariant.ProductName</h4>
-                                                    <div class="product-variant">
-                                                        <span>Size: @item.ProductVariant.Size</span>
-                                                        <span>Màu: @(colorMap.TryGetValue(item.ProductVariant.Color, out var colorName) ? colorName : item.ProductVariant.Color)</span>
+                                                            <a asp-controller="Home" asp-action="Detail" asp-route-id="@item.ProductVariant.ProductId">
+                                                                <img src="@imageSrc" alt="@altText" />
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="no-image">Không có ảnh</div>
+                                                        }
+                                                    </div>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">@item.ProductVariant.ProductName</h4>
+                                                        <div class="product-variant">
+                                                            <span>Size: @item.ProductVariant.Size</span>
+                                                            <span>Màu: @(colorMap.TryGetValue(item.ProductVariant.Color, out var colorName) ? colorName : item.ProductVariant.Color)</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td class="price-col">@(item.ProductVariant.Price.ToString("N0"))₫</td>
-                                        <td class="quantity-col">
-                                            <div class="quantity-control">
-                                                <button class="qty-btn minus" data-id="@item.ProductVariantId">-</button>
-                                                <input type="number" value="@item.Quantity" min="1" class="qty-input" readonly>
-                                                <button class="qty-btn plus" data-id="@item.ProductVariantId">+</button>
-                                            </div>
-                                        </td>
-                                        <td class="total-col">@((item.ProductVariant.Price * item.Quantity).ToString("N0"))₫</td>
-                                        <td class="action-col">
-                                            <a href="/Cart/Delete/@item.ProductVariantId" class="btn btn-danger btn-sm"
-                                               onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?');">
-                                                <i class="fas fa-times"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    }
-                    else
-                    {
-                        <div class="empty-cart">
-                            <i class="fas fa-shopping-cart"></i>
-                            <h3>Giỏ hàng của bạn đang trống</h3>
-                            <p>Hãy khám phá các sản phẩm mới và thêm vào giỏ hàng!</p>
-                            <a href="@Url.Action("Collections","Home",new { categoryId = 1})" class="btn-continue">TIẾP TỤC MUA SẮM</a>
-                        </div>
-                    }
-                </div>
-            </div>
-
-            @if (Model.Any())
-            {
-                <div class="col-lg-4 col-md-12">
-                    <div class="cart-summary">
-                        <div class="summary-header">
-                            <h3>THÔNG TIN ĐƠN HÀNG</h3>
-                        </div>
-                        <div class="summary-body">
-                            <div class="summary-row">
-                                <span>Tạm tính</span>
-                                <span>@totalAmount.ToString("N0")₫</span>
+                                            </td>
+                                            <td class="price-col">@(item.ProductVariant.Price.ToString("N0"))₫</td>
+                                            <td class="quantity-col">
+                                                <div class="quantity-control">
+                                                    <button type="button" class="qty-btn minus" data-id="@item.ProductVariantId">-</button>
+                                                    <input type="number" name="CartItems[@Model.ToList().IndexOf(item)].Quantity" value="@item.Quantity" min="1" max="5" class="qty-input" readonly>
+                                                    <input type="hidden" name="CartItems[@Model.ToList().IndexOf(item)].ProductVariantId" value="@item.ProductVariantId" />
+                                                    <button type="button" class="qty-btn plus" data-id="@item.ProductVariantId">+</button>
+                                                </div>
+                                            </td>
+                                            <td class="total-col">@((item.ProductVariant.Price * item.Quantity).ToString("N0"))₫</td>
+                                            <td class="action-col">
+                                                <a href="/Cart/Delete/@item.ProductVariantId" class="btn btn-danger btn-sm"
+                                                   onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này không?');">
+                                                    <i class="fas fa-times"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <div class="empty-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h3>Giỏ hàng của bạn đang trống</h3>
+                                <p>Hãy khám phá các sản phẩm mới và thêm vào giỏ hàng!</p>
+                                <a href="@Url.Action("Collections","Home",new { categoryId = 1})" class="btn-continue">TIẾP TỤC MUA SẮM</a>
                             </div>
-                            <div class="summary-row">
-                                <span>Phí vận chuyển</span>
-                                <span>Miễn phí</span>
-                            </div>
-                            <div class="summary-row total">
-                                <span>Tổng cộng</span>
-                                <span>@totalAmount.ToString("N0")₫</span>
-                            </div>
-                        </div>
-                        <div class="summary-footer">
-                            <a href="@Url.Action("Payment","Order")" class="btn-checkout">TIẾN HÀNH THANH TOÁN</a>
-                            <a href="@Url.Action("Collections","Home",new { categoryId = 1})" class="btn-continue">TIẾP TỤC MUA SẮM</a>
-                        </div>
+                        }
                     </div>
                 </div>
-            }
-        </div>
+
+                @if (Model.Any())
+                {
+                    <div class="col-lg-4 col-md-12">
+                        <div class="cart-summary">
+                            <div class="summary-header">
+                                <h3>THÔNG TIN ĐƠN HÀNG</h3>
+                            </div>
+                            <div class="summary-body">
+                                <div class="summary-row">
+                                    <span>Tạm tính</span>
+                                    <span>@totalAmount.ToString("N0")₫</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Phí vận chuyển</span>
+                                    <span>Miễn phí</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Tổng cộng</span>
+                                    <span>@totalAmount.ToString("N0")₫</span>
+                                </div>
+                            </div>
+                            <div class="summary-footer">
+                                <button type="submit" class="btn-checkout">TIẾN HÀNH THANH TOÁN</button>
+                                <a href="@Url.Action("Collections","Home",new { categoryId = 1})" class="btn-continue">TIẾP TỤC MUA SẮM</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </form>
     </div>
 </div>
 
@@ -455,6 +458,8 @@
             border-radius: 3px;
             margin-bottom: 10px;
             transition: background 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
             .btn-checkout:hover {
@@ -485,7 +490,6 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
     </style>
 }
 
@@ -504,16 +508,15 @@
                     updateCartItem($(this).data('id'), newVal);
                 }
             });
-  
         });
-        function updateCartItem(productVariantId, quantity) {
-            const token = sessionStorage.getItem("JwtToken"); // Hoặc từ cookie/session tùy bạn đang lưu chỗ nào
 
+        function updateCartItem(productVariantId, quantity) {
+            const token = sessionStorage.getItem("JwtToken");
             $.ajax({
-                url: '/Cart/Edit', // Controller action
+                url: '/Cart/Edit',
                 type: 'POST',
                 headers: {
-                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val() // Nếu bạn dùng AntiForgeryToken
+                    'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
                 },
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -521,13 +524,12 @@
                     Quantity: quantity
                 }),
                 success: function (response) {
-                    location.reload(); // Reload lại trang để cập nhật tổng tiền
+                    location.reload();
                 },
                 error: function (xhr) {
                     alert('Có lỗi khi cập nhật giỏ hàng');
                 }
             });
         }
-
     </script>
-}
+}s
