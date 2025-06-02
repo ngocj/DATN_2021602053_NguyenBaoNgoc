@@ -220,96 +220,91 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Thống kê trạng thái đơn hàng</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                 <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
             </a>
         </div>
 
         <!-- Content Row -->
+        <!-- Content Row -->
         <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Earnings (Monthly)
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Earnings (Annual)
-                                </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                    Tasks
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="progress progress-sm mr-2">
-                                            <div class="progress-bar bg-info" role="progressbar"
-                                                 style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                 aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
+            <!-- Chờ xác nhận -->
+            <!-- Chờ xác nhận -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
+                    <!-- Đổi từ primary -> warning -->
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Pending Requests
+                                    Chờ xác nhận
                                 </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div id="pendingCount" class="h5 mb-0 font-weight-bold text-gray-800">Loading...</div>
                             </div>
                             <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                <i class="fas fa-clock fa-2x text-warning"></i> <!-- Đổi icon màu -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Đang giao -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <!-- Đổi từ success -> primary -->
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Đang giao
+                                </div>
+                                <div id="shippingCount" class="h5 mb-0 font-weight-bold text-gray-800">Loading...</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-truck fa-2x text-primary"></i> <!-- Đổi icon màu -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Giao thành công -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <!-- Đổi từ info -> success -->
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Giao thành công
+                                </div>
+                                <div id="deliveredCount" class="h5 mb-0 font-weight-bold text-gray-800">Loading...</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-check-circle fa-2x text-success"></i> <!-- Đổi icon màu -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Đã hủy -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <!-- Đổi từ warning -> danger -->
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                    Đã hủy
+                                </div>
+                                <div id="canceledCount" class="h5 mb-0 font-weight-bold text-gray-800">Loading...</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-times-circle fa-2x text-danger"></i> <!-- Đổi từ text-gray-300 -> text-danger -->
                             </div>
                         </div>
                     </div>
@@ -919,4 +914,38 @@
         }
 </style>
 
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Function to load all stats
+            function loadOrderStats() {
+                // Load pending count
+                $.get('@Url.Action("TotalPending", "OrderDetail")', function (data) {
+                    $('#pendingCount').text(data);
+                });
+
+                // Load shipping count
+                $.get('@Url.Action("TotalShipping", "OrderDetail")', function (data) {
+                    $('#shippingCount').text(data);
+                });
+
+                // Load delivered count
+                $.get('@Url.Action("TotalDelivered", "OrderDetail")', function (data) {
+                    $('#deliveredCount').text(data);
+                });
+
+                // Load canceled count
+                $.get('@Url.Action("TotalCanceled", "OrderDetail")', function (data) {
+                    $('#canceledCount').text(data);
+                });
+            }
+
+            // Load stats when page loads
+            loadOrderStats();
+
+            // Optional: Refresh stats every 30 seconds
+            setInterval(loadOrderStats, 30000);
+        });
+    </script>
+}
 

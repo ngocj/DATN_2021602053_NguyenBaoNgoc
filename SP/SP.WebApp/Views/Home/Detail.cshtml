@@ -136,8 +136,10 @@
                     <div class="variant-options" id="sizeOptions">
                         @foreach (var size in variants.Select(v => v.Size).Distinct())
                         {
-                            <div class="variant-option size-option @(size == defaultVariant?.Size ? "active" : "")" 
-                                 data-value="@size">@size</div>
+                            <div class="variant-option size-option @(size == defaultVariant?.Size ? "active" : "")"
+                                 data-value="@size">
+                                @size
+                            </div>
                         }
                     </div>
                 </div>
@@ -164,7 +166,7 @@
 
                 <form id="buyNowForm" asp-action="BuyNowCheckout" asp-controller="Order" method="get">
                     <input type="hidden" name="productVariantId" id="buyNowVariantId" value="@defaultVariant?.Id" />
-                    <input type="hidden" name="ProductName" value="@defaultVariant?.ProductName" />
+                    <input type="hidden" name="ProductName" id="buyNowProductName" value="@defaultVariant?.ProductName" />
                     <input type="hidden" name="quantity" id="buyNowQuantity" value="1" />
                     <button type="submit" class="btn-buy-now">
                         <i class="fas fa-bolt"></i> Mua ngay
@@ -241,6 +243,7 @@
             font-size: 14px;
             color: #666;
         }
+
         .size-option.disabled {
             opacity: 0.5;
             pointer-events: none;
@@ -252,6 +255,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
         :root {
             --primary-color: #e21c34;
             --secondary-color: #333;
@@ -272,20 +276,20 @@
             margin-bottom: 20px;
         }
 
-        .product-breadcrumb .breadcrumb {
-            background: none;
-            padding: 0;
-            font-size: 14px;
-        }
+            .product-breadcrumb .breadcrumb {
+                background: none;
+                padding: 0;
+                font-size: 14px;
+            }
 
-        .product-breadcrumb .breadcrumb-item a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
+            .product-breadcrumb .breadcrumb-item a {
+                color: var(--secondary-color);
+                text-decoration: none;
+            }
 
-        .product-breadcrumb .breadcrumb-item.active {
-            color: var(--primary-color);
-        }
+            .product-breadcrumb .breadcrumb-item.active {
+                color: var(--primary-color);
+            }
 
         .product-main {
             display: flex;
@@ -324,10 +328,10 @@
             font-size: 16px;
         }
 
-        .no-image-placeholder i {
-            font-size: 50px;
-            margin-bottom: 10px;
-        }
+            .no-image-placeholder i {
+                font-size: 50px;
+                margin-bottom: 10px;
+            }
 
         .thumbnail-scroller {
             display: flex;
@@ -349,9 +353,9 @@
             background: var(--white);
         }
 
-        .thumbnail-item:hover {
-            border-color: var(--primary-color);
-        }
+            .thumbnail-item:hover {
+                border-color: var(--primary-color);
+            }
 
         .thumbnail-image {
             max-width: 90%;
@@ -383,10 +387,10 @@
             margin-bottom: 15px;
         }
 
-        .product-brand span {
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
+            .product-brand span {
+                color: var(--secondary-color);
+                font-weight: 500;
+            }
 
         .product-rating {
             display: flex;
@@ -451,15 +455,15 @@
             transition: all 0.2s;
         }
 
-        .variant-option:hover {
-            border-color: var(--primary-color);
-        }
+            .variant-option:hover {
+                border-color: var(--primary-color);
+            }
 
-        .variant-option.active {
-            background-color: var(--primary-color);
-            color: var(--white);
-            border-color: var(--primary-color);
-        }
+            .variant-option.active {
+                background-color: var(--primary-color);
+                color: var(--white);
+                border-color: var(--primary-color);
+            }
 
         .product-quantity {
             margin: 30px 0;
@@ -492,9 +496,9 @@
             justify-content: center;
         }
 
-        .quantity-btn:hover {
-            background: var(--medium-gray);
-        }
+            .quantity-btn:hover {
+                background: var(--medium-gray);
+            }
 
         .quantity-input {
             width: 60px;
@@ -507,11 +511,11 @@
             -moz-appearance: textfield;
         }
 
-        .quantity-input::-webkit-outer-spin-button,
-        .quantity-input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+            .quantity-input::-webkit-outer-spin-button,
+            .quantity-input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
 
         .product-actions {
             display: flex;
@@ -541,19 +545,19 @@
             border: 1px solid var(--primary-color);
         }
 
-        .btn-add-to-cart:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
+            .btn-add-to-cart:hover {
+                background-color: var(--primary-color);
+                color: var(--white);
+            }
 
         .btn-buy-now {
             background-color: var(--primary-color);
             color: var(--white);
         }
 
-        .btn-buy-now:hover {
-            background-color: #c5162b;
-        }
+            .btn-buy-now:hover {
+                background-color: #c5162b;
+            }
 
         .product-meta {
             margin-top: 30px;
@@ -570,11 +574,11 @@
             color: var(--dark-gray);
         }
 
-        .meta-item i {
-            color: var(--primary-color);
-            width: 20px;
-            text-align: center;
-        }
+            .meta-item i {
+                color: var(--primary-color);
+                width: 20px;
+                text-align: center;
+            }
 
         .product-tabs {
             margin-top: 50px;
@@ -592,16 +596,16 @@
             border-bottom: 3px solid transparent;
         }
 
-        .nav-link.active {
-            color: var(--primary-color);
-            background: none;
-            border-bottom: 3px solid var(--primary-color);
-        }
+            .nav-link.active {
+                color: var(--primary-color);
+                background: none;
+                border-bottom: 3px solid var(--primary-color);
+            }
 
-        .nav-link:hover {
-            color: var(--primary-color);
-            border-color: transparent;
-        }
+            .nav-link:hover {
+                color: var(--primary-color);
+                border-color: transparent;
+            }
 
         .tab-content {
             padding: 25px 0;
@@ -808,8 +812,8 @@
             } else {
                 console.error('No variant found for size:', selectedSize, 'and color:', selectedColor);
                 priceContent.innerHTML = `
-                    <div class="text-danger">Sản phẩm với màu và kích thước đã chọn hiện không có sẵn</div>
-                `;
+                            <div class="text-danger">Sản phẩm với màu và kích thước đã chọn hiện không có sẵn</div>
+                        `;
                 imageElem.style.display = 'none';
                 thumbnailContainer.innerHTML = '';
                 variantIdInput.value = '';
@@ -825,22 +829,22 @@
                 const discountAmount = (price * discountPercent) / 100;
                 const discountedPrice = price - discountAmount;
                 priceContent.innerHTML = `
-                            <div class="current-price fw-bold text-danger" style="font-size: 1.5rem;">
-                                ${discountedPrice.toLocaleString('vi-VN')} đ
-                            </div>
-                            <div class="d-flex align-items-center gap-2">
-                                <div class="original-price text-muted" style="text-decoration: line-through;">
-                                    ${price.toLocaleString('vi-VN')} đ
-                                </div>
-                                <span class="badge bg-danger text-white ml-2">-${discountPercent}%</span>
-                            </div>
-                        `;
+                                    <div class="current-price fw-bold text-danger" style="font-size: 1.5rem;">
+                                        ${discountedPrice.toLocaleString('vi-VN')} đ
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="original-price text-muted" style="text-decoration: line-through;">
+                                            ${price.toLocaleString('vi-VN')} đ
+                                        </div>
+                                        <span class="badge bg-danger text-white ml-2">-${discountPercent}%</span>
+                                    </div>
+                                `;
             } else {
                 priceContent.innerHTML = `
-                            <div class="current-price fw-bold">
-                                ${price.toLocaleString('vi-VN')} đ
-                            </div>
-                        `;
+                                    <div class="current-price fw-bold">
+                                        ${price.toLocaleString('vi-VN')} đ
+                                    </div>
+                                `;
             }
         }
 

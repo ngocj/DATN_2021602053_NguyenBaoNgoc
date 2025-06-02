@@ -25,6 +25,7 @@ namespace SP.Application.Dto.OrderDto
         public string? Note { get; set; }
         public string? PhoneNumber { get; set; }
         public string? AddressDetail { get; set; }
+        public string? ProductName { get; set; }
         public List<OrderDetailCreateDto> OrderDetails { get; set; }
     }
 }

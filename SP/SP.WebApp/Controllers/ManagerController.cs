@@ -15,13 +15,13 @@ namespace SP.WebApp.Controllers
         {
             _httpClient = httpClientFactory.CreateClient();
         }
-        // get all discount
+
         public async Task<ActionResult> GetAllDiscount()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<DiscountViewDto>>($"{ApiUrl}/discount");
             return View(response);
         }
-        // get all employee
+
         public async Task<ActionResult> GetAllEmployee()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeViewDto>>($"{ApiUrl}/employee");
@@ -32,7 +32,6 @@ namespace SP.WebApp.Controllers
             return View();
         }
 
-        // get all order
         public async Task<ActionResult> GetAllOrder()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<OrderViewDto>>($"{ApiUrl}/order");

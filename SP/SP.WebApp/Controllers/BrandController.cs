@@ -12,6 +12,10 @@ namespace SP.WebApp.Controllers
         {
             _httpClient = httpClientFactory.CreateClient();
         }
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         public IActionResult CreateBrand()
         {
@@ -37,6 +41,7 @@ namespace SP.WebApp.Controllers
             var brandViewDto = await _httpClient.GetFromJsonAsync<BrandViewDto>($"{ApiUrl}/{id}");
             return View(brandViewDto);
         }
+
         [HttpPost]
         public async Task<ActionResult> UpdateBrand(BrandViewDto brandUpdateDto)
         {
@@ -66,10 +71,7 @@ namespace SP.WebApp.Controllers
         }
 
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
         
     }
 }

@@ -6,6 +6,7 @@ using SP.Application.Dto.CartDto;
 using SP.Application.Dto.CategoryDto;
 using SP.Application.Dto.OrderDetailDto;
 using SP.Application.Dto.OrderDto;
+using SP.Application.Dto.ProductDto;
 using SP.Application.Dto.ProductVariantDto;
 using SP.Application.Dto.ProvinceDto;
 using SP.Application.Dto.UserDto;
@@ -40,7 +41,7 @@ namespace SP.WebApp.Controllers
             return View(response);
         }
 
-        public async Task<IActionResult> BuyNowCheckout(int productVariantId, OrderCreateDto orderCreateDto, int quantity)
+        public async Task<IActionResult> BuyNowCheckout(int productVariantId , string productName, OrderCreateDto orderCreateDto, int quantity)
         {
             try
             {
@@ -117,10 +118,11 @@ namespace SP.WebApp.Controllers
                 ProductVariantId = productVariantId,
                 Quantity = quantity,
                 Price = productVariant.Price,
-                ProductVariant = productVariant
+                ProductVariant = productVariant,
+                
             }
         };
-
+            
                 // 7. Tạo mới OrderCreateDto
                 var orderDto = new OrderCreateDto
                 {
@@ -132,7 +134,8 @@ namespace SP.WebApp.Controllers
                     Status = OrderStatus.Pending,
                     OrderDetails = orderDetails,
                     User = userInfo,
-                    TotalPrice = productVariant.Price * quantity
+                    TotalPrice = productVariant.Price * quantity,
+                    ProductName = productName
                 };
 
                 // 8. Gửi các ViewData cần thiết
@@ -243,7 +246,7 @@ namespace SP.WebApp.Controllers
                     Status = OrderStatus.Pending,
                     OrderDetails = orderDetails,
                     User = userInfo,
-                    TotalPrice = totalPrice
+                    TotalPrice = totalPrice,
                 };
 
                 // 6. Gửi ViewData
@@ -375,7 +378,6 @@ namespace SP.WebApp.Controllers
             }
         }
 
-
         [HttpPost]
         public async Task<IActionResult> Payment(int productVariantId, OrderCreateDto orderCreateDto, int quantity)
         {
@@ -485,25 +487,35 @@ namespace SP.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateOrder(OrderUpdateDto orderUpdate)
         {
-            var token = HttpContext.Session.GetString("JwtToken");   
+            var token = HttpContext.Session.GetString("JwtToken");
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+
             var handler = new JwtSecurityTokenHandler();
             var jwt = handler.ReadJwtToken(token);
 
-            var userIdClaim = jwt.Claims.FirstOrDefault(x => x.Type == "nameid");
-            var userNameClaim = jwt.Claims.FirstOrDefault(x => x.Type == "unique_name");
+            var userIdClaim = jwt.Claims.FirstOrDefault(c => c.Type == "nameid");
+            var userNameClaim = jwt.Claims.FirstOrDefault(c => c.Type == "unique_name");
+            var roleClaim = jwt.Claims.FirstOrDefault(c => c.Type == "role"); 
 
-            if (userIdClaim == null || !Guid.TryParse(userIdClaim.Value, out Guid EmployeeId) || userNameClaim == null)
+            if (userNameClaim == null)
+            {
                 return RedirectToAction("Login", "Auth");
-
-            string userNameFromToken = userNameClaim.Value;
+            }
 
             if (!ModelState.IsValid)
             {
                 return View(orderUpdate);
             }
 
-            orderUpdate.EmployeeId = EmployeeId;      
-            
+            // ✅ Nếu role là Employee và có userId thì mới gán EmployeeId
+            if (roleClaim != null && roleClaim.Value == "Employee" &&
+                userIdClaim != null && Guid.TryParse(userIdClaim.Value, out Guid employeeId))
+            {
+                orderUpdate.EmployeeId = employeeId;
+            }
 
             var response = await _httpClient.PutAsJsonAsync(ApiUrl, orderUpdate);
 
@@ -530,6 +542,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllOrder", "Manager");
 
         }
+
         public async Task<IActionResult> CancelOrder(Guid id)
         {
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
@@ -544,6 +557,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("OrderHistory", "Order");
 
         }
+
         public async Task<IActionResult> OrderHistory()
         {
             var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");
@@ -563,12 +577,5 @@ namespace SP.WebApp.Controllers
 
             return View(orders);
         }
-
-
-       
-
-
-
-
     }
 }

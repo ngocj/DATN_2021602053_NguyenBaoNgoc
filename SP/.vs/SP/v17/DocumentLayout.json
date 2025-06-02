@@ -3,260 +3,84 @@
   "WorkspaceRootPath": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layoutmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layoutmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layoutemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layoutemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\manager\\getallorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\manager\\getallorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\employee\\getallorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\employee\\getallorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\admin\\getallbrand.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\admin\\getallbrand.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\home\\collections.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\home\\collections.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|solutionrelative:sp.webapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdetaildto\\orderdetailcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdetaildto\\orderdetailcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\cartcheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\cartcheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\cartdto\\cartcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\cartdto\\cartcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\interface\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\interface\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\implement\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\implement\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\cart\\getallcartbyuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\cart\\getallcartbyuserid.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\productvariant\\createproductvariant.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\productvariant\\createproductvariant.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\productvariant\\editproductvariant.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\productvariant\\editproductvariant.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\mappings\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\mappings\\mapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\orderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\orderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\migrations\\20250530171349_init3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\migrations\\20250530171349_init3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\orderhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.domain\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|solutionrelative:sp.domain\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapi\\controllers\\orderdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|solutionrelative:sp.webapi\\controllers\\orderdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\updateorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\updateorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iorderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iorderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\implement\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\implement\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\orderdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\orderdetailcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\manager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\manager\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layoutmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layoutmanager.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\interface\\iorderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\interface\\iorderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\home\\collections.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\home\\collections.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.domain\\entity\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|solutionrelative:sp.domain\\entity\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\home\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\productdto\\productviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\productdto\\productviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\detailorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\detailorder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\employeedto\\employeeviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\employeedto\\employeeviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\orderviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdetaildto\\orderdetailviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdetaildto\\orderdetailviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\feedbackdto\\feedbackcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\feedbackdto\\feedbackcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\provincedto\\districtviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\provincedto\\districtviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\provincedto\\provinceviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\provincedto\\provinceviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\orderupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\orderupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|solutionrelative:sp.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\userdto\\userupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\userdto\\userupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|solutionrelative:sp.webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\userdto\\userviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\userdto\\userviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\user\\detailuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\user\\detailuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\provincedto\\wardviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\provincedto\\wardviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\implement\\wardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\implement\\wardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\implement\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\user\\profileuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\user\\profileuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\user\\profileemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\user\\profileemployee.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iorderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\interface\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\interface\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\provincerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\provincerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\interface\\iwardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\interface\\iwardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iwardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iwardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\interface\\idistrictservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\interface\\idistrictservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\districtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\districtrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\wardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\wardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\implement\\discountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\implement\\discountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\idistrictrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\idistrictrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.infrastructure\\repositories\\interface\\iproductvariantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E66CE6D-A94A-4AE2-B3F8-E22950AADD47}|SP.Infrastructure\\SP.Infrastructure.csproj|solutionrelative:sp.infrastructure\\repositories\\interface\\iproductvariantrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\service\\implement\\districtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\service\\implement\\districtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\discountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\productvariantdto\\variantviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\productvariantdto\\variantviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -266,7 +90,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -282,129 +106,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_LayoutAdmin.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
-              "ViewState": "AQIAADEAAAAAAAAAAAAswEYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-31T15:57:24.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "_LayoutManager.cshtml",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutManager.cshtml",
               "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_LayoutManager.cshtml",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutManager.cshtml",
               "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_LayoutManager.cshtml",
-              "ViewState": "AQIAABgAAAAAAAAAAAAAAEMAAAARAAAA",
+              "ViewState": "AQIAAKoAAAAAAAAAAAAswMwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-31T15:38:48.107Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_LayoutEmployee.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutEmployee.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_LayoutEmployee.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutEmployee.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_LayoutEmployee.cshtml",
-              "ViewState": "AQIAAJsAAAAAAAAAAAAswMkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-31T15:31:52.382Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "OrderDetailCreateDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailCreateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:45:57.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GetAllOrder.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Employee\\GetAllOrder.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Employee\\GetAllOrder.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Employee\\GetAllOrder.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Employee\\GetAllOrder.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T18:21:19.502Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\CartController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\CartController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAADgv08AAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T13:25:08.456Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "OrderCreateDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAADwvxsAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:51:14.852Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GetAllOrder.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Manager\\GetAllOrder.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Manager\\GetAllOrder.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Manager\\GetAllOrder.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Manager\\GetAllOrder.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T15:35:38.647Z",
+              "WhenOpened": "2025-06-02T15:56:26.268Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "GetAllBrand.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Admin\\GetAllBrand.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Admin\\GetAllBrand.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Admin\\GetAllBrand.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Admin\\GetAllBrand.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFAAAABaAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Manager\\Index.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Manager\\Index.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Manager\\Index.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Manager\\Index.cshtml",
+              "ViewState": "AQIAANQAAAAAAAAAAAAAAOgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-31T15:19:36.887Z",
+              "WhenOpened": "2025-06-02T15:52:19.468Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Home\\Detail.cshtml",
-              "ViewState": "AQIAAFEDAAAAAAAAAAAAAIADAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T14:35:02.915Z",
+              "DocumentIndex": 4,
+              "Title": "OrderDetailController.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderDetailController.cs",
+              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\OrderDetailController.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderDetailController.cs",
+              "RelativeToolTip": "SP.WebApp\\Controllers\\OrderDetailController.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAwwCQAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T15:04:05.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderDetailService.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\OrderDetailService.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Service\\Implement\\OrderDetailService.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\OrderDetailService.cs",
+              "RelativeToolTip": "SP.Application\\Service\\Implement\\OrderDetailService.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAYwGYAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T02:55:48.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IOrderDetailRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IOrderDetailRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IOrderDetailRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IOrderDetailRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IOrderDetailRepository.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAQwCgAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T10:14:27.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderDetailRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAswF0AAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T01:38:48.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderDetailController.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\OrderDetailController.cs",
+              "RelativeDocumentMoniker": "SP.WebApi\\Controllers\\OrderDetailController.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\OrderDetailController.cs",
+              "RelativeToolTip": "SP.WebApi\\Controllers\\OrderDetailController.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAkwHMAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T16:32:18.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IOrderDetailService.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IOrderDetailService.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Service\\Interface\\IOrderDetailService.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IOrderDetailService.cs",
+              "RelativeToolTip": "SP.Application\\Service\\Interface\\IOrderDetailService.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAADwvy0AAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T16:28:44.69Z",
               "EditorCaption": ""
             },
             {
@@ -415,647 +216,144 @@
               "RelativeDocumentMoniker": "SP.WebApp\\Views\\Home\\Collections.cshtml",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Collections.cshtml",
               "RelativeToolTip": "SP.WebApp\\Views\\Home\\Collections.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAALgCAAAAAAAAAAAswOQCAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T11:42:54.763Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\OrderController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAowAwBAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:23:20.004Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OrderViewDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:55:51.192Z"
+              "WhenOpened": "2025-06-02T15:42:54.953Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "CartController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\CartController.cs",
-              "RelativeDocumentMoniker": "SP.WebApi\\Controllers\\CartController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\CartController.cs",
-              "RelativeToolTip": "SP.WebApi\\Controllers\\CartController.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAEwFYAAABMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T12:25:05.712Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "CartCreateDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\CartDto\\CartCreateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T14:48:17.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CartCheckout.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-31T12:15:50.787Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "GetAllCartByUserId.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Cart\\GetAllCartByUserId.cshtml",
-              "ViewState": "AQIAANQBAAAAAAAAAAAswO4BAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T13:25:15.784Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CartService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\CartService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Implement\\CartService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\CartService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Implement\\CartService.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAASwDsAAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T12:24:40.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "ICartService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\ICartService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Interface\\ICartService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\ICartService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Interface\\ICartService.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAnwBAAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T12:24:53.298Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "CreateProductVariant.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\ProductVariant\\CreateProductVariant.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\ProductVariant\\CreateProductVariant.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\ProductVariant\\CreateProductVariant.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\ProductVariant\\CreateProductVariant.cshtml",
-              "ViewState": "AQIAADMAAAAAAAAAAAAcwD0AAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-31T04:14:13.937Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "EditProductVariant.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\ProductVariant\\EditProductVariant.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\ProductVariant\\EditProductVariant.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\ProductVariant\\EditProductVariant.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\ProductVariant\\EditProductVariant.cshtml",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAAAFUAAABpAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-31T05:43:39.706Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "MapperProfiles.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Mappings\\MapperProfiles.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Mappings\\MapperProfiles.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Mappings\\MapperProfiles.cs",
-              "RelativeToolTip": "SP.Application\\Mappings\\MapperProfiles.cs",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAcwHIAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:59:02.961Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "OrderHistory.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\OrderHistory.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\OrderHistory.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\OrderHistory.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Order\\OrderHistory.cshtml",
-              "ViewState": "AQIAADcAAAAAAAAAAAAAAFIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T05:05:06.349Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "OrderDetailRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\OrderDetailRepository.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAAAA8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-31T05:24:45.5Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADkBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T13:55:59.911Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "20250530171349_init3.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Migrations\\20250530171349_init3.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Migrations\\20250530171349_init3.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Migrations\\20250530171349_init3.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Migrations\\20250530171349_init3.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T17:13:49.372Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\Order.cs",
-              "RelativeDocumentMoniker": "SP.Domain\\Entity\\Order.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\Order.cs",
-              "RelativeToolTip": "SP.Domain\\Entity\\Order.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-29T08:09:57.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "OrderDetailController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\OrderDetailController.cs",
-              "RelativeDocumentMoniker": "SP.WebApi\\Controllers\\OrderDetailController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\OrderDetailController.cs",
-              "RelativeToolTip": "SP.WebApi\\Controllers\\OrderDetailController.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAYwDsAAABFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T13:25:55.928Z",
+              "WhenOpened": "2025-06-02T15:44:51.74Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "UpdateOrder.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\UpdateOrder.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\UpdateOrder.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\UpdateOrder.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Order\\UpdateOrder.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-27T16:14:05.36Z"
+              "DocumentIndex": 10,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "SP.Domain\\Entity\\OrderDetail.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\OrderDetail.cs",
+              "RelativeToolTip": "SP.Domain\\Entity\\OrderDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T02:45:22.689Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 11,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Home\\Detail.cshtml",
+              "ViewState": "AQIAAFYDAAAAAAAAAAAswIQDAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-01T09:32:11.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-01T10:07:47.001Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ProductViewDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProductDto\\ProductViewDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProductDto\\ProductViewDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProductDto\\ProductViewDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\ProductDto\\ProductViewDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T09:52:12.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\EmployeeRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\EmployeeRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\EmployeeRepository.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAADwvyIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-02T01:38:32.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IEmployeeRepository.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IEmployeeRepository.cs",
+              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IEmployeeRepository.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IEmployeeRepository.cs",
+              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IEmployeeRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T10:15:34.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "VariantViewDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProductVariantDto\\VariantViewDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProductVariantDto\\VariantViewDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProductVariantDto\\VariantViewDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\ProductVariantDto\\VariantViewDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T09:44:08.061Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FeedbackCreateDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\FeedbackDto\\FeedbackCreateDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\FeedbackDto\\FeedbackCreateDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\FeedbackDto\\FeedbackCreateDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\FeedbackDto\\FeedbackCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T09:38:28.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "OrderViewDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\OrderDto\\OrderViewDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T09:33:08.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "DetailOrder.cshtml",
               "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\DetailOrder.cshtml",
               "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\DetailOrder.cshtml",
               "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\DetailOrder.cshtml",
               "RelativeToolTip": "SP.WebApp\\Views\\Order\\DetailOrder.cshtml",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAACMAAAAcAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T05:28:37.745Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "EmployeeViewDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\EmployeeDto\\EmployeeViewDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\EmployeeDto\\EmployeeViewDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\EmployeeDto\\EmployeeViewDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\EmployeeDto\\EmployeeViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T11:32:12.302Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "OrderDetailViewDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\OrderDetailDto\\OrderDetailViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T15:42:56.468Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "DistrictViewDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\ProvinceDto\\DistrictViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:29:51.511Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "ProvinceViewDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\ProvinceDto\\ProvinceViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:29:17.093Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "OrderUpdateDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderUpdateDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDto\\OrderUpdateDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderUpdateDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\OrderDto\\OrderUpdateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T12:04:38.18Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "SP.WebApi\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "SP.WebApi\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAAADgAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T14:51:37.779Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "UserUpdateDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\UserDto\\UserUpdateDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\UserDto\\UserUpdateDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\UserDto\\UserUpdateDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\UserDto\\UserUpdateDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T16:20:21.573Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "SP.WebApi\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\UserController.cs",
-              "RelativeToolTip": "SP.WebApi\\Controllers\\UserController.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAkwGIAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T16:17:10.138Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\UserController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAAAH8AAABDAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T11:34:35.849Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "UserViewDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\UserDto\\UserViewDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\UserDto\\UserViewDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\UserDto\\UserViewDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\UserDto\\UserViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:33:54.197Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "WardViewDto.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
-              "RelativeToolTip": "SP.Application\\Dto\\ProvinceDto\\WardViewDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:29:39.431Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "DetailUser.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\User\\DetailUser.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\User\\DetailUser.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\User\\DetailUser.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\User\\DetailUser.cshtml",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAswGUAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T16:07:13.159Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "WardService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\WardService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Implement\\WardService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\WardService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Implement\\WardService.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB0AAABWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:21:29.103Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "OrderService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\OrderService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Implement\\OrderService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\OrderService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Implement\\OrderService.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAgwCoAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T04:55:51.368Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 45,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\AuthController.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAwBwAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T11:29:48.61Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
-              "Title": "ProfileUser.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\User\\ProfileUser.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\User\\ProfileUser.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\User\\ProfileUser.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\User\\ProfileUser.cshtml",
-              "ViewState": "AQIAALMAAAAAAAAAAAAswOEAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T05:08:12.657Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "ProfileEmployee.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\User\\ProfileEmployee.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\User\\ProfileEmployee.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\User\\ProfileEmployee.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\User\\ProfileEmployee.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T15:20:58.215Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 47,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Auth\\Login.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Auth\\Login.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Auth\\Login.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Auth\\Login.cshtml",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAswKUAAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-30T11:29:16.448Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 48,
-              "Title": "IOrderRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IOrderRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:10:29.123Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 49,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\OrderRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\OrderRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\OrderRepository.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAqwDsAAAA2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:17:39.044Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 51,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\GenericRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\GenericRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\GenericRepository.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAYwCMAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T03:16:56.799Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 50,
-              "Title": "IOrderService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IOrderService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Interface\\IOrderService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IOrderService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Interface\\IOrderService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T04:55:44.893Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 52,
-              "Title": "ProvinceRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\ProvinceRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:38:15.515Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 53,
-              "Title": "IWardService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IWardService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Interface\\IWardService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IWardService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Interface\\IWardService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:21:19.829Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 54,
-              "Title": "IWardRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IWardRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:16:58.937Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 55,
-              "Title": "IDistrictService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IDistrictService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Interface\\IDistrictService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Interface\\IDistrictService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Interface\\IDistrictService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:14:18.999Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 56,
-              "Title": "DistrictRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\DistrictRepository.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABQAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:08:36.611Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 57,
-              "Title": "WardRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\WardRepository.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:18:33.448Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 58,
-              "Title": "DiscountRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Implement\\DiscountRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:11:21.977Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 60,
-              "Title": "IRoleRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IRoleRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:10:31.566Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 61,
-              "Title": "IProductVariantRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IProductVariantRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:10:30.423Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 59,
-              "Title": "IDistrictRepository.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
-              "RelativeDocumentMoniker": "SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
-              "RelativeToolTip": "SP.Infrastructure\\Repositories\\Interface\\IDistrictRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:08:52.59Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 62,
-              "Title": "DistrictService.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\DistrictService.cs",
-              "RelativeDocumentMoniker": "SP.Application\\Service\\Implement\\DistrictService.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Service\\Implement\\DistrictService.cs",
-              "RelativeToolTip": "SP.Application\\Service\\Implement\\DistrictService.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T15:15:08.001Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 63,
-              "Title": "DiscountController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\DiscountController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\DiscountController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\DiscountController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\DiscountController.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAkwDgAAAA+AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-27T13:30:13.99Z"
+              "WhenOpened": "2025-06-01T09:32:07.427Z"
             }
           ]
         }

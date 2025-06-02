@@ -10,14 +10,10 @@ namespace SP.Domain.Entity
     {
         public Guid OrderId { get; set; }
         public int ProductVariantId { get; set; }
-
         public Guid UserId { get; set; }
-
         public string? Comment { get; set; }
         public double Rating { get; set; }
-
         public User User { get; set; }
-
         public OrderDetail OrderDetail { get; set; }
 
     }

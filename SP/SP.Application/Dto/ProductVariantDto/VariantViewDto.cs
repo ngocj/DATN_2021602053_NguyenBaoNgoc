@@ -19,5 +19,6 @@ namespace SP.Application.Dto.ProductVariantDto
         public int Quantity { get; set; }
         public bool IsActive { get; set; }
         public List<ImageFileDto> Images { get; set; } = new List<ImageFileDto>();
+
     }
 }

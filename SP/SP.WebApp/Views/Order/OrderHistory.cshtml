@@ -84,7 +84,7 @@
                         <div class="order-products">
                             @if (order.OrderDetails != null && order.OrderDetails.Any())
                             {
-                                foreach (var detail in order.OrderDetails.Take(3)) // Hiển thị tối đa 3 sản phẩm
+                                foreach (var detail in order.OrderDetails) // Hiển thị hết sản phẩm
                                 {
                                     var variant = detail.ProductVariant;
                                     <div class="product-item">
@@ -114,14 +114,17 @@
                                                 }
                                             </div>
                                             <div class="product-price">@detail.Price.ToString("N0") ₫ x @detail.Quantity</div>
-                                        </div>
-                                    </div>
-                                }
 
-                                @if (order.OrderDetails.Count > 3)
-                                {
-                                    <div class="more-products">
-                                        +@(order.OrderDetails.Count - 3) sản phẩm khác
+                                            @if (order.Status == OrderStatus.Delivered)
+                                            {
+                                                <a asp-controller="Feedback" asp-action="CreateFeedback"
+                                                   asp-route-orderId="@order.Id"
+                                                   asp-route-productVariantId="@detail.ProductVariantId"
+                                                   class="btn btn-outline-success feedback-btn mt-2">
+                                                    <i class="fas fa-star pr-2 text-center"></i> Đánh giá 
+                                                </a>
+                                            }
+                                        </div>
                                     </div>
                                 }
                             }
@@ -131,6 +134,7 @@
                             }
                         </div>
 
+
                         <div class="order-footer">
                             <div class="order-total">
                                 Tổng cộng: <span>@order.TotalPrice.ToString("N0") ₫</span>
@@ -139,14 +143,15 @@
                                 <a asp-action="Detail" asp-controller="Home" asp-route-id="@order.OrderDetails.FirstOrDefault().ProductVariant.ProductId" class="detail-btn">
                                     Xem chi tiết
                                 </a>
-                                @if (order.Status.ToString() == "Pending")
+                                @if (order.Status == OrderStatus.Pending)
                                 {
                                     <a href="@Url.Action("CancelOrder", "Order", new { id = order.Id })"
                                        class="btn btn-warning"
                                        onclick="return confirm('Bạn có chắc chắn muốn hủy đơn hàng này không?');">
                                         <i class="fas fa-times me-1"></i> Huỷ đơn hàng
                                     </a>
-                                }
+                                }                             
+
                             </div>
                         </div>
                     </div>
@@ -446,6 +451,38 @@
             color: #666;
             margin-bottom: 20px;
         }
+
+        .feedback-btn {
+            border: 1px solid #28a745;
+            color: #28a745;
+            background-color: transparent;
+            padding: 6px 12px; /* Giảm padding để gọn hơn */
+            border-radius: 6px;
+            font-size: 14px; /* Tăng font size nhẹ cho dễ đọc */
+            font-weight: 600; /* Đậm hơn để nổi bật */
+            display: inline-flex;
+            align-items: center;
+            gap: 6px; /* Khoảng cách giữa icon và text */
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            white-space: nowrap; /* Không xuống dòng */
+            box-shadow: 0 2px 5px rgb(40 167 69 / 0.2); /* Bóng nhẹ cho nổi */
+        }
+
+            .feedback-btn i {
+                font-size: 16px; /* Icon to hơn 1 chút */
+                line-height: 1;
+            }
+
+            .feedback-btn:hover {
+                background-color: #28a745;
+                color: #fff;
+                transform: translateY(-2px);
+                text-decoration: none;
+                box-shadow: 0 6px 12px rgb(40 167 69 / 0.4);
+            }
+
+
 
         /* Responsive */
         @@media (max-width: 768px) {

@@ -27,8 +27,26 @@ namespace SP.Infrastructure.Repositories.Implement
                 .Include(e => e.Role)
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
-       
-       
+
+        public Task<IEnumerable<string>> GetCustomerNamesHandledByAsync(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> GetHandledOrderCountAsync(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<(int Year, int Month, decimal Total)>> GetMonthlyRevenueByEmployeeAsync(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<decimal> GetRevenueByEmployeeAsync(int employeeId)
+        {
+            throw new NotImplementedException();
+        }
     }
     
 }

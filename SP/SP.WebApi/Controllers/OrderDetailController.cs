@@ -71,6 +71,75 @@ namespace SP.WebApi.Controllers
             await _orderDetailService.DeleteOrderDetail(orderId, productVariantId);
             return Ok();
         }
+        [HttpGet("revenue/total")]
+        public async Task<IActionResult> GetTotalRevenue()
+        {
+            var total = await _orderDetailService.GetTotalRevenueAsync();
+            return Ok(total);
+        }
+
+        [HttpGet("revenue/total-by-range")]
+        public async Task<IActionResult> GetTotalRevenueByDateRange([FromQuery] DateTime from, [FromQuery] DateTime to)
+        {
+            var total = await _orderDetailService.GetTotalRevenueAsync(from, to);
+            return Ok(total);
+        }
+
+        [HttpGet("revenue/monthly")]
+        public async Task<IActionResult> GetMonthlyRevenue()
+        {
+            var data = await _orderDetailService.GetMonthlyRevenueAsync();
+            return Ok(data);
+        }
+
+        [HttpGet("orders/completed-count")]
+        public async Task<IActionResult> GetCompletedOrderCount()
+        {
+            var count = await _orderDetailService.GetCompletedOrderCountAsync();
+            return Ok(count);
+        }
+
+        [HttpGet("products/total-sold")]
+        public async Task<IActionResult> GetTotalProductsSold()
+        {
+            var total = await _orderDetailService.GetTotalProductSoldAsync();
+            return Ok(total);
+        }
+
+        [HttpGet("products/top-selling")]
+        public async Task<IActionResult> GetTopSellingVariants([FromQuery] int top = 5)
+        {
+            var topVariants = await _orderDetailService.GetTopSellingVariantsAsync(top);
+            return Ok(topVariants);
+        }
+
+        [HttpGet("products/total-pending")]
+        public async Task<IActionResult> GetTotalProductsPending()
+        {
+            var total = await _orderDetailService.GetTotalProductPendingAsync();
+            return Ok(total);
+        }
+
+        [HttpGet("products/total-delivered")]
+        public async Task<IActionResult> GetTotalProductsDelivered()
+        {
+            var total = await _orderDetailService.GetTotalProductDeliveredAsync();
+            return Ok(total);
+        }
+
+        [HttpGet("products/total-canceled")]
+        public async Task<IActionResult> GetTotalProductsCanceled()
+        {
+            var total = await _orderDetailService.GetTotalProductCanceledAsync();
+            return Ok(total);
+        }
+
+        [HttpGet("products/total-shipping")]
+        public async Task<IActionResult> GetTotalProductsShipping()
+        {
+            var total = await _orderDetailService.GetTotalProductShippingAsync();
+            return Ok(total);
+        }
 
 
     }

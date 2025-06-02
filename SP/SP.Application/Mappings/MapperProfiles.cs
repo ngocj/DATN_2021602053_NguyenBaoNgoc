@@ -121,9 +121,23 @@ namespace SP.Application.Mappings
                 .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role.RoleName))
                 .ReverseMap();
             CreateMap<Employee, EmployeeUpdateDto>().ReverseMap();
-    
+            CreateMap<EmployeeUpdateDto, Employee>()
+                .ForMember(dest => dest.Name, opt => opt.Ignore())
+                .ForMember(dest => dest.Email, opt => opt.Ignore())
+                .ForMember(dest => dest.Password, opt => opt.Ignore())
+                .ForMember(dest => dest.PhoneNumber, opt => opt.Ignore())
+                .ForMember(dest => dest.DateOfBirth, opt => opt.Ignore())
+                .ForMember(dest => dest.AddressDetail, opt => opt.Ignore())
+                .ForMember(dest => dest.WardId, opt => opt.Ignore())
+                .ForMember(dest => dest.CreatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.UpdatedAt, opt => opt.Ignore())
+                .ForMember(dest => dest.Ward, opt => opt.Ignore())
+                .ForMember(dest => dest.Orders, opt => opt.Ignore())
+                .ForMember(dest => dest.Role, opt => opt.Ignore());
+
+
             //get name subcategory
-      
+
             CreateMap<Product, ProductViewDto>()
                 .ForMember(dest => dest.SubCategoryName, opt => opt.MapFrom(src => src.SubCategory.Name))
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.SubCategory.Category.CategoryName))

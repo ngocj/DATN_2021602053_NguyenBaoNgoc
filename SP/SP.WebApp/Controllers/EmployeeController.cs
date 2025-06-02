@@ -101,11 +101,6 @@ namespace SP.WebApp.Controllers
                 return RedirectToAction("GetAllEmployee", "Manager");
             }
 
-            // Gộp lại thông tin đầy đủ (giữ nguyên các field không thay đổi)
-            EmployeeUpdateDto.Email = existingEmployee.Email;
-            EmployeeUpdateDto.Name = existingEmployee.Name;
-            EmployeeUpdateDto.Password = existingEmployee.Password;
-
             // Gửi yêu cầu cập nhật
             var response = await _httpClient.PutAsJsonAsync(ApiUrl, EmployeeUpdateDto);
 

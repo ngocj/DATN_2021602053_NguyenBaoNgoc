@@ -81,21 +81,28 @@ namespace SP.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateEmployee([FromBody] EmployeeViewDto employeeViewDto)
+        public async Task<IActionResult> UpdateEmployee([FromBody] EmployeeUpdateDto employeeUpdateDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var employee = await _employeeService.GetEmployeeById(employeeViewDto.Id);
+
+            var employee = await _employeeService.GetEmployeeById(employeeUpdateDto.Id);
             if (employee == null)
             {
                 return NotFound();
             }
-            var updatedEmployee = _mapper.Map<Employee>(employeeViewDto);
-            await _employeeService.UpdateEmployee(updatedEmployee);
+
+            // ✅ Ánh xạ chỉ những field được phép update từ DTO vào entity đã có
+            _mapper.Map(employeeUpdateDto, employee);
+            employee.UpdatedAt = DateTime.Now;
+
+            await _employeeService.UpdateEmployee(employee);
+
             return Ok();
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(Guid id)

@@ -18,7 +18,6 @@ namespace SP.Domain.Entity
         public ProductVariant ProductVariant { get; set; }
         public List<FeedBack> FeedBacks { get; set; }
 
-
        
     }
 }

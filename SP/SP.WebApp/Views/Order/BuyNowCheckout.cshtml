@@ -165,7 +165,7 @@
                                 {
                                     string imageSrc = "";
                                     string altText = "Không có ảnh";
-                                    string productName = item.ProductVariant?.ProductName ?? $"Sản phẩm {item.ProductVariantId}";
+                                    string productName = Model.ProductName ?? item.ProductVariant?.ProductName ?? $"Sản phẩm {item.ProductVariantId}";
 
                                     // Kiểm tra và lấy ảnh đầu tiên nếu có
                                     if (item.ProductVariant?.Images != null && item.ProductVariant.Images.Any())

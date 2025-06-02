@@ -1,10 +1,9 @@
 ﻿using SP.Application.Service.Interface;
 using SP.Domain.Entity;
+using SP.Infrastructure.Repositories.Implement;
 using SP.Infrastructure.UnitOfWork;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SP.Application.Service.Implement
@@ -53,6 +52,55 @@ namespace SP.Application.Service.Implement
                 await _unitOfWork.SaveChangeAsync();
             }
         }
-    }
 
+        public async Task<decimal> GetTotalRevenueAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalRevenueAsync();
+        }
+
+        public async Task<decimal> GetTotalRevenueAsync(DateTime from, DateTime to)
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalRevenueAsync(from, to);
+        }
+
+        public async Task<IEnumerable<(int Year, int Month, decimal Total)>> GetMonthlyRevenueAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetMonthlyRevenueAsync();
+        }
+
+        public async Task<int> GetCompletedOrderCountAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetCompletedOrderCountAsync();
+        }
+
+        public async Task<int> GetTotalProductSoldAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalProductSoldAsync();
+        }
+
+        public async Task<IEnumerable<OrderDetailRepository.TopSellingVariant>> GetTopSellingVariantsAsync(int top = 5)
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTopSellingVariantsAsync(top);
+        }
+
+        public async Task<int> GetTotalProductDeliveredAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalProductDeliveredAsync();
+        }
+
+        public async Task<int> GetTotalProductCanceledAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalProductCanceledAsync();
+        }
+
+        public async Task<int> GetTotalProductShippingAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalProductShippingAsync();
+        }
+
+        public async Task<int> GetTotalProductPendingAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalProductPendingAsync();
+        }
+    }
 }

@@ -88,13 +88,19 @@ namespace SP.WebApi.Controllers
             {
                 return BadRequest(ModelState);
             }
+
             var user = await _userService.GetUserById(userUpdateDto.Id);
             if (user == null)
             {
                 return NotFound();
             }
-             _mapper.Map<User>(userUpdateDto);
+
+            // Map DTO vào object đã truy xuất từ DB
+            _mapper.Map(userUpdateDto, user);
+
+            // Gọi service để lưu
             await _userService.UpdateUser(user);
+
             return Ok();
         }
 
