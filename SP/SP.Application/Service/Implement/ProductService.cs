@@ -81,5 +81,13 @@ namespace SP.Application.Service.Implement
         {
             return await _unitOfWork.ProductRepository.GetAllByPriceDescendingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId,search);
         }
+        public async Task<IEnumerable<Product>> GetTop10BestSellingAsync()
+        {
+            return await _unitOfWork.ProductRepository.GetTop10BestSellingAsync();
+        }
+        public async Task<IEnumerable<Product>> GetTop10NewestAsync()
+        {
+            return await _unitOfWork.ProductRepository.GetTop10NewestAsync();
+        }
     }
 }

@@ -87,11 +87,11 @@
                                 }
                             </div>
 
-                            @if (item.Rating != null)
+                            @if (item.ProductVariants?.First().Rating != null)
                             {
                                 <div class="product-rating">
                                     @{
-                                        var rating = item.Rating ?? 0;
+                                    var rating = item.ProductVariants.First().Rating ?? 0;
                                     }
 
                                     @for (int i = 0; i < 5; i++)
@@ -188,11 +188,11 @@
                                 }
                             </div>
 
-                            @if (item.Rating != null)
+                            @if (item.ProductVariants?.First().Rating != null)
                             {
                                 <div class="product-rating">
                                     @{
-                                        var rating = item.Rating ?? 0;
+                                    var rating = item.ProductVariants.First().Rating ?? 0;
                                     }
 
                                     @for (int i = 0; i < 5; i++)

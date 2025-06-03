@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SP.Application.Dto.BrandDto;
 using SP.Application.Dto.CategoryDto;
@@ -10,9 +11,11 @@ using SP.Application.Dto.ProductDto;
 using SP.Application.Dto.ProductVariantDto;
 using SP.Application.Dto.UserDto;
 using SP.Domain.Entity;
+using System.Net.Http.Headers;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api";
@@ -22,7 +25,6 @@ namespace SP.WebApp.Controllers
         {
             _httpClient = httpClientFactory.CreateClient();
         }
-
         public async Task<ActionResult> GetAllCategory()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl}/category");
@@ -71,7 +73,17 @@ namespace SP.WebApp.Controllers
         }
         public async Task<ActionResult> GetAllBrand()
         {
+            var token = HttpContext.Session.GetString("JwtToken"); // hoặc từ cookie
+
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login", "Account"); // chưa login
+            }
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl}/brand");
+
             return View(response);
         }
         public async Task<ActionResult> GetAllImage()
@@ -89,7 +101,6 @@ namespace SP.WebApp.Controllers
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<FeedbackViewDto>>($"{ApiUrl}/feedback");
             return View(response);
         }
-
         public IActionResult Index()
         {
             return View();

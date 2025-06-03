@@ -22,5 +22,7 @@ namespace SP.Application.Service.Interface
         Task<IEnumerable<Product>> GetAllProductsByBestSelling(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search);
         Task<IEnumerable<Product>> GetAllProductsByPriceAscending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search);
         Task<IEnumerable<Product>> GetAllProductsByPriceDescending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search);
+        Task<IEnumerable<Product>> GetTop10BestSellingAsync();
+        Task<IEnumerable<Product>> GetTop10NewestAsync();
     }
 }

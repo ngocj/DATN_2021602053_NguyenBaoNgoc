@@ -17,6 +17,8 @@ namespace SP.Infrastructure.Configuration
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
             builder.HasIndex(x => x.Name).IsUnique();
 
+            builder.Property(x => x.IsActive).HasDefaultValue(true).IsRequired();
+
             builder.Property(c => c.CreatedAt)
                .HasColumnType("datetime2")
                .HasDefaultValueSql("GETDATE()");

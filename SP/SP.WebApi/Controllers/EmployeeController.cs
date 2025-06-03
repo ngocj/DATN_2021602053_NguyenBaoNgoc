@@ -49,7 +49,6 @@ namespace SP.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEmployee([FromBody] EmployeeCreateDto employeeCreateDto)
         {
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -68,7 +67,11 @@ namespace SP.WebApi.Controllers
                 {
                     return Conflict(new { field = "PhoneNumber", message = "Số điện thoại đã tồn tại." });
                 }
+
                 var employee = _mapper.Map<Employee>(employeeCreateDto);
+
+                // Băm mật khẩu trước khi lưu
+                employee.Password = BCrypt.Net.BCrypt.HashPassword(employeeCreateDto.Password);
 
                 await _employeeService.CreateEmployee(employee);
 

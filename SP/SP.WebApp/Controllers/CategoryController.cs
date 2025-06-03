@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.CategoryDto;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/category";
@@ -33,7 +35,6 @@ namespace SP.WebApp.Controllers
             }
             return RedirectToAction("GetAllCategory", "Admin");
         }
-
         public async Task<ActionResult> UpdateCategory(int id)
         {
             var categoryViewDto = await _httpClient.GetFromJsonAsync<CategoryUpdateDto>($"{ApiUrl}/{id}");

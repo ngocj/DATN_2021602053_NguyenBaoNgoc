@@ -68,8 +68,6 @@ namespace SP.WebApi.Controllers
                 }
 
                 var user = _mapper.Map<User>(userCreateDto);
-                var passwordHasher = new PasswordHasher<User>();
-                user.PasswordHash = passwordHasher.HashPassword(user, userCreateDto.Password);
 
                 await _userService.CreateUser(user);
 

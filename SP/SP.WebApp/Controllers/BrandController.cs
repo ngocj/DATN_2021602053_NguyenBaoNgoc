@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.BrandDto;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class BrandController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/brand";
@@ -16,7 +18,6 @@ namespace SP.WebApp.Controllers
         {
             return View();
         }
-
         public IActionResult CreateBrand()
         {
             return View();

@@ -48,11 +48,11 @@
                             </div>
                             <div class="flex-grow-1">
                                 <h4 class="text-dark fw-semibold mb-2">
-                                    @Model.OrderDetail.ProductVariant.ProductName
+                                    @Model.OrderDetail?.ProductVariant.ProductName
                                 </h4>
-                                <p class="mb-1 text-muted"><strong>Size:</strong> @Model.OrderDetail.ProductVariant.Size</p>
-                                <p class="mb-1 text-muted"><strong>Màu:</strong> @Model.OrderDetail.ProductVariant.Color</p>
-                                <p class="mb-1 text-muted"><strong>Giá:</strong> @Model.OrderDetail.ProductVariant.Price.ToString("N0") ₫</p>
+                                <p class="mb-1 text-muted"><strong>Size:</strong> @Model.OrderDetail?.ProductVariant.Size</p>
+                                <p class="mb-1 text-muted"><strong>Màu:</strong> @Model.OrderDetail?.ProductVariant.Color</p>
+                                <p class="mb-1 text-muted"><strong>Giá:</strong> @Model.OrderDetail?.ProductVariant.Price.ToString("N0") ₫</p>
                             </div>
                         </div>
 

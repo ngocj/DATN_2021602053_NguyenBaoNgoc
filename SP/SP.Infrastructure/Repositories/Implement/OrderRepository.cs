@@ -16,6 +16,40 @@ namespace SP.Infrastructure.Repositories.Implement
         {
 
         }
+
+        public async Task<bool> CancelOrderAsync(Guid orderId)
+        {
+            var order = await _SPContext.Orders
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.ProductVariant)
+                .FirstOrDefaultAsync(o => o.Id == orderId);
+
+            if (order == null || order.Status == OrderStatus.Canceled)
+                return false;
+
+            if (order.Status != OrderStatus.Pending)
+                return false;
+
+            order.Status = OrderStatus.Canceled;
+            order.UpdatedAt = DateTime.UtcNow;
+
+            foreach (var item in order.OrderDetails)
+            {
+                var variant = item.ProductVariant;
+                if (variant != null)
+                {
+                    variant.Quantity += item.Quantity;
+                }
+            }
+
+            // Đánh dấu thay đổi và lưu vào DB
+            _SPContext.Update(order);
+            await _SPContext.SaveChangesAsync();
+
+            return true;
+        }
+
+
         public override async Task<IEnumerable<Order>> GetAllAsync()
         {
             return await _SPContext.Set<Order>()
@@ -26,6 +60,7 @@ namespace SP.Infrastructure.Repositories.Implement
                     .ThenInclude(pv => pv.Product)
                 .ToListAsync();
         }
+
         public override async Task<Order> GetByIdAsync(Guid id)
         {
             var order = await _SPContext.Set<Order>()
@@ -64,6 +99,8 @@ namespace SP.Infrastructure.Repositories.Implement
                 .OrderByDescending(o => o.CreatedAt)
                 .ToListAsync();
         }
+
+
     }
 
 }

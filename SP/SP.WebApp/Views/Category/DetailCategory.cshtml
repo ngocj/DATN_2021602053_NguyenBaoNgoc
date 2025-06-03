@@ -38,7 +38,17 @@
                             <div class="subcategory-header">
                                 <i class="fas fa-folder-open"></i>
                                 <span class="subcategory-name">@sub.Name</span>
+
+                                @if (sub.IsActive)
+                                {
+                                    <span class="badge badge-success ml-2">Hoạt động</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger ml-2">Ngưng hoạt động</span>
+                                }
                             </div>
+
                             <div class="subcategory-actions">
                                 <a href="@Url.Action("UpdateSubCategory", "Subcategory", new { id = sub.Id })" class="btn btn-sm btn-outline-primary">
                                     <i class="fas fa-edit"></i> Sửa

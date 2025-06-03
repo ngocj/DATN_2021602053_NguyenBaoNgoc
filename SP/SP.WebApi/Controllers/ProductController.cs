@@ -148,7 +148,23 @@ namespace SP.WebApi.Controllers
             return Ok(productDto);
            
         }
-       
+        
+        [HttpGet("top-newest")]
+        public async Task<IActionResult> GetTop10Newest()
+        {
+            var products = await _productService.GetTop10NewestAsync();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+
+        [HttpGet("top-best-selling")]
+        public async Task<IActionResult> GetTop10BestSelling()
+        {
+            var products = await _productService.GetTop10BestSellingAsync();
+            var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
+            return Ok(productDto);
+        }
+
 
 
 

@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.ProductVariantDto;
 using System.Net.Http;
 
 namespace SP.WebApp.Controllers
 {
-
+    [Authorize(Roles = "Admin")]
     public class ProductVariantController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/productVariant";
@@ -142,7 +143,7 @@ namespace SP.WebApp.Controllers
                 return View(variantUpdateDto);
             }
         }
-        // get all
+
         public async Task<IActionResult> GetAllProductVariant()
         {
             var response = await _httpClient.GetFromJsonAsync<List<VariantViewDto>>(ApiUrl);

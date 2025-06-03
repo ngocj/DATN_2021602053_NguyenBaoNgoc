@@ -13,7 +13,6 @@ namespace SP.Application.Dto.ProductDto
         public int Id { get; set; }
         public string ProductName { get; set; }
         public int? DiscountId { get; set; }
-        public double? Rating { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
         public int BrandId { get; set; }

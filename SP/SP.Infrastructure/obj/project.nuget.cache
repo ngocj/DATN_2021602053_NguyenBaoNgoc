@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "BwgKaDUzEqQ=",
+  "dgSpecHash": "BzkH0zTqvek=",
   "success": true,
   "projectFilePath": "D:\\BÀI TẬP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Infrastructure\\SP.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nguyen Ngoc\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\Nguyen Ngoc\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Nguyen Ngoc\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\Nguyen Ngoc\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Nguyen Ngoc\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\Nguyen Ngoc\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Nguyen Ngoc\\.nuget\\packages\\mailkit\\4.12.0\\mailkit.4.12.0.nupkg.sha512",

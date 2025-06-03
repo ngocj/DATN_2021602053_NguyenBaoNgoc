@@ -106,6 +106,24 @@ namespace SP.Infrastructure.Migrations
                             Description = "Nổi bật với giày chạy bộ",
                             IsActive = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BrandName = "Asics",
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Chuyên giày chạy bộ và thể thao",
+                            IsActive = false,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BrandName = "Reebok",
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Thương hiệu thể thao đa dạng",
+                            IsActive = false,
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -135,48 +153,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("ProductVariantId");
 
                     b.ToTable("Cart", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022"),
-                            ProductVariantId = 1,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Quantity = 1,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            UserId = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be"),
-                            ProductVariantId = 2,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Quantity = 2,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            UserId = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1"),
-                            ProductVariantId = 3,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Quantity = 3,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012"),
-                            ProductVariantId = 4,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Quantity = 1,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            UserId = new Guid("c3e5d7f8-a12b-46cd-b234-5e67f89a0123"),
-                            ProductVariantId = 5,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Quantity = 2,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Category", b =>
@@ -222,27 +198,27 @@ namespace SP.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CategoryName = "Giày",
+                            CategoryName = "Nam",
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Các loại giày thể thao",
+                            Description = "Trang phục thể thao nam",
                             IsActive = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CategoryName = "Áo",
+                            CategoryName = "Nữ",
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Áo thể thao nam nữ",
+                            Description = "Trang phục thể thao nữ",
                             IsActive = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CategoryName = "Quần",
+                            CategoryName = "Trẻ em",
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Quần thể thao, quần short",
+                            Description = "Trang phục thể thao trẻ em",
                             IsActive = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -252,15 +228,6 @@ namespace SP.Infrastructure.Migrations
                             CategoryName = "Phụ kiện",
                             CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Túi, nón, tất thể thao",
-                            IsActive = false,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CategoryName = "Đồ tập gym",
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Trang phục và dụng cụ tập gym",
                             IsActive = false,
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
@@ -476,47 +443,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("WardId");
 
                     b.ToTable("Employee", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d4f6e8a9-b23c-47de-c345-6f78a90b1234"),
-                            AddressDetail = "123 Lê Lợi, Quận 1, TP. Hồ Chí Minh",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1992, 6, 20),
-                            Email = "anhkhoa@gmail.com",
-                            Name = "anhkhoa",
-                            Password = "anhkhoa",
-                            PhoneNumber = "0909666777",
-                            RoleId = 3,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = new Guid("e5f7a9b0-c34d-58ef-d456-7f89b01c2345"),
-                            AddressDetail = "456 Nguyễn Huệ, Quận 3, TP. Hồ Chí Minh",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1993, 8, 5),
-                            Email = "thuyngan@gmail.com",
-                            Name = "thuyngan",
-                            Password = "thuyngan",
-                            PhoneNumber = "0909777888",
-                            RoleId = 3,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = new Guid("f6a8b0c1-d45e-69ef-e567-8a90b12d3456"),
-                            AddressDetail = "789 Phan Đình Phùng, Quận Bình Thạnh, TP. Hồ Chí Minh",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1994, 12, 10),
-                            Email = "vandung@gmail.com",
-                            Name = "vandung",
-                            Password = "vandung",
-                            PhoneNumber = "0909888999",
-                            RoleId = 3,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.FeedBack", b =>
@@ -560,63 +486,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("OrderId", "ProductVariantId");
 
                     b.ToTable("Feedback", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Comment = "Sản phẩm rất tốt!",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c193"),
-                            ProductVariantId = 1,
-                            Rating = 4,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022")
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Comment = "Chất lượng không như mong đợi.",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c111"),
-                            ProductVariantId = 2,
-                            Rating = 2,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be")
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Comment = "Rất hài lòng với sản phẩm này.",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c666"),
-                            ProductVariantId = 3,
-                            Rating = 5,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1")
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Comment = "Giao hàng nhanh chóng, sản phẩm chất lượng.",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c178"),
-                            ProductVariantId = 4,
-                            Rating = 4,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012")
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Comment = "Sản phẩm đẹp nhưng giá hơi cao.",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c192"),
-                            ProductVariantId = 5,
-                            Rating = 3,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012")
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Image", b =>
@@ -698,58 +567,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Order", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c193"),
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmployeeId = new Guid("d4f6e8a9-b23c-47de-c345-6f78a90b1234"),
-                            Status = "Pending",
-                            TotalPrice = 3000000m,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022")
-                        },
-                        new
-                        {
-                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c111"),
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmployeeId = new Guid("e5f7a9b0-c34d-58ef-d456-7f89b01c2345"),
-                            Status = "Confirmed",
-                            TotalPrice = 1600000m,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be")
-                        },
-                        new
-                        {
-                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c666"),
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmployeeId = new Guid("f6a8b0c1-d45e-69ef-e567-8a90b12d3456"),
-                            Status = "Shipping",
-                            TotalPrice = 2400000m,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1")
-                        },
-                        new
-                        {
-                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c178"),
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmployeeId = new Guid("d4f6e8a9-b23c-47de-c345-6f78a90b1234"),
-                            Status = "Delivered",
-                            TotalPrice = 2400000m,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012")
-                        },
-                        new
-                        {
-                            Id = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c192"),
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EmployeeId = new Guid("e5f7a9b0-c34d-58ef-d456-7f89b01c2345"),
-                            Status = "Canceled",
-                            TotalPrice = 1700000m,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserId = new Guid("c3e5d7f8-a12b-46cd-b234-5e67f89a0123")
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.OrderDetail", b =>
@@ -781,53 +598,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("ProductVariantId");
 
                     b.ToTable("OrderDetail", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c193"),
-                            ProductVariantId = 1,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 1500000m,
-                            Quantity = 2,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c111"),
-                            ProductVariantId = 2,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 1600000m,
-                            Quantity = 1,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c666"),
-                            ProductVariantId = 3,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 800000m,
-                            Quantity = 3,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c178"),
-                            ProductVariantId = 4,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 1200000m,
-                            Quantity = 2,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            OrderId = new Guid("1144423c-1a45-476d-8a9b-abdd3ae6c192"),
-                            ProductVariantId = 5,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Price = 1700000m,
-                            Quantity = 1,
-                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Product", b =>
@@ -864,9 +634,6 @@ namespace SP.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<double?>("Rating")
-                        .HasColumnType("float");
-
                     b.Property<int>("SubCategoryId")
                         .HasColumnType("int");
 
@@ -887,63 +654,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("SubCategoryId");
 
                     b.ToTable("Product", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BrandId = 1,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Giày thể thao Nike Air Max chính hãng",
-                            IsActive = false,
-                            ProductName = "Giày Nike Air Max",
-                            SubCategoryId = 1,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BrandId = 2,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Áo thun Adidas Originals nam nữ",
-                            IsActive = false,
-                            ProductName = "Áo Adidas Originals",
-                            SubCategoryId = 3,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BrandId = 3,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Quần thể thao Puma Sport",
-                            IsActive = false,
-                            ProductName = "Quần Puma Sport",
-                            SubCategoryId = 5,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BrandId = 5,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Giày chạy bộ New Balance Fresh Foam",
-                            IsActive = false,
-                            ProductName = "Giày New Balance Fresh Foam",
-                            SubCategoryId = 1,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BrandId = 4,
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Áo khoác thể thao Under Armour",
-                            IsActive = false,
-                            ProductName = "Áo khoác Under Armour",
-                            SubCategoryId = 4,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.ProductVariant", b =>
@@ -977,6 +687,9 @@ namespace SP.Infrastructure.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<double?>("Rating")
+                        .HasColumnType("float");
+
                     b.Property<string>("Size")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -992,68 +705,6 @@ namespace SP.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("ProductVariant", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Color = "black",
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsActive = false,
-                            Price = 1500000m,
-                            ProductId = 1,
-                            Quantity = 100,
-                            Size = "M",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Color = "white",
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsActive = false,
-                            Price = 1600000m,
-                            ProductId = 1,
-                            Quantity = 50,
-                            Size = "L",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Color = "green",
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsActive = false,
-                            Price = 800000m,
-                            ProductId = 2,
-                            Quantity = 200,
-                            Size = "S",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Color = "red",
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsActive = false,
-                            Price = 1200000m,
-                            ProductId = 3,
-                            Quantity = 80,
-                            Size = "M",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Color = "yellow",
-                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IsActive = false,
-                            Price = 1700000m,
-                            ProductId = 4,
-                            Quantity = 30,
-                            Size = "L",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Province", b =>
@@ -1113,36 +764,6 @@ namespace SP.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Role", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoleName = "Admin",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoleName = "Manager",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoleName = "Employee",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            RoleName = "User",
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.SubCategory", b =>
@@ -1160,6 +781,11 @@ namespace SP.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -1186,7 +812,8 @@ namespace SP.Infrastructure.Migrations
                             Id = 1,
                             CategoryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Giày thể thao",
+                            IsActive = false,
+                            Name = "Áo thun nam",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -1194,15 +821,17 @@ namespace SP.Infrastructure.Migrations
                             Id = 2,
                             CategoryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Giày cao gót",
+                            IsActive = false,
+                            Name = "Quần nam",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
-                            CategoryId = 2,
+                            CategoryId = 1,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Áo thun",
+                            IsActive = false,
+                            Name = "Giày nam",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -1210,23 +839,80 @@ namespace SP.Infrastructure.Migrations
                             Id = 4,
                             CategoryId = 2,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Áo khoác",
+                            IsActive = false,
+                            Name = "Áo thun nữ",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
-                            CategoryId = 3,
+                            CategoryId = 2,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Quần jean",
+                            IsActive = false,
+                            Name = "Đầm",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
+                            CategoryId = 2,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Name = "Giày nữ",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
                             CategoryId = 3,
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Quần short",
+                            IsActive = false,
+                            Name = "Áo trẻ em",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 3,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Name = "Quần trẻ em",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 3,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Name = "Giày trẻ em",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Name = "Túi",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Name = "Nón",
+                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = false,
+                            Name = "Tất",
                             UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -1261,12 +947,8 @@ namespace SP.Infrastructure.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasMaxLength(600)
-                        .HasColumnType("nvarchar(600)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(20)
@@ -1275,7 +957,7 @@ namespace SP.Infrastructure.Migrations
                     b.Property<int>("RoleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasDefaultValue(2);
+                        .HasDefaultValue(4);
 
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
@@ -1295,9 +977,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.HasIndex("Password")
-                        .IsUnique();
-
                     b.HasIndex("PhoneNumber")
                         .IsUnique()
                         .HasFilter("[PhoneNumber] IS NOT NULL");
@@ -1307,73 +986,6 @@ namespace SP.Infrastructure.Migrations
                     b.HasIndex("WardId");
 
                     b.ToTable("User", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("f75a0e6e-9f2d-4a39-9040-548b0e56e022"),
-                            AddressDetail = "123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1985, 4, 12),
-                            Email = "admin@gmail.com",
-                            Password = "admin",
-                            PhoneNumber = "0909123456",
-                            RoleId = 1,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "admin"
-                        },
-                        new
-                        {
-                            Id = new Guid("c0a4fd1a-d56b-4bc1-8925-f29be9a383be"),
-                            AddressDetail = "100 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1980, 9, 25),
-                            Email = "manager@gmail.com",
-                            Password = "manager",
-                            PhoneNumber = "0909999999",
-                            RoleId = 2,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "manager"
-                        },
-                        new
-                        {
-                            Id = new Guid("a1f3e4c5-b67d-4d9f-8c2b-33b7f7f4a7c1"),
-                            AddressDetail = "456 Phố Huế, Quận Hai Bà Trưng, Hà Nội",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1995, 5, 10),
-                            Email = "nguyenvana@gmail.com",
-                            Password = "user123",
-                            PhoneNumber = "0911222333",
-                            RoleId = 4,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "nguyenvana"
-                        },
-                        new
-                        {
-                            Id = new Guid("b2d4c6e7-f89a-45bc-a123-4d56e78f9012"),
-                            AddressDetail = "789 Đường Trần Phú, Thành phố Đà Nẵng",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1997, 3, 15),
-                            Email = "tranthib@gmail.com",
-                            Password = "user456",
-                            PhoneNumber = "0933444555",
-                            RoleId = 4,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "tranthib"
-                        },
-                        new
-                        {
-                            Id = new Guid("c3e5d7f8-a12b-46cd-b234-5e67f89a0123"),
-                            AddressDetail = "11 Nguyễn Trãi, Quận Thanh Xuân, Hà Nội",
-                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateOfBirth = new DateOnly(1996, 8, 22),
-                            Email = "lethic@gmail.com",
-                            Password = "user789",
-                            PhoneNumber = "0909777888",
-                            RoleId = 4,
-                            UpdatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            UserName = "lethic"
-                        });
                 });
 
             modelBuilder.Entity("SP.Domain.Entity.Ward", b =>

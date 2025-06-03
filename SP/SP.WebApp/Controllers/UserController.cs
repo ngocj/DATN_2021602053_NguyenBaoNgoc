@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SP.Application.Dto.CategoryDto;
 using SP.Application.Dto.EmployeeDto;
@@ -11,6 +12,7 @@ using System.Text.Json;
 
 namespace SP.WebApp.Controllers
 {
+    
     public class UserController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/user";
@@ -23,6 +25,7 @@ namespace SP.WebApp.Controllers
 
             _httpClient = httpClient.CreateClient();
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateUser()
         {
             ViewBag.Roles = new List<SelectListItem>
@@ -35,6 +38,7 @@ namespace SP.WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateUser(UserCreateDto userCreateDto)
         {
             if (!ModelState.IsValid)
@@ -81,6 +85,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllUser", "Admin");
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateUser(Guid id)
         {
             ViewBag.Roles = new List<SelectListItem>
@@ -94,6 +99,7 @@ namespace SP.WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateUser(UserUpdateDto userUpdateDto)
         {
             // Lấy thông tin người dùng hiện tại từ API bằng ID
@@ -120,6 +126,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllUser", "Admin");
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(Guid id)
         {         
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
@@ -134,6 +141,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllUser", "Admin");          
         }
 
+        [Authorize(Roles = "User,Admin,Manager")]
         public async Task<IActionResult> ProfileUser(Guid id)
         {
             var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");
@@ -189,6 +197,8 @@ namespace SP.WebApp.Controllers
                 });
             }
         }
+
+        [Authorize(Roles = "Employee")]
         public async Task<IActionResult> ProfileEmployee(Guid id)
         {
             var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");
@@ -240,6 +250,7 @@ namespace SP.WebApp.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DetailUser(Guid id)
         {     
             var response = await _httpClient.GetFromJsonAsync<UserViewDto>($"{ApiUrl}/{id}");

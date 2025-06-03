@@ -17,11 +17,15 @@ namespace SP.Infrastructure.Repositories.Implement
         }
         public async override Task<IEnumerable<Category>> GetAllAsync()
         {
-            
-            return await _SPContext.Set<Category>()
+            var categories = await _SPContext.Set<Category>()
                 .Include(c => c.SubCategories)
                 .ToListAsync();
+
+           
+
+            return categories;
         }
+
         public async override Task<Category> GetByIdAsync(int id)
         {
             return await _SPContext.Set<Category>()

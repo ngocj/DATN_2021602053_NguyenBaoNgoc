@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.LoginDto;
 using SP.Application.Dto.UserDto;
+using System.Linq;
 
 namespace SP.WebApp.Controllers
 {
@@ -19,7 +20,7 @@ namespace SP.WebApp.Controllers
         {
             return View();
         }
-        // login
+
         public IActionResult Login()
         {
             return View();
@@ -42,25 +43,31 @@ namespace SP.WebApp.Controllers
 
             var token = await response.Content.ReadAsStringAsync();
             HttpContext.Session.SetString("JwtToken", token);
+            Response.Cookies.Append("Jwt", token ?? "", new CookieOptions
+            {
+                HttpOnly = true,
+                SameSite = SameSiteMode.Lax
+            });
 
             return RedirectToAction("Index", "Home");
         }
 
-        // forgot password
         public IActionResult ForgotPassword()
         {
             return View();
         }
-
-        // logout
+ 
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("JwtToken");
+            try
+            {
+                Response.Cookies.Delete("Jwt");
+            }
+            catch { }
             return RedirectToAction("Index", "Home");
         }
 
-
-        // register
         public IActionResult Register()
         {
             return View();

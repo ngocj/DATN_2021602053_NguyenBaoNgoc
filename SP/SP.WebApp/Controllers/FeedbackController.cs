@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.FeedbackDto;
 using SP.Application.Dto.OrderDetailDto;
 using SP.Domain.Entity;
@@ -6,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "User")]
     public class FeedbackController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/feedback";
@@ -17,6 +19,7 @@ namespace SP.WebApp.Controllers
             _httpClient = httpClientFactory.CreateClient();
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteFeedback(int id)
         {
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
@@ -30,7 +33,8 @@ namespace SP.WebApp.Controllers
             }
             return RedirectToAction("GetAllFeedback", "Admin");
         }
-   
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DetailFeedback(int id)
         {
             var feedback = await _httpClient.GetFromJsonAsync<FeedbackViewDto>($"{ApiUrl}/{id}");
@@ -95,42 +99,6 @@ namespace SP.WebApp.Controllers
             TempData["Error"] = "Thêm đánh giá không thành công.";
             return View(feedbackCreateDto);
         }
-
-        /*public async Task<IActionResult> EditFeedback(int id)
-        {
-            var feedback = await _httpClient.GetFromJsonAsync<FeedbackUpdateDto>($"{ApiUrl}/{id}");
-            if (feedback == null)
-            {
-                return NotFound();
-            }
-            return View(feedback);
-        }
-        [HttpPost]
-        public async Task<IActionResult> EditFeedback(int id, FeedbackUpdateDto dto)
-        {
-            if (id != dto.ProductVariantId)
-            {
-                return BadRequest();
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return View(dto);
-            }
-
-            var response = await _httpClient.PutAsJsonAsync($"{ApiUrl}/{id}", dto);
-            if (response.IsSuccessStatusCode)
-            {
-                TempData["Success"] = "Cập nhật đánh giá thành công.";
-                return RedirectToAction("GetAllFeedback", "Admin");
-            }
-
-            TempData["Error"] = "Cập nhật đánh giá không thành công.";
-            return View(dto);
-        }*/
-
-
-
 
     }
 }

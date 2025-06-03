@@ -15,6 +15,7 @@ namespace SP.Application.Service.Interface
         Task UpdateOrder(Order order);
         Task DeleteOrder(Guid id);
         Task<List<Order>> GetOrdersByUserIdAsync(Guid userId);
+        Task<bool> CancelOrderAsync(Guid orderId);
 
     }
 }

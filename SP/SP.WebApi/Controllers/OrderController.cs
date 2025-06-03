@@ -144,5 +144,24 @@ namespace SP.WebApi.Controllers
 
             return Ok(orderDtos);
         }
+
+        [HttpPut("{id}/cancel")]
+        public async Task<IActionResult> CancelOrder(Guid id)
+        {
+            var order = await _orderService.GetOrderById(id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            var result = await _orderService.CancelOrderAsync(id);
+            if (!result)
+            {
+                return BadRequest("Không thể hủy đơn hàng này.");
+            }
+
+            return Ok("Đơn hàng đã được hủy thành công.");
+        }
+
     }
 }

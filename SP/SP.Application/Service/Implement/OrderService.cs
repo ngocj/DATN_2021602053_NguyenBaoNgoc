@@ -16,6 +16,12 @@ namespace SP.Application.Service.Implement
         {
             _unitOfWork = unitOfWork;
         }
+
+        public async Task<bool> CancelOrderAsync(Guid orderId)
+        {
+           return await _unitOfWork.OrderRepository.CancelOrderAsync(orderId);
+        }
+
         public  async Task CreateOrder(Order order)
         {
             await _unitOfWork.OrderRepository.AddAsync(order);

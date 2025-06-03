@@ -32,7 +32,33 @@ namespace SP.Infrastructure.Repositories.Implement
                          .ThenInclude(pv => pv.Product)
                          .FirstOrDefaultAsync(fb => fb.Id == id);
         }
+        public override async Task AddAsync(FeedBack entity)
+        {
+            // Thêm feedback mới
+            await base.AddAsync(entity);
+
+            // Lấy tất cả rating của variant này
+            var feedbacks = await _SPContext.Feedbacks
+                .Where(fb => fb.ProductVariantId == entity.ProductVariantId)
+                .ToListAsync();
+
+            double avgRating = 0;
+            if (feedbacks.Any())
+            {
+                avgRating = feedbacks.Average(fb => fb.Rating);
+            }
+
+            // Tìm ProductVariant cần cập nhật
+            var variant = await _SPContext.ProductVariants.FindAsync(entity.ProductVariantId);
+            if (variant != null)
+            {
+                variant.Rating = avgRating;
+                _SPContext.Update(variant);
+                await _SPContext.SaveChangesAsync();
+            }
+        }
+
 
     }
-    
+
 }

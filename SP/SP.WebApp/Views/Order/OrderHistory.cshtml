@@ -46,6 +46,12 @@
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">
+                        @Model.Count(x => x.Status == OrderStatus.Canceled)
+                    </div>
+                    <div class="stat-label">Đơn đã hủy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">
                         @(Model.Where(x => x.Status == OrderStatus.Delivered).Sum(x => x.TotalPrice).ToString("N0")) ₫
                     </div>
                     <div class="stat-label">Tổng chi tiêu</div>

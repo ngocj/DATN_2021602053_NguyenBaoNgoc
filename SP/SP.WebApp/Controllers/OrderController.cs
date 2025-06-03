@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using SP.Application.Dto.BrandDto;
@@ -19,6 +20,7 @@ using static Org.BouncyCastle.Asn1.Cmp.Challenge;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "User")]
     public class OrderController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/order";
@@ -478,39 +480,57 @@ namespace SP.WebApp.Controllers
             var wards = await _httpClient.GetFromJsonAsync<IEnumerable<WardViewDto>>($"{ApiUrl1}Address/wards/{districtId}");                      
             return Json(wards);
         }
-   
+
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> UpdateOrder(Guid id)
         {
             var response = await _httpClient.GetFromJsonAsync<OrderUpdateDto>($"{ApiUrl}/{id}");
             return View(response);
         }
+
         [HttpPost]
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> UpdateOrder(OrderUpdateDto orderUpdate)
         {
             var token = HttpContext.Session.GetString("JwtToken");
             if (string.IsNullOrEmpty(token))
-            {
                 return RedirectToAction("Login", "Auth");
-            }
 
             var handler = new JwtSecurityTokenHandler();
             var jwt = handler.ReadJwtToken(token);
 
             var userIdClaim = jwt.Claims.FirstOrDefault(c => c.Type == "nameid");
             var userNameClaim = jwt.Claims.FirstOrDefault(c => c.Type == "unique_name");
-            var roleClaim = jwt.Claims.FirstOrDefault(c => c.Type == "role"); 
+            var roleClaim = jwt.Claims.FirstOrDefault(c => c.Type == "role");
 
             if (userNameClaim == null)
-            {
                 return RedirectToAction("Login", "Auth");
-            }
 
             if (!ModelState.IsValid)
+                return View(orderUpdate);
+
+            // Lấy trạng thái hiện tại của đơn hàng từ API (hoặc DB)
+            var getOrderResponse = await _httpClient.GetAsync($"{ApiUrl}/{orderUpdate.Id}");
+            if (!getOrderResponse.IsSuccessStatusCode)
             {
+                ModelState.AddModelError("", "Đơn hàng không tồn tại hoặc lỗi lấy dữ liệu.");
                 return View(orderUpdate);
             }
 
-            // ✅ Nếu role là Employee và có userId thì mới gán EmployeeId
+            var existingOrder = await getOrderResponse.Content.ReadFromJsonAsync<OrderViewDto>();
+            if (existingOrder == null)
+            {
+                ModelState.AddModelError("", "Không lấy được thông tin đơn hàng.");
+                return View(orderUpdate);
+            }
+
+            // Cấm chuyển trạng thái lùi
+            if ((int)orderUpdate.Status < (int)existingOrder.Status)
+            {
+                ModelState.AddModelError("", "Không được phép chuyển trạng thái đơn hàng lùi lại.");
+                return View(orderUpdate);
+            }
+
             if (roleClaim != null && roleClaim.Value == "Employee" &&
                 userIdClaim != null && Guid.TryParse(userIdClaim.Value, out Guid employeeId))
             {
@@ -521,13 +541,15 @@ namespace SP.WebApp.Controllers
 
             if (response.IsSuccessStatusCode)
             {
+                TempData["SuccessMessage"] = "Cập nhật đơn hàng thành công!";
                 return RedirectToAction("GetAllOrder", "Employee");
             }
 
-            ModelState.AddModelError("", "Cập nhật không thành công.");
+            TempData["ErrorMessage"] = "Cập nhật không thành công.";
             return View(orderUpdate);
         }
 
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> DeleteOrder(Guid id)
         {
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
@@ -543,19 +565,30 @@ namespace SP.WebApp.Controllers
 
         }
 
+        [HttpGet] // Thêm attribute HttpGet
         public async Task<IActionResult> CancelOrder(Guid id)
         {
-            var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
-            if (response.IsSuccessStatusCode)
-            {
-                TempData["Success"] = "Xóa đơn hàng thành công.";
-            }
-            else
-            {
-                TempData["Error"] = "Xóa đơn hàng không thành công.";
-            }
-            return RedirectToAction("OrderHistory", "Order");
+            try
+            {             
+                var response = await _httpClient.PutAsync($"{ApiUrl}/{id}/cancel", null);
 
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Success"] = "✅ Đơn hàng đã được hủy thành công";
+                }
+                else
+                {
+                    var errorMessage = await response.Content.ReadAsStringAsync();
+                    TempData["Error"] = $"❌ Không thể hủy đơn hàng: {errorMessage}";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error canceling order: {ex.Message}");
+                TempData["Error"] = "❌ Đã xảy ra lỗi khi hủy đơn hàng";
+            }
+
+            return RedirectToAction("OrderHistory");
         }
 
         public async Task<IActionResult> OrderHistory()

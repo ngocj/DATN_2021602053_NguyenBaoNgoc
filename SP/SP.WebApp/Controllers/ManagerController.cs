@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.DiscountDto;
 using SP.Application.Dto.EmployeeDto;
 using SP.Application.Dto.OrderDto;
 
 namespace SP.WebApp.Controllers
 {
-
+    [Authorize(Roles = "Manager")]
     public class ManagerController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api";

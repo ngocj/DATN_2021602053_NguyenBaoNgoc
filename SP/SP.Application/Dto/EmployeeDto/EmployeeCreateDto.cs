@@ -28,9 +28,6 @@ namespace SP.Application.Dto.EmployeeDto
         public DateOnly? DateOfBirth { get; set; }
 
         public string? AddressDetail { get; set; }
-        public bool IsActive { get; set; }
-        public int RoleId { get; set; }
-
 
     }
 }

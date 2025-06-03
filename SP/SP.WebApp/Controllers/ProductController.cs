@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SP.Application.Dto.BrandDto;
 using SP.Application.Dto.CategoryDto;
@@ -10,6 +11,7 @@ using System.Text.Json;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/product";
@@ -99,7 +101,7 @@ namespace SP.WebApp.Controllers
             TempData["Error"] = "Tên sản phẩm đã tồn tại.";     
             return View(productCreateDto);
         }
-     
+    
         public async Task<ActionResult> Edit(int id)
         {
             // get all brands

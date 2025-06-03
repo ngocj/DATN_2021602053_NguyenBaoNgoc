@@ -254,6 +254,45 @@ namespace SP.Infrastructure.Repositories.Implement
 
             return result;
         }
+
+        public async Task<IEnumerable<Product>> GetTop10BestSellingAsync()
+        {
+            var result = await _SPContext.OrderDetails
+                .GroupBy(od => od.ProductVariant.ProductId)
+                .Select(g => new
+                {
+                    ProductId = g.Key,
+                    TotalSold = g.Sum(x => x.Quantity)
+                })
+                .OrderByDescending(x => x.TotalSold)
+                .Take(10)
+                .Join(_SPContext.Products
+                        .Include(p => p.Brand)
+                        .Include(p => p.SubCategory)
+                        .Include(p => p.Discount)
+                        .Include(p => p.ProductVariants)
+                            .ThenInclude(pv => pv.Images),
+                      g => g.ProductId,
+                      p => p.Id,
+                      (g, p) => p)
+                .ToListAsync();
+
+            return result;
+        }
+        public async Task<IEnumerable<Product>> GetTop10NewestAsync()
+        {
+            return await _SPContext.Products
+                .Include(p => p.Brand)
+                .Include(p => p.SubCategory)
+                .Include(p => p.Discount)
+                .Include(p => p.ProductVariants)
+                    .ThenInclude(pv => pv.Images)
+                .OrderByDescending(p => p.CreatedAt)
+                .Take(10)
+                .ToListAsync();
+        }
+
+
     }
 
 }

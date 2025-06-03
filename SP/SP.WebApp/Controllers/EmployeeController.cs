@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SP.Application.Dto.EmployeeDto;
 using SP.Application.Dto.OrderDto;
@@ -18,6 +19,7 @@ namespace SP.WebApp.Controllers
         {
             _httpClient = httpClientFactory.CreateClient();
         }
+        [Authorize(Roles = "Manager")]
         public IActionResult CreateEmployee()
         {
             ViewBag.Roles = new List<SelectListItem>
@@ -29,7 +31,9 @@ namespace SP.WebApp.Controllers
             };
             return View();
         }
+       
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> CreateEmployee(EmployeeCreateDto employeeCreateDto)
         {
 
@@ -76,6 +80,8 @@ namespace SP.WebApp.Controllers
             TempData["Success"] = "🎉 Thêm nhân viên thành công!";
             return RedirectToAction("GetAllEmployee", "Manager");
         }
+
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> UpdateEmployee(Guid id)
         {
             ViewBag.Roles = new List<SelectListItem>
@@ -90,6 +96,7 @@ namespace SP.WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> UpdateEmployee(EmployeeUpdateDto EmployeeUpdateDto)
         {
             // Lấy thông tin nhân viên hiện tại từ API bằng ID
@@ -116,7 +123,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllEmployee", "Manager");
         }
 
-
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> DeleteEmployee(Guid id)
         {
             /*var token = HttpContext.Session.GetString("JwtToken");
@@ -133,6 +140,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("GetAllEmployee", "Manager");
         }
 
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> GetEmployeeById(Guid id)
         {
             var token = HttpContext.Session.GetString("JwtToken");
@@ -150,16 +158,22 @@ namespace SP.WebApp.Controllers
             var response = await _httpClient.GetFromJsonAsync<EmployeeViewDto>($"{ApiUrl}/{id}");
             return View(response);
         }
+
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> DetailEmployee(Guid id)
         {
             var response = await _httpClient.GetFromJsonAsync<EmployeeViewDto>($"{ApiUrl}/{id}");
             return View(response);
         }
+
+        [Authorize(Roles = "Employee")]
         public async Task<ActionResult> GetAllOrder()
         {
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<OrderViewDto>>($"{ApiUrl1}/order");
             return View(response);
         }
+
+        [Authorize(Roles = "Employee")]
         public IActionResult Index()
         {
             return View();

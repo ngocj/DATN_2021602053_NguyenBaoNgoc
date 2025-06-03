@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.CategoryDto;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class SubCategoryController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/subcategory";

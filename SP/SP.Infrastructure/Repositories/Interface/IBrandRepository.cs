@@ -9,5 +9,6 @@ namespace SP.Infrastructure.Repositories.Interface
 {
     public interface IBrandRepository : IGenericRepository<Brand>
     {
+        
     }
 }

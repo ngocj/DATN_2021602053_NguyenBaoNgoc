@@ -11,6 +11,7 @@ using Azure;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "User")]
     public class CartController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/cart";

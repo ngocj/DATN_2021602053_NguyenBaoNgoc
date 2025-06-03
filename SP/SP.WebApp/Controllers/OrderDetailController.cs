@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using System.Net.Http.Json; // 👈 cần thiết để dùng ReadFromJsonAsync
 using System.Threading.Tasks;
@@ -6,6 +7,7 @@ using static SP.Infrastructure.Repositories.Implement.OrderDetailRepository;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "Manager")]
     public class OrderDetailController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/orderdetail";
@@ -15,7 +17,6 @@ namespace SP.WebApp.Controllers
         {
             _httpClient = httpClientFactory.CreateClient();
         }
-
         public async Task<IActionResult> TopSelling(int top = 5)
         {
             var response = await _httpClient.GetAsync($"{ApiUrl}/products/top-selling?top={top}");
@@ -25,13 +26,10 @@ namespace SP.WebApp.Controllers
             var topList = await response.Content.ReadFromJsonAsync<List<TopSellingVariant>>();
             return Json(topList);
         }
-
         public IActionResult Index()
         {
             return View();
         }
-
-
         public async Task<IActionResult> TotalPending()
         {
             var response = await _httpClient.GetAsync($"{ApiUrl}/products/total-pending");

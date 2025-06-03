@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.ImageDto;
 
 namespace SP.WebApp.Controllers
 {
-
+    [Authorize(Roles ="Admin")]
     public class ImageController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/ImageFile";

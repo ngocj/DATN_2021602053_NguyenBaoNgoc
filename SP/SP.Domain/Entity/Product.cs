@@ -12,7 +12,6 @@ namespace SP.Domain.Entity
         public int SubCategoryId { get; set; }
         public string ProductName { get; set; }
         public int? DiscountId { get; set; } 
-        public double? Rating { get; set; } 
         public string Description { get; set; }
         public bool IsActive { get; set; }
         public Brand Brand { get; set; }

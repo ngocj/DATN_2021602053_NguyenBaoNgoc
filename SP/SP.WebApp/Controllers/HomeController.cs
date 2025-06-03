@@ -28,12 +28,12 @@ namespace SP.WebApp.Controllers
             }
             ViewBag.Categories = new SelectList(categories, "Id", "CategoryName");
             // Lấy danh sách sản phẩm mới
-            var newProducts = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/lastest?categoryId=1");
+            var newProducts = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/top-newest");
             if (newProducts == null || !newProducts.Any())
                 ModelState.AddModelError(string.Empty, "Không tìm thấy sản phẩm mới nào.");
 
             // Lấy danh sách sản phẩm bán chạy
-            var bestSellingProducts = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/best_selling?categoryId=1");
+            var bestSellingProducts = await _httpClient.GetFromJsonAsync<IEnumerable<ProductViewDto>>($"{ApiUrl}/top-best-selling");
             if (bestSellingProducts == null || !bestSellingProducts.Any())
                 ModelState.AddModelError(string.Empty, "Không tìm thấy sản phẩm bán chạy nào.");
 

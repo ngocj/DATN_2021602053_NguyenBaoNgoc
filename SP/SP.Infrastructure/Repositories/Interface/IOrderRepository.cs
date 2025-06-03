@@ -11,6 +11,7 @@ namespace SP.Infrastructure.Repositories.Interface
     {
 
         Task<List<Order>> GetOrdersByUserIdAsync(Guid userId);
+        Task<bool> CancelOrderAsync(Guid orderId);
 
     }
 }

@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SP.Application.Dto.DiscountDto;
 
 namespace SP.WebApp.Controllers
 {
+    [Authorize(Roles = "Manager")]
     public class DiscountController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/discount";

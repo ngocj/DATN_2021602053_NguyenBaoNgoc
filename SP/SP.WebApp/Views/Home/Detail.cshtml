@@ -71,19 +71,22 @@
             <div class="product-header">
                 <h1 class="product-title">@Model.ProductName</h1>
                 <div class="product-brand">Thương hiệu: <span>@Model.BrandName</span></div>
-
-                @if (Model.Rating.HasValue)
-                {
-                    <div class="product-rating">
+                <div class="variant-rating" id="variantRatingContainer">
+                    @if (defaultVariant?.Rating.HasValue == true)
+                    {
                         <div class="stars">
                             @for (int i = 1; i <= 5; i++)
                             {
-                                <i class="@(i <= Math.Round(Model.Rating.Value) ? "fas fa-star" : "far fa-star")"></i>
+                                <i class="@(i <= Math.Round(defaultVariant.Rating.Value) ? "fas fa-star" : "far fa-star")"></i>
                             }
                         </div>
-                        <span class="rating-value">@Model.Rating.Value.ToString("0.0")/5</span>
-                    </div>
-                }
+                        <span class="rating-value">@defaultVariant.Rating.Value.ToString("0.0")/5</span>
+                    }
+                    else
+                    {
+                        <span class="no-rating">Chưa có đánh giá</span>
+                    }
+                </div>
             </div>
 
             <div class="product-price-container">
@@ -122,8 +125,7 @@
                         @foreach (var color in variants.Select(v => v.Color).Distinct())
                         {
                             var vietnameseColor = colorMap.ContainsKey(color) ? colorMap[color] : color;
-                            <div class="variant-option color-option @(color == defaultVariant?.Color ? "active" : "")"
-                                 data-value="@color">
+                            <div class="variant-option color-option @(color == defaultVariant?.Color ? "active" : "")" data-value="@color">
                                 @vietnameseColor
                             </div>
                         }
@@ -782,7 +784,6 @@
                 return;
             }
 
-            console.log('Searching for variant with size:', selectedSize, 'and color:', selectedColor);
             const matchedVariant = variants.find(v =>
                 v.size.trim().toLowerCase() === selectedSize &&
                 v.color.trim().toLowerCase() === selectedColor
@@ -795,6 +796,9 @@
                 quantityInput.max = maxQuantity;
                 updatePriceDisplay(matchedVariant.price, @Model.Percent);
 
+                // Cập nhật rating
+                updateRatingDisplay(matchedVariant.rating, matchedVariant.reviewCount);
+
                 if (matchedVariant.images && matchedVariant.images.length > 0) {
                     const firstImage = matchedVariant.images[0];
                     imageElem.src = `data:${firstImage.contentType};base64,${firstImage.fileData}`;
@@ -805,23 +809,48 @@
                     thumbnailContainer.innerHTML = '';
                 }
 
-                variantIdInput.value = matchedVariant.id; // Cập nhật cho form Thêm vào giỏ hàng
-                document.getElementById('buyNowVariantId').value = matchedVariant.id; // Cập nhật cho form Mua ngay
-                console.log('Updated selectedVariantId to:', matchedVariant.id);
+                variantIdInput.value = matchedVariant.id;
+                document.getElementById('buyNowVariantId').value = matchedVariant.id;
                 validateAndUpdateQuantity();
             } else {
                 console.error('No variant found for size:', selectedSize, 'and color:', selectedColor);
-                priceContent.innerHTML = `
-                            <div class="text-danger">Sản phẩm với màu và kích thước đã chọn hiện không có sẵn</div>
-                        `;
+                priceContent.innerHTML = `<div class="text-danger">Sản phẩm với màu và kích thước đã chọn hiện không có sẵn</div>`;
                 imageElem.style.display = 'none';
                 thumbnailContainer.innerHTML = '';
                 variantIdInput.value = '';
-                document.getElementById('buyNowVariantId').value = ''; // Xóa ID nếu không tìm thấy biến thể
+                document.getElementById('buyNowVariantId').value = '';
                 currentInventory = 0;
                 maxQuantity = 0;
+
+                // Hiển thị thông báo không có rating cho biến thể không tồn tại
+                updateRatingDisplay(null, 0);
                 updateButtonStates();
             }
+        }
+        function updateRatingDisplay(rating, reviewCount) {
+            const ratingContainer = document.getElementById('variantRatingContainer');
+
+            if (rating && rating > 0) {
+                const roundedRating = Math.round(rating * 10) / 10; // Làm tròn 1 chữ số thập phân
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = (rating % 1) >= 0.5;
+
+                let starsHtml = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= fullStars) {
+                        starsHtml += '<i class="fas fa-star"></i>';
+                    } else if (i === fullStars + 1 && hasHalfStar) {
+                        starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        starsHtml += '<i class="far fa-star"></i>';
+                    }
+                }
+
+                ratingContainer.innerHTML = `
+                    <div class="stars">${starsHtml}</div>
+                    <span class="rating-value">${roundedRating}/5</span>
+                `;
+            } 
         }
 
         function updatePriceDisplay(price, discountPercent) {

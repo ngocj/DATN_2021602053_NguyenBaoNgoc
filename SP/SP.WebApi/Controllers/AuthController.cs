@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Org.BouncyCastle.Crypto.Generators;
 using SP.Application.Dto.LoginDto;
 using SP.Domain.Entity;
 using SP.Infrastructure.Context;
@@ -36,11 +38,15 @@ namespace SP.WebApi.Controllers
                 return BadRequest("Email and password cannot be blank.");
             }
 
-            // Check trong cả hai bảng
-            var user = _context.Users.FirstOrDefault(x => x.Email == loginViewDto.Email && x.Password == loginViewDto.Password);
-            var employee = _context.Employees.FirstOrDefault(x => x.Email == loginViewDto.Email && x.Password == loginViewDto.Password);
+            // Tìm theo email
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == loginViewDto.Email);
+            var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Email == loginViewDto.Email);
 
-            if (user == null && employee == null)
+            // Kiểm tra mật khẩu
+            bool isUserValid = user != null && BCrypt.Net.BCrypt.Verify(loginViewDto.Password, user.Password);
+            bool isEmployeeValid = employee != null && BCrypt.Net.BCrypt.Verify(loginViewDto.Password, employee.Password);
+
+            if (!isUserValid && !isEmployeeValid)
             {
                 return Unauthorized("Incorrect email or password.");
             }
@@ -50,7 +56,7 @@ namespace SP.WebApi.Controllers
 
             ClaimsIdentity identity;
 
-            if (employee != null)
+            if (isEmployeeValid)
             {
                 identity = new ClaimsIdentity(new Claim[]
                 {
@@ -60,12 +66,12 @@ namespace SP.WebApi.Controllers
             new Claim(ClaimTypes.Role, "Employee")
                 });
             }
-            else // user != null
+            else // isUserValid
             {
-                var roleName = _context.Roles
+                var roleName = await _context.Roles
                     .Where(x => x.Id == user.RoleId)
                     .Select(x => x.RoleName)
-                    .FirstOrDefault() ?? "User";
+                    .FirstOrDefaultAsync() ?? "User";
 
                 identity = new ClaimsIdentity(new Claim[]
                 {
@@ -91,6 +97,7 @@ namespace SP.WebApi.Controllers
             return Ok(tokenString);
         }
 
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto registerViewDto)
         {
@@ -104,16 +111,21 @@ namespace SP.WebApi.Controllers
             {
                 return Conflict("Email already exists.");
             }
+
             var phoneExists = _context.Users.Any(x => x.PhoneNumber == registerViewDto.PhoneNumber);
             if (phoneExists)
             {
                 return Conflict("Phone number already exists.");
             }
+
             var user = _mapper.Map<User>(registerViewDto);
-            var passwordHasher = new PasswordHasher<User>();
-            user.PasswordHash = passwordHasher.HashPassword(user, registerViewDto.Password);
+
+            // 🔐 Hash mật khẩu trước khi lưu
+            user.Password = BCrypt.Net.BCrypt.HashPassword(registerViewDto.Password);
+
             _context.Users.Add(user);
-            
+            await _context.SaveChangesAsync(); // Đừng quên lưu thay đổi
+
             return Ok("User registered successfully.");
         }
     }
