@@ -143,6 +143,7 @@ namespace SP.Application.Mappings
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.SubCategory.Category.CategoryName))
                 .ForMember(dest => dest.BrandName, opt => opt.MapFrom(src => src.Brand.BrandName))
                 .ForMember(dest => dest.Percent, opt => opt.MapFrom(src => src.Discount.Percent))
+                .ForMember(dest => dest.IsDiscountActive, opt => opt.MapFrom(src => src.Discount.IsActive)) 
                 .ReverseMap();
             CreateMap<Product, ProductCreateDto>().ReverseMap();
             CreateMap<Product, ProductUpdateDto>().ReverseMap();

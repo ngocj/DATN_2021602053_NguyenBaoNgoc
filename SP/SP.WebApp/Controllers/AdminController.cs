@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using NuGet.Common;
 using SP.Application.Dto.BrandDto;
 using SP.Application.Dto.CategoryDto;
 using SP.Application.Dto.DiscountDto;
@@ -27,6 +28,8 @@ namespace SP.WebApp.Controllers
         }
         public async Task<ActionResult> GetAllCategory()
         {
+            var token = HttpContext.Session.GetString("JwtToken"); // hoặc từ cookie
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var response = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl}/category");
             return View(response);
         }
@@ -37,6 +40,8 @@ namespace SP.WebApp.Controllers
         }    
         public async Task<ActionResult> GetAllProduct(int? brandId, int? SubcategoryId, bool? isActive)
         {
+            var token = HttpContext.Session.GetString("JwtToken"); // hoặc từ cookie
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var brands = await _httpClient.GetFromJsonAsync<IEnumerable<BrandViewDto>>($"{ApiUrl}/brand");
             if (brands == null || !brands.Any())
             {

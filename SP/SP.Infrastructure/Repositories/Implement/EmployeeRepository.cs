@@ -28,25 +28,55 @@ namespace SP.Infrastructure.Repositories.Implement
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        public Task<IEnumerable<string>> GetCustomerNamesHandledByAsync(int employeeId)
+        public async Task<IEnumerable<string>> GetCustomerNamesHandledByAsync(Guid employeeId)
         {
-            throw new NotImplementedException();
+            return await _SPContext.Orders
+               .Where(o => o.EmployeeId == employeeId)
+               .Select(o => o.User.UserName)
+               .Distinct()
+               .ToListAsync();
         }
 
-        public Task<int> GetHandledOrderCountAsync(int employeeId)
+        public async Task<int> GetHandledOrderCountAsync(Guid employeeId)
         {
-            throw new NotImplementedException();
+            return await _SPContext.Orders
+                .CountAsync(o => o.EmployeeId == employeeId && o.Status == OrderStatus.Delivered);
         }
 
-        public Task<IEnumerable<(int Year, int Month, decimal Total)>> GetMonthlyRevenueByEmployeeAsync(int employeeId)
+        public  async Task<decimal> GetRevenueByEmployeeAsync(Guid employeeId)
         {
-            throw new NotImplementedException();
+            return await _SPContext.Orders
+               .Where(o => o.EmployeeId == employeeId)
+               .SumAsync(o => o.TotalPrice);
+        }
+        public class HandledOrderDto
+        {
+            public Guid OrderId { get; set; }
+            public string CustomerName { get; set; }
+            public DateTime OrderDate { get; set; }
+            public decimal TotalPrice { get; set; }
+            public OrderStatus Status { get; set; }
         }
 
-        public Task<decimal> GetRevenueByEmployeeAsync(int employeeId)
+        public async Task<IEnumerable<HandledOrderDto>> GetHandledOrdersByEmployeeAsync(Guid employeeId)
         {
-            throw new NotImplementedException();
+            return await _SPContext.Orders
+                .Where(o => o.EmployeeId == employeeId && o.Status == OrderStatus.Delivered)
+                .Select(o => new HandledOrderDto
+                {
+                    OrderId = o.Id,
+                    CustomerName = o.User.UserName,
+                    OrderDate = o.CreatedAt,
+                    TotalPrice = o.TotalPrice,
+                    Status = o.Status
+                })
+                .ToListAsync();
         }
+
+
+
+
+
     }
-    
+
 }

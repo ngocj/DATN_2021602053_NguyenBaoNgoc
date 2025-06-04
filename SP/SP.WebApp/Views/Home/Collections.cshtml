@@ -282,6 +282,10 @@
                 <div class="products-grid">
                     @foreach (var item in Model)
                     {
+                        if (!item.IsActive) 
+                        {
+                            continue; 
+                        }
                         <div class="product-card">
                             <div class="product-image">
                                 @if (item.ProductVariants != null && item.ProductVariants.FirstOrDefault()?.Images?.Any() == true)
@@ -301,7 +305,7 @@
                                 {
                                     <div class="no-image mb-1">Không có ảnh</div>
                                 }
-                                @if (item.Percent > 0)
+                                @if (item.Percent > 0 && item.IsDiscountActive == true)
                                 {
                                     <div class="discount-badge">
                                         <span>-@item.Percent%</span>
@@ -328,18 +332,17 @@
                                         {
                                             var discountAmount = originalPrice * discountPercent / 100;
                                             var finalPrice = originalPrice - discountAmount;
-
                                             <span class="current-price red">
-                                                @($"{finalPrice:N0} ₫")
+                                                @($"{finalPrice:N0}".Replace(",", ".")) ₫
                                             </span>
                                             <span class="original-price">
-                                                @($"{originalPrice:N0} ₫")
+                                                @($"{originalPrice:N0}".Replace(",", ".")) ₫
                                             </span>
                                         }
                                         else
                                         {
                                             <span class="current-price black">
-                                                @($"{originalPrice:N0} ₫")
+                                                @($"{originalPrice:N0}".Replace(",", ".")) ₫
                                             </span>
                                         }
                                     }

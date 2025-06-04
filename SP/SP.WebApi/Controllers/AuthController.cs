@@ -42,6 +42,22 @@ namespace SP.WebApi.Controllers
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == loginViewDto.Email);
             var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Email == loginViewDto.Email);
 
+            // Kiểm tra tài khoản tồn tại và active
+            if (user == null && employee == null)
+            {
+                return Unauthorized("Incorrect email or password.");
+            }
+
+            if (user != null && user.IsActive == false)
+            {
+                return Unauthorized("User account is not active.");
+            }
+
+            if (employee != null && employee.IsActive == false)
+            {
+                return Unauthorized("Employee account is not active.");
+            }
+
             // Kiểm tra mật khẩu
             bool isUserValid = user != null && BCrypt.Net.BCrypt.Verify(loginViewDto.Password, user.Password);
             bool isEmployeeValid = employee != null && BCrypt.Net.BCrypt.Verify(loginViewDto.Password, employee.Password);
@@ -96,6 +112,8 @@ namespace SP.WebApi.Controllers
 
             return Ok(tokenString);
         }
+
+
 
 
         [HttpPost("register")]

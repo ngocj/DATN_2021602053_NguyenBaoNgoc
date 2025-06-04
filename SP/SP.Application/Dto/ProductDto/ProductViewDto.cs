@@ -1,4 +1,5 @@
-﻿using SP.Application.Dto.ProductVariantDto;
+﻿using SP.Application.Dto.DiscountDto;
+using SP.Application.Dto.ProductVariantDto;
 using SP.Domain.Entity;
 using System;
 using System.Collections.Generic;
@@ -23,5 +24,6 @@ namespace SP.Application.Dto.ProductDto
         public string CategoryName { get; set; }
         public string BrandName { get; set; }
         public int Percent { get; set; }
+        public bool? IsDiscountActive { get; set; }
     }
 }

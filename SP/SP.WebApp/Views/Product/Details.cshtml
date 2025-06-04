@@ -84,6 +84,7 @@
                             <th class="text-center">Kích cỡ</th>
                             <th class="text-center">Giá</th>
                             <th class="text-center">Số lượng</th>
+                            <th class="text-center">Trạng thái</th>
                             <th class="text-center" width="180">Hành động</th>
                         </tr>
                     </thead>
@@ -160,6 +161,28 @@
                                         }
                                     </div>
                                 </td>
+                                <td>
+                                    <div class="status-grid">
+                                        @foreach (var variant in colorGroup)
+                                        {
+                                            <div class="mb-2">
+                                                @if (variant.IsActive)
+                                                {
+                                                    <span class="badge badge-success ml-2">
+                                                        <i class="bi bi-check-circle-fill me-1"></i> Hoạt động
+                                                    </span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-danger ml-2">
+                                                        <i class="bi bi-x-circle-fill me-1"></i> Ngưng hoạt động
+                                                    </span>
+                                                }
+                                            </div>
+                                        }
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="action-buttons">
                                         @foreach (var variant in colorGroup)

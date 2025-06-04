@@ -6,6 +6,7 @@
 
     var variants = Model.ProductVariants ?? new List<SP.Application.Dto.ProductVariantDto.VariantViewDto>();
     var defaultVariant = variants.FirstOrDefault();
+    var activeVariants = variants.Where(v => v.IsActive).ToList();
 
     // Define color mapping (English to Vietnamese)
     var colorMap = new Dictionary<string, string>
@@ -91,18 +92,18 @@
 
             <div class="product-price-container">
                 <div id="priceContent">
-                    @if (Model.Percent > 0 && defaultVariant != null)
+                    @if (Model.Percent > 0 && Model.IsDiscountActive == true && defaultVariant != null)
                     {
                         var originalPrice = defaultVariant.Price;
                         var discountAmount = (originalPrice * Model.Percent) / 100;
                         var discountedPrice = originalPrice - discountAmount;
 
                         <div class="current-price fw-bold text-danger" style="font-size: 1.5rem;">
-                            @discountedPrice.ToString("N0") đ
+                            @discountedPrice.ToString("N0").Replace(",", ".") đ
                         </div>
                         <div class="d-flex align-items-center gap-2">
                             <div class="original-price text-muted" style="text-decoration: line-through;">
-                                @originalPrice.ToString("N0") đ
+                                @originalPrice.ToString("N0").Replace(",", ".") đ
                             </div>
                             <span class="badge bg-danger text-white ml-2">-@Model.Percent%</span>
                         </div>
@@ -122,7 +123,7 @@
                 <div class="variant-section">
                     <div class="variant-title">Màu sắc:</div>
                     <div class="variant-options" id="colorOptions">
-                        @foreach (var color in variants.Select(v => v.Color).Distinct())
+                        @foreach (var color in activeVariants.Select(v => v.Color).Distinct())
                         {
                             var vietnameseColor = colorMap.ContainsKey(color) ? colorMap[color] : color;
                             <div class="variant-option color-option @(color == defaultVariant?.Color ? "active" : "")" data-value="@color">
@@ -136,7 +137,7 @@
                 <div class="variant-section">
                     <div class="variant-title">Kích thước:</div>
                     <div class="variant-options" id="sizeOptions">
-                        @foreach (var size in variants.Select(v => v.Size).Distinct())
+                        @foreach (var size in activeVariants.Select(v => v.Size).Distinct())
                         {
                             <div class="variant-option size-option @(size == defaultVariant?.Size ? "active" : "")"
                                  data-value="@size">
@@ -664,7 +665,9 @@
 @section Scripts {
     <script>
         const variants = @Html.Raw(Json.Serialize(Model.ProductVariants));
-        const colorMap = @Html.Raw(Json.Serialize(colorMap));
+        const colorMap = @Html.Raw(Json.Serialize(colorMap)); 
+        const isDiscountActive = @Json.Serialize(Model.IsDiscountActive);
+        const discountPercent = @Model.Percent;
 
         const imageElem = document.getElementById('productImage');
         const priceContent = document.getElementById('priceContent');
@@ -794,7 +797,7 @@
                 currentInventory = matchedVariant.quantity;
                 maxQuantity = Math.min(matchedVariant.quantity, 5);
                 quantityInput.max = maxQuantity;
-                updatePriceDisplay(matchedVariant.price, @Model.Percent);
+                updatePriceDisplay(matchedVariant.price, discountPercent);;
 
                 // Cập nhật rating
                 updateRatingDisplay(matchedVariant.rating, matchedVariant.reviewCount);
@@ -854,26 +857,26 @@
         }
 
         function updatePriceDisplay(price, discountPercent) {
-            if (discountPercent > 0) {
+            if (isDiscountActive && discountPercent > 0) {
                 const discountAmount = (price * discountPercent) / 100;
                 const discountedPrice = price - discountAmount;
                 priceContent.innerHTML = `
-                                    <div class="current-price fw-bold text-danger" style="font-size: 1.5rem;">
-                                        ${discountedPrice.toLocaleString('vi-VN')} đ
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div class="original-price text-muted" style="text-decoration: line-through;">
-                                            ${price.toLocaleString('vi-VN')} đ
-                                        </div>
-                                        <span class="badge bg-danger text-white ml-2">-${discountPercent}%</span>
-                                    </div>
-                                `;
+                    <div class="current-price fw-bold text-danger" style="font-size: 1.5rem;">
+                        ${discountedPrice.toLocaleString('vi-VN')} đ
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="original-price text-muted" style="text-decoration: line-through;">
+                            ${price.toLocaleString('vi-VN')} đ
+                        </div>
+                        <span class="badge bg-danger text-white ml-2">-${discountPercent}%</span>
+                    </div>
+                `;
             } else {
                 priceContent.innerHTML = `
-                                    <div class="current-price fw-bold">
-                                        ${price.toLocaleString('vi-VN')} đ
-                                    </div>
-                                `;
+                    <div class="current-price fw-bold">
+                        ${price.toLocaleString('vi-VN')} đ
+                    </div>
+                `;
             }
         }
 

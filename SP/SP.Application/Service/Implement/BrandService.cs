@@ -32,7 +32,7 @@ namespace SP.Application.Service.Implement
 
             var allBrands = await _unitOfWork.BrandRepository.GetAllAsync();
 
-            if (roles != null && (roles.Contains("Admin") || roles.Contains("Manager")))
+            if (roles != null && (roles.Contains("Admin")))
             {
                 return allBrands; // Trả về tất cả
             }

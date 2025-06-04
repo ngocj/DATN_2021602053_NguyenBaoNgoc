@@ -63,11 +63,6 @@ namespace SP.Application.Service.Implement
             return await _unitOfWork.OrderDetailRepository.GetTotalRevenueAsync(from, to);
         }
 
-        public async Task<IEnumerable<(int Year, int Month, decimal Total)>> GetMonthlyRevenueAsync()
-        {
-            return await _unitOfWork.OrderDetailRepository.GetMonthlyRevenueAsync();
-        }
-
         public async Task<int> GetCompletedOrderCountAsync()
         {
             return await _unitOfWork.OrderDetailRepository.GetCompletedOrderCountAsync();
@@ -101,6 +96,31 @@ namespace SP.Application.Service.Implement
         public async Task<int> GetTotalProductPendingAsync()
         {
             return await _unitOfWork.OrderDetailRepository.GetTotalProductPendingAsync();
+        }
+
+        public async Task<int> GetTotalOrderCountAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTotalOrderCountAsync();
+        }   
+
+        public async Task<decimal> GetAverageOrderValueAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetAverageOrderValueAsync();
+        }
+
+        public async Task<int> GetCanceledOrderCountAsync()
+        {
+            return await _unitOfWork.OrderDetailRepository.GetCanceledOrderCountAsync();
+        }
+
+        public async Task<IEnumerable<OrderDetailRepository.TopCustomer>> GetTopCustomersAsync(int count = 5)
+        {
+            return await _unitOfWork.OrderDetailRepository.GetTopCustomersAsync(count);
+        }
+
+        public async Task<OrderDetailRepository.RevenueData> GetRevenueByPeriodAsync(string period)
+        {
+            return await _unitOfWork.OrderDetailRepository.GetRevenueByPeriodAsync(period);
         }
     }
 }

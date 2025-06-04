@@ -7,7 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 namespace SP.WebApp.Controllers
 {
-    [Authorize(Roles = "User")]
+    
     public class FeedbackController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/feedback";
@@ -45,6 +45,7 @@ namespace SP.WebApp.Controllers
             return View(feedback);
         }
 
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> CreateFeedback(Guid orderId, int productVariantId)
         {
             var token = HttpContext.Session.GetString("JwtToken");
@@ -82,6 +83,7 @@ namespace SP.WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> CreateFeedback(FeedbackCreateDto feedbackCreateDto)
         {
             if (!ModelState.IsValid)

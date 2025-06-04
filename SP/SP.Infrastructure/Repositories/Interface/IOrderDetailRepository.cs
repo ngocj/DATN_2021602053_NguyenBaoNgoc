@@ -16,9 +16,6 @@ namespace SP.Infrastructure.Repositories.Interface
         // Tổng doanh thu theo khoảng thời gian
         Task<decimal> GetTotalRevenueAsync(DateTime from, DateTime to);
 
-        // Thống kê doanh thu theo tháng
-        Task<IEnumerable<(int Year, int Month, decimal Total)>> GetMonthlyRevenueAsync();
-
         // Số đơn hàng đã hoàn thành
         Task<int> GetCompletedOrderCountAsync();
 
@@ -40,8 +37,19 @@ namespace SP.Infrastructure.Repositories.Interface
         // Thống kê tổng số sản phẩm đang chờ
         Task<int> GetTotalProductPendingAsync();
 
+        // Tổng số đơn hàng
+        Task<int> GetTotalOrderCountAsync();
 
+        // Giá trị đơn hàng trung bình
+        Task<decimal> GetAverageOrderValueAsync();
+
+        // Số đơn hàng đã hủy
+        Task<int> GetCanceledOrderCountAsync();
+
+        // Top khách hàng chi tiêu nhiều
+        Task<IEnumerable<TopCustomer>> GetTopCustomersAsync(int count = 5);
+
+        // Doanh thu theo khoảng thời gian (tháng/quý/năm)
+        Task<RevenueData> GetRevenueByPeriodAsync(string period);
     }
-
-
 }

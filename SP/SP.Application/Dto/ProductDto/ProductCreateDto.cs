@@ -17,7 +17,7 @@ namespace SP.Application.Dto.ProductDto
         public int CategoryId { get; set; } 
         public int? DiscountId { get; set; }    
         public bool IsActive { get; set; }
-        //public List<VariantCreateDto> ProductVariants { get; set; } = new List<VariantCreateDto>();
+
 
     }
 }

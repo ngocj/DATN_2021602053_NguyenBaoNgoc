@@ -36,6 +36,7 @@ namespace SP.Application.Service.Implement
 
         public async Task<IEnumerable<User>> GetAllUsers()
         {
+
             return await _unitOfWork.UserRepository.GetAllAsync();
             
         }

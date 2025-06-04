@@ -1,5 +1,6 @@
 ﻿using SP.Application.Service.Interface;
 using SP.Domain.Entity;
+using SP.Infrastructure.Repositories.Implement;
 using SP.Infrastructure.UnitOfWork;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,7 @@ namespace SP.Application.Service.Implement
                 await _unitOfWork.EmployeeRepository.DeleteAsync(result);
                 await _unitOfWork.SaveChangeAsync();
             }
-           
-                    
+                              
         }
 
         public async Task<IEnumerable<Employee>> GetAllEmployees()
@@ -42,10 +42,30 @@ namespace SP.Application.Service.Implement
             
         }
 
+        public async Task<IEnumerable<string>> GetCustomerNamesHandledByAsync(Guid employeeId)
+        {
+            return await _unitOfWork.EmployeeRepository.GetCustomerNamesHandledByAsync(employeeId);
+        }
+
         public async Task<Employee> GetEmployeeById(Guid id)
         {
             return await _unitOfWork.EmployeeRepository.GetByIdAsync(id);
             
+        }
+
+        public async Task<int> GetHandledOrderCountAsync(Guid employeeId)
+        {
+            return await _unitOfWork.EmployeeRepository.GetHandledOrderCountAsync(employeeId);
+        }
+
+        public async Task<IEnumerable<EmployeeRepository.HandledOrderDto>> GetHandledOrdersByEmployeeAsync(Guid employeeId)
+        {
+            return await _unitOfWork.EmployeeRepository.GetHandledOrdersByEmployeeAsync(employeeId);
+        }
+
+        public async Task<decimal> GetRevenueByEmployeeAsync(Guid employeeId)
+        {
+            return await _unitOfWork.EmployeeRepository.GetRevenueByEmployeeAsync(employeeId);
         }
 
         public async Task UpdateEmployee(Employee employee)

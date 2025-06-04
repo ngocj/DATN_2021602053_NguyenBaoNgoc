@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SP.Application.Dto.EmployeeDto;
 using SP.Application.Dto.OrderDto;
+using SP.Domain.Entity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Text.Json;
@@ -17,6 +18,7 @@ namespace SP.WebApp.Controllers
 
         public EmployeeController(IHttpClientFactory httpClientFactory)
         {
+
             _httpClient = httpClientFactory.CreateClient();
         }
         [Authorize(Roles = "Manager")]
@@ -174,9 +176,83 @@ namespace SP.WebApp.Controllers
         }
 
         [Authorize(Roles = "Employee")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var token = HttpContext.Session.GetString("JwtToken");
+            var handler = new JwtSecurityTokenHandler();
+            var jwt = handler.ReadJwtToken(token);
+            var employeeId = jwt.Claims.FirstOrDefault(c => c.Type == "nameid").Value;
+
+            try 
+            {
+                var stats = await _httpClient.GetFromJsonAsync<EmployeeStatsViewModel>($"{ApiUrl}/stats/{employeeId}");
+                return View(stats);
+            }
+            catch (Exception)
+            {
+                TempData["Error"] = "Không thể lấy thống kê nhân viên.";
+                return View(new EmployeeStatsViewModel());
+            }
+        }
+
+        
+        [HttpGet]
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> GetEmployeeStats()
+        {
+            var token = HttpContext.Session.GetString("JwtToken");
+
+            var handler = new JwtSecurityTokenHandler();
+            var jwt = handler.ReadJwtToken(token);
+
+            var employeeId = jwt.Claims.FirstOrDefault(c => c.Type == "nameid").Value;
+
+
+            try
+            {
+                var response = await _httpClient.GetFromJsonAsync<EmployeeStatsViewModel>($"{ApiUrl}/stats/{employeeId}");
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy thống kê.", detail = ex.Message });
+            }
+        }
+
+        public class HandledOrderDto
+        {
+            public Guid OrderId { get; set; }
+            public string CustomerName { get; set; }
+            public DateTime OrderDate { get; set; }
+            public decimal TotalPrice { get; set; }
+            public OrderStatus Status { get; set; }
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Employee")]
+        public async Task<IActionResult> GetHandledOrders()
+        {
+            var token = HttpContext.Session.GetString("JwtToken");
+            var handler = new JwtSecurityTokenHandler();
+            var jwt = handler.ReadJwtToken(token);
+            var employeeId = jwt.Claims.FirstOrDefault(c => c.Type == "nameid").Value;
+
+            try
+            {
+                var response = await _httpClient.GetFromJsonAsync<IEnumerable<HandledOrderDto>>($"{ApiUrl}/handled-orders/{employeeId}");
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy danh sách đơn hàng.", detail = ex.Message });
+            }
+        }
+
+        public class EmployeeStatsViewModel
+        {
+            public int HandledOrderCount { get; set; }
+            public decimal Revenue { get; set; }
+            public List<string>? CustomersHandled { get; set; }
         }
 
     }

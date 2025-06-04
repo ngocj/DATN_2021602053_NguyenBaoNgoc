@@ -85,13 +85,6 @@ namespace SP.WebApi.Controllers
             return Ok(total);
         }
 
-        [HttpGet("revenue/monthly")]
-        public async Task<IActionResult> GetMonthlyRevenue()
-        {
-            var data = await _orderDetailService.GetMonthlyRevenueAsync();
-            return Ok(data);
-        }
-
         [HttpGet("orders/completed-count")]
         public async Task<IActionResult> GetCompletedOrderCount()
         {
@@ -141,6 +134,39 @@ namespace SP.WebApi.Controllers
             return Ok(total);
         }
 
+        [HttpGet("orders/total-count")]
+        public async Task<IActionResult> GetTotalOrderCount()
+        {
+            var count = await _orderDetailService.GetTotalOrderCountAsync();
+            return Ok(count);
+        }   
 
+        [HttpGet("orders/avg-order-value")]
+        public async Task<IActionResult> GetAverageOrderValue()
+        {
+            var avgValue = await _orderDetailService.GetAverageOrderValueAsync();
+            return Ok(avgValue);
+        }
+
+        [HttpGet("orders/canceled-count")]
+        public async Task<IActionResult> GetCanceledOrderCount()
+        {
+            var count = await _orderDetailService.GetCanceledOrderCountAsync();
+            return Ok(count);
+        }
+
+        [HttpGet("customers/top-spending")]
+        public async Task<IActionResult> GetTopCustomers([FromQuery] int count = 5)
+        {
+            var customers = await _orderDetailService.GetTopCustomersAsync(count);
+            return Ok(customers);
+        }
+
+        [HttpGet("revenue/by-period")]
+        public async Task<IActionResult> GetRevenueByPeriod([FromQuery] string period = "month")
+        {
+            var revenue = await _orderDetailService.GetRevenueByPeriodAsync(period);
+            return Ok(revenue);
+        }
     }
 }

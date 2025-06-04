@@ -20,7 +20,6 @@ using static Org.BouncyCastle.Asn1.Cmp.Challenge;
 
 namespace SP.WebApp.Controllers
 {
-    [Authorize(Roles = "User")]
     public class OrderController : Controller
     {
         private const string ApiUrl = "https://localhost:7131/api/order";
@@ -29,7 +28,7 @@ namespace SP.WebApp.Controllers
 
         public OrderController(IHttpClientFactory httpClientFactory)
         {
-            _httpClient = httpClientFactory.CreateClient();
+            _httpClient = httpClientFactory.CreateClient();       
         }
 
         public IActionResult Index()
@@ -37,12 +36,14 @@ namespace SP.WebApp.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Manager, Employee")]
         public async Task<IActionResult> DetailOrder(Guid id)
         {
             var response = await _httpClient.GetFromJsonAsync<OrderViewDto>($"{ApiUrl}/{id}");
             return View(response);
         }
 
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> BuyNowCheckout(int productVariantId , string productName, OrderCreateDto orderCreateDto, int quantity)
         {
             try
@@ -157,6 +158,7 @@ namespace SP.WebApp.Controllers
             }
         }
 
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> CartCheckout()
         {
             try
@@ -270,6 +272,7 @@ namespace SP.WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> CartCheckout(OrderCreateDto orderCreateDto)
         {
             const int MaxQuantityPerItem = 5;
@@ -381,6 +384,7 @@ namespace SP.WebApp.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> Payment(int productVariantId, OrderCreateDto orderCreateDto, int quantity)
         {
             try
@@ -467,6 +471,7 @@ namespace SP.WebApp.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> GetDistrictsByProvince(int provinceId)
         {
             var districts = await _httpClient.GetFromJsonAsync<IEnumerable<DistrictViewDto>>($"{ApiUrl1}Address/districts/{provinceId}");
@@ -549,7 +554,8 @@ namespace SP.WebApp.Controllers
             return View(orderUpdate);
         }
 
-        [Authorize(Roles = "Manager, Employee")]
+
+        [Authorize(Roles = "Manager")]
         public async Task<IActionResult> DeleteOrder(Guid id)
         {
             var response = await _httpClient.DeleteAsync($"{ApiUrl}/{id}");
@@ -565,7 +571,9 @@ namespace SP.WebApp.Controllers
 
         }
 
-        [HttpGet] // Thêm attribute HttpGet
+
+        [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> CancelOrder(Guid id)
         {
             try
@@ -591,6 +599,7 @@ namespace SP.WebApp.Controllers
             return RedirectToAction("OrderHistory");
         }
 
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> OrderHistory()
         {
             var categories = await _httpClient.GetFromJsonAsync<IEnumerable<CategoryViewDto>>($"{ApiUrl1}category");

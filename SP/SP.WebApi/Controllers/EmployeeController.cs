@@ -118,5 +118,57 @@ namespace SP.WebApi.Controllers
             await _employeeService.DeleteEmployee(id);
             return NoContent();
         }
+
+        [HttpGet("handled-order-count/{employeeId}")]
+        public async Task<IActionResult> GetHandledOrderCount(Guid employeeId)
+        {
+            var count = await _employeeService.GetHandledOrderCountAsync(employeeId);
+            return Ok(count);
+        }
+        [HttpGet("revenue/{employeeId}")]
+        public async Task<IActionResult> GetRevenueByEmployee(Guid employeeId)
+        {
+            var revenue = await _employeeService.GetRevenueByEmployeeAsync(employeeId);
+            return Ok(revenue);
+        }
+        [HttpGet("customers-handled/{employeeId}")]
+        public async Task<IActionResult> GetCustomerNamesHandledBy(Guid employeeId)
+        {
+            var customerNames = await _employeeService.GetCustomerNamesHandledByAsync(employeeId);
+            return Ok(customerNames);
+        }
+
+        [HttpGet("stats/{employeeId}")]
+        public async Task<IActionResult> GetEmployeeStats(Guid employeeId)
+        {
+            try
+            {
+                var stats = new
+                {
+                    HandledOrderCount = await _employeeService.GetHandledOrderCountAsync(employeeId),
+                    Revenue = await _employeeService.GetRevenueByEmployeeAsync(employeeId),
+                    CustomersHandled = await _employeeService.GetCustomerNamesHandledByAsync(employeeId)
+                };
+
+                return Ok(stats);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy thống kê.", detail = ex.Message });
+            }
+        }
+        [HttpGet("handled-orders/{employeeId}")]
+        public async Task<IActionResult> GetHandledOrdersByEmployee(Guid employeeId)
+        {
+            try
+            {
+                var handledOrders = await _employeeService.GetHandledOrdersByEmployeeAsync(employeeId);
+                return Ok(handledOrders);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy danh sách đơn hàng đã xử lý.", detail = ex.Message });
+            }
+            }
     }
 }

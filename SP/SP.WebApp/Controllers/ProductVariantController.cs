@@ -25,7 +25,6 @@ namespace SP.WebApp.Controllers
             return View(model);
         }
 
-
         [HttpPost]
         public async Task<ActionResult> CreateProductVariant([FromForm] VariantCreateDto variantCreateDto)
         {

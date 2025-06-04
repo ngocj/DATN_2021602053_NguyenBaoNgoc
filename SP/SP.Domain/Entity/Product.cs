@@ -17,7 +17,6 @@ namespace SP.Domain.Entity
         public Brand Brand { get; set; }
         public SubCategory SubCategory { get; set; }
         public Discount Discount { get; set; }
-
         public List<ProductVariant> ProductVariants { get; set; }
 
     }
