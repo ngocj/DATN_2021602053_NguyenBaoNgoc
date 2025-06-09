@@ -22,6 +22,10 @@ namespace SP.Infrastructure.Configuration
             .HasConversion<string>() 
             .IsRequired();
 
+            builder.Property(o => o.PaymentMethod)
+                .HasConversion<string>()
+                .IsRequired();
+
             builder.Property(o => o.TotalPrice).IsRequired().HasColumnType("decimal(18,2)");
 
             builder.Property(o => o.CreatedAt)

@@ -224,6 +224,8 @@ namespace SP.WebApp.Controllers
             public Guid OrderId { get; set; }
             public string CustomerName { get; set; }
             public DateTime OrderDate { get; set; }
+
+            public PaymentMethod PaymentMethod { get; set; }
             public decimal TotalPrice { get; set; }
             public OrderStatus Status { get; set; }
         }
@@ -244,6 +246,7 @@ namespace SP.WebApp.Controllers
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Error in GetHandledOrders: {ex}");
                 return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy danh sách đơn hàng.", detail = ex.Message });
             }
         }

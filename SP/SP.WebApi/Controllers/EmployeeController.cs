@@ -106,7 +106,6 @@ namespace SP.WebApi.Controllers
             return Ok();
         }
 
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(Guid id)
         {
@@ -147,7 +146,8 @@ namespace SP.WebApi.Controllers
                 {
                     HandledOrderCount = await _employeeService.GetHandledOrderCountAsync(employeeId),
                     Revenue = await _employeeService.GetRevenueByEmployeeAsync(employeeId),
-                    CustomersHandled = await _employeeService.GetCustomerNamesHandledByAsync(employeeId)
+                    CustomersHandled = await _employeeService.GetCustomerNamesHandledByAsync(employeeId),
+                    HandledOrders = await _employeeService.GetHandledOrdersByEmployeeAsync(employeeId)
                 };
 
                 return Ok(stats);
@@ -157,18 +157,20 @@ namespace SP.WebApi.Controllers
                 return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy thống kê.", detail = ex.Message });
             }
         }
+
         [HttpGet("handled-orders/{employeeId}")]
-        public async Task<IActionResult> GetHandledOrdersByEmployee(Guid employeeId)
+        public async Task<IActionResult> GetHandledOrders(Guid employeeId)
         {
             try
             {
-                var handledOrders = await _employeeService.GetHandledOrdersByEmployeeAsync(employeeId);
-                return Ok(handledOrders);
+                var orders = await _employeeService.GetHandledOrdersByEmployeeAsync(employeeId);
+                return Ok(orders);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy danh sách đơn hàng đã xử lý.", detail = ex.Message });
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy danh sách đơn hàng.", detail = ex.Message });
             }
-            }
+        }
+
     }
 }

@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SP.WebApp.Controllers;
 using SP.WebApp.MiddleWare;
 using System.Text;
+using static SP.WebApp.Controllers.ChatBotGeminiController;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -14,10 +16,12 @@ builder.Services.AddHttpClient();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // H?t h?n sau 30 phút
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // H?t h?n sau 30 phï¿½t
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+builder.Services.AddHttpClient<IChatbotGeminiService, ChatbotGeminiService>();
+
 builder.Services.AddHttpContextAccessor();
 // get jwt
 var jwt = builder.Configuration.GetSection("Jwt");

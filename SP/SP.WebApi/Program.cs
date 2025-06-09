@@ -21,6 +21,9 @@ builder.Services.AddDbContext<SPContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SuperConnection"));
 });
 
+///Connect VNPay API
+builder.Services.AddScoped<IVnPayService, VnPayService>();
+
 // Add services to the container.
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

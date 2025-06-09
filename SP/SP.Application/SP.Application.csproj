@@ -27,10 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SP.Domain\SP.Domain.csproj" />
     <ProjectReference Include="..\SP.Infrastructure\SP.Infrastructure.csproj" />
   </ItemGroup>

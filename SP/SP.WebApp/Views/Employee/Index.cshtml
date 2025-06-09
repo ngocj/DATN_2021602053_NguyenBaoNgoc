@@ -139,6 +139,7 @@
                                 <th>Khách hàng</th>
                                 <th>Ngày đặt</th>
                                 <th>Tổng tiền</th>
+                                <th>Phương thức</th>
                                 <th>Trạng thái</th>
                             </tr>
                         </thead>
@@ -179,22 +180,41 @@
                 success: function (orders) {
                     const tbody = $('#ordersTable tbody');
                     tbody.empty();
-                    if (orders.length === 0) {
+                    
+                    if (!orders || orders.length === 0) {
                         tbody.append('<tr><td colspan="6" class="text-center">Không có đơn hàng nào</td></tr>');
-                    } else {
-                        orders.forEach(order => {
-                            tbody.append(`
-                                <tr>
-                                    <td>${order.orderId}</td>
-                                    <td>${order.customerName || 'N/A'}</td>
-                                    <td>${new Date(order.orderDate).toLocaleDateString('vi-VN')}</td>
-                                    <td>${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(order.totalPrice)}</td>
-                                    <td><span class="badge badge-success">Đã giao</span></td>
-                                </tr>`);
-                        });
+                        return;
                     }
+
+                    const paymentMethodMap = {
+                        0: 'Tiền mặt',
+                        1: 'VnPay',
+                    };
+
+                
+
+                    orders.forEach(order => {
+                        const formattedDate = new Date(order.orderDate).toLocaleDateString('vi-VN', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+
+                        tbody.append(`
+                            <tr>
+                                <td>${order.orderId}</td>
+                                <td>${order.customerName || 'N/A'}</td>
+                                <td>${formattedDate}</td>
+                                <td>${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(order.totalPrice)}</td>
+                                <td>${paymentMethodMap[order.paymentMethod] || 'Không xác định'}</td>
+                                <td><span class="badge badge-success">Đã giao</span></td>
+                            </tr>`);
+                    });
                 },
-                error: function (xhr) {
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
                     const message = xhr.responseJSON?.message || 'Lỗi khi tải danh sách đơn hàng.';
                     alert(message);
                 }

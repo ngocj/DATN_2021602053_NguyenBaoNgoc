@@ -266,6 +266,214 @@
         </div>
     </div>
 
+    <div id="chatbotIcon" style="position: fixed; bottom: 20px; right: 20px; cursor: pointer; z-index: 9999;">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Chatbot" style="width: 60px; height: 60px;">
+    </div>
+
+    <div class="chatbot-container" id="chatbot" style="display: none;">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <span>Trợ lý ảo SuperSports</span>
+                <button type="button" class="close text-white" aria-label="Close" onclick="toggleChatbot()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="card-body" id="chatMessages" style="height: 300px; overflow-y: auto;">
+                <div class="chat-message bot-message">
+                    <p>Xin chào! Tôi là trợ lý ảo của SuperSports. Tôi có thể giúp gì cho bạn về các sản phẩm thể thao?</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="input-group">
+                    <input type="text" id="userMessageInput" class="form-control" placeholder="Nhập tin nhắn..." onkeypress="handleKeyPress(event)">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" onclick="sendMessage()">Gửi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSS nội bộ -->
+    <style>
+       .chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 360px;
+    max-width: 90vw;
+    height: 420px;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito Sans', sans-serif;
+    animation: fadeInScale 0.3s ease forwards;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+@@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.chatbot-container .card-header {
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.chatbot-container .card-header .close {
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.chatbot-container .card-header .close:hover {
+    opacity: 1;
+}
+
+.chatbot-container .card-body {
+    flex-grow: 1;
+    padding: 15px 20px;
+    overflow-y: auto;
+    background-color: #f9faff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* Message bubbles */
+.chat-message {
+    max-width: 75%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-weight: 500;
+    line-height: 1.3;
+    user-select: text;
+}
+
+.chat-message a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.chat-message.user-message a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.chat-message a:hover {
+    color: #003d7a;
+    text-decoration: underline;
+}
+
+.chat-message.user-message a:hover {
+    color: #e6e6e6;
+}
+
+.bot-message {
+    background-color: #e1eaff;
+    color: #1a237e;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+/* Scrollbar styling */
+.chatbot-container .card-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chatbot-container .card-body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 123, 255, 0.5);
+    border-radius: 4px;
+}
+
+.chatbot-container .card-footer {
+    padding: 12px 20px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.chatbot-container .card-footer .input-group {
+    width: 100%;
+}
+
+.chatbot-container .card-footer input.form-control {
+    border-radius: 25px;
+    border: 1.5px solid #007bff;
+    padding: 10px 15px;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+}
+
+.chatbot-container .card-footer input.form-control:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
+}
+
+.chatbot-container .card-footer .btn-primary {
+    border-radius: 25px;
+    padding: 9px 18px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.chatbot-container .card-footer .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive */
+@@media (max-width: 400px) {
+    .chatbot-container {
+        width: 100vw;
+        height: 100vh;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}
+
+    </style>
+
+    <!-- Add this hidden input for CSRF token -->
+    @Html.AntiForgeryToken()
+
     <!-- JavaScript Libraries -->
     <script src="~/SbHome/js/jquery-3.3.1.min.js"></script>
     <script src="~/SbHome/js/bootstrap.min.js"></script>
@@ -282,38 +490,125 @@
 
     <!-- Inline Scripts -->
     <script>
-        // Update copyright year automatically
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // Get the CSRF token
+        const csrfToken = document.querySelector('input[name="__RequestVerificationToken"]').value;
 
-        // Show SweetAlert notifications
-        window.onload = function () {
-            var successMessage = '@Html.Raw(TempData["Success"])';
-            var errorMessage = '@Html.Raw(TempData["Error"])';
-
-            if (successMessage && successMessage !== "null") {
-                Swal.fire({
-                    title: "Thành công!",
-                    text: successMessage,
-                    icon: "success",
-                    confirmButtonColor: "#3085d6",
-                    confirmButtonText: "Đồng ý"
-                });
+        // Toggle chatbot visibility
+        function toggleChatbot() {
+            var chatbot = document.getElementById('chatbot');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'block';
+            } else {
+                chatbot.style.display = 'none';
             }
+        }
 
-            if (errorMessage && errorMessage !== "null") {
-                Swal.fire({
-                    title: "Lỗi!",
-                    text: errorMessage,
-                    icon: "error",
-                    confirmButtonColor: "#d33",
-                    confirmButtonText: "Đóng"
-                });
+        // Handle Enter key press
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
             }
-        };
+        }
+
+        // Send message to server
+        function sendMessage() {
+            const input = document.getElementById('userMessageInput');
+            const message = input.value.trim();
+
+            if (message === '') return;
+
+            // Add user message to chat
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Show typing indicator
+            const chatMessages = document.getElementById('chatMessages');
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'chat-message bot-message';
+            typingIndicator.innerHTML = '<p>Đang trả lời...</p>';
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            console.log('Sending message to server...'); // Debug log
+
+            // Send to server
+            fetch('/ChatBotGemini/SendMessageGemini', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': csrfToken
+                },
+                body: JSON.stringify({ text: message })
+            })
+            .then(response => {
+                console.log('Response status:', response.status); // Debug log
+                if (!response.ok) {
+                    return response.text().then(text => {
+                        console.error('Server error response:', text); // Debug log
+                        throw new Error(`HTTP error! status: ${response.status}, body: ${text}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Server response:', data); // Debug log
+                // Remove typing indicator
+                chatMessages.removeChild(typingIndicator);
+
+                if (data.success) {
+                    addMessage(data.reply, 'bot');
+                } else {
+                    addMessage(`Lỗi: ${data.reply}`, 'bot');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error); // Debug log
+                chatMessages.removeChild(typingIndicator);
+                addMessage('Không thể kết nối đến máy chủ. Vui lòng thử lại sau. Chi tiết lỗi: ' + error.message, 'bot');
+            });
+        }
+
+        // Add message to chat UI
+        function addMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}-message`;
+            
+            // Convert markdown-style links to HTML links while preserving normal text
+            const processedText = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+            messageDiv.innerHTML = `<p>${processedText}</p>`;
+            
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Initialize chatbot icon click event
+        document.getElementById('chatbotIcon').addEventListener('click', toggleChatbot);
     </script>
 
     @RenderSection("Scripts", required: false)
     @RenderSection("Style", required: false)
 
 </body>
+
+
 </html>
+@section Scripts {
+    <script>
+        // Thêm sự kiện click cho biểu tượng chatbot
+        document.getElementById('chatbotIcon').addEventListener('click', function () {
+            toggleChatbot();
+        });
+
+        // Hàm hiển thị/ẩn chatbot
+        function toggleChatbot() {
+            var chatbot = document.getElementById('chatbot');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'block';
+            } else {
+                chatbot.style.display = 'none';
+            }
+        }
+    </script>
+}
+

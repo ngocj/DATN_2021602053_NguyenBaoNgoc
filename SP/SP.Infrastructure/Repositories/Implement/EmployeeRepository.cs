@@ -55,6 +55,8 @@ namespace SP.Infrastructure.Repositories.Implement
             public string CustomerName { get; set; }
             public DateTime OrderDate { get; set; }
             public decimal TotalPrice { get; set; }
+
+            public PaymentMethod PaymentMethod { get; set; }
             public OrderStatus Status { get; set; }
         }
 
@@ -68,7 +70,9 @@ namespace SP.Infrastructure.Repositories.Implement
                     CustomerName = o.User.UserName,
                     OrderDate = o.CreatedAt,
                     TotalPrice = o.TotalPrice,
+                    PaymentMethod = o.PaymentMethod,
                     Status = o.Status
+
                 })
                 .ToListAsync();
         }

@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 @{
     var newProducts = ViewBag.NewProducts as IEnumerable<SP.Application.Dto.ProductDto.ProductViewDto> ?? new List<SP.Application.Dto.ProductDto.ProductViewDto>();
     var bestSellingProducts = ViewBag.BestSellingProducts as IEnumerable<SP.Application.Dto.ProductDto.ProductViewDto> ?? new List<SP.Application.Dto.ProductDto.ProductViewDto>();
