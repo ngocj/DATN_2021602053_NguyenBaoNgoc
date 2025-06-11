@@ -100,9 +100,9 @@ namespace SP.WebApp.Controllers
                 "- Giao hàng toàn quốc\n" +
                 "- Hỗ trợ trả góp 0%\n\n" +
                 "Thông tin liên hệ:\n" +
-                "- Website: https://localhost:7179\n" +
-                "- Hotline: 1900.1234\n" +
-                "- Showroom: Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội\n\n" +
+                "- Website: [SuperSports](https://localhost:7179)\n" +
+                "- Hotline: [1900.1234](tel:19001234)\n" +
+                "- Showroom: [Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội](https://maps.google.com/?q=1+Dai+Co+Viet+Hai+Ba+Trung+Ha+Noi)\n\n" +
                 "Khi trả lời:\n" +
                 "1. Luôn tư vấn chi tiết và chuyên nghiệp\n" +
                 "2. Cung cấp link sản phẩm cụ thể để khách hàng dễ dàng tham khảo\n" +
@@ -110,26 +110,27 @@ namespace SP.WebApp.Controllers
                 "4. Đề xuất các sản phẩm liên quan phù hợp\n" +
                 "5. Kết hợp tư vấn cả về kỹ thuật và thẩm mỹ";
 
+            string fullPrompt = $"{promptIntro}\n\nKhách hàng hỏi: \"{userMessage}\"\n\nHãy trả lời ngắn gọn, súc tích, không quá 3 câu.";
+
             var requestBody = new
             {
                 contents = new[]
                 {
-            new
+        new
+        {
+            parts = new[]
             {
-                parts = new[]
-                {
-                    new { text = promptIntro },
-                    new { text = userMessage },
-                    new { text = "Hãy trả lời ngắn gọn, súc tích, không quá 3 câu." }
-                }
+                new { text = fullPrompt }
             }
-        },
+        }
+    },
                 generationConfig = new
                 {
                     maxOutputTokens = 500,
                     temperature = 0.7
                 }
             };
+
 
             try
             {

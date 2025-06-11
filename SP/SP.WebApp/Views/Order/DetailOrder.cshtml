@@ -144,9 +144,13 @@
         <button type="button" class="btn btn-print" onclick="window.print()">
             <i class="fas fa-print"></i> In hóa đơn
         </button>
-        <a href="@Url.Action("GetAllOrder", "Manager")" class="btn btn-back">
+        @{
+            string controllerName = User.IsInRole("Manager") ? "Manager" : "Employee";
+        }
+        <a href="@Url.Action("GetAllOrder", controllerName)" class="btn btn-back">
             <i class="fas fa-arrow-left"></i> Quay lại danh sách
         </a>
+
     </div>
 </div>
 

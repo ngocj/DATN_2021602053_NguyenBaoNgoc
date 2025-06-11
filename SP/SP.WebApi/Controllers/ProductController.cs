@@ -117,38 +117,38 @@ namespace SP.WebApi.Controllers
         [HttpGet("lastest")]
         public async Task<IActionResult> GetAllProductsByLastest(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
-            var products = await _productService.GetAllByLastestAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);            
+            var products = await _productService.GetAllByLastestAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);
             var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
             return Ok(productDto);
         }
-           
+
         [HttpGet("price_desc")]
         public async Task<IActionResult> GetAllProductsByPriceDescending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
-            var products = await _productService.GetAllProductsByPriceDescending(priceFrom, priceTo, categoryId, subCategoryId, brandId,search);
+            var products = await _productService.GetAllProductsByPriceDescending(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);
             var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
             return Ok(productDto);
-            
+
         }
-       
+
         [HttpGet("price_asc")]
         public async Task<IActionResult> GetAllProductsByPriceAscending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
             var products = await _productService.GetAllProductsByPriceAscending(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);
             var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
             return Ok(productDto);
-           
+
         }
-       
+
         [HttpGet("best_selling")]
         public async Task<IActionResult> GetAllProductsByBestSelling(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
             var products = await _productService.GetAllProductsByBestSelling(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);
             var productDto = _mapper.Map<IEnumerable<ProductViewDto>>(products);
             return Ok(productDto);
-           
+
         }
-        
+
         [HttpGet("top-newest")]
         public async Task<IActionResult> GetTop10Newest()
         {
@@ -165,9 +165,31 @@ namespace SP.WebApi.Controllers
             return Ok(productDto);
         }
 
-
-
-
+        [HttpGet("count-by-category")]
+        public async Task<IActionResult> GetProductCountByCategoryWithNames()
+        {
+            var result = await _productService.GetProductCountByCategoryWithNamesAsync();
+            return Ok(result);
+        }
+        [HttpGet("count-by-brand")]
+        public async Task<IActionResult> GetProductCountByBrandWithNames()
+        {
+            var result = await _productService.GetProductCountByBrandWithNamesAsync();
+            return Ok(result);
+        }
+        [HttpGet("low-stock")]
+        public async Task<IActionResult> GetLowStockProductDetails(int threshold = 10)
+        {
+            var result = await _productService.GetLowStockProductDetailsAsync(threshold);
+            return Ok(result);
+        }
+        [HttpGet("top-revenue")]
+        public async Task<IActionResult> GetTopRevenueProductDetails( int topCount = 10)
+        {
+            var result = await _productService.GetTopRevenueProductDetailsAsync(topCount);
+            return Ok(result);
+        }
+       
 
     }
 }

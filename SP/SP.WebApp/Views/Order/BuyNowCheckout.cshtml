@@ -92,6 +92,8 @@
                             <input type="hidden" asp-for="EmployeeId" />
                             <input type="hidden" asp-for="EmployeeName" />
                             <input type="hidden" asp-for="TotalPrice" />
+                            <input type="hidden" name="productName" value="@Model.ProductName" />
+
 
                             <!-- Ẩn ProductVariantId để gửi lên -->
                             <input type="hidden" name="productVariantId" value="@Model.OrderDetails.First().ProductVariantId" />
@@ -126,25 +128,7 @@
                                         <span>VNPay (Thẻ ATM, Visa/MasterCard)</span>
                                     </div>
                                 </label>
-                            </div>
-                            <div class="payment-option">
-                                <label>
-                                    <input type="radio" name="paymentMethod" value="BankTransfer">
-                                    <div class="payment-method-info">
-                                        <img src="~/SbHome/img/anhthanhtoan/visa.svg" alt="Chuyển khoản">
-                                        <span>Cổng OnePAY - Thẻ ATM/QR/MoMo</span>
-                                    </div>
-                                </label>
-                            </div>
-                            <div class="payment-option">
-                                <label>
-                                    <input type="radio" name="paymentMethod" value="Momo">
-                                    <div class="payment-method-info">
-                                        <img src="~/SbHome/img/anhthanhtoan/momo.svg" alt="Momo">
-                                        <span>Ví điện tử Momo</span>
-                                    </div>
-                                </label>
-                            </div>
+                            </div>              
                         </div>
                     </div>
                 </div>
@@ -761,5 +745,33 @@
                 }
             });
         });
+        $(document).ready(function () {
+            // Xử lý khi form submit
+            $('#checkout-form').submit(function (e) {
+                e.preventDefault();
+
+                // Lấy phương thức thanh toán được chọn
+                var paymentMethod = $('input[name="paymentMethod"]:checked').val();
+
+                // Thêm phương thức thanh toán vào form data
+                var form = $(this);
+                var url = form.attr('action');
+
+                // Thêm tham số paymentMethod vào URL
+                url += url.indexOf('?') === -1 ? '?' : '&';
+                url += 'paymentMethod=' + paymentMethod;
+
+                // Submit form với URL đã cập nhật
+                form.attr('action', url);
+                form.unbind('submit').submit();
+            });
+
+            // Xử lý khi thay đổi phương thức thanh toán
+            $('input[name="paymentMethod"]').change(function () {
+                $('.payment-option').removeClass('active');
+                $(this).closest('.payment-option').addClass('active');
+            });
+        });
     </script>
+
 }

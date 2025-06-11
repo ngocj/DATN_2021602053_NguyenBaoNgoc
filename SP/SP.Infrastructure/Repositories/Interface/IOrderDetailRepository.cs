@@ -51,5 +51,10 @@ namespace SP.Infrastructure.Repositories.Interface
 
         // Doanh thu theo khoảng thời gian (tháng/quý/năm)
         Task<RevenueData> GetRevenueByPeriodAsync(string period);
+
+        // thong ke danh sach doanh so nhan vien cho manager
+
+
+
     }
 }

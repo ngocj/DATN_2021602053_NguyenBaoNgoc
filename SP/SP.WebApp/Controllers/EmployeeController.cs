@@ -7,6 +7,7 @@ using SP.Domain.Entity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Text.Json;
+using static SP.Infrastructure.Repositories.Implement.EmployeeRepository;
 
 namespace SP.WebApp.Controllers
 {
@@ -194,8 +195,7 @@ namespace SP.WebApp.Controllers
                 return View(new EmployeeStatsViewModel());
             }
         }
-
-        
+     
         [HttpGet]
         [Authorize(Roles = "Employee")]
         public async Task<IActionResult> GetEmployeeStats()
@@ -256,6 +256,21 @@ namespace SP.WebApp.Controllers
             public int HandledOrderCount { get; set; }
             public decimal Revenue { get; set; }
             public List<string>? CustomersHandled { get; set; }
+        }
+        [HttpGet]
+        [Authorize(Roles = "Manager")]
+        public async Task<IActionResult> GetAllEmployeeStatistics()
+        {
+            try
+            {
+                var response = await _httpClient.GetFromJsonAsync<IEnumerable<EmployeeStatsDto>>($"{ApiUrl}/statistics");
+                return View(response); 
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Có lỗi xảy ra khi lấy thống kê nhân viên: " + ex.Message;
+                return View(new List<EmployeeStatsDto>());
+            }
         }
 
     }

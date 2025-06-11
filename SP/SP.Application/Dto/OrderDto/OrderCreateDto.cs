@@ -16,6 +16,7 @@ namespace SP.Application.Dto.OrderDto
         public UserViewDto? User { get; set; }
         public Guid? EmployeeId { get; set; }
         public OrderStatus Status { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
         public decimal TotalPrice { get; set; }
         public string? UserName { get; set; }
         public string? EmployeeName { get; set; }

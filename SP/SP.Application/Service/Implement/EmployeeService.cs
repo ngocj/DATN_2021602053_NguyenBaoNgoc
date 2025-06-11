@@ -42,6 +42,11 @@ namespace SP.Application.Service.Implement
             
         }
 
+        public async Task<IEnumerable<EmployeeRepository.EmployeeStatsDto>> GetAllEmployeeStatisticsAsync()
+        {
+           return await _unitOfWork.EmployeeRepository.GetAllEmployeeStatisticsAsync();
+        }
+
         public async Task<IEnumerable<string>> GetCustomerNamesHandledByAsync(Guid employeeId)
         {
             return await _unitOfWork.EmployeeRepository.GetCustomerNamesHandledByAsync(employeeId);

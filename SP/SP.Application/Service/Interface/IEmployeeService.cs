@@ -25,6 +25,7 @@ namespace SP.Application.Service.Interface
         // Danh sách các khách hàng mà nhân viên đã xử lý đơn
         Task<IEnumerable<string>> GetCustomerNamesHandledByAsync(Guid employeeId);
         Task<IEnumerable<HandledOrderDto>> GetHandledOrdersByEmployeeAsync(Guid employeeId);
+        Task<IEnumerable<EmployeeStatsDto>> GetAllEmployeeStatisticsAsync();
     }
 
 }

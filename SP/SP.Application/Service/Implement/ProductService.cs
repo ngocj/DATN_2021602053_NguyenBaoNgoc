@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static SP.Infrastructure.Repositories.Implement.ProductRepository;
 
 namespace SP.Application.Service.Implement
 {
@@ -43,11 +44,11 @@ namespace SP.Application.Service.Implement
                 await _unitOfWork.SaveChangeAsync();
             }
 
-        }  
+        }
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
-            return await _unitOfWork.ProductRepository.GetAllAsync();          
-        }     
+            return await _unitOfWork.ProductRepository.GetAllAsync();
+        }
         public Task<IEnumerable<Product>> GetAllByCategoryIdAsync(int categoryId)
         {
             return _unitOfWork.ProductRepository.GetAllByCategoryIdAsync(categoryId);
@@ -59,7 +60,7 @@ namespace SP.Application.Service.Implement
         public async Task<IEnumerable<Product>> GetAllProductsBySubCategoryId(int subCategoryId)
         {
             return await _unitOfWork.ProductRepository.GetAllBySubCategoryIdAsync(subCategoryId);
-            
+
         }
         public async Task<IEnumerable<Product>> GetAllByCategoryAndBrandAsync(int? SubcategoryId, int? brandId, bool? isActive)
         {
@@ -67,7 +68,7 @@ namespace SP.Application.Service.Implement
         }
         public async Task<IEnumerable<Product>> GetAllProductsByBestSelling(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
-            return await _unitOfWork.ProductRepository.GetAllByBestSellingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId,search);
+            return await _unitOfWork.ProductRepository.GetAllByBestSellingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);
         }
         public async Task<IEnumerable<Product>> GetAllByLastestAsync(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
@@ -75,11 +76,11 @@ namespace SP.Application.Service.Implement
         }
         public async Task<IEnumerable<Product>> GetAllProductsByPriceAscending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
-            return await _unitOfWork.ProductRepository.GetAllByPriceAscendingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId,search);
+            return await _unitOfWork.ProductRepository.GetAllByPriceAscendingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);
         }
         public async Task<IEnumerable<Product>> GetAllProductsByPriceDescending(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
-            return await _unitOfWork.ProductRepository.GetAllByPriceDescendingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId,search);
+            return await _unitOfWork.ProductRepository.GetAllByPriceDescendingAsync(priceFrom, priceTo, categoryId, subCategoryId, brandId, search);
         }
         public async Task<IEnumerable<Product>> GetTop10BestSellingAsync()
         {
@@ -88,6 +89,28 @@ namespace SP.Application.Service.Implement
         public async Task<IEnumerable<Product>> GetTop10NewestAsync()
         {
             return await _unitOfWork.ProductRepository.GetTop10NewestAsync();
+        }
+
+        public async Task<List<ProductCountByCategoryDto>> GetProductCountByCategoryWithNamesAsync()
+        {
+            return await _unitOfWork.ProductRepository.GetProductCountByCategoryWithNamesAsync();
+            
+        }
+
+        public async Task<List<ProductCountByBrandDto>> GetProductCountByBrandWithNamesAsync()
+        {
+            
+            return await _unitOfWork.ProductRepository.GetProductCountByBrandWithNamesAsync();
+        }
+
+        public async Task<IEnumerable<LowStockProductDto>> GetLowStockProductDetailsAsync(int threshold = 10)
+        {
+            return await _unitOfWork.ProductRepository.GetLowStockProductDetailsAsync(threshold);
+        }
+
+        public async Task<IEnumerable<TopRevenueProductDto>> GetTopRevenueProductDetailsAsync(int topCount = 10)
+        {
+            return await _unitOfWork.ProductRepository.GetTopRevenueProductDetailsAsync(topCount);
         }
     }
 }

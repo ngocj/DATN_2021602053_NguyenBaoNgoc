@@ -86,47 +86,15 @@
             </li>
 
             <hr class="sidebar-divider">
-            <div class="sidebar-heading">Tiện ích</div>
+           
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-folder"></i>
-                    <span>Trang</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Đăng nhập:</h6>
-                        <a class="collapse-item" href="login.html">Đăng nhập</a>
-                        <a class="collapse-item" href="register.html">Đăng ký</a>
-                        <a class="collapse-item" href="forgot-password.html">Quên mật khẩu</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Khác:</h6>
-                        <a class="collapse-item" href="404.html">Trang lỗi 404</a>
-                        <a class="collapse-item" href="blank.html">Trang trắng</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-chart-line"></i>
+                <a class="nav-link" asp-action="Index" asp-controller="Admin">
+                    <i class="fas fa-chart-line"></i> 
                     <span>Thống kê</span>
                 </a>
             </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-table"></i>
-                    <span>Bảng dữ liệu</span>
-                </a>
-            </li>
-
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-     
+            
         </ul>
         <!-- End Sidebar -->
         <!-- Nội dung chính -->

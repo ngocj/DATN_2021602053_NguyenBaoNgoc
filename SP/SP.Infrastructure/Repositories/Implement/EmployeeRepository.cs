@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using SP.Domain.Entity;
 using SP.Infrastructure.Context;
 using SP.Infrastructure.Repositories.Interface;
@@ -79,6 +80,55 @@ namespace SP.Infrastructure.Repositories.Implement
 
 
 
+        public class EmployeeStatsDto
+        {
+            public Guid EmployeeId { get; set; }
+            public string EmployeeName { get; set; }
+            public int HandledOrderCount { get; set; }
+            public decimal TotalRevenue { get; set; }
+            public int CustomerCount { get; set; }
+            public double CompletionRate { get; set; } // 👈 mới
+        }
+
+        public async Task<IEnumerable<EmployeeStatsDto>> GetAllEmployeeStatisticsAsync()
+        {
+            var employees = await _SPContext.Employees
+                .Include(e => e.Role)
+                .ToListAsync();
+
+            var result = new List<EmployeeStatsDto>();
+
+            foreach (var emp in employees)
+            {
+                // Tất cả đơn hàng của nhân viên
+                var allOrders = await _SPContext.Orders
+                    .Where(o => o.EmployeeId == emp.Id)
+                    .Include(o => o.OrderDetails)
+                    .ToListAsync();
+
+                // Đơn đã giao thành công
+                var deliveredOrders = allOrders
+                    .Where(o => o.Status == OrderStatus.Delivered)
+                    .ToList();
+
+                var totalOrders = allOrders.Count;
+                var handledCount = deliveredOrders.Count;
+                var revenue = deliveredOrders.Sum(o => o.OrderDetails.Sum(od => od.Quantity * od.Price));
+                var customerCount = deliveredOrders.Select(o => o.UserId).Distinct().Count();
+
+
+                result.Add(new EmployeeStatsDto
+                {
+                    EmployeeId = emp.Id,
+                    EmployeeName = emp.Name,
+                    HandledOrderCount = handledCount,
+                    TotalRevenue = revenue,
+                    CustomerCount = customerCount,
+                });
+            }
+
+            return result;
+        }
 
 
     }

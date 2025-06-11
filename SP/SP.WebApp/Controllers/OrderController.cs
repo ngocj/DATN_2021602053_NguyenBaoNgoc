@@ -12,6 +12,7 @@ using SP.Application.Dto.ProductVariantDto;
 using SP.Application.Dto.ProvinceDto;
 using SP.Application.Dto.UserDto;
 using SP.Domain.Entity;
+using SP.WebApi.VnPay;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Headers;
 using System.Security.Claims;
@@ -273,7 +274,7 @@ namespace SP.WebApp.Controllers
 
         [HttpPost]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> CartCheckout(OrderCreateDto orderCreateDto)
+        public async Task<IActionResult> CartCheckout(OrderCreateDto orderCreateDto, string paymentMethod)
         {
             const int MaxQuantityPerItem = 5;
 
@@ -320,6 +321,7 @@ namespace SP.WebApp.Controllers
                 orderCreateDto.UserId = userId;
                 orderCreateDto.UserName = userNameClaim.Value;
                 orderCreateDto.Status = OrderStatus.Pending;
+                orderCreateDto.PaymentMethod = paymentMethod == "VNPay" ? PaymentMethod.VnPay : PaymentMethod.Cash;
 
                 // 4. Chuẩn bị danh sách OrderDetails và tính tổng tiền
                 var orderDetails = new List<OrderDetailCreateDto>();
@@ -360,8 +362,6 @@ namespace SP.WebApp.Controllers
                     TempData["Error"] = "❌ Tạo đơn hàng thất bại. Vui lòng thử lại";
                     return RedirectToAction("CartCheckout", "Order");
                 }
-
-                // 6. Xóa các sản phẩm trong giỏ sau khi đặt thành công
                 foreach (var item in cartItems)
                 {
                     var deleteResponse = await _httpClient.DeleteAsync($"{ApiUrl1}cart/{userIdClaim.Value}/{item.ProductVariantId}");
@@ -371,9 +371,36 @@ namespace SP.WebApp.Controllers
                         Console.WriteLine($"Không thể xóa sản phẩm {item.ProductVariantId} khỏi giỏ hàng.");
                     }
                 }
+                    // Xử lý theo phương thức thanh toán
+                    if (paymentMethod == "VNPay")
+                {
+                    // ✅ Gửi yêu cầu tạo URL thanh toán từ API
+                    var paymentModel = new PaymentInformationModel
+                    {
+                        Amount = orderCreateDto.TotalPrice,
+                        Name = orderCreateDto.UserName,
+                        OrderType = "Mua hàng online",
+                        OrderDescription = $"Thanh toán đơn hàng {orderCreateDto.ProductName}",
+                        OrderId = orderCreateDto.Id
+                    };
 
-                TempData["Success"] = "🎉 Đặt hàng thành công! Đơn hàng đang được xử lý";
-                return RedirectToAction("Index", "Home");
+                    var paymentResponse = await _httpClient.PostAsJsonAsync($"{ApiUrl1}payment/create-payment-url", paymentModel);
+                    if (!paymentResponse.IsSuccessStatusCode)
+                    {
+                        TempData["Error"] = "❌ Không thể khởi tạo thanh toán";
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    var paymentUrl = await paymentResponse.Content.ReadAsStringAsync();
+                    return Redirect(paymentUrl);
+                }
+                else // Thanh toán tiền mặt
+                {
+                    TempData["Success"] = "✅ Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn để xác nhận đơn hàng";
+                    return RedirectToAction("Index", "Home");
+                }
+
+                       
             }
             catch (Exception ex)
             {
@@ -385,18 +412,16 @@ namespace SP.WebApp.Controllers
 
         [HttpPost]
         [Authorize(Roles = "User")]
-        public async Task<IActionResult> Payment(int productVariantId, OrderCreateDto orderCreateDto, int quantity)
+        public async Task<IActionResult> Payment(int productVariantId, OrderCreateDto orderCreateDto, int quantity, string paymentMethod)
         {
             try
             {
-                // 1. Kiểm tra số lượng hợp lệ
                 if (quantity <= 0)
                 {
                     TempData["Error"] = "❌ Số lượng đặt hàng phải lớn hơn 0";
                     return RedirectToAction("Index");
                 }
 
-                // 2. Kiểm tra token người dùng
                 var token = HttpContext.Session.GetString("JwtToken");
                 if (string.IsNullOrEmpty(token))
                     return RedirectToAction("Login", "Auth");
@@ -412,13 +437,13 @@ namespace SP.WebApp.Controllers
 
                 string userNameFromToken = userNameClaim.Value;
 
-                // 3. Gán thông tin người dùng vào đơn hàng
+                // Gán thông tin đơn hàng
                 orderCreateDto.Id = Guid.NewGuid();
                 orderCreateDto.UserId = userId;
                 orderCreateDto.UserName = userNameFromToken;
                 orderCreateDto.Status = OrderStatus.Pending;
+                orderCreateDto.PaymentMethod = paymentMethod == "VNPay" ? PaymentMethod.VnPay : PaymentMethod.Cash;
 
-                // 4. Lấy thông tin sản phẩm biến thể
                 var productResponse = await _httpClient.GetAsync($"{ApiUrl1}productvariant/{productVariantId}");
                 if (!productResponse.IsSuccessStatusCode)
                 {
@@ -439,20 +464,19 @@ namespace SP.WebApp.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                // 5. Cập nhật đơn hàng và chi tiết đơn hàng
                 orderCreateDto.TotalPrice = productVariant.Price * quantity;
                 orderCreateDto.OrderDetails = new List<OrderDetailCreateDto>
-                {
-                    new OrderDetailCreateDto
-                    {
-                        OrderId = orderCreateDto.Id,
-                        ProductVariantId = productVariantId,
-                        Price = productVariant.Price,
-                        Quantity = quantity
-                    }
-                };
+        {
+            new OrderDetailCreateDto
+            {
+                OrderId = orderCreateDto.Id,
+                ProductVariantId = productVariantId,
+                Price = productVariant.Price,
+                Quantity = quantity
+            }
+        };
 
-                // 6. Gửi request tạo đơn hàng
+                // Gửi request tạo đơn hàng
                 var orderResponse = await _httpClient.PostAsJsonAsync(ApiUrl, orderCreateDto);
                 if (!orderResponse.IsSuccessStatusCode)
                 {
@@ -460,14 +484,47 @@ namespace SP.WebApp.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                TempData["Success"] = "🎉 Đặt hàng thành công! Đơn hàng đang được xử lý";
-                return RedirectToAction("Index", "Home");
+                // Xử lý theo phương thức thanh toán
+                if (paymentMethod == "VNPay")
+                {
+                    // ✅ Gửi yêu cầu tạo URL thanh toán từ API
+                    var paymentModel = new PaymentInformationModel
+                    {
+                        Amount = orderCreateDto.TotalPrice,
+                        Name = orderCreateDto.UserName,
+                        OrderType = "Mua hàng online",
+                        OrderDescription = $"Thanh toán đơn hàng {orderCreateDto.ProductName}",
+                        OrderId = orderCreateDto.Id
+                    };
+
+                    var paymentResponse = await _httpClient.PostAsJsonAsync($"{ApiUrl1}payment/create-payment-url", paymentModel);
+                    if (!paymentResponse.IsSuccessStatusCode)
+                    {
+                        TempData["Error"] = "❌ Không thể khởi tạo thanh toán";
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                    var paymentUrl = await paymentResponse.Content.ReadAsStringAsync();
+                    return Redirect(paymentUrl);
+
+                }
+                else // Thanh toán tiền mặt
+                {
+                    TempData["Success"] = "✅ Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn để xác nhận đơn hàng";
+                    return RedirectToAction("Index", "Home");
+                }
             }
             catch (Exception)
             {
                 TempData["Error"] = "❌ Đã xảy ra lỗi khi đặt hàng. Vui lòng liên hệ hỗ trợ";
                 return RedirectToAction("Index", "Home");
             }
+        }
+
+        public  IActionResult Reponse()
+        {
+            TempData["Success"] = "✅ Đặt hàng thành công! Chúng tôi sẽ liên hệ với bạn để xác nhận đơn hàng";
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]

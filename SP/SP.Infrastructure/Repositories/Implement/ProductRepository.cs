@@ -4,9 +4,11 @@ using SP.Infrastructure.Context;
 using SP.Infrastructure.Repositories.Interface;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace SP.Infrastructure.Repositories.Implement
 {
@@ -28,7 +30,7 @@ namespace SP.Infrastructure.Repositories.Implement
         }
         public override async Task<IEnumerable<Product>> GetAllAsync()
         {
-           // include productVariant and image
+            // include productVariant and image
             return await _SPContext.Set<Product>()
                     .Include(c => c.SubCategory)
                     .Include(c => c.Brand)
@@ -43,7 +45,7 @@ namespace SP.Infrastructure.Repositories.Implement
                     .Include(p => p.SubCategory)
                     .Where(p => p.SubCategoryId == subCategoryId)
                     .ToListAsync();
-        } 
+        }
         public async Task<IEnumerable<Product>> GetAllByBrandIdAsync(int brandId)
         {
             return await _SPContext.Set<Product>()
@@ -203,7 +205,7 @@ namespace SP.Infrastructure.Repositories.Implement
                 );
             }
             return await query.OrderBy(p => p.ProductVariants.FirstOrDefault().Price).ToListAsync();
-           
+
         }
         public async Task<IEnumerable<Product>> GetAllByBestSellingAsync(decimal? priceFrom, decimal? priceTo, int categoryId, int? subCategoryId, int? brandId, string? search)
         {
@@ -292,7 +294,116 @@ namespace SP.Infrastructure.Repositories.Implement
                 .ToListAsync();
         }
 
+        public class ProductCountByCategoryDto
+        {
+            public int CategoryId { get; set; }
+            public string CategoryName { get; set; }
+            public int ProductCount { get; set; }
+        }
+
+        public class ProductCountByBrandDto
+        {
+            public int BrandId { get; set; }
+            public string BrandName { get; set; }
+            public int ProductCount { get; set; }
+        }
+        public async Task<List<ProductCountByCategoryDto>> GetProductCountByCategoryWithNamesAsync()
+        {
+            return await _SPContext.Products
+                .Include(p => p.SubCategory)
+                    .ThenInclude(sc => sc.Category)
+                .Where(p => p.SubCategory != null && p.SubCategory.Category != null)
+                .GroupBy(p => new { p.SubCategory.CategoryId, p.SubCategory.Category.CategoryName })
+                .Select(g => new ProductCountByCategoryDto
+                {
+                    CategoryId = g.Key.CategoryId,
+                    CategoryName = g.Key.CategoryName,
+                    ProductCount = g.Count()
+                })
+                .ToListAsync();
+        }
+
+        public async Task<List<ProductCountByBrandDto>> GetProductCountByBrandWithNamesAsync()
+        {
+            return await _SPContext.Products
+                .Include(p => p.Brand)
+                .Where(p => p.Brand != null)
+                .GroupBy(p => new { p.BrandId, p.Brand.BrandName })
+                .Select(g => new ProductCountByBrandDto
+                {
+                    BrandId = g.Key.BrandId, 
+                    BrandName = g.Key.BrandName,
+                    ProductCount = g.Count()
+                })
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<LowStockProductDto>> GetLowStockProductDetailsAsync(int threshold = 10)
+        {
+            return await _SPContext.Products
+                .Where(p => p.ProductVariants.Any(pv => pv.Quantity <= threshold))
+                .SelectMany(p => p.ProductVariants
+                    .Where(pv => pv.Quantity <= threshold)
+                    .Select(pv => new LowStockProductDto
+                    {
+                        ProductId = p.Id,
+                        ProductName = p.ProductName,
+                        Size = pv.Size,
+                        Color = pv.Color,
+                        StockQuantity = pv.Quantity
+                    }))
+                .ToListAsync();
+        }
+        public class LowStockProductDto
+        {
+            public int ProductId { get; set; }
+            public string ProductName { get; set; }
+            public string Size { get; set; }
+            public string Color { get; set; }
+            public int StockQuantity { get; set; }
+        }
+
+
+        public async Task<IEnumerable<TopRevenueProductDto>> GetTopRevenueProductDetailsAsync(int topCount = 10)
+        {
+            var query = _SPContext.OrderDetails
+                .Include(od => od.Order)
+                .Include(od => od.ProductVariant)
+                    .ThenInclude(pv => pv.Product)
+                        .ThenInclude(p => p.SubCategory)
+                            .ThenInclude(sc => sc.Category)
+                .AsQueryable();
+
+            query = query.Where(od => od.Order.Status == OrderStatus.Delivered);
+
+            var topProducts = await query
+                .GroupBy(od => od.ProductVariant.ProductId)
+                .Select(g => new TopRevenueProductDto
+                {
+                    ProductId = g.Key,
+                    ProductName = g.First().ProductVariant.Product.ProductName,
+                    Size = g.First().ProductVariant.Size,
+                    Color = g.First().ProductVariant.Color,
+                    TotalRevenue = g.Sum(od => od.Quantity * od.Price)
+                })
+                .OrderByDescending(x => x.TotalRevenue)
+                .Take(topCount)
+                .ToListAsync();
+
+            return topProducts;
+        }
+        public class TopRevenueProductDto
+        {
+            public int ProductId { get; set; }
+            public string ProductName { get; set; }
+            public string Size { get; set; }        
+            public string Color { get; set; }      
+            public decimal TotalRevenue { get; set; }
+        }
+
+
+
+
 
     }
-
 }

@@ -172,5 +172,19 @@ namespace SP.WebApi.Controllers
             }
         }
 
+        [HttpGet("statistics")]
+        public async Task<IActionResult> GetAllEmployeeStatistics()
+        {
+            try
+            {
+                var stats = await _employeeService.GetAllEmployeeStatisticsAsync();
+                return Ok(stats);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Có lỗi xảy ra khi lấy thống kê nhân viên.", detail = ex.Message });
+            }
+        }
+
     }
 }

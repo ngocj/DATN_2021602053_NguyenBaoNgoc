@@ -3,32 +3,28 @@
   "WorkspaceRootPath": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\chatbotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\chatbotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapi\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|solutionrelative:sp.webapi\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\controllers\\productvariantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\controllers\\productvariantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\cartcheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\cartcheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.application\\dto\\orderdto\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C00C51C-35A5-48E0-BFC7-3D0F29FE5B22}|SP.Application\\SP.Application.csproj|solutionrelative:sp.application\\dto\\orderdto\\ordercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F882D621-261F-479B-9B8E-DEE65EC5DDD1}|SP.WebApi\\SP.WebApi.csproj|solutionrelative:sp.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.webapp\\views\\order\\buynowcheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2DDD21B6-992C-4395-B504-697BA146C4A6}|SP.WebApp\\SP.WebApp.csproj|solutionrelative:sp.webapp\\views\\order\\buynowcheckout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|d:\\b\u00E0i t\u1EADp\\datn_k16\\nguyenbaongoc_2021602053_datn\\sp\\sp.domain\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E81C37AE-887D-49FE-8452-8AE82B9F32DD}|SP.Domain\\SP.Domain.csproj|solutionrelative:sp.domain\\entity\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -55,92 +51,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ProductVariantController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\ProductVariantController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\ProductVariantController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\ProductVariantController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\ProductVariantController.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAxwAAAAAAAAAAA",
+              "Title": "CartCheckout.cshtml",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
+              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
+              "RelativeToolTip": "SP.WebApp\\Views\\Order\\CartCheckout.cshtml",
+              "ViewState": "AQIAAHsAAAAAAAAAAAAAAO8CAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-11T16:05:10.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "SP.WebApi\\Controllers\\PaymentController.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "SP.WebApi\\Controllers\\PaymentController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB8AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T14:36:07.423Z",
+              "WhenOpened": "2025-06-11T15:46:28.963Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\appsettings.json",
-              "RelativeDocumentMoniker": "SP.WebApp\\appsettings.json",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\appsettings.json",
-              "RelativeToolTip": "SP.WebApp\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAADAAAA",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\appsettings.json",
+              "RelativeDocumentMoniker": "SP.WebApi\\appsettings.json",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApi\\appsettings.json",
+              "RelativeToolTip": "SP.WebApi\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-09T04:19:52.438Z",
+              "WhenOpened": "2025-06-11T15:36:57.572Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Program.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Program.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Program.cs",
-              "RelativeToolTip": "SP.WebApp\\Program.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAvwBIAAABKAAAA",
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\Order.cs",
+              "RelativeDocumentMoniker": "SP.Domain\\Entity\\Order.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Domain\\Entity\\Order.cs",
+              "RelativeToolTip": "SP.Domain\\Entity\\Order.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwBMAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T04:12:19.271Z",
+              "WhenOpened": "2025-06-11T15:11:44.76Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAPoBAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-09T04:00:16.528Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BuyNowCheckout.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\BuyNowCheckout.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Order\\BuyNowCheckout.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Order\\BuyNowCheckout.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Order\\BuyNowCheckout.cshtml",
-              "ViewState": "AQIAAJcAAAAAAAAAAAAQwKYAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-09T03:52:11.117Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "SP.WebApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAABsCAAAAAAAAAAAYwE8CAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-09T03:24:26.491Z",
+              "Title": "OrderCreateDto.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
+              "RelativeDocumentMoniker": "SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
+              "RelativeToolTip": "SP.Application\\Dto\\OrderDto\\OrderCreateDto.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABMAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T15:11:16.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ChatBotController.cs",
-              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\ChatBotController.cs",
-              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\ChatBotController.cs",
-              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\ChatBotController.cs",
-              "RelativeToolTip": "SP.WebApp\\Controllers\\ChatBotController.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAcwKwAAAAtAAAA",
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "SP.WebApp\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\B\u00C0I T\u1EACP\\DATN_K16\\NguyenBaoNgoc_2021602053_DATN\\SP\\SP.WebApp\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "SP.WebApp\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAAC4BAAAAAAAAAAAQwEQBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T03:14:31.351Z",
+              "WhenOpened": "2025-06-11T14:53:36.532Z",
               "EditorCaption": ""
             }
           ]
